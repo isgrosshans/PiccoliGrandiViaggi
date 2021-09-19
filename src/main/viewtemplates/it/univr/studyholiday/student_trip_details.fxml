@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="561.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="42.0" layoutY="22.0" text="TRIP_TITLE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="42.0" layoutY="44.0" prefHeight="50.0" prefWidth="500.0" text="trip_description trip_description trip_description trip_description trip_description trip_description trip_description trip_description trip_description " wrapText="true" />
+      <Label layoutX="39.0" layoutY="105.0" text="Gite">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="288.0" text="Attività">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="38.0" layoutY="124.0" prefHeight="142.0" prefWidth="487.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
+      <ScrollPane layoutX="38.0" layoutY="307.0" prefHeight="142.0" prefWidth="487.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </ScrollPane>
+      <Button layoutX="37.0" layoutY="481.0" mnemonicParsing="false" text="Torna al catalogo" />
+      <Button layoutX="467.0" layoutY="481.0" mnemonicParsing="false" text="Prenota" />
+   </children>
+</AnchorPane>

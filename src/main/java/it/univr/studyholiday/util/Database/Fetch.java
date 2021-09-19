@@ -135,4 +135,7 @@ public class Fetch {
             return college;
 
     }
+
+    public static Student travelAgent(String text) {
+    }
 }

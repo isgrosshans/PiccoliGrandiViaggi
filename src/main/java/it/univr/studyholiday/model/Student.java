@@ -5,6 +5,7 @@ import it.univr.studyholiday.util.Database.Delete;
 import it.univr.studyholiday.util.Database.Update;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 //     STUDENT(email, password, name, surname,
 //          birthday, birthplace, sex, address,
@@ -19,6 +20,8 @@ public class Student {
     private String sex;
     private String phonenumber;
     private Address address;
+    private ArrayList<Allergy> allergies;
+
 
     public Student(String email, String password,
                    String name, String surname,
@@ -36,17 +39,54 @@ public class Student {
         this.address = address;
     }
 
-    public static void singupStudent(){}
+    public static void singupStudent(Student st) {
+    }
 
     public void update() {
         Update.update(this);
     }
+
     public void add() {
         Add.add(this);
     }
+
     public void delete() {
         Delete.delete(this);
     }
+
+    public String getEmail() {
+        return email;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+    public String getBirthplace() {
+        return birthplace;
+    }
+    public String getSex() {
+        return sex;
+    }
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+    public Address getAddress() {
+        return address;
+    }
+
+    public ArrayList<Allergy> getAllergies() {
+        return allergies;
+    }
+
 
 
 }

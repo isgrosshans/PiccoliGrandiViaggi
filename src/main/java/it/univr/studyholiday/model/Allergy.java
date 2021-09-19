@@ -11,6 +11,12 @@ public class Allergy {
     private String precautions;
 
     public Allergy(Student student, String allergen, String precautions) {
+        this.student = student;
+        this.allergen = allergen;
+        this.precautions = precautions;
+    }
+
+    public Allergy(String student, String allergen, String precautions) {
         this.student = Fetch.student(student);
         this.allergen = allergen;
         this.precautions = precautions;

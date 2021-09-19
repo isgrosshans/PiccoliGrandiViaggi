@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="261.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="54.0" layoutY="171.0" mnemonicParsing="false" text="Accedi" />
+      <Button layoutX="168.0" layoutY="171.0" mnemonicParsing="false" text="Esci" />
+      <RadioButton layoutX="54.0" layoutY="115.0" mnemonicParsing="false" text="Studente" />
+      <RadioButton layoutX="54.0" layoutY="136.0" mnemonicParsing="false" text="Personale" />
+      <TextField layoutX="54.0" layoutY="46.0" prefHeight="25.0" prefWidth="150.0" promptText="email" />
+      <Button layoutX="138.0" layoutY="250.0" mnemonicParsing="false" text="Registrati" />
+      <Label layoutX="46.0" layoutY="254.0" text="Primo accesso?" />
+      <Separator layoutX="-6.0" layoutY="233.0" prefHeight="3.0" prefWidth="267.0" />
+      <Label layoutX="54.0" layoutY="13.0" text="Benvenuto">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="54.0" layoutY="78.0" prefHeight="25.0" prefWidth="150.0" promptText="password" />
+      <Label layoutX="31.0" layoutY="205.0" text="Email o password non corretti, riprova" textFill="RED" />
+   </children>
+</AnchorPane>

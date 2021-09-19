@@ -2,18 +2,45 @@ package it.univr.studyholiday.util.Database;
 
 import it.univr.studyholiday.model.*;
 
-import java.util.Queue;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class Update {
 
 
     //    ACCOMODATION(student,holiday,
     //                 dormroom,family,startdate,enddate)
-    public static void update(Accomodation accomodation){}
+    public static void update(Accommodation accommodation){
+        //TODO
+    }
 
     //    ACTIVITY(college,name,
     //             description)
-    public static void update(Activity activity){}
+    public static void update(Activity activity){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "UPDATE TABLE Activity" +
+                            "SET college=?, name=?, description=?" +
+                            "WHERE college=? AND name=?")) {
+                pst.setString(1, activity.getCollege().getIdcode());
+                pst.setString(2, activity.getName());
+                pst.setString(3, activity.getDescription());
+                pst.setString(4, activity.getCollege().getIdcode());
+                pst.setString(5, activity.getName());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+    }
 
     //    ALLERGY(stident,allergen,
     //            precautions)

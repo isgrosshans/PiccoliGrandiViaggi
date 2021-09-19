@@ -5,6 +5,8 @@ import it.univr.studyholiday.util.Database.Delete;
 import it.univr.studyholiday.util.Database.Fetch;
 import it.univr.studyholiday.util.Database.Update;
 
+import java.util.ArrayList;
+
 public class Allergy {
     private Student student;
     private String allergen;
@@ -40,6 +42,9 @@ public class Allergy {
     }
     public String getPrecautions() {
         return precautions;
+    }
+    public static ArrayList<Allergy> getAll(Student student){
+        Fetch.allAllergiesFor(student.getEmail());
     }
 
     public void setStudent(Student student) {

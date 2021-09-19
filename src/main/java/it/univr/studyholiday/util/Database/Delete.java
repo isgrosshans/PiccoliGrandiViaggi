@@ -10,9 +10,49 @@ import java.sql.SQLException;
 public class Delete {
     //    ACCOMODATION(student,holiday,
     //                 dormroom,family,startdate,enddate)
+    public static void delete(Accommodation accommodation){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " DELETE FROM accomodation "  +
+                            " WHERE (student=? AND holiday=?) " )) {
+                pst.setString(1, accommodation.getStudent().getEmail());
+                pst.setString(2, accommodation.getholiday().getId());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+    }
 
     //    ACTIVITY(college,name,
     //             description)
+    public static void delete(Activity activity) {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " DELETE FROM activity "  +
+                            " WHERE (college=? AND name=?) " )) {
+                pst.setString(1,activity.getCollege().getId());
+                pst.setString(2,activity.getName());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+    }
 
     //    ALLERGY(stident,allergen,
     //            precautions)
@@ -37,10 +77,50 @@ public class Delete {
         }
     }
 
-    //    ANSWER(holiday,question,student)
-
+    //    ANSWER(holiday,question,student,
+    //          answer)
+    public static void delete(Answer Answer) {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " DELETE FROM surveyAnswer "  +
+                            " WHERE (holiday=? AND student=? AND question=?) " )) {
+                pst.setString(1,answer.getSurvey().getHoliday().getId);
+                pst.setString(2,answer.getSurvey().getStudent().getEmail());
+                pst.setString(3,answer.getQuestion().getQuestion());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+    }
     //    COLLEGE(id,
     //            name,address,postalcode,city,provinceorstate,country,language)
+    public static void delete(College college){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " DELETE FROM college "  +
+                            " WHERE (idcode = ?) " )) {
+                pst.setString(1, college.getId());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+    }
 
     //    DAYTRIP(holiday,destination,
     //            hours,price,description)

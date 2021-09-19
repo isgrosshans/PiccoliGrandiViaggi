@@ -108,10 +108,12 @@ public class Add {
         //Student(email, password, firstName, lastName, birthDay, birthPlace, sex, phoneNumber*)
         try(Connection con=Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    "  INSERT INTO  Student (email, password, firstName, lastName,   "   +
-                            "  birthday, birthplace, sex, phoneNumber)  "   +
+                    "  INSERT INTO  Student (email, password, name, surname,   "   +
+                            " birthday, birthplace, sex, address, " +
+                            " phoneNumber )  "   +
                             "  VALUES (?,?,?,?,  "   +
-                            "  ?,?,?,?)  "  )){
+                            "  ?,?,?,?" +
+                            "  ?)  "  )){
                 pst.setString(1, student.getEmail());
                 pst.setString(2, student.getPassword());
                 pst.setString(3, student.getName());
@@ -119,9 +121,10 @@ public class Add {
                 pst.setDate(5, Date.valueOf(student.getBirthday()));
                 pst.setString(6, student.getBirthplace());
                 pst.setString(7, student.getSex());
+                pst.setString(8, student.getAddress());
                 if(student.getPhonenumber().isBlank())
-                    pst.setString(8, "DEFAULT");
-                pst.setString(8, student.getPhonenumber());
+                    pst.setString(9, "DEFAULT");
+                pst.setString(9, student.getPhonenumber());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print("add student "+e.getMessage());

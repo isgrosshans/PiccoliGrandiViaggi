@@ -19,7 +19,7 @@ public class Student {
     private String birthplace;
     private String sex;
     private String phonenumber;
-    private Address address;
+    private String address;
     private ArrayList<Allergy> allergies;
 
 
@@ -27,7 +27,7 @@ public class Student {
                    String name, String surname,
                    LocalDate birthday, String birthplace,
                    String sex, String phonenumber,
-                   Address address) {
+                   String address) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -79,7 +79,7 @@ public class Student {
     public String getPhonenumber() {
         return phonenumber;
     }
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 

@@ -1,6 +1,23 @@
 package it.univr.studyholiday.controller;
 
+import it.univr.studyholiday.model.Student;
+import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+
 public class SignUpController {
+    @FXML private TextField email;
+    @FXML private TextField password;
+    @FXML private TextField confirmpassword;
+    @FXML private TextField name;
+    @FXML private TextField surname;
+    @FXML private DatePicker birthday;
+    @FXML private TextField birthplace;
+    @FXML private RadioButton male;
+    @FXML private RadioButton female;
+    @FXML private TextField address;
+    @FXML private TextField phonenumber;
     // USER MUST INSERT FOLLOWING INFORMATION
     //        email
     //        password
@@ -28,7 +45,30 @@ public class SignUpController {
     //
     // IF THERE ARE NO PROBLEMS
     // BUTTON [COMPLETA REGISTRAZIONE]
-    public void onConfirmSignupClick(){
 
+
+    public void onFemaleRadioButtonClick(){
+        male.disarm();
+    }
+    public void onMaleRadioButtonClick(){
+        female.disarm();
+    }
+
+
+    public void onConfirmSignupClick(){
+        String sex = "";
+        if(male.isArmed()) sex = "M";
+        if(female.isArmed()) sex = "F";
+
+        Student.singupStudent(new Student(
+                email.getText(),
+                password.getText(),
+                name.getText(),
+                surname.getText(),
+                birthday.getValue(),
+                birthplace.getText(),
+                sex,
+                phonenumber.getText(),
+                address.getText()));
     }
 }

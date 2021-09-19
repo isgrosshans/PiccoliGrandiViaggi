@@ -1,5 +1,9 @@
 package it.univr.studyholiday.model;
 
+import it.univr.studyholiday.util.Database.Add;
+import it.univr.studyholiday.util.Database.Delete;
+import it.univr.studyholiday.util.Database.Update;
+
 import java.time.LocalDate;
 
 //     STUDENT(email, password, name, surname,
@@ -33,4 +37,16 @@ public class Student {
     }
 
     public static void singupStudent(){}
+
+    public void update() {
+        Update.update(this);
+    }
+    public void add() {
+        Add.add(this);
+    }
+    public void delete() {
+        Delete.delete(this);
+    }
+
+
 }

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Fetch {
+    //DONE
     public static Family family(String email) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -28,19 +29,17 @@ public class Fetch {
                             " WHERE email=? " )) {
                 pst.setString(1, email);
                 rs = pst.executeQuery();
-
                 rs.next();
                 family = (new Family(
                         rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getDate(5).toLocalDate(),
-                        rs.getString(6),
-                        rs.getString(7),
-                        rs.getString(8)));
-
-
+                        rs.getInt(5),
+                        rs.getBoolean(6),
+                        rs.getInt(7),
+                        rs.getInt(8),
+                        rs.getString(9)));
             } catch (SQLException e) {
                 System.out.print(e.getMessage());
             }
@@ -48,7 +47,6 @@ public class Fetch {
             System.out.print(e.getMessage());
         }
         return family;
-    }
     }
 
     public static Student student(String email) {

@@ -33,8 +33,7 @@ public class College {
     }
 
     public static College fetch(String college) {
-        return Fetch.college(college);
-    }
+        return Fetch.college(college);}
     public void update() {
         Update.update(this);
     }

@@ -1,15 +1,12 @@
 package it.univr.studyholiday.model;
 
-import it.univr.studyholiday.util.Database.Add;
-import it.univr.studyholiday.util.Database.Delete;
-import it.univr.studyholiday.util.Database.Fetch;
-import it.univr.studyholiday.util.Database.Update;
-
+import it.univr.studyholiday.util.Database.*;
 import java.time.LocalDate;
 
 //ACCOMODATION(student,holiday,
 //             dormroom,family,startdate,enddate)
-public class Accomodation {
+public class Accommodation {
+
     private Student student;
     private Holiday holiady;
     private DormRoom dormRoom;
@@ -17,7 +14,7 @@ public class Accomodation {
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public Accomodation(Student student, Holiday holiady,
+    public Accommodation(Student student, Holiday holiady,
                         DormRoom dormRoom, Family family,
                         LocalDate startDate, LocalDate endDate) {
         this.student = student;
@@ -28,18 +25,18 @@ public class Accomodation {
         this.endDate = endDate;
     }
 
-    public Accomodation(String student, String holiady,
-                        String dormRoom, String family,
+    public Accommodation(String student, String holiadyid,
+                        String dormRoomnum, String family,
                         LocalDate startDate, LocalDate endDate) {
         this.student = Fetch.student(student);
-        this.holiady = Fetch.holiday(holiday);
-        this.dormRoom = Fetch.dormroom(getHoliady().getCollege().getId);
-        this.family = family;
+        this.holiady = Fetch.holiday(holiadyid);
+        this.dormRoom = Fetch.dormRoom(getHoliady().getCollege().getId(),dormRoomnum);
+        this.family = Fetch.family(family);
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public static void assignAccomodation(){}
+    public static void assignAccommodation(){}
 
     public void update() {
         Update.update(this);
@@ -88,4 +85,9 @@ public class Accomodation {
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
+
+
+
+
+
 }

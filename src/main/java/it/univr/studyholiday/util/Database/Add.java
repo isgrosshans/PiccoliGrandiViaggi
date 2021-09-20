@@ -25,7 +25,7 @@ public class Add {
                             " VALUES (?,?, "  +
                             " ?,?,?,? ) " )){
                 pst.setString(1, accommodation.getStudent().getEmail());
-                pst.setString(2, accommodation.getHoliady().getId());
+                pst.setString(2, accommodation.getHoliday().getId());
                 if(accommodation.getReservation().isFamilyStay()) {
                     pst.setString(3, "DEFAULT");
                     pst.setString(4, accommodation.getFamily().getEmail());
@@ -118,7 +118,7 @@ public class Add {
         }
     }
 
-    //    ANSWER(holiday,question,student)
+    //    ANSWER(holiday,question,student,answer)
     public static void add(Answer answer){
         try {
             Class.forName("org.postgresql.Driver");
@@ -132,6 +132,7 @@ public class Add {
                 pst.setString(1, answer.getSurvey().getHoliday().getId());
                 pst.setString(2, answer.getQuestion().getQuestion());
                 pst.setString(3, answer.getSurvey().getStudent().getEmail());
+                pst.setString(4,answer.getAnswer());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());

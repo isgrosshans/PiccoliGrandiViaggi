@@ -41,9 +41,6 @@ public class Reservation {
         Delete.delete(this);
     }
 
-    public static Reservation fetch(Student student, Holiday holiday){
-        return Fetch.reservation(student.getEmail(), holiday.getId());
-    }
     public static ArrayList<Reservation> allReservationsFor(Student student){
         return Fetch.allReservationsFor(student.getEmail());
     }

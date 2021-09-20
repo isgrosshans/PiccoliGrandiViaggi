@@ -26,10 +26,9 @@ public class Accommodation {
 
     public Accommodation(Reservation reservation,
                          String dormRoomnum, String family,
-                         LocalDate startDate, LocalDate endDate,
-                         String college) {
+                         LocalDate startDate, LocalDate endDate) {
         this.reservation = reservation;
-        this.dormRoom = Fetch.dormRoom(college,dormRoomnum);
+        this.dormRoom = Fetch.dormRoom(reservation.getHoliday().getCollege().getId(),dormRoomnum);
         this.family = Fetch.family(family);
         this.startDate = startDate;
         this.endDate = endDate;
@@ -37,10 +36,9 @@ public class Accommodation {
 
     public Accommodation(String student, String holidayid,
                          String dormRoomnum, String family,
-                         LocalDate startDate, LocalDate endDate,
-                         String college) {
+                         LocalDate startDate, LocalDate endDate) {
         this.reservation = Fetch.reservation(student, holidayid);
-        this.dormRoom = Fetch.dormRoom(college,dormRoomnum);
+        this.dormRoom = Fetch.dormRoom(reservation.getHoliday().getCollege().getId(),dormRoomnum);
         this.family = Fetch.family(family);
         this.startDate = startDate;
         this.endDate = endDate;

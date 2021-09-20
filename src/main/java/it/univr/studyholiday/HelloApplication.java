@@ -1,7 +1,6 @@
 package it.univr.studyholiday;
 
-import it.univr.studyholiday.view.LoginView;
-import it.univr.studyholiday.view.SingleStage;
+import it.univr.studyholiday.util.populate;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

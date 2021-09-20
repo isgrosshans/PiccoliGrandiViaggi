@@ -1,6 +1,7 @@
 package it.univr.studyholiday.model;
 
-import it.univr.studyholiday.util.Database.Fetch;
+
+import it.univr.studyholiday.util.Database.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -30,6 +31,15 @@ public class Holiday {
         this.fieldTrips = Fetch.fieldTripsFor(id);
     }
 
+    public void update() {
+        Update.update(this);
+    }
+    public void add() {
+        Add.add(this);
+    }
+    public void delete() {
+        Delete.delete(this);
+    }
 
     public String getId() {
         return id;
@@ -37,7 +47,9 @@ public class Holiday {
     public LocalDate getStartDate() {
         return startDate;
     }
-    public LocalDate getEndDate() {return startDate.plusWeeks(weeks).minusDays(1)}
+    public LocalDate getEndDate() {
+        return startDate.plusWeeks(weeks).minusDays(1)
+    }
     public int getWeeks() {
         return weeks;
     }

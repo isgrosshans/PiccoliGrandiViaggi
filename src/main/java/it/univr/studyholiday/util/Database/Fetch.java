@@ -437,10 +437,18 @@ public class Fetch {
     //    RESERVATION(holiday,student,
     //                familystay*,single*,friend*,paymentmethod)
     public static Reservation reservation(String email, String collegeid) {
+        //TODO
         return null;
     }
 
     public static ArrayList<Reservation> allReservationsFor(String email) {
+
+        //TODO HANDLE NULL VALUES IN FAMILY AND DORMROOM
+        //MOSTRIAMO LE PRENOTAZIONI FINO AL GIORNO DELLA FINE DEL VIAGGIO, A PARTIRE DAL GIORNO DOPO
+        //VERRANNO MOOSTRARE NEI VIAGGI PASSATI.
+        //POTREMMO METTERE ANCHE PER DORMROOM LA STRINGA VUOTA
+        // COME DEFAULT AL POSTO DEL NULL E FARE UN CONTROLLO SU QUELLO PRIMA DI CHIAMARE IL COSTRUTTORE
+
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -450,24 +458,16 @@ public class Fetch {
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " SELECT  a.holiday, a.destination, a.language, a.departuredate,  "  +
-                            " a.weeks, a.college, a.level, a.paymentmethod "  +
-                            " FROM archive a JOIN student ON a.student=s.email "  +
-                            " WHERE h.departureDate >= ? AND s.email=? " )) {
+                    " SELECT holiday,student,familystay,single,friend,paymentmethod  "  +
+                            " FROM reservation r JOIN holiday h " +
+                            " ON r.holidat=h.id "  +
+                            " WHERE h.startdate+(7*h.weeks)<=? AND r.student=? " )) {
                 pst.setDate(1, Date.valueOf(LocalDate.now()));
-                pst.setString(2, student.getemail());
+                pst.setString(2, email);
                 rs = pst.executeQuery();
 
                 while (rs.next()) {
-                    ol.add(new Archive(student,
-                            rs.getString(1),
-                            rs.getString(2),
-                            rs.getString(3),
-                            rs.getDate(4).toLocalDate(),
-                            rs.getInt(5),
-                            rs.getString(6),
-                            rs.getString(7),
-                            rs.getString(8)));
+                    //ol.add(new Reservation(//TODO)));
                 }
 
             } catch (SQLException e) {

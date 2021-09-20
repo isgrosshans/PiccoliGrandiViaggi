@@ -35,9 +35,10 @@ public class Update {
                 }
                 pst.setDate(5, Date.valueOf(accommodation.getStartDate()));
                 pst.setDate(6, Date.valueOf(accommodation.getEndDate()));
-                pst.setString(7, accommodation.getStudent().getEmail());
-                pst.setString(8, accommodation.getHoliday().getId());
-                pst.setString(9, accommodation.getReservation().getHoliday().getId());
+                pst.setString(7, accommodation.getReservation().getHoliday().getId());
+                pst.setString(8, accommodation.getStudent().getEmail());
+                pst.setString(9, accommodation.getHoliday().getId());
+
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());

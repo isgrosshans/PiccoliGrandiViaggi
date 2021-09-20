@@ -10,7 +10,7 @@ public class Fetch {
 
 
     //    ACCOMODATION(student,holiday,
-    //                 dormroom,family,startdate,enddate)
+    //                 college,dormroom,family,startdate,enddate)
     public static Accommodation accommodation(String student, String holiday) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -22,7 +22,8 @@ public class Fetch {
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     " SELECT student,holiday," +
-                            " dormroom,family,startdate,enddate "  +
+                            " dormroom,family,startdate,enddate," +
+                            " college "  +
                             " FROM accomodation "  +
                             " WHERE student=? AND holiday=? " )) {
                 pst.setString(1, student);
@@ -36,7 +37,8 @@ public class Fetch {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getDate(5).toLocalDate(),
-                        rs.getDate(6).toLocalDate()));
+                        rs.getDate(6).toLocalDate(),
+                        rs.getString(7)));
 
 
             } catch (SQLException e) {
@@ -605,6 +607,41 @@ public class Fetch {
 
     //    RESERVATION(holiday,student,
     //                familystay*,single*,friend*,paymentmethod)
+    public static Reservation reservation(String student, String holiday) {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        Reservation reservation=null;
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " SELECT holiday,student,familystay,single,friend,paymentmethod  "  +
+                            " FROM reservation "  +
+                            " WHERE student=? AND holiday=?" )) {
+                pst.setString(1, student);
+                pst.setString(2, holiday);
+                rs = pst.executeQuery();
+
+                    reservation=new Reservation(
+                            rs.getString(1),
+                            rs.getString(2),
+                            rs.getBoolean(3),
+                            rs.getBoolean(4),
+                            rs.getString(5),
+                            rs.getString(6));
+
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+        return reservation;
+    }
+
+
     public static ArrayList<Reservation> allReservationsFor(String email) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -641,7 +678,7 @@ public class Fetch {
         }
         return reservations;
     }
-    
+
     //    STUDENT(email,
     //            password,name,surname,birthday,birthplace,address,phonenumber*)
     public static Student student(String email) {
@@ -687,7 +724,7 @@ public class Fetch {
     //    SURVEY(holiday,student,
     //           score,comment*)
     public static Survey survey(String holiday, String student) {
-        //TODO
+
         return null;
     }
 

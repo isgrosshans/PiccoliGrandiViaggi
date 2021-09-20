@@ -29,6 +29,46 @@ public class Survey {
         this.student = Fetch.student(student);
         this.score = score;
         this.comment = comment;
+        this.answers = Fetch.answersByStudent(holiday, student);
+        if(answers.size()>0) hasQuestions=true;
+        else hasQuestions=false;
     }
 
+    public Holiday getHoliday() {
+        return holiday;
+    }
+    public Student getStudent() {
+        return student;
+    }
+    public int getScore() {
+        return score;
+    }
+    public String getComment() {
+        return comment;
+    }
+    public ArrayList<Answer> getAnswers() {
+        return answers;
+    }
+    public boolean hasQuestions() {
+        return hasQuestions;
+    }
+
+    public void setHoliday(Holiday holiday) {
+        this.holiday = holiday;
+    }
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+    public void setScore(int score) {
+        this.score = score;
+    }
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+    public void setAnswers(ArrayList<Answer> answers) {
+        this.answers = answers;
+    }
+    public void setHasQuestions(boolean hasQuestions) {
+        this.hasQuestions = hasQuestions;
+    }
 }

@@ -19,7 +19,9 @@ public class Hobby {
     public void add() {
         Add.add(this);
     }
-    public void update() { Update.update(this);}
+    public void update() {
+        Update.update(this);
+    }
     public void delete() {
         Delete.delete(this);
     }

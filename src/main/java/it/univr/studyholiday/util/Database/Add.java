@@ -77,22 +77,24 @@ public class Add {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(""+e.getMessage());
         }
-        for (Activity activity:activities) {
+
             try(Connection con=Database.getConnection()) {
-                try (PreparedStatement pst = con.prepareStatement(
-                        " INSERT INTO Activity (college, name, description) "  +
-                                " VALUES (?,?,?) " )){
-                    pst.setString(1, activity.getCollege().getId());
-                    pst.setString(2, activity.getName());
-                    pst.setString(3, activity.getDescription());
-                    pst.executeUpdate();
-                } catch (SQLException e) {
-                    System.out.print("add activity"+e.getMessage());
+                for (Activity activity:activities) {
+                    try (PreparedStatement pst = con.prepareStatement(
+                            " INSERT INTO Activity (college, name, description) " +
+                                    " VALUES (?,?,?) ")) {
+                        pst.setString(1, activity.getCollege().getId());
+                        pst.setString(2, activity.getName());
+                        pst.setString(3, activity.getDescription());
+                        pst.executeUpdate();
+                    } catch (SQLException e) {
+                        System.out.print("add activity" + e.getMessage());
+                    }
                 }
             }catch(SQLException e){
                 System.out.print("add activity "+e.getMessage());
             }
-        }
+
     }
 
     //    ALLERGY(stident,allergen,

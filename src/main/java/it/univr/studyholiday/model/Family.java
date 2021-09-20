@@ -46,17 +46,18 @@ public class Family {
         this.cityDistance = cityDistance;
     }
 
-//    public String italianDescription(){
-//        String result="";
-//        result+=  "Famiglia           "+getFullName()+
-//                "\nComponent:         "+members+
-//                "\nCamere:            "+bedrooms+
-//                "\nBagni:             "+bathrooms+
-//                "\nAnimali domestici: ";
-//        if(havePets) result+="sì";
-//        else result+="no";
-//        return result;
-//    }
+    public String italianDescription(){
+        String result="";
+        result+=  "Famiglia             "+getFullName()+
+                "\nComponent:           "+members+
+                "\nCamere:              "+bedrooms+
+                "\nBagni:               "+bathrooms+
+                "\nAnimali domestici:   ";
+        if(havePets) result+="sì";
+        else result+="no";
+        result+="\nDistanza dal centro: "+cityDistance;
+        return result;
+    }
 
     public static Family fetch(String email){
         return Fetch.family(email);

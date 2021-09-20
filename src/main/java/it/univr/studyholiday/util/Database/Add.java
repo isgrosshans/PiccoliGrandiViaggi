@@ -7,6 +7,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Add {
 
@@ -116,6 +118,12 @@ public class Add {
             }
         }catch(SQLException e){
             System.out.print(e.getMessage());
+        }
+    }
+
+    public static void add(ArrayList<Allergy> allergies) {
+        for (Allergy allergy: allergies) {
+            allergy.add();
         }
     }
 

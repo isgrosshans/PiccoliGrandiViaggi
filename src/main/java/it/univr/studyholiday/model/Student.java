@@ -24,6 +24,7 @@ public class Student {
     private ArrayList<Allergy> allergies;
 
 
+
     public Student(String email, String password,
                    String name, String surname,
                    LocalDate birthday, String birthplace,
@@ -116,4 +117,22 @@ public class Student {
     public void setAllergies(ArrayList<Allergy> allergies) {
         this.allergies = allergies;
     }
+
+    public void singupStudent(Student student, Parent parent1, Parent parent2) {
+        student.add();
+        Add.add(student.getAllergies());
+        // Add.add(student.getHobbies());
+
+        parent1.add();
+        parent2.add();
+    }
+
+    public void singupStudent(Student student, Parent parent1) {
+        student.add();
+        Add.add(student.getAllergies());
+        // Add.add(student.getHobbies());
+
+        parent1.add();
+    }
+
 }

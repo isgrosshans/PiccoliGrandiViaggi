@@ -5,5 +5,6 @@ module it.univr.studytrip {
 
 
     opens it.univr.studyholiday to javafx.fxml;
+    opens it.univr.studyholiday.controller to javafx.fxml;
     exports it.univr.studyholiday;
 }

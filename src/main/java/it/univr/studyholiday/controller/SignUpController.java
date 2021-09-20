@@ -60,15 +60,15 @@ public class SignUpController {
         if(male.isArmed()) sex = "M";
         if(female.isArmed()) sex = "F";
 
-        Student.singupStudent(new Student(
-                email.getText(),
-                password.getText(),
-                name.getText(),
-                surname.getText(),
-                birthday.getValue(),
-                birthplace.getText(),
-                sex,
-                phonenumber.getText(),
-                address.getText()));
+//        Student.singupStudent(new Student(
+//                email.getText(),
+//                password.getText(),
+//                name.getText(),
+//                surname.getText(),
+//                birthday.getValue(),
+//                birthplace.getText(),
+//                sex,
+//                phonenumber.getText(),
+//                address.getText()));
     }
 }

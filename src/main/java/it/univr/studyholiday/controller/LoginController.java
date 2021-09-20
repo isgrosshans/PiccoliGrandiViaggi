@@ -1,5 +1,6 @@
 package it.univr.studyholiday.controller;
 
+import it.univr.studyholiday.HelloApplication;
 import it.univr.studyholiday.model.UserType;
 import it.univr.studyholiday.util.Database.Database;
 import it.univr.studyholiday.util.Database.Fetch;
@@ -25,25 +26,23 @@ public class LoginController {
     @FXML private Button loginButton;
     @FXML private Label message;
 
-    public void loginClick(){
+    public void loginClick() throws IOException {
         //TODO email
-        if(LoginUtil.emailIsAdmin(email.getText())){
+        if (LoginUtil.emailIsAdmin(email.getText())) {
             if(Database.adminLogin(email.getText(), LoginUtil.encrypy(password.getText()))) {
                 UserType.setMode(Fetch.travelAgent(email.getText()));
 
-                //TODO
-                //Go to next page
+                HelloApplication.setRoot("admin-view");
             }
-            else message.setText("Email o password errata");
+//            else message.setText("Email o password errata");
         }
-        else{
-            if(Database.studentLogin(email.getText(), LoginUtil.encrypy(password.getText()))){
+        else {
+            if (Database.studentLogin(email.getText(), LoginUtil.encrypy(password.getText()))) {
                 UserType.setMode(Fetch.student(email.getText()));
 
-                //TODO
-                //Go to next page
+                HelloApplication.setRoot("student_menu_view");
             }
-            else message.setText("Email o password errata");
+//            else message.setText("Email o password errata");
 
         }
     }

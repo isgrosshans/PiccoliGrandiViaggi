@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Delete {
-    //    ACCOMODATION(student,holiday,
+    //    Accommodation(student,holiday,
     //                 dormroom,family,startdate,enddate)
     public static void delete(Accommodation accommodation) {
         try {
@@ -19,7 +19,7 @@ public class Delete {
         }
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " DELETE FROM accomodation " +
+                    " DELETE FROM accommodation " +
                             " WHERE (student=? AND holiday=?) ")) {
                 pst.setString(1, accommodation.getStudent().getEmail());
                 pst.setString(2, accommodation.getHoliday().getId());

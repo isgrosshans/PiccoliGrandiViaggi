@@ -7,7 +7,7 @@ import it.univr.studyholiday.model.Student;
 
 import java.sql.*;
 
-//ACCOMODATION(student,holiday,
+//Accommodation(student,holiday,
 //				dormroom,family,startdate,enddate)
 public class AssignAccommodation {
 
@@ -31,7 +31,7 @@ public class AssignAccommodation {
                             " AND college = ?" +    //reservation->holiday->college->id
                             " number NOT IN(" +
                                 " SELECT dormroom " +
-                                " FROM accomodation" +
+                                " FROM accommodation" +
                                 " WHERE college=?" + //reservation->holiday->college->id
                                 " AND (startdate BETWEEN (? AND ?)) " + //reservation->startdate and enddate
                                 " OR enddate BETWEEN (? AND ?))"  )) { //reservation->startdate and enddate
@@ -47,7 +47,7 @@ public class AssignAccommodation {
                 roomNumber=rs.getString(1);
 
                 try (PreparedStatement pst2 = con.prepareStatement(
-                        " INSERT INTO Accomodation(student,holiday, " +
+                        " INSERT INTO Accommodation(student,holiday, " +
                                 " dormroom,startdate,enddate,college)"  +
                                 " VALUES (?,?, "  +
                                 " ?,?,?,? ) "  )) {
@@ -88,7 +88,7 @@ public class AssignAccommodation {
                     "SELECT MAX(d0.number) FROM dormroom d0 " +
                             "WHERE d0.beds>1 AND d0.college = ? " +
                             "AND d0.beds <> ( " +
-                            "SELECT COUNT(*) FROM accomodation a1 " +
+                            "SELECT COUNT(*) FROM accommodation a1 " +
                             "WHERE a1.dormroom=d0.number " +
                             "AND a1.college=? " +
                             " AND (startdate BETWEEN (? AND ?)) " + //reservation->startdate and enddate
@@ -106,7 +106,7 @@ public class AssignAccommodation {
                 roomNumber=rs.getString(1);
 
                 try (PreparedStatement pst2 = con.prepareStatement(
-                        " INSERT INTO Accomodation(student,holiday, " +
+                        " INSERT INTO Accommodation(student,holiday, " +
                                 " dormroom,startdate,enddate,college)"  +
                                 " VALUES (?,?, "  +
                                 " ?,?,?,? ) "  )) {
@@ -151,7 +151,7 @@ public class AssignAccommodation {
                     "SELECT MAX(f0.email) FROM family f0 " +
                             "WHERE f0.college = ? " +
                             "AND f0.bedrooms <> ( " +
-                            "SELECT COUNT(*) FROM accomodation a1 " +
+                            "SELECT COUNT(*) FROM accommodation a1 " +
                             "WHERE a1.family=f0.email " +
                             "AND a1.college=? " +
                             " AND (startdate BETWEEN (? AND ?)) " + //reservation->startdate and enddate
@@ -165,7 +165,7 @@ public class AssignAccommodation {
                 rs = pst.executeQuery();
                 rs.next();  family=rs.getString(1);
                 try (PreparedStatement pst2 = con.prepareStatement(
-                        " INSERT INTO Accomodation(student,holiday, " +
+                        " INSERT INTO Accommodation(student,holiday, " +
                                 " family,startdate,enddate,college)"  +
                                 " VALUES (?,?, "  +
                                 " ?,?,?,? ) "  )) {

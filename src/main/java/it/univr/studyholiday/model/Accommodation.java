@@ -3,7 +3,7 @@ package it.univr.studyholiday.model;
 import it.univr.studyholiday.util.Database.*;
 import java.time.LocalDate;
 
-//ACCOMODATION(student,holiday,
+//Accommodation(student,holiday,
 //             dormroom,family,startdate,enddate)
 public class Accommodation {
 

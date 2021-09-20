@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Fetch {
 
 
-    //    ACCOMODATION(student,holiday,
+    //    Accommodation(student,holiday,
     //                 ,dormroom,family,startdate,enddate)
     public static Accommodation accommodation(String student, String holiday) {
         try {
@@ -24,7 +24,7 @@ public class Fetch {
                     " SELECT student,holiday," +
                             " dormroom,family,startdate,enddate," +
                             " college " +
-                            " FROM accomodation "  +
+                            " FROM accommodation "  +
                             " WHERE student=? AND holiday=? " )) {
                 pst.setString(1, student);
                 pst.setString(2, holiday);
@@ -50,7 +50,7 @@ public class Fetch {
         return accommodation;
     }
 
-    public static Boolean hasAccomodation(String student, String holiday){
+    public static Boolean hasAccommodation(String student, String holiday){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -61,7 +61,7 @@ public class Fetch {
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     " SELECT COUNT(*) "  +
-                            " FROM accomodation "  +
+                            " FROM accommodation "  +
                             " WHERE student=? AND holiday=? " )) {
                 pst.setString(1, student);
                 pst.setString(2, holiday);

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class Update {
 
 
-    //    ACCOMODATION(student,holiday,
+    //    Accommodation(student,holiday,
     //                 dormroom,family,startdate,enddate)
     public static void update(Accommodation accommodation){
         try {
@@ -20,7 +20,7 @@ public class Update {
         }
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    "UPDATE TABLE Accomodation" +
+                    "UPDATE TABLE Accommodation" +
                             "SET student=?,holiday=?,dormroom=?,family=?,startdate=?,enddate=?,college=?" +
                             "WHERE student=? AND holiday=?")) {
                 pst.setString(1, accommodation.getStudent().getEmail());

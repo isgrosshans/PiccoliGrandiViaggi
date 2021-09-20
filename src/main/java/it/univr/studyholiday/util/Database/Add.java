@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Add {
 
-    //    ACCOMODATION(student,holiday,
+    //    Accommodation(student,holiday,
     //                 dormroom,family,startdate,enddate,college)
     public static void add (Accommodation accommodation){
         try {
@@ -20,7 +20,7 @@ public class Add {
         }
         try(Connection con=Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " INSERT INTO College(student,holiday, " +
+                    " INSERT INTO Accommodation(student,holiday, " +
                             " dormroom,family,startdate,enddate,college)"  +
                             " VALUES (?,?, "  +
                             " ?,?,?,?,? ) " )){

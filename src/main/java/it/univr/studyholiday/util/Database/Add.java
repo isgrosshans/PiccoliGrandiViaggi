@@ -392,7 +392,32 @@ public class Add {
 
     //    SURVEY(holiday,student,
     //           score,comment*)
-
+    public static void add(Survey survey){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try(Connection con=Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " INSERT INTO Reservation (holiday,student,score,comment)  "   +
+                            "  VALUES (?,?,?,?)  "  )){
+                pst.setString(1,survey.getHoliday().getId());
+                pst.setString(2, survey.getStudent().getEmail());
+                pst.setInt(3,survey.getScore());
+                if (survey.hasComment())
+                    pst.setString(4, survey.getComment());
+                else {
+                    pst.setString(4, "DEFAULT");
+                }
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        }catch(SQLException e){
+            System.out.print(e.getMessage());
+        }
+    }
 
     //    STUDENT(email,
     //            password,name,surname,birthday,birthplace,address,sex,phonenumber*)

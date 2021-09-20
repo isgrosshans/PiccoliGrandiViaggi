@@ -11,9 +11,10 @@ public class Reservation {
     private Student student;
     private boolean familystay;
     private boolean single;
+    private Student friend;
     private String paymentmethod;
 
-    public Reservation(Holiday holiday, Student student, boolean familystay, boolean single, String paymentmethod) {
+    public Reservation(Holiday holiday, Student student, boolean familystay, boolean single,Student friend, String paymentmethod) {
         this.holiday = holiday;
         this.student = student;
         this.familystay = familystay;
@@ -21,11 +22,12 @@ public class Reservation {
         this.paymentmethod = paymentmethod;
     }
 
-    public Reservation(String holiday, String student, boolean familystay, boolean single, String paymentmethod) {
+    public Reservation(String holiday, String student, boolean familystay, boolean single,String friend, String paymentmethod) {
         this.holiday = Fetch.holiday(holiday);
         this.student = Fetch.student(student);
         this.familystay = familystay;
         this.single = single;
+        this.friend=Fetch.student(friend);
         this.paymentmethod = paymentmethod;
     }
 
@@ -61,6 +63,9 @@ public class Reservation {
     public String getPaymentmethod() {
         return paymentmethod;
     }
+    public Student getFriend() {
+        return friend;
+    }
 
     public void setHoliday(Holiday holiday) {
         this.holiday = holiday;
@@ -73,6 +78,9 @@ public class Reservation {
     }
     public void setSingle(boolean single) {
         this.single = single;
+    }
+    public void setFriend(Student friend) {
+        this.friend = friend;
     }
     public void setPaymentmethod(String paymentmethod) {
         this.paymentmethod = paymentmethod;

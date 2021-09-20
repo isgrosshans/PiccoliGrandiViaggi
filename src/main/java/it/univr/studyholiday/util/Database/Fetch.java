@@ -547,7 +547,7 @@ public class Fetch {
     }
 
     //    QUESTION(holiday,question)
-    public static boolean questionsFor(String holiday){
+    public static boolean hasQuestions(String holiday){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -575,88 +575,62 @@ public class Fetch {
         return questions;
     }
 
-    public static ArrayList<Question> getSurveyQuestions(Survey survey) { //TODO
-        //ADDITIONAL QUESTIONS BOOL
+    public static ArrayList<Question> questionsFor(String holiday) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Question> ol = null;
+        ArrayList<Question> questions = null;
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " SELECT COUNT(*) "  +
+                    " SELECT question "  +
                             " FROM question "  +
                             " WHERE holiday=? " )) {
-                pst.setString(1, survey.getHoliday);
+                pst.setString(1, holiday);
                 rs = pst.executeQuery();
-                rs.next();
-                if (rs.getInt(1) == 0) {
-                    survey.setAdditionalQuestions(false);
+                while (rs.next()) {
+                    questions.add(new Question(holiday,
+                            rs.getString(1)));
                 }
-
             } catch (SQLException e) {
                 System.out.print(e.getMessage());
-            }
-            if (survey.hasAdditionalQuestions()) {
-                try (PreparedStatement pst = con.prepareStatement(
-                        " SELECT number, question "  +
-                                " FROM surveyquestion "  +
-                                " WHERE holiday=? " )) {
-                    pst.setString(1, survey.getArchive().getHolidayID());
-                    rs = pst.executeQuery();
-
-                    while (rs.next()) {
-                        ol.add(new SurveyQuestion(survey.getArchive().getHolidayID(),
-                                rs.getInt(1),
-                                rs.getString(2)));
-                    }
-
-                } catch (SQLException e) {
-                    System.out.print(e.getMessage());
-                }
             }
         } catch (SQLException e) {
             System.out.print(e.getMessage());
         }
-        return ol;
+        return questions;
     }
 
     //    RESERVATION(holiday,student,
     //                familystay*,single*,friend*,paymentmethod)
-    public static Reservation reservation(String email, String holiday) {
-        //TODO maybe not
-        return null;
-    }
-
     public static ArrayList<Reservation> allReservationsFor(String email) {
-
-        //TODO HANDLE NULL VALUES IN FAMILY AND DORMROOM
-        //MOSTRIAMO LE PRENOTAZIONI FINO AL GIORNO DELLA FINE DEL VIAGGIO, A PARTIRE DAL GIORNO DOPO
-        //VERRANNO MOOSTRARE NEI VIAGGI PASSATI.
-        //POTREMMO METTERE ANCHE PER DORMROOM LA STRINGA VUOTA
-        // COME DEFAULT AL POSTO DEL NULL E FARE UN CONTROLLO SU QUELLO PRIMA DI CHIAMARE IL COSTRUTTORE
-
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Reservation> ol = null;
+        ArrayList<Reservation> reservations = null;
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " SELECT holiday,student,familystay,single,friend,paymentmethod  "  +
+                    " SELECT r.holiday,r.student,r.familystay,r.single,r.friend,r.paymentmethod  "  +
                             " FROM reservation r JOIN holiday h " +
-                            " ON r.holidat=h.id "  +
+                            " ON r.holiday=h.id "  +
                             " WHERE h.startdate+(7*h.weeks)<=? AND r.student=? " )) {
                 pst.setDate(1, Date.valueOf(LocalDate.now()));
                 pst.setString(2, email);
                 rs = pst.executeQuery();
 
                 while (rs.next()) {
-                    //ol.add(new Reservation(//TODO)));
+                    reservations.add(new Reservation(
+                            rs.getString(1),
+                            rs.getString(2),
+                            rs.getBoolean(3),
+                            rs.getBoolean(4),
+                            rs.getString(5),
+                            rs.getString(6)));
                 }
 
             } catch (SQLException e) {
@@ -665,7 +639,7 @@ public class Fetch {
         } catch (SQLException e) {
             System.out.print(e.getMessage());
         }
-        return ol;
+        return reservations;
     }
     
     //    STUDENT(email,

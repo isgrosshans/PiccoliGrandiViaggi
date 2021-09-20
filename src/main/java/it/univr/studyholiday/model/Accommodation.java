@@ -3,7 +3,7 @@ package it.univr.studyholiday.model;
 import it.univr.studyholiday.util.Database.*;
 import java.time.LocalDate;
 
-//ACCOMODATION(student,holiday,
+//Accommodation(student,holiday,
 //             dormroom,family,startdate,enddate)
 public class Accommodation {
 
@@ -23,9 +23,21 @@ public class Accommodation {
         this.endDate = endDate;
     }
 
+
+    public Accommodation(Reservation reservation,
+                         String dormRoomnum, String family,
+                         LocalDate startDate, LocalDate endDate,
+                         String college) {
+        this.reservation = reservation;
+        this.dormRoom = Fetch.dormRoom(college,dormRoomnum);
+        this.family = Fetch.family(family);
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
     public Accommodation(String student, String holidayid,
-                        String dormRoomnum, String family,
-                        LocalDate startDate, LocalDate endDate,
+                         String dormRoomnum, String family,
+                         LocalDate startDate, LocalDate endDate,
                          String college) {
         this.reservation = Fetch.reservation(student, holidayid);
         this.dormRoom = Fetch.dormRoom(college,dormRoomnum);
@@ -33,8 +45,6 @@ public class Accommodation {
         this.startDate = startDate;
         this.endDate = endDate;
     }
-
-    public static void assignAccommodation(){}
 
     public void update() {
         Update.update(this);

@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Delete {
-    //    ACCOMODATION(student,holiday,
+    //    Accommodation(student,holiday,
     //                 dormroom,family,startdate,enddate)
     public static void delete(Accommodation accommodation) {
         try {
@@ -19,10 +19,10 @@ public class Delete {
         }
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " DELETE FROM accomodation " +
+                    " DELETE FROM accommodation " +
                             " WHERE (student=? AND holiday=?) ")) {
                 pst.setString(1, accommodation.getStudent().getEmail());
-                pst.setString(2, accommodation.getHoliady().getId());
+                pst.setString(2, accommodation.getHoliday().getId());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());
@@ -89,7 +89,7 @@ public class Delete {
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     " DELETE FROM Answer " +
-                            " WHERE (holiday=? AND student=? AND question=?) ")) {
+                            " WHERE (holiday=? AND student=? AND question=?)")) {
                 pst.setString(1, answer.getSurvey().getHoliday().getId());
                 pst.setString(2, answer.getSurvey().getStudent().getEmail());
                 pst.setString(3, answer.getQuestion().getQuestion());

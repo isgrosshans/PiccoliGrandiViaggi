@@ -21,7 +21,7 @@ public class Update {
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     "UPDATE TABLE Accomodation" +
-                            "SET student=?,holiday=?,dormroom=?,family=?,startdate=?,enddate=?" +
+                            "SET student=?,holiday=?,dormroom=?,family=?,startdate=?,enddate=?,college=?" +
                             "WHERE student=? AND holiday=?")) {
                 pst.setString(1, accommodation.getStudent().getEmail());
                 pst.setString(2, accommodation.getHoliday().getId());
@@ -37,6 +37,7 @@ public class Update {
                 pst.setDate(6, Date.valueOf(accommodation.getEndDate()));
                 pst.setString(7, accommodation.getStudent().getEmail());
                 pst.setString(8, accommodation.getHoliday().getId());
+                pst.setString(9, accommodation.getReservation().getHoliday().getId());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());

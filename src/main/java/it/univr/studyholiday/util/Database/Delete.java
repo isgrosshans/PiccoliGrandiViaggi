@@ -22,7 +22,7 @@ public class Delete {
                     " DELETE FROM accomodation " +
                             " WHERE (student=? AND holiday=?) ")) {
                 pst.setString(1, accommodation.getStudent().getEmail());
-                pst.setString(2, accommodation.getholiday().getId());
+                pst.setString(2, accommodation.getHoliady().getId());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());
@@ -90,7 +90,7 @@ public class Delete {
             try (PreparedStatement pst = con.prepareStatement(
                     " DELETE FROM Answer " +
                             " WHERE (holiday=? AND student=? AND question=?) ")) {
-                pst.setString(1, answer.getSurvey().getHoliday().getId);
+                pst.setString(1, answer.getSurvey().getHoliday().getId());
                 pst.setString(2, answer.getSurvey().getStudent().getEmail());
                 pst.setString(3, answer.getQuestion().getQuestion());
                 pst.executeUpdate();
@@ -273,8 +273,8 @@ public class Delete {
             try (PreparedStatement pst = con.prepareStatement(
                     " DELETE FROM question " +
                             " WHERE (holiday = ? AND question=?) ")) {
-                pst.setString(1, question); //TODO
-                pst.setString(2, question); //TODO
+                pst.setString(1, question.getHoliday().getId());
+                pst.setString(2, question.getQuestion());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());
@@ -320,8 +320,8 @@ public class Delete {
             try (PreparedStatement pst = con.prepareStatement(
                     " DELETE FROM Survey " +
                             " WHERE (student = ? AND holiday = ?) ")) {
-                pst.setString(1, survey); //TODO
-                pst.setString(2, survey.); //TODO
+                pst.setString(1, survey.getStudent().getEmail());
+                pst.setString(2, survey.getHoliday().getId());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());

@@ -31,13 +31,6 @@ public class Answer {
     public void delete() {
         Delete.delete(this);
     }
-    public static ArrayList<Answer> fetchAllFor(Question question){
-        Fetch.allAnswersFor(question.question);
-    }
-    public static ArrayList<Answer> fetchAllFor(Survey survey){
-        Fetch.allAnswersFor(question.question);
-    }
-
 
     public Survey getSurvey() {
         return survey;

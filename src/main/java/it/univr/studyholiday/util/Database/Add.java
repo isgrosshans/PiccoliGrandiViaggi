@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Add {
 
     //    ACCOMODATION(student,holiday,
-    //                 dormroom,family,startdate,enddate)
+    //                 dormroom,family,startdate,enddate,college)
     public static void add (Accommodation accommodation){
         try {
             Class.forName("org.postgresql.Driver");
@@ -21,9 +21,9 @@ public class Add {
         try(Connection con=Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     " INSERT INTO College(student,holiday, " +
-                            " dormroom,family,startdate,enddate)"  +
+                            " dormroom,family,startdate,enddate,college)"  +
                             " VALUES (?,?, "  +
-                            " ?,?,?,? ) " )){
+                            " ?,?,?,?,? ) " )){
                 pst.setString(1, accommodation.getStudent().getEmail());
                 pst.setString(2, accommodation.getHoliday().getId());
                 if(accommodation.getReservation().isFamilyStay()) {
@@ -36,6 +36,7 @@ public class Add {
                 }
                 pst.setDate(5, Date.valueOf(accommodation.getStartDate()));
                 pst.setDate(6, Date.valueOf(accommodation.getEndDate()));
+                pst.setString(7,accommodation.getReservation().getHoliday().getId());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print("add college "+e.getMessage());

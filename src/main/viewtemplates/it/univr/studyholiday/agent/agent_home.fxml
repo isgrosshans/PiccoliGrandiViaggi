@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="182.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="44.0" layoutY="32.0" mnemonicParsing="false" text="Viaggi passati" />
+      <Button layoutX="44.0" layoutY="67.0" mnemonicParsing="false" text="Viaggi futuri" />
+      <Button layoutX="44.0" layoutY="102.0" mnemonicParsing="false" text="College" />
+      <Button layoutX="44.0" layoutY="137.0" mnemonicParsing="false" text="Logout" />
+   </children>
+</AnchorPane>

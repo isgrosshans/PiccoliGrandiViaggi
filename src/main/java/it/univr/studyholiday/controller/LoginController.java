@@ -48,9 +48,10 @@ public class LoginController {
         }
     }
 
-    public void signupClick(){
+    public void signUpClick(){
         //TODO
         //Go to sign up page
+
     }
 
 }

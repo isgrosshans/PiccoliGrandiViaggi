@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Add {
 
@@ -13,9 +14,88 @@ public class Add {
 
     //    ACCOMODATION(student,holiday,
     //                 dormroom,family,startdate,enddate)
+    public static void add (Accommodation accommodation){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(""+e.getMessage());
+        }
+        try(Connection con=Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " INSERT INTO College(student,holiday, " +
+                            " dormroom,family,startdate,enddate)"  +
+                            " VALUES (?,?, "  +
+                            " ?,?,?,? ) " )){
+                pst.setString(1, accommodation.getReservation().getStudent().getEmail());
+                pst.setString(2, accommodation.getReservation().getHoliday().getId());
+                if(accommodation.getReservation().isFamilyStay()) {
+                    pst.setString(3, "DEFAULT");
+                    pst.setString(4, accommodation.getFamily().getEmail());
+                }
+                if(!accommodation.getReservation().isFamilyStay()) {
+                    pst.setString(3, accommodation.getDormRoom().getRoomNumber());
+                    pst.setString(4, "DEFAULT");
+                }
+                pst.setDate(5, Date.valueOf(accommodation.getStartDate()));
+                pst.setDate(6, Date.valueOf(accommodation.getEndDate()));
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print("add college "+e.getMessage());
+            }
+        }catch(SQLException e){
+            System.out.print("add college "+e.getMessage());
+        }
+    }
 
     //    ACTIVITY(college,name,
     //             description)
+    public static void add(Activity activity){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(""+e.getMessage());
+        }
+        try(Connection con=Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " INSERT INTO Activity (college, name, description) "  +
+                            " VALUES (?,?,?) " )){
+                pst.setString(1, activity.getCollege().getId());
+                pst.setString(2, activity.getName());
+                pst.setString(3, activity.getDescription());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print("add activity"+e.getMessage());
+            }
+        }catch(SQLException e){
+            System.out.print("add activity "+e.getMessage());
+        }
+    }
+
+    public static void Add(ArrayList<Activity> activities){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(""+e.getMessage());
+        }
+
+            try(Connection con=Database.getConnection()) {
+                for (Activity activity:activities) {
+                    try (PreparedStatement pst = con.prepareStatement(
+                            " INSERT INTO Activity (college, name, description) " +
+                                    " VALUES (?,?,?) ")) {
+                        pst.setString(1, activity.getCollege().getId());
+                        pst.setString(2, activity.getName());
+                        pst.setString(3, activity.getDescription());
+                        pst.executeUpdate();
+                    } catch (SQLException e) {
+                        System.out.print("add activity" + e.getMessage());
+                    }
+                }
+            }catch(SQLException e){
+                System.out.print("add activity "+e.getMessage());
+            }
+
+    }
 
     //    ALLERGY(stident,allergen,
     //            precautions)
@@ -45,21 +125,116 @@ public class Add {
 
     //    COLLEGE(id,
     //            name,address,postalcode,city,provinceorstate,country,language)
-
-    //    DAYTRIP(holiday,destination,
-    //            hours,price,description)
+    public static void add(College college){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(""+e.getMessage());
+        }
+        try(Connection con=Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " INSERT INTO College(idcode,name, address, postalCode, " +
+                            " city, provinceorstate, country, language ) "  +
+                            " VALUES (?,?,?,?, "  +
+                            " ?,?,?,? ) " )){
+                pst.setString(1, college.getId());
+                pst.setString(2, college.getName());
+                pst.setString(3, college.getAddress().getAddress());
+                pst.setString(4, college.getAddress().getPostalCode());
+                pst.setString(5, college.getAddress().getCity());
+                pst.setString(6, college.getAddress().getProvinceorstate());
+                pst.setString(7, college.getAddress().getCountry());
+                pst.setString(8, college.getLanguage());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print("add college "+e.getMessage());
+            }
+        }catch(SQLException e){
+            System.out.print("add college "+e.getMessage());
+        }
+    }
 
     //    DORMROOM(college,number,
     //             beds)
 
-    //    HOBBY(student,hobby)
 
     //    FAMILY(email,
     //           college,name,surname,members,pets,bedrooms,bathrooms,citydistance)
 
+    //    FIELDTRIP(holiday,destination,
+    //            hours,price,description)
+    public static void add(FieldTrip fieldTrip){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(""+e.getMessage());
+        }
+        try(Connection con=Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " INSERT INTO FieldTrip (Holiday, destination, description, hours,  "  +
+                            " price) "  +
+                            " VALUES (?,?,?,?,  "  +
+                            " ?) " )){
+                pst.setString(1, fieldTrip.getHoliday().getId());
+                pst.setString(2, fieldTrip.getDestination());
+                pst.setString(3, fieldTrip.getDescription());
+                pst.setInt(4, fieldTrip.getHours());
+                pst.setInt(5, fieldTrip.getPrice());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print("add fieldtrip"+e.getMessage());
+            }
+        }catch(SQLException e){
+            System.out.print("add fieldtrip"+e.getMessage());
+        }
+    }
+
     //    HOLIDAY(id,
     //            startdate,weeks,college)
+    public static void add(Holiday holiday){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(""+e.getMessage());
+        }
+        try(Connection con=Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " INSERT INTO Holiday (idcode, college, departureDate, weeks) "  +
+                            " VALUES (?,?,?,?) " )){
+                pst.setString(1, holiday.getId());
+                pst.setString(2, holiday.getCollege().getId());
+                pst.setDate(3, Date.valueOf(holiday.getStartDate()));
+                pst.setInt(4, holiday.getWeeks());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print("add holiday"+e.getMessage());
+            }
+        }catch(SQLException e){
+            System.out.print("add holiday"+e.getMessage());
+        }
+    }
 
+    //    HOBBY(student,hobby)
+    public static void add(Hobby hobby){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(""+e.getMessage());
+        }
+        try(Connection con=Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " INSERT INTO Hobby (student, hobby) "  +
+                            " VALUES (?,?) " )){
+                pst.setString(1, hobby.getStudent().getEmail());
+                pst.setString(2, hobby.getHobby());
+                pst.executeUpdate();
+            } catch (SQLException e) {
+                System.out.print("add hobby"+e.getMessage());
+            }
+        }catch(SQLException e){
+            System.out.print("add hobby"+e.getMessage());
+        }
+    }
     //    PARENT(email,
     //           child,name,surname,telephone)
     public static void add(Parent parent){
@@ -98,7 +273,7 @@ public class Add {
     //           score,comment*)
 
     //    STUDENT(email,
-    //            password,,surname,birthday,birthplace,address,postalcode,city,provinceorstate,country,telephone*)
+    //            password,name,surname,birthday,birthplace,address,postalcode,city,provinceorstate,country,telephone*)
     public static void add(Student student){
         try {
             Class.forName("org.postgresql.Driver");

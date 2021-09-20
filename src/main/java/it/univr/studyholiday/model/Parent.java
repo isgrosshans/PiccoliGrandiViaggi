@@ -14,6 +14,14 @@ public class Parent {
     private String phonenumber;
     private Student child;
 
+    public Parent(String email, String name, String surname, String phoneumber, Student child) {
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.phonenumber = phoneumber;
+        this.child = child;
+    }
+
     public Parent(String email, String name, String surname, String phoneumber, String child) {
         this.email = email;
         this.name = name;

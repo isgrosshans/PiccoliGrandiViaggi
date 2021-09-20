@@ -10,7 +10,7 @@ public class Fetch {
 
 
     //    ACCOMODATION(student,holiday,
-    //                 college,dormroom,family,startdate,enddate)
+    //                 ,dormroom,family,startdate,enddate)
     public static Accommodation accommodation(String student, String holiday) {
         try {
             Class.forName("org.postgresql.Driver");
@@ -23,7 +23,7 @@ public class Fetch {
             try (PreparedStatement pst = con.prepareStatement(
                     " SELECT student,holiday," +
                             " dormroom,family,startdate,enddate," +
-                            " college "  +
+                            " college " +
                             " FROM accomodation "  +
                             " WHERE student=? AND holiday=? " )) {
                 pst.setString(1, student);
@@ -48,6 +48,36 @@ public class Fetch {
             System.out.print(e.getMessage());
         }
         return accommodation;
+    }
+
+    public static Boolean hasAccomodation(String student, String holiday){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        int count=-1;
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " SELECT COUNT(*) "  +
+                            " FROM accomodation "  +
+                            " WHERE student=? AND holiday=? " )) {
+                pst.setString(1, student);
+                pst.setString(2, holiday);
+                rs = pst.executeQuery();
+
+                rs.next();
+                count=rs.getInt(1);
+
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+        if(count>0) return true;
+        else return false;
     }
 
     //    ACTIVITY(college,name,
@@ -724,7 +754,7 @@ public class Fetch {
     //    SURVEY(holiday,student,
     //           score,comment*)
     public static Survey survey(String holiday, String student) {
-
+        // TODO survu
         return null;
     }
 

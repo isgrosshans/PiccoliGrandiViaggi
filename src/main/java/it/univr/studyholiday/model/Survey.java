@@ -18,7 +18,10 @@ public class Survey {
         this.holiday = holiday;
         this.student = student;
         this.score = score;
-        this.comment = comment;
+        if(comment!=null)
+            this.comment = comment;
+        else
+
         this.answers = answers;
         if(answers.size()>0) hasQuestions=true;
         else hasQuestions=false;
@@ -28,7 +31,8 @@ public class Survey {
         this.holiday = Fetch.holiday(holiday);
         this.student = Fetch.student(student);
         this.score = score;
-        this.comment = comment;
+        if(comment!=null)
+            this.comment = comment;
         this.answers = Fetch.answersByStudent(holiday, student);
         if(answers.size()>0) hasQuestions=true;
         else hasQuestions=false;
@@ -51,6 +55,12 @@ public class Survey {
     }
     public boolean hasQuestions() {
         return hasQuestions;
+    }
+    public boolean hasComment(){
+        if(comment==null) return false;
+        if(comment.isBlank()) return false;
+        if(comment.isEmpty()) return false;
+        return true;
     }
 
     public void setHoliday(Holiday holiday) {

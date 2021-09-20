@@ -114,7 +114,7 @@ public class Fetch {
     }
 
     //    ANSWER(holiday,question,student,answer)
-    public static ArrayList<Answer> answersForTo(String holiday, String question) {
+    public static ArrayList<Answer> answersByQuestion(String holiday, String question) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -148,7 +148,7 @@ public class Fetch {
     }
 
     //    ANSWER(holiday,question,student,answer)
-    public static ArrayList<Answer> answersForFrom(String holiday, String student) {
+    public static ArrayList<Answer> answersByStudent(String holiday, String student) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {

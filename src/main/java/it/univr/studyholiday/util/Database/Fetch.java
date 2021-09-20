@@ -52,16 +52,101 @@ public class Fetch {
     //             description)
     public static ArrayList<Activity> collegeActivities(String collegeid) {
         ArrayList<Activity> activities=null;
-        //TODO
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " SELECT name, description "  +
+                            " FROM activity "  +
+                            " WHERE collge=? " )) {
+                pst.setString(1, collegeid);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    activities.add(new Activity(
+                            collegeid,
+                            rs.getString(1),
+                            rs.getString(2)));
+                }
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
         return activities;
     }
 
     //    ALLERGY(stident,allergen,
     //            precautions)
-    public static void allAllergiesFor(String email) {
+    public static ArrayList<Allergy> allAllergiesFor(String email) {
+        ArrayList<Allergy> allergies = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ArrayList<FieldTrip> fieldTrips = null;
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " SELECT destination, description, hours, price "  +
+                            " FROM fieldtrip "  +
+                            " WHERE holiday=? " )) {
+                pst.setString(1, id);
+                rs = pst.executeQuery();
+                while (rs.next()) {
+                    fieldTrips.add(new FieldTrip(id,
+                            rs.getString(1),
+                            rs.getString(2),
+                            rs.getInt(3),
+                            rs.getInt(4)));
+                }
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+        return allergies;
     }
 
     //    ANSWER(holiday,question,student)
+    public static ArrayList<Answer> answersForFromTo(String Holiday, String student, String question){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ArrayList<Answer> answers = null;
+        ResultSet rs = null;
+        //
+//            if (survey.hasAdditionalQuestions()) {
+//                try (PreparedStatement pst = con.prepareStatement(
+//                        " SELECT number, question "  +
+//                                " FROM surveyquestion "  +
+//                                " WHERE holiday=? " )) {
+//                    pst.setString(1, survey.getArchive().getHolidayID());
+//                    rs = pst.executeQuery();
+//
+//                    while (rs.next()) {
+//                        ol.add(new SurveyQuestion(survey.getArchive().getHolidayID(),
+//                                rs.getInt(1),
+//                                rs.getString(2)));
+//                    }
+//
+//                } catch (SQLException e) {
+//                    System.out.print(e.getMessage());
+//                }
+//            }
+//        } catch (SQLException e) {
+//            System.out.print(e.getMessage());
+//        }
+        return null;
+    }
 
     //    COLLEGE(id,
     //            name,address,postalcode,city,provinceorstate,country,language)
@@ -433,6 +518,86 @@ public class Fetch {
     }
 
     //    QUESTION(holiday,question)
+    public static Question question(String holiday, String question) {
+        //maybe not necessary
+        return null;
+    }
+
+    public static boolean questionsFor(String holiday){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        boolean questions=false;
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " SELECT COUNT(*) "  +
+                            " FROM question "  +
+                            " WHERE holiday=? " )) {
+                pst.setString(1, holiday);
+                rs = pst.executeQuery();
+                rs.next();
+                if (rs.getInt(1) > 0) {
+                    questions=true;
+                }
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+        return questions;
+    }
+
+    public static ArrayList<Question> getSurveyQuestions(Survey survey) { //TODO
+        //ADDITIONAL QUESTIONS BOOL
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ArrayList<Question> ol = null;
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " SELECT COUNT(*) "  +
+                            " FROM question "  +
+                            " WHERE holiday=? " )) {
+                pst.setString(1, survey.getHoliday);
+                rs = pst.executeQuery();
+                rs.next();
+                if (rs.getInt(1) == 0) {
+                    survey.setAdditionalQuestions(false);
+                }
+
+            } catch (SQLException e) {
+                System.out.print(e.getMessage());
+            }
+            if (survey.hasAdditionalQuestions()) {
+                try (PreparedStatement pst = con.prepareStatement(
+                        " SELECT number, question "  +
+                                " FROM surveyquestion "  +
+                                " WHERE holiday=? " )) {
+                    pst.setString(1, survey.getArchive().getHolidayID());
+                    rs = pst.executeQuery();
+
+                    while (rs.next()) {
+                        ol.add(new SurveyQuestion(survey.getArchive().getHolidayID(),
+                                rs.getInt(1),
+                                rs.getString(2)));
+                    }
+
+                } catch (SQLException e) {
+                    System.out.print(e.getMessage());
+                }
+            }
+        } catch (SQLException e) {
+            System.out.print(e.getMessage());
+        }
+        return ol;
+    }
 
     //    RESERVATION(holiday,student,
     //                familystay*,single*,friend*,paymentmethod)
@@ -565,8 +730,7 @@ public class Fetch {
         return travelAgent;
     }
 
-    public static Question question(String holiday, String question) {
-    }
+
 
 
 

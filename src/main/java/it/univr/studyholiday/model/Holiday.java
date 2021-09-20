@@ -15,11 +15,11 @@ public class Holiday {
     private College college;
     private ArrayList<FieldTrip> fieldTrips;
 
-    public Holiday(String id, LocalDate startDate, int weeks, College college) {
-        this.id = id;
+    public Holiday(LocalDate startDate, int weeks, College college) {
         this.startDate = startDate;
         this.weeks = weeks;
         this.college = college;
+        this.id=getId();
         this.fieldTrips = Fetch.fieldTripsFor(id);
     }
 
@@ -42,13 +42,16 @@ public class Holiday {
     }
 
     public String getId() {
-        return id;
+        if(id.isEmpty() || id.isBlank())
+            return (college.getId()+startDate.toString()+weeks).replaceAll("[ ,]","");
+        else
+            return id;
     }
     public LocalDate getStartDate() {
         return startDate;
     }
     public LocalDate getEndDate() {
-        return startDate.plusWeeks(weeks).minusDays(1)
+        return startDate.plusWeeks(weeks).minusDays(1);
     }
     public int getWeeks() {
         return weeks;

@@ -56,7 +56,6 @@ public class Activity {
 
     public static ArrayList<Activity> getAllFor(College college){
         Fetch.collegeActivities(college.getId());
-
         return null;
     }
 }

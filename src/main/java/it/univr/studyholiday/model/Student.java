@@ -40,10 +40,6 @@ public class Student {
         this.address = address;
     }
 
-    public static void singupStudent(Student student) {
-        //todo
-    }
-
     public static void fetch(String email){
         Fetch.student(email);
     }

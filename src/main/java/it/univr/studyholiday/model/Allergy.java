@@ -44,7 +44,7 @@ public class Allergy {
         return precautions;
     }
     public static ArrayList<Allergy> getAll(Student student){
-        Fetch.allAllergiesFor(student.getEmail());
+        return  Fetch.allAllergiesFor(student.getEmail());
     }
 
     public void setStudent(Student student) {

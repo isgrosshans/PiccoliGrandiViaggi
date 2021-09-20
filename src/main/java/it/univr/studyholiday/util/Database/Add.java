@@ -10,12 +10,10 @@ import java.util.ArrayList;
 
 public class Add {
 
-    //todo check single queries
-
     //    ACCOMODATION(student,holiday,
     //                 dormroom,family,startdate,enddate)
     public static void add (Accommodation accommodation){
-        /*try {
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(""+e.getMessage());
@@ -26,8 +24,8 @@ public class Add {
                             " dormroom,family,startdate,enddate)"  +
                             " VALUES (?,?, "  +
                             " ?,?,?,? ) " )){
-                pst.setString(1, accommodation.getReservation().getStudent().getEmail());
-                pst.setString(2, accommodation.getReservation().getHoliday().getId());
+                pst.setString(1, accommodation.getStudent().getEmail());
+                pst.setString(2, accommodation.getHoliady().getId());
                 if(accommodation.getReservation().isFamilyStay()) {
                     pst.setString(3, "DEFAULT");
                     pst.setString(4, accommodation.getFamily().getEmail());
@@ -44,7 +42,7 @@ public class Add {
             }
         }catch(SQLException e){
             System.out.print("add college "+e.getMessage());
-        }*/
+        }
     }
 
     //    ACTIVITY(college,name,
@@ -122,7 +120,7 @@ public class Add {
 
     //    ANSWER(holiday,question,student)
     public static void add(Answer answer){
-        /*try {
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());
@@ -131,16 +129,16 @@ public class Add {
             try (PreparedStatement pst = con.prepareStatement(
                     " INSERT INTO Answer (holiday, question, student) "  +
                             " VALUES (?,?,?) " )){
-                pst.setString(1, answer.); //TODO
-                pst.setString(2, answer.); //TODO
-                pst.setString(3, answer.); //TODO
+                pst.setString(1, answer.getSurvey().getHoliday().getId());
+                pst.setString(2, answer.getQuestion().getQuestion());
+                pst.setString(3, answer.getSurvey().getStudent().getEmail());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());
             }
         }catch(SQLException e){
             System.out.print(e.getMessage());
-        }*/
+        }
     }
 
     //    COLLEGE(id,
@@ -201,9 +199,9 @@ public class Add {
             System.out.print("add fieldtrip"+e.getMessage());
         }
     }
+
     //    DORMROOM(college,number,
     //             beds)
-
     public static void add(DormRoom dormRoom){
         try {
             Class.forName("org.postgresql.Driver");
@@ -225,7 +223,6 @@ public class Add {
             System.out.print("add activity "+e.getMessage());
         }
     }
-
 
     //    HOBBY(student,hobby)
     public static void add(Hobby hobby){
@@ -295,7 +292,7 @@ public class Add {
                     " INSERT INTO Holiday (id, startdate, college, weeks) "  +
                             " VALUES (?,?,?,?) " )){
                 pst.setString(1, holiday.getId());
-                pst.setDate(2, Date.valueOf(holiday.getStartDate());
+                pst.setDate(2, Date.valueOf(holiday.getStartDate()));
                 pst.setString(3, holiday.getCollege().getId());
                 pst.setInt(4, holiday.getWeeks());
                 pst.executeUpdate();
@@ -338,7 +335,7 @@ public class Add {
     //    QUESTION(holiday,question)
 
     public static void add(Question question){
-        /*try {
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
@@ -347,15 +344,15 @@ public class Add {
             try (PreparedStatement pst = con.prepareStatement(
                     " INSERT INTO Question (holiday, question) "  +
                             " VALUES (?,?) " )){
-                pst.setString(1,question.); //TODO
-                pst.setString(2,question.);//TODO
+                pst.setString(1,question.getHoliday().getId());
+                pst.setString(2,question.getQuestion());
                 pst.executeUpdate();
             } catch (SQLException e) {
                 System.out.print(e.getMessage());
             }
         }catch(SQLException e){
             System.out.print(e.getMessage());
-        }*/
+        }
     }
 
     //    RESERVATION(holiday,student,
@@ -373,7 +370,7 @@ public class Add {
                             "  VALUES (?,?,?,?,  "   +
                             "  ?,?)  "  )){
                 pst.setString(1,reservation.getHoliday().getId());
-                pst.setString(2, reservation.getStudent().getEmail();
+                pst.setString(2, reservation.getStudent().getEmail());
                 pst.setBoolean(3,reservation.isFamilyStay());
                 if(reservation.isFamilyStay()){
                     pst.setString(4,reservation.getFriend().getEmail());
@@ -397,7 +394,7 @@ public class Add {
 
 
     //    STUDENT(email,
-    //            password,name,surname,birthday,birthplace,address,postalcode,city,provinceorstate,country,telephone*)
+    //            password,name,surname,birthday,birthplace,address,sex,phonenumber*)
     public static void add(Student student){
         try {
             Class.forName("org.postgresql.Driver");
@@ -434,7 +431,7 @@ public class Add {
     }
 
     //    TRAVELAGENT(email,
-    //                password,name,surname,telephone)
+    //                password,name,surname,phonenumber)
     public static void add(TravelAgent travelAgent){
         try {
             Class.forName("org.postgresql.Driver");
@@ -443,7 +440,7 @@ public class Add {
         }
         try(Connection con=Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " INSERT INTO TravelAgent (email, password, firstName, lastName,phoneNumber "  +
+                    " INSERT INTO TravelAgent (email, password, name, surname,phonenumber "  +
                             " VALUES (?,?,?,?,? " )){
                 pst.setString(1,travelAgent.getEmail());
                 pst.setString(2,travelAgent.getPassword());

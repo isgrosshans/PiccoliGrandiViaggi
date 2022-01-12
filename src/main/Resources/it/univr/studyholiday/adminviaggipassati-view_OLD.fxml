@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.AdminViewPastHolidaysController">
+    <children>
+        <TableView layoutY="70.0" prefHeight="415.0" prefWidth="600.0">
+            <columns>
+                <TableColumn id="colonnadestinazione" prefWidth="164.0" text="Destinazione" />
+                <TableColumn id="colonnadurata" prefWidth="137.0" text="Durata" />
+                <TableColumn id="datapartenza" prefWidth="181.0" text="Data Partenza" />
+                <TableColumn id="linguacolonna" prefWidth="117.0" text="Lingua" />
+            </columns>
+        </TableView>
+        <Label layoutX="42.0" layoutY="28.0" text="Viaggi passati">
+            <font>
+                <Font size="20.0" />
+            </font></Label>
+        <Button id="visualizzaquestionariobutton" layoutX="452.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#OnvisualizzaquestionarioClick" text="Visualizza questionario" />
+        <Button id="menubutton" layoutX="524.0" layoutY="497.0" mnemonicParsing="false" onMouseClicked="#onMenuClik" text=" Menu" />
+    </children>
+</AnchorPane>

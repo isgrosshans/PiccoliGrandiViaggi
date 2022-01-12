@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="246.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="39.0" layoutY="33.0" text="Tipo di alloggio">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="39.0" layoutY="90.0" mnemonicParsing="false" text="Famiglia" />
+      <RadioButton layoutX="117.0" layoutY="90.0" mnemonicParsing="false" text="College" />
+      <TextField layoutX="39.0" layoutY="134.0" prefHeight="25.0" prefWidth="167.0" promptText="nome amico" />
+      <TextField layoutX="38.0" layoutY="170.0" prefHeight="25.0" prefWidth="167.0" promptText="email amico" />
+      <ComboBox layoutX="38.0" layoutY="209.0" prefHeight="25.0" prefWidth="167.0" promptText="tipologia camera" />
+      <ComboBox layoutX="38.0" layoutY="308.0" prefHeight="25.0" prefWidth="167.0" promptText="metodo di pagamento" />
+      <Separator layoutX="39.0" layoutY="270.0" prefHeight="3.0" prefWidth="167.0" />
+      <Button layoutX="138.0" layoutY="355.0" mnemonicParsing="false" text="Conferma" />
+   </children>
+</AnchorPane>

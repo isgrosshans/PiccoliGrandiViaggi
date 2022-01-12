@@ -1,12 +1,23 @@
 package it.univr.studyholiday.controller;
 
+import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.model.Allergy;
+import it.univr.studyholiday.model.Hobby;
+import it.univr.studyholiday.model.Parent;
 import it.univr.studyholiday.model.Student;
+import it.univr.studyholiday.util.Database.Add;
+import it.univr.studyholiday.util.LoginUtil;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 
-public class SignUpController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+public class SignUpController implements Initializable {
+
     @FXML private TextField email;
     @FXML private TextField password;
     @FXML private TextField confirmpassword;
@@ -47,13 +58,27 @@ public class SignUpController {
     // BUTTON [COMPLETA REGISTRAZIONE]
 
 
-    public void onFemaleRadioButtonClick(){
-        male.disarm();
-    }
-    public void onMaleRadioButtonClick(){
-        female.disarm();
+    public void OnAddParentClicked(){
+//        if(countparents==1) aggiungialtrogenitore.setDisable(true);
+//        stremailgenitore[countparents]=emailgenitore.getText();
+//        strnomegenitore[countparents]=nomegenitore.getText();
+//        strcognomegenitore[countparents]=cognomegenitore.getText();
+//        strtelefonogenitore[countparents]=telefonogenitore.getText();
+//        emailgenitore.setText("");
+//        nomegenitore.setText("");
+//        cognomegenitore.setText("");
+//        telefonogenitore.setText("");
+//        countparents++;
     }
 
+    public void onAddAllergiylicked(){
+//        allergies.add(allergia.getText());
+//        //allergia.
+    }
+    public void OnAddHobbyClicked(){
+//        hobbies.add(hobby.getText());
+//       // hobby.setText("");
+    }
 
     public void onConfirmSignupClick(){
         String sex = "";
@@ -71,4 +96,8 @@ public class SignUpController {
 //                phonenumber.getText(),
 //                address.getText()));
     }
+    public void onExitClicked() throws IOException {
+        GlossaApplication.setRoot("login-view");
+    }
+
 }

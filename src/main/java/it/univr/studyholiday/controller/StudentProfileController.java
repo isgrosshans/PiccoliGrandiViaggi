@@ -1,9 +1,7 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.HelloApplication;
+import it.univr.studyholiday.GlossaApplication;
 import it.univr.studyholiday.model.Reservation;
-import it.univr.studyholiday.model.UserType;
-import it.univr.studyholiday.util.Database.Fetch;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
@@ -45,10 +43,10 @@ public class StudentProfileController implements Initializable {
         // TODO: Assicurarsi che tutto sia stato completato
 
 
-        HelloApplication.setRoot("student_menu_view");
+        GlossaApplication.setRoot("student_menu_view");
     }
 
     public void backButtonAction() throws IOException {
-        HelloApplication.setRoot("student_menu_view");
+        GlossaApplication.setRoot("student_menu_view");
     }
 }

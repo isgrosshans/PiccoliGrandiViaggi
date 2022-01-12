@@ -1,56 +1,61 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.HelloApplication;
+import it.univr.studyholiday.GlossaApplication;
 import it.univr.studyholiday.model.UserType;
 import it.univr.studyholiday.util.Database.Database;
 import it.univr.studyholiday.util.Database.Fetch;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import it.univr.studyholiday.util.LoginUtil;
 
 public class LoginController {
-    @FXML private TextField email;
-    @FXML private PasswordField password;
-    @FXML private Button signUpButton;
-    @FXML private Button loginButton;
-    @FXML private Label message;
+    @FXML private TextField Email;
+    @FXML private PasswordField Password;
+//    @FXML private Button signUpButton;
+//    @FXML private Button loginButton;
+    @FXML private Label loginFailedMessage;
 
-    public void loginClick() throws IOException {
-        //TODO email
-        if (LoginUtil.emailIsAdmin(email.getText())) {
-            if(Database.adminLogin(email.getText(), LoginUtil.encrypy(password.getText()))) {
-                UserType.setMode(Fetch.travelAgent(email.getText()));
 
-                HelloApplication.setRoot("admin-view");
+
+    public void loginButtonAction() throws IOException {
+        System.out.println(Password.getText());
+
+        String psw = LoginUtil.encrypy(Password.getText());
+
+        UserType.setMode();
+        if (LoginUtil.emailIsAdmin(Email.getText())) {
+            if(Database.adminLogin(Email.getText(), psw)) {
+                //UserType.setMode(Fetch.travelAgent(Email.getText()));
+
+                GlossaApplication.setRoot("staffHome-view");
+                System.out.println("staff log in successful");
             }
-//            else message.setText("Email o password errata");
+            else loginFailedMessage.setVisible(true);
         }
+
         else {
-            if (Database.studentLogin(email.getText(), LoginUtil.encrypy(password.getText()))) {
-                UserType.setMode(Fetch.student(email.getText()));
+            if (Database.studentLogin(Email.getText(), psw)) {
+                //UserType.setMode(Fetch.student(Email.getText()));
 
-                HelloApplication.setRoot("student_menu_view");
+                GlossaApplication.setRoot("student_menu_view_OLD");
             }
-//            else message.setText("Email o password errata");
+            else loginFailedMessage.setVisible(true);
 
         }
     }
 
-    public void signUpClick(){
-        //TODO
-        //Go to sign up page
-
+    public void registratiButtonAction() throws IOException {
+        GlossaApplication.setRoot("signup-view");
     }
 
+    public void exitButtonAction(ActionEvent actionEvent) {
+
+    }
 }

@@ -21,41 +21,42 @@ public class SignUpController implements Initializable {
     @FXML private TextField email;
     @FXML private TextField password;
     @FXML private TextField confirmpassword;
-    @FXML private TextField name;
-    @FXML private TextField surname;
-    @FXML private DatePicker birthday;
-    @FXML private TextField birthplace;
-    @FXML private RadioButton male;
-    @FXML private RadioButton female;
-    @FXML private TextField address;
-    @FXML private TextField phonenumber;
-    // USER MUST INSERT FOLLOWING INFORMATION
-    //        email
-    //        password
-    //        conefrma password
-    //        nome
-    //        cognome
-    //        data di nascita
-    //        luogo di nascita
-    //        indirizzo(via, CAP, città, provincia, paese)
-    //        numero di telefono (opzionale)
-    //        allergie e precauzioni
-    //        +	(no limite max)
-    //        hobby
-    //        +	(no limite max)
-    //        genitori (1 o 2) (nome, cognome, email, telefono)
-    //
-    // SYSTEM CHECKS IF EMAIL IS AVAILABLE
-    //      if(Database.Database.emailInUse(email))
-    //          ERROR
-    //
-    // SYSTEM CHECKS THAT ALL DATA HAS BEEN INSERTED
-    // SYSTEM CHECKS THAT EMAIL IS VALID
-    // if(!emailAddress.equals(!"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\n")){
-    //            System.out.println("Errore: indirizzo email non valido.");
-    //
-    // IF THERE ARE NO PROBLEMS
-    // BUTTON [COMPLETA REGISTRAZIONE]
+    @FXML private TextField nome;
+    @FXML private TextField cognome;
+    @FXML private DatePicker datadinascita;
+    @FXML private TextField luogodinascita;
+    @FXML private RadioButton maschio;
+    @FXML private RadioButton femmina;
+    @FXML private TextField indirizzo;
+    @FXML private TextField telefono;
+    @FXML private TextField emailgenitore;
+    @FXML private TextField nomegenitore;
+    @FXML private TextField cognomegenitore;
+    @FXML private TextField telefonogenitore;
+    @FXML private TextField allergia;
+    @FXML private Button aggiungiallergia;
+    @FXML private TextField hobby;
+    @FXML private Button aggiungihobby;
+    @FXML private Button aggiungialtrogenitore;
+    @FXML private Button escibutton;
+    @FXML private Button registratibutton;
+    @FXML private ComboBox sex;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        sex.getItems().addAll("Maschio", "Femmina");
+        aggiungialtrogenitore.setDisable(true);
+        aggiungialtrogenitore.setVisible(false);
+    }
+
+
+    private ArrayList<String> hobbies=new ArrayList<String>();
+    private int countparents=0;
+    private ArrayList<String> allergies=new ArrayList<String>();
+    private String stremailgenitore;
+    private String strnomegenitore;
+    private String strcognomegenitore;
+    private String strtelefonogenitore;
 
 
     public void OnAddParentClicked(){
@@ -80,21 +81,49 @@ public class SignUpController implements Initializable {
 //       // hobby.setText("");
     }
 
-    public void onConfirmSignupClick(){
-        String sex = "";
-        if(male.isArmed()) sex = "M";
-        if(female.isArmed()) sex = "F";
+    public void onRegisterClicked() throws IOException {
+        String studentemail=email.getText();
+        String sexval= (String) sex.getValue();
+        sexval=""+sexval.charAt(0);
 
-//        Student.singupStudent(new Student(
-//                email.getText(),
-//                password.getText(),
-//                name.getText(),
-//                surname.getText(),
-//                birthday.getValue(),
-//                birthplace.getText(),
-//                sex,
-//                phonenumber.getText(),
-//                address.getText()));
+        Student student=new Student(studentemail,
+                LoginUtil.encrypy(password.getText()),
+                nome.getText(),
+                cognome.getText(),
+                datadinascita.getValue(),
+                luogodinascita.getText(),
+                sexval,
+                telefono.getText(),
+                indirizzo.getText());
+        student.add();
+
+        Add.add(new Allergy(student,allergia.getText(), " "));
+        Add.add(new Hobby(student,hobby.getText()));
+
+        ArrayList<Allergy> a=new ArrayList<Allergy>();
+        for (String s:allergies) {
+            a.add(new Allergy(email.getText(),s, " "));
+        }
+        Add.add(a);
+
+        ArrayList<Hobby> h=new ArrayList<Hobby>();
+        for (String s:hobbies) {
+            Add.add(new Hobby(email.getText(), s));
+        }
+
+
+
+        Add.add(new Parent(emailgenitore.getText(),nomegenitore.getText(), cognomegenitore.getText(),telefonogenitore.getText(), student));
+
+
+//        if(countparents>1){
+//
+//
+//                Add.add(new Parent(stremailgenitore[1],
+//                        strnomegenitore[1], strcognomegenitore[1],
+//                        strtelefonogenitore[1], email.getText()));
+//        }
+        GlossaApplication.setRoot("login-view");
     }
     public void onExitClicked() throws IOException {
         GlossaApplication.setRoot("login-view");

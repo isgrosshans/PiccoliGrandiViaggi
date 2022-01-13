@@ -21,7 +21,7 @@ public class LoginUtil {
     }
 
     public static boolean emailIsAdmin(String email){
-        if(email.contains("@pgv.it") || !email.contains("@"))
+        if(email.contains("@pgv.it"))
             return true;
         return false;
     }

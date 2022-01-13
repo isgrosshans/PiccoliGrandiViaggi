@@ -23,6 +23,8 @@ public class LoginDB {
     public static boolean emailIsAdmin(String email){
         if(email.contains("@pgv.it"))
             return true;
+        if(!email.contains("@"))
+            System.out.println("no @");
         return false;
     }
 }

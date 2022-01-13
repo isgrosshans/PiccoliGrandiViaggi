@@ -42,7 +42,7 @@ public class Holiday {
     }
 
     public String getId() {
-        if(id.isEmpty() || id.isBlank())
+        if(id==null || id.isEmpty() || id.isBlank())
             return (college.getId()+startDate.toString()+weeks).replaceAll("[ ,]","");
         else
             return id;

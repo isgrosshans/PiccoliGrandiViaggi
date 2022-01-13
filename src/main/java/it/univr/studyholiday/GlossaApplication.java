@@ -1,6 +1,12 @@
 package it.univr.studyholiday;
 
-import it.univr.studyholiday.util.populate;
+import it.univr.studyholiday.model.Address;
+import it.univr.studyholiday.model.College;
+import it.univr.studyholiday.model.Holiday;
+import it.univr.studyholiday.model.TravelAgent;
+import it.univr.studyholiday.util.Database.Add;
+import it.univr.studyholiday.util.Database.Fetch;
+import it.univr.studyholiday.util.LoginUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,25 +14,25 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
-public class HelloApplication extends Application {
+public class GlossaApplication extends Application {
 
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
 //        FXMLLoader fxmlLoader = LoginView.getFxmlLoader();
-        scene = new Scene(loadFXML("login-view"));
+        scene = new Scene(loadFXML("login-view"), 600, 430);
 
-        stage.setTitle("Glossa");
+        stage.setTitle("Piccoli Grandi Viaggi");
         stage.setScene(scene);
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.show();
     }
 
     public static void main(String[] args) throws IOException {
         launch();
-        //start(SingleStage.getInstance().stage);
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -34,7 +40,7 @@ public class HelloApplication extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        var fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml + ".fxml"));
+        var fxmlLoader = new FXMLLoader(GlossaApplication.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 

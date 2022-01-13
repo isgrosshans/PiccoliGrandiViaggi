@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="it.univr.studyholiday.controller.SignUpController">
+   <children>
+      <TextField fx:id="luogodinascita" layoutX="42.0" layoutY="163.0" prefHeight="25.0" prefWidth="174.0" promptText="luogo di nascita" />
+      <TextField fx:id="nome" layoutX="44.0" layoutY="55.0" prefHeight="25.0" prefWidth="174.0" promptText="nome" />
+      <TextField fx:id="cognome" layoutX="44.0" layoutY="91.0" prefHeight="25.0" prefWidth="174.0" promptText="cognome" />
+      <DatePicker fx:id="datadinascita" layoutX="44.0" layoutY="128.0" promptText="data di nascita" />
+      <TextField fx:id="indirizzo" layoutX="44.0" layoutY="262.0" prefHeight="25.0" prefWidth="174.0" promptText="indirizzo" />
+      <TextField fx:id="telefono" layoutX="44.0" layoutY="298.0" prefHeight="25.0" prefWidth="174.0" promptText="telefono" />
+      <TextField fx:id="allergia" layoutX="44.0" layoutY="357.0" prefHeight="25.0" prefWidth="145.0" promptText="allergie" />
+      <TextField fx:id="email" layoutX="331.0" layoutY="269.0" prefHeight="25.0" prefWidth="174.0" promptText="email" />
+      <PasswordField fx:id="password" layoutX="331.0" layoutY="305.0" prefHeight="25.0" prefWidth="174.0" promptText="password" />
+      <TextField fx:id="hobby" layoutX="44.0" layoutY="393.0" prefHeight="25.0" prefWidth="145.0" promptText="hobby" />
+      <Separator layoutX="42.0" layoutY="245.0" prefHeight="3.0" prefWidth="174.0" />
+      <Separator layoutX="46.0" layoutY="340.0" prefHeight="3.0" prefWidth="174.0" />
+      <Button fx:id="registratibutton" layoutX="331.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#onRegisterClicked" text="Registrati" />
+      <Button fx:id="escibutton" layoutX="462.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#onExitClicked" text="Esci" />
+      <PasswordField fx:id="confirmpassword" layoutX="331.0" layoutY="341.0" prefHeight="25.0" prefWidth="174.0" promptText="ripeti password" />
+      <TextField fx:id="nomegenitore" layoutX="331.0" layoutY="54.0" prefHeight="25.0" prefWidth="174.0" promptText="nome genitore" />
+      <TextField fx:id="cognomegenitore" layoutX="331.0" layoutY="90.0" prefHeight="25.0" prefWidth="174.0" promptText="cognome genitore" />
+      <TextField fx:id="telefonogenitore" layoutX="331.0" layoutY="127.0" prefHeight="25.0" prefWidth="174.0" promptText="telefono genitore" />
+      <TextField fx:id="emailgenitore" layoutX="331.0" layoutY="163.0" prefHeight="25.0" prefWidth="174.0" promptText="email genitore" />
+      <Separator layoutX="331.0" layoutY="228.0" prefHeight="3.0" prefWidth="174.0" />
+      <Label layoutX="45.0" layoutY="21.0" text="Registrati">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="aggiungialtrogenitore" layoutX="480.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#OnAddParentClicked" prefHeight="25.0" prefWidth="25.0" text="+" />
+      <Button fx:id="aggiungiallergia" layoutX="189.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#onAddAllergiylicked" prefHeight="25.0" prefWidth="25.0" text="+" />
+      <Button fx:id="aggiungihobby" layoutX="189.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#OnAddHobbyClicked" prefHeight="25.0" prefWidth="25.0" text="+" />
+      <ComboBox fx:id="sex" layoutX="44.0" layoutY="198.0" prefHeight="25.0" prefWidth="174.0" promptText="sesso" visibleRowCount="2" />
+   </children>
+</AnchorPane>

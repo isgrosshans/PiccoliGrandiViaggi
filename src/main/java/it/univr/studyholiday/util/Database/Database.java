@@ -5,7 +5,7 @@ import java.sql.*;
 public class Database {
     private static String url = "jdbc:postgresql://hattie.db.elephantsql.com/buztakgk";
     private static final String username = "buztakgk";
-    private static final String password = "JCFhPxCKBqN7mn_wKoeEIhEFJ-llgDnw";
+    private static final String password = "MUubzucXQNb1f7uECJLMRMz9M_dxY9aV";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, username, password);
@@ -72,8 +72,9 @@ public class Database {
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " SELECT COUNT(*) FROM travelagent WHERE email=? "  +
-                            "  AND password=?  " )) {
+
+                    " SELECT COUNT(*) FROM staff WHERE email=? "  +
+                            "  AND psw=?  " )) {
 
                 pst.setString(1, email);
                 pst.setString(2, password);

@@ -17,6 +17,11 @@ public class UserType {
         instance.setTravelAgent(travelAgent);
         instance.setAdmin(true);
     }
+    public static void setMode() {
+        instance.setTravelAgent(null);
+        instance.setStudent(null);
+        instance.setAdmin(false);
+    }
 
     public static Boolean isAdmin(){
         return instance.admin;
@@ -40,4 +45,6 @@ public class UserType {
     private void setAdmin(Boolean admin) {
         this.admin = admin;
     }
+
+
 }

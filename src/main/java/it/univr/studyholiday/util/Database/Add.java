@@ -327,7 +327,7 @@ public class Add {
         try(Connection con=Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     "  INSERT INTO Parent(email,child,name,surname,phonenumber)  "   +
-                            "  VALUES (?,?,?,?,?")){
+                            "  VALUES (?,?,?,?,?)")){
                 pst.setString(1, parent.getEmail());
                 pst.setString(2, parent.getChild().getEmail());
                 pst.setString(3, parent.getName());
@@ -436,14 +436,14 @@ public class Add {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(""+e.getMessage());
         }
-        //Student(email, password, firstName, lastName, birthDay, birthPlace, sex, phoneNumber*)
+        //Student(email, password, name, lastName, birthDay, birthPlace, sex, phoneNumber*)
         try(Connection con=Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    "  INSERT INTO  Student (email, password, name, surname,   "   +
+                    " INSERT INTO Student (email, password, name, surname,   "   +
                             " birthday, birthplace, sex, address, " +
                             " phoneNumber )  "   +
                             "  VALUES (?,?,?,?,  "   +
-                            "  ?,?,?,?" +
+                            "  ?,?,?,?," +
                             "  ?)  "  )){
                 pst.setString(1, student.getEmail());
                 pst.setString(2, student.getPassword());
@@ -475,8 +475,8 @@ public class Add {
         }
         try(Connection con=Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " INSERT INTO TravelAgent (email, password, name, surname,phonenumber "  +
-                            " VALUES (?,?,?,?,? " )){
+                    " INSERT INTO staff (email, psw, firstname, lastname,phone) "  +
+                            " VALUES (?,?,?,?,? )" )){
                 pst.setString(1,travelAgent.getEmail());
                 pst.setString(2,travelAgent.getPassword());
                 pst.setString(3,travelAgent.getName());

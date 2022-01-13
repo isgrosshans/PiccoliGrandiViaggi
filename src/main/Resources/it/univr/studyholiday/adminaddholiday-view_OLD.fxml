@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#OnConfermaClick" prefHeight="334.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.SignUpController">
+    <children>
+        <Label layoutX="45.0" layoutY="17.0" text="Inserisci Vacanza">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <TextField id="id" layoutX="42.0" layoutY="55.0" prefHeight="25.0" prefWidth="174.0" promptText="id" />
+        <TextField id="settimane" layoutX="42.0" layoutY="127.0" prefHeight="25.0" prefWidth="174.0" promptText="Settimane" />
+        <TextField id="college" layoutX="42.0" layoutY="165.0" prefHeight="25.0" prefWidth="174.0" promptText="College" />
+        <TextField id="lingua" layoutX="40.0" layoutY="205.0" prefHeight="25.0" prefWidth="174.0" promptText="Lingua" />
+        <Button id="registratibutton" layoutX="400.0" layoutY="270.0" mnemonicParsing="false" text="Conferma" />
+        <Button id="escibutton" layoutX="503.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#Onesciclick" text="Esci" />
+        <TextField id="costo" layoutX="349.0" layoutY="129.0" prefHeight="25.0" prefWidth="174.0" promptText="costo" />
+        <TextField id="ore" layoutX="349.0" layoutY="93.0" prefHeight="25.0" prefWidth="174.0" promptText="ore" />
+        <TextField id="destinazione" layoutX="349.0" layoutY="57.0" prefHeight="25.0" prefWidth="174.0" promptText="Destinazione" />
+        <DatePicker id="datainizio" layoutX="42.0" layoutY="93.0" promptText="Data inizio" />
+        <TextField id="descrizione" layoutX="349.0" layoutY="165.0" prefHeight="25.0" prefWidth="174.0" promptText="descrizione" />
+    </children>
+</AnchorPane>

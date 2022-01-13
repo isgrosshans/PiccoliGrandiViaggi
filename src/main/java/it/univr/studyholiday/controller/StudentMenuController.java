@@ -1,6 +1,7 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.HelloApplication;
+import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.model.UserType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -16,15 +17,16 @@ public class StudentMenuController {
     public Button logoutButton;
 
     public void viaggiButtonAction() throws IOException {
-        HelloApplication.setRoot("student_catalog_view");
+        GlossaApplication.setRoot("student_catalog_view");
     }
 
     public void profiloButtonAction() throws IOException {
-        HelloApplication.setRoot("student_profile");
+        GlossaApplication.setRoot("student_profile");
     }
 
     public void logoutButtonAction() throws IOException {
-        HelloApplication.setRoot("login-view");
+        UserType.setMode();
+        GlossaApplication.setRoot("login-view");
     }
 
 }

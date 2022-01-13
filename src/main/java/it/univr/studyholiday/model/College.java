@@ -21,7 +21,7 @@ public class College {
         this.language = language;
         this.address = address;
         this.id=getId();
-        this.activities = Fetch.collegeActivities(getId());
+        //this.activities = Fetch.collegeActivities(getId());
     }
 
     public College(String id, String name, String language, Address address) {
@@ -29,7 +29,7 @@ public class College {
         this.name = name;
         this.language = language;
         this.address = address;
-        this.activities = Fetch.collegeActivities(getId());
+        //this.activities = Fetch.collegeActivities(getId());
     }
 
     public static College fetch(String college) {
@@ -45,7 +45,7 @@ public class College {
     }
 
     public String getId() {
-        if(id.isEmpty() || id.isBlank())
+        if(id==null||id.isEmpty() || id.isBlank())
             return (name+language+getAddress().getFullAddress()).replaceAll("[ ,]","");
 
         else
@@ -78,5 +78,10 @@ public class College {
     }
     public void setActivities(ArrayList<Activity> activities) {
         this.activities = activities;
+    }
+
+    @Override
+    public String toString(){
+        return name+", "+address.getFullAddress();
     }
 }

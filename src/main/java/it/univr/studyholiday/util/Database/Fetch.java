@@ -83,7 +83,7 @@ public class Fetch {
     //    ACTIVITY(college,name,
     //             description)
     public static ArrayList<Activity> collegeActivities(String collegeid) {
-        ArrayList<Activity> activities=null;
+        ArrayList<Activity> activities=new ArrayList<Activity>();
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -121,7 +121,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Allergy> allergies = null;
+        ArrayList<Allergy> allergies = new ArrayList<Allergy>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -152,7 +152,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Answer> answers = null;
+        ArrayList<Answer> answers = new ArrayList<Answer>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -186,7 +186,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Answer> answers = null;
+        ArrayList<Answer> answers = new ArrayList<Answer>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -221,7 +221,7 @@ public class Fetch {
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " SELECT id, name, language, address, " +
+                    " SELECT name, language, address, " +
                             " postalcode, city, provinceorstate, country "  +
                             " FROM college "  +
                             " WHERE id=? " )) {
@@ -254,27 +254,26 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<College> ol = null;
+        ArrayList<College> ol = new ArrayList<College>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     " SELECT name, language, address, postalCode, " +
                             " city, provinceorstate, country "  +
                             " FROM college "  +
-                            " GROUP BY idcode " )) {
+                            " GROUP BY id " )) {
                 rs = pst.executeQuery();
 
                 while (rs.next()) {
                     ol.add(new College(
                             rs.getString(1),
                             rs.getString(2),
-                            rs.getString(3),
                             new Address(
+                                rs.getString(3),
                                 rs.getString(4),
                                 rs.getString(5),
                                 rs.getString(6),
-                                rs.getString(7),
-                                rs.getString(8))));
+                                rs.getString(7))));
                 }
 
             } catch (SQLException e) {
@@ -322,7 +321,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Hobby> hobbies = null;
+        ArrayList<Hobby> hobbies = new ArrayList<Hobby>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -390,7 +389,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<FieldTrip> fieldTrips = null;
+        ArrayList<FieldTrip> fieldTrips = new ArrayList<FieldTrip>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -452,7 +451,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Holiday> ol = null;
+        ArrayList<Holiday> ol = new ArrayList<Holiday>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -483,7 +482,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Holiday> ol = null;
+        ArrayList<Holiday> ol = new ArrayList<Holiday>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -517,7 +516,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Holiday> ol = null;
+        ArrayList<Holiday> ol = new ArrayList<Holiday>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -552,7 +551,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Parent> parents = null;
+        ArrayList<Parent> parents = new ArrayList<Parent>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -613,7 +612,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Question> questions = null;
+        ArrayList<Question> questions = new ArrayList<Question>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -678,7 +677,7 @@ public class Fetch {
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        ArrayList<Reservation> reservations = null;
+        ArrayList<Reservation> reservations = new ArrayList<Reservation>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
@@ -722,7 +721,7 @@ public class Fetch {
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     " SELECT email, password, name, surname, " +
-                            " birthday, birthplace, sex, phoneNumber" +
+                            " birthday, birthplace, sex, phoneNumber, " +
                             " address" +
                             " FROM student "  +
                             " WHERE email=? " )) {
@@ -770,7 +769,7 @@ public class Fetch {
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
-                    " SELECT email, password, firstname, lastname, " +
+                    " SELECT email, password, name, surname, " +
                             " phonenumber "  +
                             " FROM travelagent "  +
                             " WHERE email=? " )) {

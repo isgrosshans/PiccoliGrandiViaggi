@@ -34,7 +34,7 @@ public class LoginController {
             if(Database.adminLogin(Email.getText(), psw)) {
                 //UserType.setMode(Fetch.travelAgent(Email.getText()));
 
-                GlossaApplication.setRoot("staffHome-view");
+                GlossaApplication.setRoot("StaffHome-view");
                 System.out.println("staff log in successful");
             }
             else loginFailedMessage.setVisible(true);

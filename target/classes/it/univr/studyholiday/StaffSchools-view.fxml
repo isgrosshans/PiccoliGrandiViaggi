@@ -2,8 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -22,15 +22,15 @@
       </Label>
       <Button fx:id="AddSchoolButton" contentDisplay="CENTER" layoutX="366.0" layoutY="57.0" mnemonicParsing="false" onAction="#AddSchoolButtonClick" text="Aggiungi scuola" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="366.0" AnchorPane.rightAnchor="28.0" />
       <Button fx:id="ReturnMenuButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnMenuButtonClick" text="&lt; Menu" />
-      <TreeTableView layoutX="15.0" layoutY="118.0" prefHeight="280.0" prefWidth="443.0">
+      <TableView fx:id="SchoolTable" layoutX="15.0" layoutY="118.0" prefHeight="280.0" prefWidth="443.0">
         <columns>
-            <TreeTableColumn fx:id="NameTreeTableColumn" prefWidth="75.0" text="Nome" />
-          <TreeTableColumn fx:id="CityTreeTableColumn" prefWidth="75.0" text="Città" />
-          <TreeTableColumn fx:id="LanguageTreeTableColumn" prefWidth="75.0" text="Lingua" />
+            <TableColumn fx:id="NameColumn" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="CityColumn" prefWidth="75.0" text="Città" />
+          <TableColumn fx:id="LanguageColumn" prefWidth="75.0" text="Lingua" />
         </columns>
          <columnResizePolicy>
-            <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
-      </TreeTableView>
+      </TableView>
    </children>
 </AnchorPane>

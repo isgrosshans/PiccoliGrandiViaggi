@@ -2,11 +2,83 @@ package it.univr.studyholiday.util.Database;
 
 import it.univr.studyholiday.model.*;
 
+import java.lang.reflect.Field;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Fetch {
+
+    public static ArrayList<School> fetchallschools (){
+//            try {
+//                Class.forName("org.postgresql.Driver");
+//            } catch (java.lang.ClassNotFoundException e) {
+//                System.out.println(e.getMessage());
+//            }
+//            ArrayList<College> ol = new ArrayList<College>();
+//            ResultSet rs = null;
+//            try (Connection con = Database.getConnection()) {
+//                try (PreparedStatement pst = con.prepareStatement(
+//                        " SELECT name, language, address, postalCode, " +
+//                                " city, provinceorstate, country "  +
+//                                " FROM college "  +
+//                                " GROUP BY id " )) {
+//                    rs = pst.executeQuery();
+//
+//                    while (rs.next()) {
+//                        ol.add(new College(
+//                                rs.getString(1),
+//                                rs.getString(2),
+//                                new Address(
+//                                        rs.getString(3),
+//                                        rs.getString(4),
+//                                        rs.getString(5),
+//                                        rs.getString(6),
+//                                        rs.getString(7))));
+//                    }
+//
+//                } catch (SQLException e) {
+//                    System.out.print(e.getMessage());
+//                }
+//            } catch (SQLException e) {
+//                System.out.print(e.getMessage());
+//            }
+//            return ol;
+
+        return null;
+    }
+
+
+    private static String selectfrom(Class c, String where){
+        String sf=" SELECT ";
+
+        //get names of columns
+        Field[] fields = c.getDeclaredFields();
+        int i=0;
+        for (Field f:fields) {
+            if(i++>0) sf=sf+", ";
+            sf=sf+f.getName();
+        }
+
+        //get name of table
+        String[] s = c.getCanonicalName().split("\\.");
+        sf=sf+" FROM "+s[s.length-1];
+
+
+        return sf+" WHERE"+where+";";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //    Accommodation(student,holiday,
@@ -248,42 +320,42 @@ public class Fetch {
         }
         return college;}
 
-    public static ArrayList<College> allColleges() {
-        try {
-            Class.forName("org.postgresql.Driver");
-        } catch (java.lang.ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-        ArrayList<College> ol = new ArrayList<College>();
-        ResultSet rs = null;
-        try (Connection con = Database.getConnection()) {
-            try (PreparedStatement pst = con.prepareStatement(
-                    " SELECT name, language, address, postalCode, " +
-                            " city, provinceorstate, country "  +
-                            " FROM college "  +
-                            " GROUP BY id " )) {
-                rs = pst.executeQuery();
-
-                while (rs.next()) {
-                    ol.add(new College(
-                            rs.getString(1),
-                            rs.getString(2),
-                            new Address(
-                                rs.getString(3),
-                                rs.getString(4),
-                                rs.getString(5),
-                                rs.getString(6),
-                                rs.getString(7))));
-                }
-
-            } catch (SQLException e) {
-                System.out.print(e.getMessage());
-            }
-        } catch (SQLException e) {
-            System.out.print(e.getMessage());
-        }
-        return ol;
-    }
+//    public static ArrayList<College> allColleges() {
+//        try {
+//            Class.forName("org.postgresql.Driver");
+//        } catch (java.lang.ClassNotFoundException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        ArrayList<College> ol = new ArrayList<College>();
+//        ResultSet rs = null;
+//        try (Connection con = Database.getConnection()) {
+//            try (PreparedStatement pst = con.prepareStatement(
+//                    " SELECT name, language, address, postalCode, " +
+//                            " city, provinceorstate, country "  +
+//                            " FROM college "  +
+//                            " GROUP BY id " )) {
+//                rs = pst.executeQuery();
+//
+//                while (rs.next()) {
+//                    ol.add(new College(
+//                            rs.getString(1),
+//                            rs.getString(2),
+//                            new Address(
+//                                rs.getString(3),
+//                                rs.getString(4),
+//                                rs.getString(5),
+//                                rs.getString(6),
+//                                rs.getString(7))));
+//                }
+//
+//            } catch (SQLException e) {
+//                System.out.print(e.getMessage());
+//            }
+//        } catch (SQLException e) {
+//            System.out.print(e.getMessage());
+//        }
+//        return ol;
+//    }
 
     //    DORMROOM(college,number,
     //             beds)

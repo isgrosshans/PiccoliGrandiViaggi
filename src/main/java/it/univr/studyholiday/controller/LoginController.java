@@ -1,9 +1,11 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.UserType;
+//import it.univr.studyholiday.model.UserType;
+import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.util.Database.Database;
-import it.univr.studyholiday.util.Database.Fetch;
+//import it.univr.studyholiday.util.Database.Fetch;
+import it.univr.studyholiday.util.Database.LoginDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,29 +28,34 @@ public class LoginController {
 
     public void loginButtonAction() throws IOException {
         System.out.println(Password.getText());
+        String psw = Password.getText();
 
-        String psw = LoginUtil.encrypy(Password.getText());
+        User.setCurrentUser(LoginDB.login(Email.getText(), Password.getText()));
 
-        UserType.setMode();
-        if (LoginUtil.emailIsAdmin(Email.getText())) {
-            if(Database.adminLogin(Email.getText(), psw)) {
-                //UserType.setMode(Fetch.travelAgent(Email.getText()));
-
-                GlossaApplication.setRoot("StaffHome-view");
-                System.out.println("staff log in successful");
-            }
-            else loginFailedMessage.setVisible(true);
-        }
-
-        else {
-            if (Database.studentLogin(Email.getText(), psw)) {
-                //UserType.setMode(Fetch.student(Email.getText()));
-
-                GlossaApplication.setRoot("student_menu_view_OLD");
-            }
-            else loginFailedMessage.setVisible(true);
-
-        }
+        if(User.isNull()) loginFailedMessage.setVisible(true);
+        else if (User.isStaff()) GlossaApplication.setRoot("StaffHome-view");
+        else GlossaApplication.setRoot("student_menu_view_OLD");
+//
+//        //UserType.setMode();
+//        if (LoginUtil.emailIsAdmin(Email.getText())) {
+//            if(Database.adminLogin(Email.getText(), psw)) {
+//                //UserType.setMode(Fetch.travelAgent(Email.getText()));
+//
+//                GlossaApplication.setRoot("StaffHome-view");
+//                System.out.println("staff log in successful");
+//            }
+//            else loginFailedMessage.setVisible(true);
+//        }
+//
+//        else {
+//            if (Database.studentLogin(Email.getText(), psw)) {
+//                //UserType.setMode(Fetch.student(Email.getText()));
+//
+//                GlossaApplication.setRoot("student_menu_view_OLD");
+//            }
+//            else loginFailedMessage.setVisible(true);
+//
+//        }
     }
 
     public void registratiButtonAction() throws IOException {

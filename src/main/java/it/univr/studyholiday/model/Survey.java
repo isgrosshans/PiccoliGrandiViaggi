@@ -1,84 +1,73 @@
 package it.univr.studyholiday.model;
 
-import it.univr.studyholiday.util.Database.Fetch;
-
-import java.util.ArrayList;
-
-//SURVEY(holiday,student,
-//        score,comment*)
+//(id, holidayid, studentid, overall, school, accomodation, activities, fieldtrips)
 public class Survey {
-    private Holiday holiday;
-    private Student student;
-    private int score;
-    private String comment;
-    private ArrayList<Answer> answers;
-    private boolean hasQuestions;
+private Holiday holiday;
+private Student student;
+private int overallScore;
+private int schoolScore;
+private int accomodationScore;
+private int activitiesScore;
+private int fieldtripsScore;
 
-    public Survey(Holiday holiday, Student student, int score, String comment, ArrayList<Answer> answers) {
+    public Survey(Holiday holiday, Student student, int overallScore,
+                  int schoolScore, int accomodationScore, int activitiesScore,
+                  int fieldtripsScore) {
         this.holiday = holiday;
         this.student = student;
-        this.score = score;
-        if(comment!=null)
-            this.comment = comment;
-        else
-
-        this.answers = answers;
-        if(answers.size()>0) hasQuestions=true;
-        else hasQuestions=false;
-    }
-
-    public Survey(String holiday, String student, int score, String comment) {
-        this.holiday = Fetch.holiday(holiday);
-        this.student = Fetch.student(student);
-        this.score = score;
-        if(comment!=null)
-            this.comment = comment;
-        this.answers = Fetch.answersByStudent(holiday, student);
-        if(answers.size()>0) hasQuestions=true;
-        else hasQuestions=false;
+        this.overallScore = overallScore;
+        this.schoolScore = schoolScore;
+        this.accomodationScore = accomodationScore;
+        this.activitiesScore = activitiesScore;
+        this.fieldtripsScore = fieldtripsScore;
     }
 
     public Holiday getHoliday() {
         return holiday;
     }
-    public Student getStudent() {
-        return student;
-    }
-    public int getScore() {
-        return score;
-    }
-    public String getComment() {
-        return comment;
-    }
-    public ArrayList<Answer> getAnswers() {
-        return answers;
-    }
-    public boolean hasQuestions() {
-        return hasQuestions;
-    }
-    public boolean hasComment(){
-        if(comment==null) return false;
-        if(comment.isBlank()) return false;
-        if(comment.isEmpty()) return false;
-        return true;
-    }
-
     public void setHoliday(Holiday holiday) {
         this.holiday = holiday;
+    }
+
+    public Student getStudent() {
+        return student;
     }
     public void setStudent(Student student) {
         this.student = student;
     }
-    public void setScore(int score) {
-        this.score = score;
+
+    public int getOverallScore() {
+        return overallScore;
     }
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setOverallScore(int overallScore) {
+        this.overallScore = overallScore;
     }
-    public void setAnswers(ArrayList<Answer> answers) {
-        this.answers = answers;
+
+    public int getSchoolScore() {
+        return schoolScore;
     }
-    public void setHasQuestions(boolean hasQuestions) {
-        this.hasQuestions = hasQuestions;
+    public void setSchoolScore(int schoolScore) {
+        this.schoolScore = schoolScore;
+    }
+
+    public int getAccomodationScore() {
+        return accomodationScore;
+    }
+    public void setAccomodationScore(int accomodationScore) {
+        this.accomodationScore = accomodationScore;
+    }
+
+    public int getActivitiesScore() {
+        return activitiesScore;
+    }
+    public void setActivitiesScore(int activitiesScore) {
+        this.activitiesScore = activitiesScore;
+    }
+
+    public int getFieldtripsScore() {
+        return fieldtripsScore;
+    }
+    public void setFieldtripsScore(int fieldtripsScore) {
+        this.fieldtripsScore = fieldtripsScore;
     }
 }

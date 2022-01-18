@@ -1,74 +1,44 @@
 package it.univr.studyholiday.model;
 
-import it.univr.studyholiday.util.Database.Add;
-import it.univr.studyholiday.util.Database.Delete;
-import it.univr.studyholiday.util.Database.Fetch;
-import it.univr.studyholiday.util.Database.Update;
-
-//PARENT(email,child,
-//      name,surname,telephone)
+//PARENT(email,firstName,lastName,telephone)
 public class Parent {
     private String email;
-    private String name;
-    private String surname;
-    private String phonenumber;
-    private Student child;
+    private String firstName;
+    private String lastName;
+    private String phone;
 
-    public Parent(String email, String name, String surname, String phoneumber, Student child) {
+
+    public Parent(String email, String firstName, String lastName, String phone) {
         this.email = email;
-        this.name = name;
-        this.surname = surname;
-        this.phonenumber = phoneumber;
-        this.child = child;
-    }
-
-    public Parent(String email, String name, String surname, String phoneumber, String child) {
-        this.email = email;
-        this.name = name;
-        this.surname = surname;
-        this.phonenumber = phoneumber;
-        this.child = Fetch.student(child);
-    }
-
-    public void update() {
-        Update.update(this);
-    }
-    public void add() {
-        Add.add(this);
-    }
-    public void delete() {
-        Delete.delete(this);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
     }
 
     public String getEmail() {
         return email;
     }
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-    public Student getChild() {
-        return child;
+    public String getPhone() {
+        return phone;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
-    public void setChild(Student child) {
-        this.child = child;
-    }
+
 }

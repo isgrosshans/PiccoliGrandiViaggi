@@ -1,138 +1,163 @@
 package it.univr.studyholiday.model;
 
-import it.univr.studyholiday.util.Database.Add;
-import it.univr.studyholiday.util.Database.Delete;
-import it.univr.studyholiday.util.Database.Fetch;
-import it.univr.studyholiday.util.Database.Update;
+import it.univr.studyholiday.util.Database.Entity;
+import it.univr.studyholiday.util.Database.LoginDB;
 
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-//     STUDENT(email, password, name, surname,
+//     STUDENT(email, password, firstName, lastName,
 //          birthday, birthplace, sex, address,
 //          phonenumber* 	)
-public class Student {
+
+//STUDENT
+//(id, email, password, firstname, lastname, birthday, gender, homeaddress, phone*, parent1id, parent2id*, hobby)
+public class Student implements Entity {
     private String email;
-    private String password;
-    private String name;
-    private String surname;
+    private String psw;
+    private String firstName;
+    private String lastName;
     private LocalDate birthday;
-    private String birthplace;
     private String sex;
-    private String phonenumber;
     private String address;
-    private ArrayList<Allergy> allergies;
+    private String phone;
+    private String hobby;
+    private String idParent1;
+    private String idParent2;
 
-
-
-    public Student(String email, String password,
-                   String name, String surname,
-                   LocalDate birthday, String birthplace,
-                   String sex, String phonenumber,
-                   String address) {
+    public Student(String email, String firstName,
+                   String lastName, LocalDate birthday,
+                   String sex, String address,
+                   String phone, String hobby,
+                   String idParent1, String idParent2) {
         this.email = email;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.birthday = birthday;
-        this.birthplace = birthplace;
         this.sex = sex;
-        this.phonenumber = phonenumber;
         this.address = address;
+        this.phone = phone;
+        this.hobby = hobby;
+        this.idParent1 = idParent1;
+        this.idParent2 = idParent2;
     }
 
-    public static void fetch(String email){
-        Fetch.student(email);
+    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobby, String idParent1, String idParent2) {
+        this.email = email;
+        this.psw = LoginDB.encrypy(psw);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.address = address;
+        this.phone = phone;
+        this.hobby = hobby;
+        this.idParent1 = idParent1;
+        this.idParent2 = idParent2;
     }
 
-    public void update() {
-        Update.update(this);
-    }
-    public void add() {
-        Add.add(this);
-    }
-    public void delete() {
-        Delete.delete(this);
+    //special getter
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
     }
 
+    //standard getters and setters
     public String getEmail() {
         return email;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public String getName() {
-        return name;
-    }
-    public String getSurname() {
-        return surname;
-    }
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-    public String getBirthplace() {
-        return birthplace;
-    }
-    public String getSex() {
-        return sex;
-    }
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-    public String getAddress() {
-        return address;
-    }
-
-    public ArrayList<Allergy> getAllergies() {
-        return allergies;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPassword(String password) {
-        this.password = password;
+
+    public String getFirstName() {
+        return firstName;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
-    public void setSurname(String surname) {
-        this.surname = surname;
+
+    public String getLastName() {
+        return lastName;
     }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
-    public void setBirthplace(String birthplace) {
-        this.birthplace = birthplace;
+
+    public String getSex() {
+        return sex;
     }
+
     public void setSex(String sex) {
         this.sex = sex;
     }
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+
+    public String getAddress() {
+        return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
-    public void setAllergies(ArrayList<Allergy> allergies) {
-        this.allergies = allergies;
+
+    public String getPhone() {
+        return phone;
     }
 
-    public void singupStudent(Student student, Parent parent1, Parent parent2) {
-        student.add();
-        Add.add(student.getAllergies());
-        // Add.add(student.getHobbies());
-
-        parent1.add();
-        parent2.add();
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void singupStudent(Student student, Parent parent1) {
-        student.add();
-        Add.add(student.getAllergies());
-        // Add.add(student.getHobbies());
-
-        parent1.add();
+    public String getHobby() {
+        return hobby;
     }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public String getIdParent1() {
+        return idParent1;
+    }
+
+    public void setIdParent1(String idParent1) {
+        this.idParent1 = idParent1;
+    }
+
+    public String getIdParent2() {
+        return idParent2;
+    }
+
+    public void setIdParent2(String idParent2) {
+        this.idParent2 = idParent2;
+    }
+
+    //    public void singupStudent(Student student, Parent parent1, Parent parent2) {
+//        student.add();
+//        Add.add(student.getAllergies());
+//        // Add.add(student.getHobby());
+//
+//        parent1.add();
+//        parent2.add();
+//    }
+//
+//    public void singupStudent(Student student, Parent parent1) {
+//        student.add();
+//        Add.add(student.getAllergies());
+//        // Add.add(student.getHobby());
+//
+//        parent1.add();
+//    }
 
 }

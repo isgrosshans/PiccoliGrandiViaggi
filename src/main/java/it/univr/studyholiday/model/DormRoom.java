@@ -6,34 +6,18 @@ import java.sql.SQLException;
 
 //DORMROOM(-college,	number-, 	beds 		)
 public class DormRoom {
-    private College college;
+    private Dormitory dormitory;
     private String roomNumber;
     private int beds;
 
-    public DormRoom(College college, String roomNumber, int beds) {
-        this.college = college;
+    public DormRoom(Dormitory dormitory, String roomNumber, int beds) {
+        this.dormitory = dormitory;
         this.roomNumber = roomNumber;
         this.beds = beds;
     }
 
-    public DormRoom(String college, String roomNumber, int beds) {
-        this.college = Fetch.college(college);
-        this.roomNumber = roomNumber;
-        this.beds = beds;
-    }
-
-    public void update() {
-        Update.update(this);
-    }
-    public void add() {
-        Add.add(this);
-    }
-    public void delete() {
-        Delete.delete(this);
-    }
-
-    public College getCollege() {
-        return college;
+    public Dormitory getDormitory() {
+        return dormitory;
     }
     public String getRoomNumber() {
         return roomNumber;
@@ -42,8 +26,8 @@ public class DormRoom {
         return beds;
     }
 
-    public void setCollege(College college) {
-        this.college = college;
+    public void setCollege(Dormitory dormitory) {
+        this.dormitory = dormitory;
     }
     public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;

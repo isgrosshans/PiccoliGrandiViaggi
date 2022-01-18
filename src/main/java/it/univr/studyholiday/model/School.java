@@ -4,21 +4,21 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 //SCHOOL
-//(id, name, address, postalcode, city, country, language)
+//(id, name, address, postalCode, city, country, language)
 public class School {
     private SimpleIntegerProperty id;
     private SimpleStringProperty name;
     private SimpleStringProperty address;
-    private SimpleStringProperty postalcode;
+    private SimpleStringProperty postalCode;
     private SimpleStringProperty city;
     private SimpleStringProperty country;
     private SimpleStringProperty language;
 
-    public School(int id, String name, String address, String postalcode, String city, String country, String language) {
+    public School(int id, String name, String address, String postalCode, String city, String country, String language) {
         this.id =           new SimpleIntegerProperty(id);
         this.name =         new SimpleStringProperty(name);
         this.address =      new SimpleStringProperty(address);
-        this.postalcode =   new SimpleStringProperty(postalcode);
+        this.postalCode =   new SimpleStringProperty(postalCode);
         this.city =         new SimpleStringProperty(city);
         this.country =      new SimpleStringProperty(country);
         this.language =     new SimpleStringProperty(language);
@@ -60,16 +60,16 @@ public class School {
         this.address.set(address);
     }
 
-    public String getPostalcode() {
-        return postalcode.get();
+    public String getPostalCode() {
+        return postalCode.get();
     }
 
-    public SimpleStringProperty postalcodeProperty() {
-        return postalcode;
+    public SimpleStringProperty postalCodeProperty() {
+        return postalCode;
     }
 
-    public void setPostalcode(String postalcode) {
-        this.postalcode.set(postalcode);
+    public void setpostalCode(String postalCode) {
+        this.postalCode.set(postalCode);
     }
 
     public String getCity() {
@@ -107,4 +107,8 @@ public class School {
     public void setLanguage(String language) {
         this.language.set(language);
     }
+
+    @Override
+    public String toString() {
+        return getName()+getAddress()+getCity()+getLanguage()+getCountry()+getPostalCode()+getId();    }
 }

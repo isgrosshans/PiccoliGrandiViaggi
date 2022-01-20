@@ -1,10 +1,5 @@
 package it.univr.studyholiday.model;
 
-import it.univr.studyholiday.util.Database.Add;
-import it.univr.studyholiday.util.Database.Delete;
-import it.univr.studyholiday.util.Database.Fetch;
-import it.univr.studyholiday.util.Database.Update;
-
 import java.util.ArrayList;
 
 public class Allergy {
@@ -18,22 +13,6 @@ public class Allergy {
         this.precautions = precautions;
     }
 
-    public Allergy(String student, String allergen, String precautions) {
-        this.student = Fetch.student(student);
-        this.allergen = allergen;
-        this.precautions = precautions;
-    }
-
-    public void update() {
-        Update.update(this);
-    }
-    public void add() {
-        Add.add(this);
-    }
-    public void delete() {
-        Delete.delete(this);
-    }
-
     public Student getStudent() {
         return student;
     }
@@ -43,9 +22,11 @@ public class Allergy {
     public String getPrecautions() {
         return precautions;
     }
-    public static ArrayList<Allergy> getAll(Student student){
-        return  Fetch.allAllergiesFor(student.getEmail());
-    }
+
+    //TODO
+//     public static ArrayList<Allergy> getAll(Student student){
+//        return  Fetch.allAllergiesFor(student.getEmail());
+//    }
 
     public void setStudent(Student student) {
         this.student = student;

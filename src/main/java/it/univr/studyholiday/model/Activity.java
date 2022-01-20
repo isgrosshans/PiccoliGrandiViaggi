@@ -1,41 +1,23 @@
 package it.univr.studyholiday.model;
 
-import it.univr.studyholiday.util.Database.Add;
-import it.univr.studyholiday.util.Database.Delete;
-import it.univr.studyholiday.util.Database.Fetch;
-import it.univr.studyholiday.util.Database.Update;
-
 import java.util.ArrayList;
 
+//ACTIVITY
+//(id, schoolid, name, description)
 public class Activity {
-    College college;
+    School school;
     String name;
     String description;
 
-    public Activity(College college, String name, String description) {
-        this.college = college;
+    public Activity(School school, String name, String description) {
+        this.school = school;
         this.name = name;
         this.description = description;
     }
+    
 
-    public Activity(String college, String name, String description) {
-        this.college = Fetch.college(college);
-        this.name = name;
-        this.description = description;
-    }
-
-    public void update() {
-        Update.update(this);
-    }
-    public void add() {
-        Add.add(this);
-    }
-    public void delete() {
-        Delete.delete(this);
-    }
-
-    public College getCollege() {
-        return college;
+    public School getSchool() {
+        return school;
     }
     public String getName() {
         return name;
@@ -44,8 +26,8 @@ public class Activity {
         return description;
     }
 
-    public void setCollege(College college) {
-        this.college = college;
+    public void setSchool(School school) {
+        this.school = school;
     }
     public void setName(String name) {
         this.name = name;
@@ -54,8 +36,9 @@ public class Activity {
         this.description = description;
     }
 
-    public static ArrayList<Activity> getAllFor(College college){
-        Fetch.collegeActivities(college.getId());
-        return null;
-    }
+    //TODO
+//    public static ArrayList<Activity> getAllFor(School school){
+//        Fetch.schoolActivities(school.getId());
+//        return null;
+//    }
 }

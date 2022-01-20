@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-public class AdminAddHolidayController {
+public class oldAdminAddHolidayController {
     //DB TABLE HOLIDAY(-id-, startdate, weeks, language, college)
     //CLASS Holiday(String language, LocalDate departureDate, int weeks, College college)
     //

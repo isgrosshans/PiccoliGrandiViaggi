@@ -46,7 +46,7 @@ public class Database {
         try (Connection con = Database.getConnection()) {
             try (PreparedStatement pst = con.prepareStatement(
                     " SELECT COUNT(*) FROM student WHERE email=? "  +
-                            "  AND password=?  " )) {
+                            "  AND psw=?  " )) {
 
                 pst.setString(1, email);
                 pst.setString(2, password);

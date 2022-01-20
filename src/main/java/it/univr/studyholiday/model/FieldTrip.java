@@ -2,6 +2,7 @@ package it.univr.studyholiday.model;
 
 import it.univr.studyholiday.util.Database.*;
 
+//(id, holidayid, destination, hours, price, description)
 public class FieldTrip {
 
     private Holiday holiday;
@@ -18,26 +19,6 @@ public class FieldTrip {
         this.description = description;
         this.price = price;
         this.hours = hours;
-    }
-
-    public FieldTrip(String holiday, String destination,
-                     String description, int price,
-                     int hours) {
-        this.holiday = Fetch.holiday(holiday);
-        this.destination = destination;
-        this.description = description;
-        this.price = price;
-        this.hours = hours;
-    }
-
-    public void update() {
-        Update.update(this);
-    }
-    public void add() {
-        Add.add(this);
-    }
-    public void delete() {
-        Delete.delete(this);
     }
 
     public Holiday getHoliday() {

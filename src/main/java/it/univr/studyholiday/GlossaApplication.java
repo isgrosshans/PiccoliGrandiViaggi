@@ -1,21 +1,17 @@
 package it.univr.studyholiday;
 
 
-import it.univr.studyholiday.model.*;
-import it.univr.studyholiday.util.Database.Add;
-import it.univr.studyholiday.util.Database.Fetch;
-import it.univr.studyholiday.util.LoginUtil;
+import it.univr.studyholiday.model.Staff;
+import it.univr.studyholiday.model.Student;
+import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class GlossaApplication extends Application {
@@ -23,41 +19,23 @@ public class GlossaApplication extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
-//        FXMLLoader fxmlLoader = LoginView.getFxmlLoader();
-//        scene = new Scene(loadFXML("Login-view"), 600, 430);
-//
-//        stage.setTitle("Piccoli Grandi Viaggi");
-//        stage.setScene(scene);
-//        stage.setResizable(true);
-//        stage.show();
+    public void start(Stage stage) throws IOException, IllegalAccessException {
+////        FXMLLoader fxmlLoader = LoginView.getFxmlLoader();
+//        Student stud = new Student("afdsafd","asdf","afdsafd","afdsafd", LocalDate.of(2016, 9, 23),"afdsafd","afdsafd","afdsafd","afdsafd","afdsafd","afdsafd");
+//        System.out.println(SaveToDB.getValuesFor(stud));
 
-        //////////////////////////////////////////////////////////////////
-        TableView tableView = new TableView();
+//        Student boi = new Student ("giovi@mail.it","giovanni", "Giovanni", "Cerva", LocalDate.of(2006, 10, 10), "M", "via Roma 1, Verona", "", "calcio, lego", "0", "0");
+//        SaveToDB.insert(boi);
 
-        TableColumn<School, String> column1 = new TableColumn<>("First Name");
-        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        //SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
 
+        //scene = new Scene(loadFXML("Login-view"), 600, 430);
+        scene = new Scene(loadFXML("StaffSchools-view"), 600, 600);
 
-        TableColumn<School, String> column2 = new TableColumn<>("Last Name");
-        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-
-
-        tableView.getColumns().add(column1);
-        tableView.getColumns().add(column2);
-
-        tableView.getItems().add(new School("a", "a", "a"));
-        tableView.getItems().add(new School("b", "b", "b"));
-
-        VBox vbox = new VBox(tableView);
-
-        scene = new Scene(vbox);
+        stage.setTitle("Piccoli Grandi Viaggi");
         stage.setScene(scene);
         stage.setResizable(true);
         stage.show();
-        //////////////////////////////////////////////////////////////////
-
-
     }
 
     public static void main(String[] args) throws IOException {

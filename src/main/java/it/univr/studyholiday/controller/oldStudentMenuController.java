@@ -1,13 +1,13 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.UserType;
+//import it.univr.studyholiday.model.UserType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-public class StudentMenuController {
+public class oldStudentMenuController {
 
     @FXML
     public Button viaggiButton;
@@ -25,7 +25,7 @@ public class StudentMenuController {
     }
 
     public void logoutButtonAction() throws IOException {
-        UserType.setMode();
+        //UserType.setMode();
         GlossaApplication.setRoot("login-view");
     }
 

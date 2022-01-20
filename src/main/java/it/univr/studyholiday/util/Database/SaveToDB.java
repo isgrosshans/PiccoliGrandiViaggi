@@ -1,14 +1,12 @@
 package it.univr.studyholiday.util.Database;
-
-import it.univr.studyholiday.model.Staff;
-import it.univr.studyholiday.model.Student;
+import javafx.beans.property.SimpleStringProperty;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Objects;
+
 
 public class SaveToDB {
 
@@ -63,7 +61,7 @@ public class SaveToDB {
         return result;
     }
 
-    private static String getValuesFor(Entity e) throws IllegalAccessException {
+    public static String getValuesFor(Entity e) throws IllegalAccessException {
         String result="";
         int i=0;
         Field[] fields = e.getClass().getDeclaredFields();

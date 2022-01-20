@@ -15,6 +15,6 @@ public class TempDB {
 
 
     private TempDB(){   //Dummy Values
-        schools.add(new School(1,"Carl Duisberg Berlin","Jaegerstrasse 64, Toreinfahrt 63 a","10117","Berlino","Germania","Tedesco"));
+        schools.add(new School("1","Carl Duisberg Berlin","Jaegerstrasse 64, Toreinfahrt 63 a","10117","Berlino","Germania","Tedesco"));
     }
 }

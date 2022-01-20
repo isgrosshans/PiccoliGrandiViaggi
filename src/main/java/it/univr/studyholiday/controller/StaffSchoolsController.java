@@ -2,6 +2,7 @@ package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
 import it.univr.studyholiday.model.*;
+import it.univr.studyholiday.util.Database.FetchFromDB;
 import it.univr.studyholiday.util.Database.TempDB;
 import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
@@ -17,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.*;
 
 public class StaffSchoolsController implements Initializable {
@@ -26,17 +28,21 @@ public class StaffSchoolsController implements Initializable {
     @FXML private TableColumn<School, String> CityColumn;
     @FXML private TableColumn<School, String> LanguageColumn;
 
-    private static ObservableList<School> myschools;
+    //private static ObservableList<School> myschools;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //TempDB.addSchool(new School(1,"Carl Duisberg Berlin","Jaegerstrasse 64, Toreinfahrt 63 a","10117","Berlino","Germania","Tedesco"));
-        myschools= (ObservableList<School>) TempDB.getSchools();
+        //myschools= (ObservableList<School>) TempDB.getSchools();
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         CityColumn.setCellValueFactory(new PropertyValueFactory<>("City"));
         LanguageColumn.setCellValueFactory(new PropertyValueFactory<>("Language"));
 
-        SchoolTable.setItems((ObservableList<School>) TempDB.getSchools());
+        try {
+            SchoolTable.setItems(FXCollections.observableArrayList(getSchools()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         SchoolTable.setEditable(false);
         //SchoolTable.setOnMouseClicked();
 
@@ -44,16 +50,17 @@ public class StaffSchoolsController implements Initializable {
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
     }
 
-//    public ObservableList<School> getSchools(){
-//        ObservableList<School> schools=FXCollections.observableArrayList();
-//        schools.add(new School(1,"Carl Duisberg Berlin","Jaegerstrasse 64, Toreinfahrt 63 a","10117","Berlino","Germania","Tedesco"));
-//        //schools.add(new School(2,"b","b","b","b","b","b"));
-//        return schools;
-//    }
-
-    public static void addSchool(School school){
-        myschools.add(school);
+    public ArrayList<School> getSchools() throws SQLException {
+//        ArrayList<School> schools=FXCollections.observableArrayList();
+//        schools.add(new School("1","Carl Duisberg Berlin","Jaegerstrasse 64, Toreinfahrt 63 a","10117","Berlino","Germania","Tedesco"));
+//        schools.add(new School("2","b","b","b","b","b","b"));
+        ArrayList<School> schools= FetchFromDB.FetchSchools();
+        return schools;
     }
+
+//    public static void addSchool(School school){
+//        myschools.add(school);
+//    }
 
     public void ReturnMenuButtonClick(ActionEvent actionEvent) {
     }

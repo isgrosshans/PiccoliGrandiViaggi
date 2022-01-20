@@ -20,17 +20,17 @@ public class GlossaApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, IllegalAccessException {
-//        FXMLLoader fxmlLoader = LoginView.getFxmlLoader();
-//        Student stud = new Student("afdsafd","afdsafd","afdsafd", LocalDate.of(2016, 9, 23),"afdsafd","afdsafd","afdsafd","afdsafd","afdsafd","afdsafd");
+////        FXMLLoader fxmlLoader = LoginView.getFxmlLoader();
+//        Student stud = new Student("afdsafd","asdf","afdsafd","afdsafd", LocalDate.of(2016, 9, 23),"afdsafd","afdsafd","afdsafd","afdsafd","afdsafd","afdsafd");
 //        System.out.println(SaveToDB.getValuesFor(stud));
 
 //        Student boi = new Student ("giovi@mail.it","giovanni", "Giovanni", "Cerva", LocalDate.of(2006, 10, 10), "M", "via Roma 1, Verona", "", "calcio, lego", "0", "0");
 //        SaveToDB.insert(boi);
 
-        SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
+        //SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
 
-        scene = new Scene(loadFXML("Login-view"), 600, 430);
-        //scene = new Scene(loadFXML("StaffSchools-view"), 600, 600);
+        //scene = new Scene(loadFXML("Login-view"), 600, 430);
+        scene = new Scene(loadFXML("StaffSchools-view"), 600, 600);
 
         stage.setTitle("Piccoli Grandi Viaggi");
         stage.setScene(scene);

@@ -2,7 +2,9 @@ package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
 import it.univr.studyholiday.model.School;
+import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -11,16 +13,13 @@ import java.io.IOException;
 
 public class StaffAddSchoolController {
 
-    public Button ReturnSchoolButton;
-    public Button CancelButton;
-    public Button ConfirmButton;
-    public TextField NameTextField;
-    public TextField LanguageTextField;
-    public TextField AddressTextField;
-    public TextField CountryTextField;
-    public TextField CityTextField;
-    public TextField PostalCodeTextField;
-    public Label ErrorMessage;
+    @FXML private TextField NameTextField;
+    @FXML private TextField LanguageTextField;
+    @FXML private TextField AddressTextField;
+    @FXML private TextField CountryTextField;
+    @FXML private TextField CityTextField;
+    @FXML private TextField PostalCodeTextField;
+    @FXML private Label ErrorMessage;
 
     public void ReturnSchoolButtonClick(ActionEvent actionEvent) throws IOException {
         GlossaApplication.setRoot("StaffSchools-view");
@@ -34,11 +33,22 @@ public class StaffAddSchoolController {
         //TODO save to database
 
         //check that all fields are filled
-        ErrorMessage.setText("Compilare tutti i campi prima di procedere.");
+        if(!allFilled()) ErrorMessage.setText("Compilare tutti i campi prima di procedere.");
+        else  {
+//            //save school to database
+            SaveToDB.insert(new School(NameTextField.getText(),
+                    AddressTextField.getText(),
+                    PostalCodeTextField.getText(),
+                    CityTextField.getText(),
+                    CountryTextField.getText(),
+                    LanguageTextField.getText()));
+
+            GlossaApplication.setRoot("StaffSchools-view");
+        }
 
 
-        StaffSchoolsController.addSchool(new School(3,"c","c","c","c","c","c"));
-        GlossaApplication.setRoot("StaffSchools-view");
+        //StaffSchoolsController.addSchool(new School("3","c","c","c","c","c","c"));
+        //GlossaApplication.setRoot("StaffSchools-view");
     }
 
     public boolean allFilled(){

@@ -1,71 +1,98 @@
 package it.univr.studyholiday.model;
 
-import it.univr.studyholiday.util.Database.*;
+import it.univr.studyholiday.util.Database.Entity;
 
-import java.util.ArrayList;
+import java.lang.reflect.Field;
 
-//(id, studentid, holidayid, paymentmethod, familyid*, dormroomid*, friendname*, friendemail*, leveltostudy
-public class Reservation {
-    private Student student;
-    private Holiday holiday;
-    private String preferedPayment;
-    private Family family;
-    private DormRoom dormRoom;
+//RESERVATION
+//(id, studentid, holidayid, paymentmethod, familyid*, dormroomid*, friendname*, friendemail*, languagelevel)
+public class Reservation implements Entity {
+    private String id;
+    private String studentid;
+    private String holidayid;
+    private String paymentMethod;
+    private String familyid;
+    private String dormRoomid;
     private String friendName;
     private String friendEmail;
     private String languageLevel;
 
-    public Reservation(Student student, Holiday holiday, String preferredPayment,
-                       Family family, DormRoom dormRoom, String friendName,
-                       String friendEmail, String languageLevel) {
-        this.student = student;
-        this.holiday = holiday;
-        this.preferedPayment = preferredPayment;
-        this.family = family;
-        this.dormRoom = dormRoom;
+    public Reservation(String studentid, String holidayid, String paymentMethod, String familyid, String dormRoomid, String friendName, String friendEmail, String languageLevel) {
+        this.id="";
+        this.studentid = studentid;
+        this.holidayid = holidayid;
+        this.paymentMethod = paymentMethod;
+        this.familyid = familyid;
+        this.dormRoomid = dormRoomid;
         this.friendName = friendName;
         this.friendEmail = friendEmail;
         this.languageLevel = languageLevel;
     }
 
-    public Student getStudent() {
-        return student;
-    }
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Holiday getHoliday() {
-        return holiday;
-    }
-    public void setHoliday(Holiday holiday) {
-        this.holiday = holiday;
+    public Reservation(String id, String studentid, String holidayid, String paymentMethod, String familyid, String dormRoomid, String friendName, String friendEmail, String languageLevel) {
+        this.id = id;
+        this.studentid = studentid;
+        this.holidayid = holidayid;
+        this.paymentMethod = paymentMethod;
+        this.familyid = familyid;
+        this.dormRoomid = dormRoomid;
+        this.friendName = friendName;
+        this.friendEmail = friendEmail;
+        this.languageLevel = languageLevel;
     }
 
-    public String getPreferedPayment() {
-        return preferedPayment;
-    }
-    public void setPreferedPayment(String preferedPayment) {
-        this.preferedPayment = preferedPayment;
+    public String getId() {
+        return id;
     }
 
-    public Family getFamily() {
-        return family;
-    }
-    public void setFamily(Family family) {
-        this.family = family;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public DormRoom getDormRoom() {
-        return dormRoom;
+    public String getStudentid() {
+        return studentid;
     }
-    public void setDormRoom(DormRoom dormRoom) {
-        this.dormRoom = dormRoom;
+
+    public void setStudentid(String studentid) {
+        this.studentid = studentid;
+    }
+
+    public String getHolidayid() {
+        return holidayid;
+    }
+
+    public void setHolidayid(String holidayid) {
+        this.holidayid = holidayid;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getFamilyid() {
+        return familyid;
+    }
+
+    public void setFamilyid(String familyid) {
+        this.familyid = familyid;
+    }
+
+    public String getDormRoomid() {
+        return dormRoomid;
+    }
+
+    public void setDormRoomid(String dormRoomid) {
+        this.dormRoomid = dormRoomid;
     }
 
     public String getFriendName() {
         return friendName;
     }
+
     public void setFriendName(String friendName) {
         this.friendName = friendName;
     }
@@ -73,6 +100,7 @@ public class Reservation {
     public String getFriendEmail() {
         return friendEmail;
     }
+
     public void setFriendEmail(String friendEmail) {
         this.friendEmail = friendEmail;
     }
@@ -80,10 +108,15 @@ public class Reservation {
     public String getLanguageLevel() {
         return languageLevel;
     }
+
     public void setLanguageLevel(String languageLevel) {
         this.languageLevel = languageLevel;
     }
 
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
+    }
     //    private Holiday holiday;
 //    private Student student;
 //    private boolean familystay;

@@ -28,12 +28,8 @@ public class StaffSchoolsController implements Initializable {
     @FXML private TableColumn<School, String> CityColumn;
     @FXML private TableColumn<School, String> LanguageColumn;
 
-    //private static ObservableList<School> myschools;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //TempDB.addSchool(new School(1,"Carl Duisberg Berlin","Jaegerstrasse 64, Toreinfahrt 63 a","10117","Berlino","Germania","Tedesco"));
-        //myschools= (ObservableList<School>) TempDB.getSchools();
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         CityColumn.setCellValueFactory(new PropertyValueFactory<>("City"));
         LanguageColumn.setCellValueFactory(new PropertyValueFactory<>("Language"));
@@ -44,25 +40,18 @@ public class StaffSchoolsController implements Initializable {
             e.printStackTrace();
         }
         SchoolTable.setEditable(false);
-        //SchoolTable.setOnMouseClicked();
 
         TableView.TableViewSelectionModel<School> selectionModel = SchoolTable.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
     }
 
     public ArrayList<School> getSchools() throws SQLException {
-//        ArrayList<School> schools=FXCollections.observableArrayList();
-//        schools.add(new School("1","Carl Duisberg Berlin","Jaegerstrasse 64, Toreinfahrt 63 a","10117","Berlino","Germania","Tedesco"));
-//        schools.add(new School("2","b","b","b","b","b","b"));
         ArrayList<School> schools= FetchFromDB.FetchSchools();
         return schools;
     }
 
-//    public static void addSchool(School school){
-//        myschools.add(school);
-//    }
-
-    public void ReturnMenuButtonClick(ActionEvent actionEvent) {
+    public void ReturnMenuButtonClick(ActionEvent actionEvent) throws IOException {
+        GlossaApplication.setRoot("StaffHome-view");
     }
 
     public void AddSchoolButtonClick(ActionEvent actionEvent) throws IOException {

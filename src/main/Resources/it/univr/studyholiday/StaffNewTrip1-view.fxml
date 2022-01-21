@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="526.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="it.univr.studyholiday.controller.StaffNewTrip1Controller">
+   <children>
+      <Label fx:id="StaffLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="14.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="NewTripLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="48.0" text="Nuovo Viaggio" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="SelectLabel" layoutX="15.0" layoutY="108.0" prefHeight="17.0" prefWidth="443.0" text="Seleziona una scuola dall'elenco :" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="ReturnTripsButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnTripsButtonClick" text="&lt; Viaggi" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <TreeTableView fx:id="TripTable" layoutX="15.0" layoutY="148.0" prefHeight="250.0" prefWidth="443.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="148.0">
+        <columns>
+            <TreeTableColumn fx:id="NameColumn" prefWidth="75.0" text="Nome" />
+          <TreeTableColumn fx:id="CityCoulumn" prefWidth="75.0" text="Città" />
+          <TreeTableColumn fx:id="LanguageColumn" prefWidth="75.0" text="Lingua" />
+        </columns>
+         <columnResizePolicy>
+            <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TreeTableView>
+      <Button fx:id="NextButton" layoutX="530.0" layoutY="463.0" mnemonicParsing="false" onAction="#NextButtonClick" text="Avanti " AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="14.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="33.0" layoutY="497.0" prefHeight="17.0" prefWidth="534.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="497.0" />
+   </children>
+</AnchorPane>

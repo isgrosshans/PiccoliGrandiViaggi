@@ -2,7 +2,10 @@ package it.univr.studyholiday.model;
 
 public class User {
     private static Object currentUser;
-    private static User user = new User();
+    private static User user;
+
+    private User() {
+    }
 
     public static void setCurrentUser(Object o){
         currentUser=o;

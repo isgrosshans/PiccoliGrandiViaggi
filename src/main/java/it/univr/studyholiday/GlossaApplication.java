@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.time.LocalDate;
 public class GlossaApplication extends Application {
 
     private static Scene scene;
+    private static ScrollPane scrollPane;
 
     @Override
     public void start(Stage stage) throws IOException, IllegalAccessException {
@@ -30,11 +32,16 @@ public class GlossaApplication extends Application {
         //SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
 
         //scene = new Scene(loadFXML("Login-view"), 600, 430);
-        scene = new Scene(loadFXML("StaffSchools-view"), 600, 600);
+
+        scene = new Scene(new ScrollPane(loadFXML("StaffSchools-view")), 605, 600);
+
+        //scrollPane.setContent(loadFXML("StaffSchools-view"));
 
         stage.setTitle("Piccoli Grandi Viaggi");
+
         stage.setScene(scene);
-        stage.setResizable(true);
+        stage.setResizable(false);
+        stage.setMinWidth(610);
         stage.show();
     }
 
@@ -43,7 +50,7 @@ public class GlossaApplication extends Application {
     }
 
     public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        scene.setRoot(new ScrollPane(loadFXML(fxml)));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

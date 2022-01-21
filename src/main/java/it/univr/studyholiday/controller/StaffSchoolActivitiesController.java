@@ -14,11 +14,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StaffSchoolActivitiesController /*implements Initializable*/ {
-    public void ReturnDetailsSchoolButtonClick(ActionEvent actionEvent) {
 
+    private static School school;
+    public static void setSchool(School s) {
+        school=s;
+    }
+    public static School getSchool(){
+        return school;
     }
 
-    public void AddActivityButtonClick(ActionEvent actionEvent) {
+    public void ReturnDetailsSchoolButtonClick(ActionEvent actionEvent) throws IOException {
+        StaffSchoolDetailsController.setSchool(school);
+        GlossaApplication.setRoot("StaffSchoolDetails");
+    }
+
+    public void AddActivityButtonClick(ActionEvent actionEvent) throws IOException {
+        GlossaApplication.setRoot("StaffAddActivity");
     }
 
 //    public Button ReturnDetailsSchoolButton;

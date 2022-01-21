@@ -6,22 +6,18 @@ import java.io.IOException;
 public class StaffHomeController {
 
     public void LogoutButtonClick(ActionEvent actionEvent) throws IOException {
-        System.out.println("log out");
-        GlossaApplication.setRoot("login-view");
+        GlossaApplication.setRoot("login");
     }
 
     public void SchoolsButtonClick(ActionEvent actionEvent) throws IOException {
-        System.out.println("schools");
-        GlossaApplication.setRoot("StaffSchools-view");
+        GlossaApplication.setRoot("StaffSchools");
     }
 
     public void FutureTripsButtonClick(ActionEvent actionEvent) throws IOException {
-        System.out.println("future trips");
-        //GlossaApplication.setRoot("staffFutureTrips-view");
+        GlossaApplication.setRoot("staffFutureTrips");
     }
 
     public void PastTripsButtonClick(ActionEvent actionEvent) throws IOException {
-        System.out.println("past trips");
-        //GlossaApplication.setRoot("staffPastTrips-view");
+        GlossaApplication.setRoot("staffPastTrips");
     }
 }

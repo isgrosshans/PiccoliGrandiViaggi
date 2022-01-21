@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 //SCHOOL
 //(id, name, address, postalCode, city, country, language)

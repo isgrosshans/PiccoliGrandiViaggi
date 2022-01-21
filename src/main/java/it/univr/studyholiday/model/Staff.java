@@ -16,16 +16,6 @@ public class Staff implements Entity {
     private String lastname;
     private String phone;
 
-//    public Staff(String id, String email,
-//                 String firstname, String lastname,
-//                 String phone) {
-//        this.id = id;
-//        this.email = email;
-//        this.firstname = firstname;
-//        this.lastname = lastname;
-//        this.phone = phone;
-//    }
-
     public Staff(String email, String psw, String firstname, String lastname, String phone) {
         this.id="";
         this.email = email;
@@ -35,25 +25,61 @@ public class Staff implements Entity {
         this.phone = phone;
     }
 
-    //getters
+    public Staff(String id, String email, String psw, String firstname, String lastname, String phone) {
+        this.id = id;
+        this.email = email;
+        this.psw = psw;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phone = phone;
+    }
+
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPsw() {
+        return psw;
+    }
+
+    public void setPsw(String psw) {
+        this.psw = psw;
+    }
+
     public String getFirstname() {
         return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getLastname() {
         return lastname;
     }
 
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
     public String getPhone() {
         return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override

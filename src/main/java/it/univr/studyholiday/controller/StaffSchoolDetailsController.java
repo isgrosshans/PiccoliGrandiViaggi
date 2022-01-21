@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.channels.ShutdownChannelGroupException;
 import java.util.ResourceBundle;
 
 public class StaffSchoolDetailsController implements Initializable {
@@ -29,6 +30,11 @@ public class StaffSchoolDetailsController implements Initializable {
         school=s;
     }
 
+    public static School getSchool(){
+        return school;
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("school: "+school);
@@ -44,16 +50,20 @@ public class StaffSchoolDetailsController implements Initializable {
         GlossaApplication.setRoot("StaffSchools-view");
     }
 
-    public void FamilyButtonClick(ActionEvent actionEvent) {
+    public void FamilyButtonClick(ActionEvent actionEvent) throws IOException {
         //GlossaApplication.setRoot("-view");
+        GlossaApplication.setRoot("StaffSchoolActivities-view");
     }
 
-    public void DoormroomButtonClick(ActionEvent actionEvent) {
+    public void DoormroomButtonClick(ActionEvent actionEvent) throws IOException {
         //GlossaApplication.setRoot("-view");
+        GlossaApplication.setRoot("StaffSchoolActivities-view");
     }
 
-    public void ActivityButtonClick(ActionEvent actionEvent) {
-        //GlossaApplication.setRoot("-view");
+    public void ActivityButtonClick(ActionEvent actionEvent) throws IOException {
+        System.out.println("attivita");
+        //StaffSchoolActivitiesController.setSchool(school);
+        GlossaApplication.setRoot("StaffSchoolActivities-view");
     }
 
 }

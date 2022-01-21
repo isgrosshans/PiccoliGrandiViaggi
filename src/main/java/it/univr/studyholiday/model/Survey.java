@@ -1,44 +1,70 @@
 package it.univr.studyholiday.model;
 
-//(id, holidayid, studentid, overall, school, accomodation, activities, fieldtrips)
-public class Survey {
-private Holiday holiday;
-private Student student;
-private int overallScore;
-private int schoolScore;
-private int accomodationScore;
-private int activitiesScore;
-private int fieldtripsScore;
+import it.univr.studyholiday.util.Database.Entity;
 
-    public Survey(Holiday holiday, Student student, int overallScore,
-                  int schoolScore, int accomodationScore, int activitiesScore,
-                  int fieldtripsScore) {
-        this.holiday = holiday;
-        this.student = student;
+import java.lang.reflect.Field;
+
+//(id, holidayid, studentid, overall, school, accomodation, activities, fieldtrips)
+public class Survey implements Entity {
+    private String id;
+    private String holidayid;
+    private String studentid;
+    private int overallScore;
+    private int schoolScore;
+    private int accomodationScore;
+    private int activitiesScore;
+    private int fieldtripScore;
+
+    public Survey(String holidayid, String studentid, int overallScore, int schoolScore, int accomodationScore, int activitiesScore, int fieldtripScore) {
+        this.id = "";
+        this.holidayid = holidayid;
+        this.studentid = studentid;
         this.overallScore = overallScore;
         this.schoolScore = schoolScore;
         this.accomodationScore = accomodationScore;
         this.activitiesScore = activitiesScore;
-        this.fieldtripsScore = fieldtripsScore;
+        this.fieldtripScore = fieldtripScore;
     }
 
-    public Holiday getHoliday() {
-        return holiday;
-    }
-    public void setHoliday(Holiday holiday) {
-        this.holiday = holiday;
+    public Survey(String id, String holidayid, String studentid, int overallScore, int schoolScore, int accomodationScore, int activitiesScore, int fieldtripScore) {
+        this.id = id;
+        this.holidayid = holidayid;
+        this.studentid = studentid;
+        this.overallScore = overallScore;
+        this.schoolScore = schoolScore;
+        this.accomodationScore = accomodationScore;
+        this.activitiesScore = activitiesScore;
+        this.fieldtripScore = fieldtripScore;
     }
 
-    public Student getStudent() {
-        return student;
+    public String getId() {
+        return id;
     }
-    public void setStudent(Student student) {
-        this.student = student;
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getHolidayid() {
+        return holidayid;
+    }
+
+    public void setHolidayid(String holidayid) {
+        this.holidayid = holidayid;
+    }
+
+    public String getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(String studentid) {
+        this.studentid = studentid;
     }
 
     public int getOverallScore() {
         return overallScore;
     }
+
     public void setOverallScore(int overallScore) {
         this.overallScore = overallScore;
     }
@@ -46,6 +72,7 @@ private int fieldtripsScore;
     public int getSchoolScore() {
         return schoolScore;
     }
+
     public void setSchoolScore(int schoolScore) {
         this.schoolScore = schoolScore;
     }
@@ -53,6 +80,7 @@ private int fieldtripsScore;
     public int getAccomodationScore() {
         return accomodationScore;
     }
+
     public void setAccomodationScore(int accomodationScore) {
         this.accomodationScore = accomodationScore;
     }
@@ -60,14 +88,46 @@ private int fieldtripsScore;
     public int getActivitiesScore() {
         return activitiesScore;
     }
+
     public void setActivitiesScore(int activitiesScore) {
         this.activitiesScore = activitiesScore;
     }
 
-    public int getFieldtripsScore() {
-        return fieldtripsScore;
+    public int getFieldtripScore() {
+        return fieldtripScore;
     }
-    public void setFieldtripsScore(int fieldtripsScore) {
-        this.fieldtripsScore = fieldtripsScore;
+
+    public void setFieldtripScore(int fieldtripScore) {
+        this.fieldtripScore = fieldtripScore;
+    }
+
+    public int getAvgOverallScore(String holidayid) {
+        //todo
+        return 0;
+    }
+
+    public int getAvgSchoolScore(String holidayid) {
+        //todo
+        return 0;
+    }
+
+    public int getAvgAccomodationScore(String holidayid) {
+        //todo
+        return 0;
+    }
+
+    public int getAvgActivitiesScore(String holidayid) {
+        //todo
+        return 0;
+    }
+
+    public int getAvgFieldtripScore(String holidayid) {
+        //todo
+        return 0;
+    }
+
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
     }
 }

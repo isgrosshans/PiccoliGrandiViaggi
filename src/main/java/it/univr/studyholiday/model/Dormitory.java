@@ -1,44 +1,33 @@
 package it.univr.studyholiday.model;
 
-//(id, name, address, schoolid, gender)
-public class Dormitory {
-    String name;
-    String address;
-    School school;
-    String gender;
+import it.univr.studyholiday.util.Database.Entity;
 
-    public Dormitory(String name, String address, School school, String gender) {
+import java.lang.reflect.Field;
+
+//DORMITORY
+//(id, name, address, schoolid, sex)
+public class Dormitory implements Entity {
+    private String id;
+    private String name;
+    private String address;
+    private String sex;
+
+    public Dormitory(String name, String address, String sex) {
+        this.id = "";
         this.name = name;
         this.address = address;
-        this.school = school;
-        this.gender = gender;
+        this.sex = sex;
     }
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
+    public Dormitory(String id, String name, String address, String sex) {
+        this.id = id;
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
         this.address = address;
+        this.sex = sex;
     }
 
-    public School getSchool() {
-        return school;
-    }
-    public void setSchool(School school) {
-        this.school = school;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-    public void setGender(String gender) {
-        this.gender = gender;
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
     }
 }

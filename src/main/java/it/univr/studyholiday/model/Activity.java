@@ -1,44 +1,57 @@
 package it.univr.studyholiday.model;
 
+import it.univr.studyholiday.util.Database.Entity;
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 //ACTIVITY
 //(id, schoolid, name, description)
-public class Activity {
-    School school;
+public class Activity implements Entity {
+    String id;
+    String schoolid;
     String name;
     String description;
 
-    public Activity(School school, String name, String description) {
-        this.school = school;
+     public Activity(String name, String description) {
+        this.id="";
         this.name = name;
         this.description = description;
     }
-    
 
-    public School getSchool() {
-        return school;
+    public Activity(String id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
 
-    public void setSchool(School school) {
-        this.school = school;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
     public void setDescription(String description) {
         this.description = description;
     }
 
-    //TODO
-//    public static ArrayList<Activity> getAllFor(School school){
-//        Fetch.schoolActivities(school.getId());
-//        return null;
-//    }
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
+    }
+
 }

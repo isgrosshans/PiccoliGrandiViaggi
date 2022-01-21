@@ -12,11 +12,11 @@ import java.util.ArrayList;
 //          phonenumber* 	)
 
 //STUDENT
-//(id, email, password, firstname, lastname, birthday, gender, homeaddress, phone*, parent1id, parent2id*, hobby)
+//(id, email, password, firstname, lastname, birthday, gender, address, phone*, parent1id, parent2id*, hobby)
 public class Student implements Entity {
     private String id;
     private String email;
-//    private String psw;
+    private String psw;
     private String firstName;
     private String lastName;
     private LocalDate birthday;
@@ -24,16 +24,13 @@ public class Student implements Entity {
     private String address;
     private String phone;
     private String hobby;
-    private String idParent1;   //todo Parent object instead of id
+    private String idParent1;
     private String idParent2;
 
-    public Student(String email, String firstName,
-                   String lastName, LocalDate birthday,
-                   String sex, String address,
-                   String phone, String hobby,
-                   String idParent1, String idParent2) {
-        this.id="DEFAULT";
+    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobby, String idParent1, String idParent2) {
+        this.id="";
         this.email = email;
+        this.psw = psw;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
@@ -45,7 +42,22 @@ public class Student implements Entity {
         this.idParent2 = idParent2;
     }
 
-//    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobby, String idParent1, String idParent2) {
+    public Student(String id, String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobby, String idParent1, String idParent2) {
+        this.id = id;
+        this.email = email;
+        this.psw = psw;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.address = address;
+        this.phone = phone;
+        this.hobby = hobby;
+        this.idParent1 = idParent1;
+        this.idParent2 = idParent2;
+    }
+
+    //    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobby, String idParent1, String idParent2) {
 //        this.email = email;
 //        this.psw = LoginDB.encrypy(psw);
 //        this.firstName = firstName;

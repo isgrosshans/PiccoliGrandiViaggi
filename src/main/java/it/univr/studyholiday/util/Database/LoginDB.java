@@ -88,7 +88,7 @@ public class LoginDB {
 
                 if (rs.getInt(1) == 1) {
                     try (PreparedStatement pst1 = con.prepareStatement(
-                            "SELECT firstname, lastname, birthday, sex, " +
+                            "SELECT id, firstname, lastname, birthday, sex, " +
                                     " address, phone, hobby, idparent1, idparent2 " +
                                     " FROM student " +
                                     " WHERE email=? AND psw=? ")) {
@@ -97,16 +97,17 @@ public class LoginDB {
 
                         rs = pst1.executeQuery();
                         rs.next();
-                        return new Student( email,
-                                            rs.getString(1),
+                        return new Student( rs.getString(1),
+                                            email,
                                             rs.getString(2),
-                                            rs.getDate(3).toLocalDate(),
-                                            rs.getString(4),
+                                            rs.getString(3),
+                                            rs.getDate(4).toLocalDate(),
                                             rs.getString(5),
                                             rs.getString(6),
                                             rs.getString(7),
                                             rs.getString(8),
-                                            rs.getString(9));
+                                            rs.getString(9),
+                                            rs.getString(10));
 
                     }catch (SQLException e1) {
                         System.out.println("Database.login error retrieving student information"+ e1.getMessage());

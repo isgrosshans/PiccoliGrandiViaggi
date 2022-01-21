@@ -33,15 +33,15 @@ public class LoginController {
         User.setCurrentUser(LoginDB.login(Email.getText(), Password.getText()));
 
         if(User.isNull()) loginFailedMessage.setVisible(true);
-        else if (User.isStaff()) GlossaApplication.setRoot("StaffHome-view");
-        else GlossaApplication.setRoot("student_menu_view_OLD");
+        else if (User.isStaff()) GlossaApplication.setRoot("StaffHome");
+        //else GlossaApplication.setRoot("StudentHome");
 //
 //        //UserType.setMode();
 //        if (LoginUtil.emailIsAdmin(Email.getText())) {
 //            if(Database.adminLogin(Email.getText(), psw)) {
 //                //UserType.setMode(Fetch.travelAgent(Email.getText()));
 //
-//                GlossaApplication.setRoot("StaffHome-view");
+//                GlossaApplication.setRoot("StaffHome");
 //                System.out.println("staff log in successful");
 //            }
 //            else loginFailedMessage.setVisible(true);
@@ -59,7 +59,7 @@ public class LoginController {
     }
 
     public void registratiButtonAction() throws IOException {
-        GlossaApplication.setRoot("signup-view");
+        //GlossaApplication.setRoot("signup");
     }
 
     public void exitButtonAction(ActionEvent actionEvent) {

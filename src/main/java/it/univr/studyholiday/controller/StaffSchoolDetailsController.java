@@ -25,11 +25,9 @@ public class StaffSchoolDetailsController implements Initializable {
     @FXML private Button ActivityButton;
 
     private static School school;
-
     public static void setSchool(School s) {
         school=s;
     }
-
     public static School getSchool(){
         return school;
     }
@@ -46,24 +44,23 @@ public class StaffSchoolDetailsController implements Initializable {
         CountryLabel.setText(school.getCountry());
     }
 
-    public void ReturnScoolButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchools-view");
+    public void ReturnSchoolsButtonClick(ActionEvent actionEvent) throws IOException {
+        GlossaApplication.setRoot("StaffSchools");
     }
 
     public void FamilyButtonClick(ActionEvent actionEvent) throws IOException {
-        //GlossaApplication.setRoot("-view");
-        GlossaApplication.setRoot("StaffSchoolActivities-view");
+        StaffSchoolFamiliesController.setSchool(school);
+        GlossaApplication.setRoot("StaffSchoolFamilies");
     }
 
-    public void DoormroomButtonClick(ActionEvent actionEvent) throws IOException {
-        //GlossaApplication.setRoot("-view");
-        GlossaApplication.setRoot("StaffSchoolActivities-view");
+    public void DormitoriesButtonClick(ActionEvent actionEvent) throws IOException {
+        StaffSchoolDormitoriesController.setSchool(school);
+        GlossaApplication.setRoot("StaffSchoolDormitories");
     }
 
     public void ActivityButtonClick(ActionEvent actionEvent) throws IOException {
-        System.out.println("attivita");
-        //StaffSchoolActivitiesController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolActivities-view");
+        StaffSchoolActivitiesController.setSchool(school);
+        GlossaApplication.setRoot("StaffSchoolActivities");
     }
 
 }

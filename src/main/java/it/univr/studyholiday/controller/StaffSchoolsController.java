@@ -51,16 +51,16 @@ public class StaffSchoolsController implements Initializable {
     }
 
     public void ReturnMenuButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffHome-view");
+        GlossaApplication.setRoot("StaffHome");
     }
 
     public void AddSchoolButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffAddSchool-view");
+        GlossaApplication.setRoot("StaffAddSchool");
     }
 
     public void CellCliked(MouseEvent mouseEvent) throws IOException {
         System.out.println(SchoolTable.getSelectionModel().getSelectedItem());
         StaffSchoolDetailsController.setSchool(SchoolTable.getSelectionModel().getSelectedItem());
-        GlossaApplication.setRoot("StaffSchoolDetails-view");
+        GlossaApplication.setRoot("StaffSchoolDetails");
     }
 }

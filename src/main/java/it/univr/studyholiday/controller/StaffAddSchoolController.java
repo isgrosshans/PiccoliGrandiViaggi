@@ -22,11 +22,11 @@ public class StaffAddSchoolController {
     @FXML private Label ErrorMessage;
 
     public void ReturnSchoolButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchools-view");
+        GlossaApplication.setRoot("StaffSchools");
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchools-view");
+        GlossaApplication.setRoot("StaffSchools");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -43,12 +43,12 @@ public class StaffAddSchoolController {
                     CountryTextField.getText(),
                     LanguageTextField.getText()));
 
-            GlossaApplication.setRoot("StaffSchools-view");
+            GlossaApplication.setRoot("StaffSchools");
         }
 
 
         //StaffSchoolsController.addSchool(new School("3","c","c","c","c","c","c"));
-        //GlossaApplication.setRoot("StaffSchools-view");
+        //GlossaApplication.setRoot("StaffSchools");
     }
 
     public boolean allFilled(){

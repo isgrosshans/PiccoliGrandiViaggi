@@ -18,7 +18,7 @@
             <Font name="Chalkboard" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="ReturnSchoolButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnScoolButtonClick" text="&lt; Scuole" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Button fx:id="ReturnSchoolButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnSchoolsButtonClick" text="&lt; Scuole" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="TagNameSchoolLabel" alignment="CENTER" layoutX="40.0" layoutY="150.0" text="Scuola :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -33,7 +33,7 @@
       <Label fx:id="AddressLabel" layoutX="98.0" layoutY="198.0" prefHeight="17.0" prefWidth="487.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="200.0" />
       <Label fx:id="LanguageLabel" layoutX="98.0" layoutY="255.0" prefHeight="17.0" prefWidth="311.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="250.0" />
       <Button fx:id="FamilyButton" layoutX="172.0" layoutY="453.0" minWidth="57.0" mnemonicParsing="false" onAction="#FamilyButtonClick" prefHeight="25.0" text="Famiglie" />
-    <Button fx:id="DormitoryButton" layoutX="272.0" layoutY="453.0" mnemonicParsing="false" onAction="#DoormroomButtonClick" text="Dormitori" />
+    <Button fx:id="DormitoryButton" layoutX="272.0" layoutY="453.0" mnemonicParsing="false" onAction="#DormitoriesButtonClick" text="Dormitori" />
       <Button fx:id="ActivityButton" layoutX="372.0" layoutY="453.0" mnemonicParsing="false" onAction="#ActivityButtonClick" text="Attività" />
       <Label fx:id="TagLanguageLabel" layoutX="21.0" layoutY="250.0" text="Lingua :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="250.0">
          <font>

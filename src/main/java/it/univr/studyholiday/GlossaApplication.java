@@ -31,11 +31,11 @@ public class GlossaApplication extends Application {
 
         //SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
 
-        //scene = new Scene(loadFXML("Login-view"), 600, 430);
+        //scene = new Scene(loadFXML("Login"), 600, 430);
 
-        scene = new Scene(new ScrollPane(loadFXML("StaffSchools-view")), 605, 600);
+        scene = new Scene(new ScrollPane(loadFXML("StaffSchools")), 605, 600);
 
-        //scrollPane.setContent(loadFXML("StaffSchools-view"));
+        //scrollPane.setContent(loadFXML("StaffSchools"));
 
         stage.setTitle("Piccoli Grandi Viaggi");
 
@@ -54,7 +54,7 @@ public class GlossaApplication extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        var fxmlLoader = new FXMLLoader(GlossaApplication.class.getResource(fxml + ".fxml"));
+        var fxmlLoader = new FXMLLoader(GlossaApplication.class.getResource(fxml + "-view.fxml"));
         return fxmlLoader.load();
     }
 

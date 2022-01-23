@@ -64,11 +64,14 @@ public class SaveToDB {
     public static String getValuesFor(Entity e) throws IllegalAccessException {
         String result="";
         int i=0;
+        String temp;
         Field[] fields = e.getClass().getDeclaredFields();
         for (Field f:fields) {
+            temp=e.getValue(f).toString();
             if(i++>0) result+=", ";
-            if (e.getValue(f).getClass()==String.class && e.getValue(f).equals("")) result+=" DEFAULT ";
-            else result+=" '"+e.getValue(f)+"' ";
+            if(temp.contains("'")) temp=temp.replace("'", "''");
+            if(temp.equals("")) result+=" DEFAULT ";
+            else result+=" '"+temp+"' ";
         }
         return result;
     }

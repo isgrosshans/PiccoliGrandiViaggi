@@ -13,14 +13,16 @@ public class Activity implements Entity {
     String name;
     String description;
 
-     public Activity(String name, String description) {
+     public Activity(String schoolid, String name, String description) {
         this.id="";
+         this.schoolid = schoolid;
         this.name = name;
         this.description = description;
     }
 
-    public Activity(String id, String name, String description) {
+    public Activity(String id, String schoolid, String name, String description) {
         this.id = id;
+        this.schoolid = schoolid;
         this.name = name;
         this.description = description;
     }

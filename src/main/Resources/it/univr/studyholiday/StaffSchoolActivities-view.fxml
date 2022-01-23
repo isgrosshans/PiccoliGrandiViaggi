@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.univr.studyholiday.controller.StaffSchoolActivitiesController">
+<AnchorPane prefHeight="603.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffSchoolActivitiesController">
    <children>
       <Button fx:id="ReturnDetailsSchoolButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnDetailsSchoolButtonClick" text="&lt; Dettagli" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="ActivityLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="48.0" text="Attività" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
@@ -21,9 +20,7 @@
             <Font name="Chalkboard" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="ScoolNameLabel" layoutX="15.0" layoutY="120.0" prefHeight="25.0" prefWidth="446.0" />
-      <Button fx:id="AddActivitylButton" contentDisplay="CENTER" layoutX="366.0" layoutY="57.0" mnemonicParsing="false" onAction="#AddActivityButtonClick" prefHeight="52.0" prefWidth="71.0" text="Aggiungi Attività" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="65.0" />
-      <TableView fx:id="ActivitiesTable" layoutX="15.0" layoutY="163.0" prefHeight="235.0" prefWidth="446.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="157.0">
+      <TableView fx:id="ActivitiesTable" layoutX="15.0" layoutY="163.0" prefHeight="235.0" prefWidth="446.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="157.0">
         <columns>
             <TableColumn fx:id="NameColumn" prefWidth="75.0" text="Nome " />
           <TableColumn fx:id="DescriptionColumn" prefWidth="75.0" text="Descrizione" />
@@ -32,5 +29,18 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Button fx:id="AddActivitylButton" contentDisplay="CENTER" layoutX="366.0" layoutY="57.0" mnemonicParsing="false" onAction="#AddActivityButtonClick" prefHeight="52.0" prefWidth="71.0" text="Aggiungi Attività" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="65.0" />
+      <Label fx:id="TagNameLabel" layoutX="20.0" layoutY="424.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="424.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="NameLabel" layoutX="118.0" layoutY="424.0" prefHeight="17.0" prefWidth="422.0" text="Label" wrapText="true" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="424.0" />
+      <Label fx:id="TagDescriptionLabel" layoutX="23.0" layoutY="473.0" text="Descrizione :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="473.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="DescriptionLabel" alignment="TOP_LEFT" layoutX="118.0" layoutY="473.0" prefHeight="94.0" prefWidth="422.0" text="Label" wrapText="true" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="473.0" />
    </children>
 </AnchorPane>

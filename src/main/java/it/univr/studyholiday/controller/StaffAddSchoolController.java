@@ -52,12 +52,12 @@ public class StaffAddSchoolController {
     }
 
     public boolean allFilled(){
-        if(this.NameTextField.getText().isEmpty()) return false;
-        if(this.LanguageTextField.getText().isEmpty()) return false;
-        if(this.AddressTextField.getText().isEmpty()) return false;
-        if(this.CountryTextField.getText().isEmpty()) return false;
-        if(this.CityTextField.getText().isEmpty()) return false;
-        if(this.PostalCodeTextField.getText().isEmpty()) return false;
+        if(this.NameTextField.getText().isBlank()) return false;
+        if(this.LanguageTextField.getText().isBlank()) return false;
+        if(this.AddressTextField.getText().isBlank()) return false;
+        if(this.CountryTextField.getText().isBlank()) return false;
+        if(this.CityTextField.getText().isBlank()) return false;
+        if(this.PostalCodeTextField.getText().isBlank()) return false;
         return true;
     }
 

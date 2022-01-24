@@ -26,7 +26,7 @@ public class FetchFromDB {
                     rs = pst.executeQuery();
 
                     while (rs.next()) {
-                        ral.add(new School(rs.getString(1),
+                        ral.add(new School(rs.getInt(1),
                                 rs.getString(2),
                                 rs.getString(3),
                                 rs.getString(4),
@@ -44,7 +44,7 @@ public class FetchFromDB {
             return ral;
     }
 
-    public static ArrayList<Activity> FetchActivities(String schoolid) throws SQLException {
+    public static ArrayList<Activity> FetchActivities(int schoolid) throws SQLException {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -61,8 +61,8 @@ public class FetchFromDB {
                 rs = pst.executeQuery();
 
                 while (rs.next()) {
-                    ral.add(new Activity(rs.getString(1),
-                            rs.getString(2),
+                    ral.add(new Activity(rs.getInt(1),
+                            rs.getInt(2),
                             rs.getString(3),
                             rs.getString(4)));
                 }

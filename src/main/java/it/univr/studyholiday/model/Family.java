@@ -12,7 +12,8 @@ import java.lang.reflect.Field;
 //FAMILY
 //(id, hhfirstname, hhlastname, hhemail, hhphone, address, members, pets, baths, beds, citydistance , schoolid)
 public class Family implements Entity {
-    private String id;
+    private int id=-1;
+    private int schoolid;
     private String email;
     private String firstName;
     private String lastName;
@@ -23,10 +24,11 @@ public class Family implements Entity {
     private String cityDistance;
     private String address;
 
-    public Family(String email, String firstName, String lastName,
-                  int members, boolean havePets, int bedrooms,
-                  int bathrooms, String cityDistance, String address) {
-        this.id="";
+    public Family(int schoolid, String email, String firstName,
+                  String lastName, int members, boolean havePets,
+                  int bedrooms, int bathrooms, String cityDistance,
+                  String address) {
+        this.schoolid = schoolid;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,11 +40,12 @@ public class Family implements Entity {
         this.address = address;
     }
 
-    public Family(String id, String email, String firstName,
-                  String lastName, int members, boolean havePets,
-                  int bedrooms, int bathrooms, String cityDistance,
-                  String address) {
+    public Family(int id, int schoolid, String email,
+                  String firstName, String lastName, int members,
+                  boolean havePets, int bedrooms, int bathrooms,
+                  String cityDistance, String address) {
         this.id = id;
+        this.schoolid = schoolid;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,7 +59,7 @@ public class Family implements Entity {
 
     public String italianDescription(){
         String result="";
-        result+=  "Famiglia di             "+getFullName()+
+        result+=  "Famiglia di             "+firstName+" "+lastName+
                 "\nComponent:              "+members+
                 "\nCamere per gli ospiti:  "+bedrooms+
                 "\nBagni per gli ospiti:   "+bathrooms+
@@ -67,12 +70,26 @@ public class Family implements Entity {
         return result;
     }
 
-    public String getId() {
+
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getSchoolid() {
+        return schoolid;
+    }
+
+    public void setSchoolid(int schoolid) {
+        this.schoolid = schoolid;
     }
 
     public String getEmail() {
@@ -145,14 +162,5 @@ public class Family implements Entity {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getFullName(){
-        return firstName+" "+lastName;
-    }
-
-    @Override
-    public Object getValue(Field field) throws IllegalAccessException {
-        return field.get(this);
     }
 }

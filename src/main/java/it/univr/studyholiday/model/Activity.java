@@ -8,31 +8,43 @@ import java.util.ArrayList;
 //ACTIVITY
 //(id, schoolid, name, description)
 public class Activity implements Entity {
-    String id;
-    String schoolid;
+    int id=-1;
+    int schoolid;
     String name;
     String description;
 
-     public Activity(String schoolid, String name, String description) {
-        this.id="";
-         this.schoolid = schoolid;
+    public Activity(int schoolid, String name, String description) {
+        this.schoolid = schoolid;
         this.name = name;
         this.description = description;
     }
 
-    public Activity(String id, String schoolid, String name, String description) {
+    public Activity(int id, int schoolid, String name, String description) {
         this.id = id;
         this.schoolid = schoolid;
         this.name = name;
         this.description = description;
     }
 
-    public String getId() {
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getSchoolid() {
+        return schoolid;
+    }
+
+    public void setSchoolid(int schoolid) {
+        this.schoolid = schoolid;
     }
 
     public String getName() {
@@ -50,10 +62,4 @@ public class Activity implements Entity {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    @Override
-    public Object getValue(Field field) throws IllegalAccessException {
-        return field.get(this);
-    }
-
 }

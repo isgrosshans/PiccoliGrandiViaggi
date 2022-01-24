@@ -6,21 +6,20 @@ import java.lang.reflect.Field;
 
 //PARENT(email,firstName,lastName,telephone)
 public class Parent implements Entity {
-    private String id;
+    private int id = -1;
     private String email;
     private String firstName;
     private String lastName;
     private String phone;
 
     public Parent(String email, String firstName, String lastName, String phone) {
-        this.id="";
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
     }
 
-    public Parent(String id, String email, String firstName, String lastName, String phone) {
+    public Parent(int id, String email, String firstName, String lastName, String phone) {
         this.id = id;
         this.email = email;
         this.firstName = firstName;
@@ -28,11 +27,11 @@ public class Parent implements Entity {
         this.phone = phone;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

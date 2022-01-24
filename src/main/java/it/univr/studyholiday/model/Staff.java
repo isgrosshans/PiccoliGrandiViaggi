@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 //(id, email, psw, firstname, lastname, phone)
 public class Staff implements Entity {
 
-    private String id;
+    private int id=-1;
     private String email;
     private String psw;
     private String firstname;
@@ -17,7 +17,6 @@ public class Staff implements Entity {
     private String phone;
 
     public Staff(String email, String psw, String firstname, String lastname, String phone) {
-        this.id="";
         this.email = email;
         this.psw = LoginDB.encrypy(psw);
         this.firstname = firstname;
@@ -25,7 +24,7 @@ public class Staff implements Entity {
         this.phone = phone;
     }
 
-    public Staff(String id, String email, String psw, String firstname, String lastname, String phone) {
+    public Staff(int id, String email, String psw, String firstname, String lastname, String phone) {
         this.id = id;
         this.email = email;
         this.psw = psw;
@@ -34,11 +33,11 @@ public class Staff implements Entity {
         this.phone = phone;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -5,38 +5,42 @@ import it.univr.studyholiday.util.Database.Entity;
 import java.lang.reflect.Field;
 
 public class Allergy implements Entity {
-    private String id;
-    private String studentid;
+    private int id=-1;
+    private int studentid;
     private String allergen;
     private String precautions;
 
-    public Allergy(String studentid, String allergen, String precautions) {
-        this.id="";
+    public Allergy(int studentid, String allergen, String precautions) {
         this.studentid = studentid;
         this.allergen = allergen;
         this.precautions = precautions;
     }
 
-    public Allergy(String id, String studentid, String allergen, String precautions) {
+    public Allergy(int id, int studentid, String allergen, String precautions) {
         this.id = id;
         this.studentid = studentid;
         this.allergen = allergen;
         this.precautions = precautions;
     }
 
-    public String getId() {
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getStudentid() {
+    public int getStudentid() {
         return studentid;
     }
 
-    public void setStudentid(String studentid) {
+    public void setStudentid(int studentid) {
         this.studentid = studentid;
     }
 
@@ -54,10 +58,5 @@ public class Allergy implements Entity {
 
     public void setPrecautions(String precautions) {
         this.precautions = precautions;
-    }
-
-    @Override
-    public Object getValue(Field field) throws IllegalAccessException {
-        return field.get(this);
     }
 }

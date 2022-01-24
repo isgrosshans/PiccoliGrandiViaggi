@@ -65,8 +65,12 @@ public class StaffDormitoryAddController implements Initializable {
             ErrorMessage.setText("Il dormitorio deve avere delle camere.");
 
         else{
-
-            SaveToDB.insert(new Dormitory(NameSchoolLabel.getText(), AdressTextField.getText(), GenderCoiceBox.getSelectionModel().getSelectedItem().toString())
+            String mf;
+                    if(GenderCoiceBox.getSelectionModel().getSelectedItem().toString().equals("Maschile")) mf="m";
+                    else mf="f";
+            System.out.println(school.getId());
+            SaveToDB.insert(new Dormitory(school.getId(), NameTextField.getText(),
+                            AdressTextField.getText(), mf)
                     ,SingleRoomSpinner.getValue(),DoubleRoomSpinner.getValue());
 
             StaffDormitoriesController.setSchool(school);

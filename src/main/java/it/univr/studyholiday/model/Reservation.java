@@ -7,18 +7,17 @@ import java.lang.reflect.Field;
 //RESERVATION
 //(id, studentid, holidayid, paymentmethod, familyid*, dormroomid*, friendname*, friendemail*, languagelevel)
 public class Reservation implements Entity {
-    private String id;
-    private String studentid;
-    private String holidayid;
+    private int id=-1;
+    private int studentid;
+    private int holidayid;
     private String paymentMethod;
-    private String familyid;
-    private String dormRoomid;
+    private int familyid;
+    private int dormRoomid;
     private String friendName;
     private String friendEmail;
     private String languageLevel;
 
-    public Reservation(String studentid, String holidayid, String paymentMethod, String familyid, String dormRoomid, String friendName, String friendEmail, String languageLevel) {
-        this.id="";
+    public Reservation(int studentid, int holidayid, String paymentMethod, int familyid, int dormRoomid, String friendName, String friendEmail, String languageLevel) {
         this.studentid = studentid;
         this.holidayid = holidayid;
         this.paymentMethod = paymentMethod;
@@ -29,7 +28,7 @@ public class Reservation implements Entity {
         this.languageLevel = languageLevel;
     }
 
-    public Reservation(String id, String studentid, String holidayid, String paymentMethod, String familyid, String dormRoomid, String friendName, String friendEmail, String languageLevel) {
+    public Reservation(int id, int studentid, int holidayid, String paymentMethod, int familyid, int dormRoomid, String friendName, String friendEmail, String languageLevel) {
         this.id = id;
         this.studentid = studentid;
         this.holidayid = holidayid;
@@ -41,27 +40,27 @@ public class Reservation implements Entity {
         this.languageLevel = languageLevel;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getStudentid() {
+    public int getStudentid() {
         return studentid;
     }
 
-    public void setStudentid(String studentid) {
+    public void setStudentid(int studentid) {
         this.studentid = studentid;
     }
 
-    public String getHolidayid() {
+    public int getHolidayid() {
         return holidayid;
     }
 
-    public void setHolidayid(String holidayid) {
+    public void setHolidayid(int holidayid) {
         this.holidayid = holidayid;
     }
 
@@ -73,19 +72,19 @@ public class Reservation implements Entity {
         this.paymentMethod = paymentMethod;
     }
 
-    public String getFamilyid() {
+    public int getFamilyid() {
         return familyid;
     }
 
-    public void setFamilyid(String familyid) {
+    public void setFamilyid(int familyid) {
         this.familyid = familyid;
     }
 
-    public String getDormRoomid() {
+    public int getDormRoomid() {
         return dormRoomid;
     }
 
-    public void setDormRoomid(String dormRoomid) {
+    public void setDormRoomid(int dormRoomid) {
         this.dormRoomid = dormRoomid;
     }
 

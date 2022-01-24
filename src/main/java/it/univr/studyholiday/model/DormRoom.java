@@ -8,38 +8,42 @@ import java.sql.SQLException;
 //DORMROOM
 //(id, roomnumber, dormitoryid beds)
 public class DormRoom implements Entity{
-    private String id;
-    private String dormitoryid;
+    private int id=-1;
+    private int dormitoryid;
     private String roomNumber;
     private int beds;
 
-    public DormRoom(String dormitoryid, String roomNumber, int beds) {
-        this.id = "";
+    public DormRoom(int dormitoryid, String roomNumber, int beds) {
         this.dormitoryid = dormitoryid;
-        this.roomNumber = "";
+        this.roomNumber = roomNumber;
         this.beds = beds;
     }
 
-    public DormRoom(String id, String dormitoryid, String roomNumber, int beds) {
+    public DormRoom(int id, int dormitoryid, String roomNumber, int beds) {
         this.id = id;
         this.dormitoryid = dormitoryid;
         this.roomNumber = roomNumber;
         this.beds = beds;
     }
 
-    public String getId() {
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getDormitoryid() {
+    public int getDormitoryid() {
         return dormitoryid;
     }
 
-    public void setDormitoryid(String dormitoryid) {
+    public void setDormitoryid(int dormitoryid) {
         this.dormitoryid = dormitoryid;
     }
 
@@ -57,10 +61,5 @@ public class DormRoom implements Entity{
 
     public void setBeds(int beds) {
         this.beds = beds;
-    }
-
-    @Override
-    public Object getValue(Field field) throws IllegalAccessException {
-        return field.get(this);
     }
 }

@@ -7,20 +7,21 @@ import java.lang.reflect.Field;
 //DORMITORY
 //(id, name, address, schoolid, sex)
 public class Dormitory implements Entity {
-    private String id;
+    private int id=-1;
+    private int schoolid;
     private String name;
     private String address;
     private String sex;
 
-    public Dormitory(String name, String address, String sex) {
-        this.id = "";
+    public Dormitory(int schoolid, String name, String address, String sex) {
+        this.schoolid = schoolid;
         this.name = name;
         this.address = address;
         this.sex = sex;
     }
-
-    public Dormitory(String id, String name, String address, String sex) {
+    public Dormitory(int id, int schoolid, String name, String address, String sex) {
         this.id = id;
+        this.schoolid = schoolid;
         this.name = name;
         this.address = address;
         this.sex = sex;
@@ -31,12 +32,20 @@ public class Dormitory implements Entity {
         return field.get(this);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getSchoolid() {
+        return schoolid;
+    }
+
+    public void setSchoolid(int schoolid) {
+        this.schoolid = schoolid;
     }
 
     public String getName() {

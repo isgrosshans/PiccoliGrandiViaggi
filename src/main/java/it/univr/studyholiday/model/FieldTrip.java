@@ -7,34 +7,49 @@ import java.lang.reflect.Field;
 //FIELDTRIP
 //(id, holidayid, destination, hours, price, description)
 public class FieldTrip implements Entity{
-    private String id;
+    private int id = -1;
+    private int holidayid;
     private String destination;
     private String description;
     private int price;
     private int hours;
 
-    public FieldTrip(String destination, String description, int price, int hours) {
-        this.id="";
+    public FieldTrip(int holidayid, String destination, String description, int price, int hours) {
+        this.holidayid = holidayid;
         this.destination = destination;
         this.description = description;
         this.price = price;
         this.hours = hours;
     }
 
-    public FieldTrip(String id, String destination, String description, int price, int hours) {
+    public FieldTrip(int id, int holidayid, String destination, String description, int price, int hours) {
         this.id = id;
+        this.holidayid = holidayid;
         this.destination = destination;
         this.description = description;
         this.price = price;
         this.hours = hours;
     }
 
-    public String getId() {
+    @Override
+    public Object getValue(Field field) throws IllegalAccessException {
+        return field.get(this);
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getHolidayid() {
+        return holidayid;
+    }
+
+    public void setHolidayid(int holidayid) {
+        this.holidayid = holidayid;
     }
 
     public String getDestination() {
@@ -67,10 +82,5 @@ public class FieldTrip implements Entity{
 
     public void setHours(int hours) {
         this.hours = hours;
-    }
-
-    @Override
-    public Object getValue(Field field) throws IllegalAccessException {
-        return field.get(this);
     }
 }

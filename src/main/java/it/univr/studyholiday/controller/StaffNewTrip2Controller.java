@@ -11,7 +11,7 @@ public class StaffNewTrip2Controller {
     }
 
     public void NextButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffAddFieldTrip");
+        GlossaApplication.setRoot("StaffFieldTripAdd");
     }
 
     public void DatePickerClick(ActionEvent actionEvent) {

@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="it.univr.studyholiday.controller.StaffDetailsFutureTripController">
+   fx:controller="it.univr.studyholiday.controller.StaffFutureTripDetailsController">
    <children>
       <Button fx:id="ReturnTripButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnFutureTripsButtonClick" text="&lt; Viaggi" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" prefWidth="554.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">

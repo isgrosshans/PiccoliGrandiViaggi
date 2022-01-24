@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class StaffDetailsDormitoryController {
+public class StaffDormitoryDetailsController {
 
     private static Dormitory dormitory;
     public static void setDormitory(Dormitory d) {
@@ -26,7 +26,7 @@ public class StaffDetailsDormitoryController {
     }
 
     public void ReturnDormitoryButtonClick(ActionEvent actionEvent) throws IOException {
-        StaffSchoolDormitoriesController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolDormitories");
+        StaffDormitoriesController.setSchool(school);
+        GlossaApplication.setRoot("StaffDormitories");
     }
 }

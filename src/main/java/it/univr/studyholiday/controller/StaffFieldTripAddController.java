@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class StaffAddFieldTripController {
+public class StaffFieldTripAddController {
 
     public void ReturnButtonClick(ActionEvent actionEvent) throws IOException {
         GlossaApplication.setRoot("StaffNewTrip2");

@@ -10,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,12 +20,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class StaffSchoolActivitiesController implements Initializable {
+public class StaffActivitiesController implements Initializable {
 
 
+    @FXML private Label TagNameLabel;
+    @FXML private Label TagDescriptionLabel;
+    @FXML private Label SchoolLabel;
+    @FXML private Label NameLabel;
+    @FXML private Label DescriptionLabel;
+    @FXML private Label SchoolNameLabel;
     @FXML private TableView<Activity> ActivitiesTable;
     @FXML private TableColumn<Activity, String> NameColumn;
-    @FXML private TableColumn<Activity, String> DescriptionColumn;
+    @FXML private TableColumn<Activity, Text> DescriptionColumn;
     
     private static School school;
     public static void setSchool(School s) {
@@ -34,9 +43,14 @@ public class StaffSchoolActivitiesController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ActivitiesTable.setFixedCellSize(Region.USE_COMPUTED_SIZE);
+        TagDescriptionLabel.setVisible(false);
+        TagNameLabel.setVisible(false);
+        SchoolNameLabel.setText(school.getName());
         ActivitiesTable.setEditable(false);
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         DescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("Description"));
+
 
         try {
             ActivitiesTable.setItems(FXCollections.observableArrayList(getActivities()));
@@ -59,9 +73,18 @@ public class StaffSchoolActivitiesController implements Initializable {
     }
 
     public void AddActivityButtonClick(ActionEvent actionEvent) throws IOException {
-        StaffAddActivityController.setSchool(school);
-        GlossaApplication.setRoot("StaffAddActivity");
+        StaffActivityAddController.setSchool(school);
+        GlossaApplication.setRoot("StaffActivityAdd");
     }
+
+    public void CellClicked(MouseEvent mouseEvent) {
+        TagDescriptionLabel.setVisible(true);
+        TagNameLabel.setVisible(true);
+        NameLabel.setText(ActivitiesTable.getSelectionModel().getSelectedItem().getName());
+        DescriptionLabel.setText(ActivitiesTable.getSelectionModel().getSelectedItem().getDescription());
+    }
+
+
 
 //    public Button ReturnDetailsSchoolButton;
 //    public Label ActivityLabel;

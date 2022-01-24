@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class StaffAddSchoolController {
+public class StaffSchoolAddController {
 
     @FXML private TextField NameTextField;
     @FXML private TextField LanguageTextField;

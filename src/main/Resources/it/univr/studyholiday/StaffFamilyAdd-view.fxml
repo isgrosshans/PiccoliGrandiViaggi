@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="783.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.univr.studyholiday.controller.StaffAddFamilyController">
+            fx:controller="it.univr.studyholiday.controller.StaffFamilyAddController">
    <children>
       <Button fx:id="ReturnFamilyButton" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReturnFamilyButtonClick" text="&lt; Famiglie" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">

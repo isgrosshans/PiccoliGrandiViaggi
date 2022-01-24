@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class StaffDetailsFutureTripController {
+public class StaffFutureTripDetailsController {
 
     private static Holiday holiday;
     public static Holiday getHoliday() {

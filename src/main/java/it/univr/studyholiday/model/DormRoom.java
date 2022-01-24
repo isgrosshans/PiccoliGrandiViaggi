@@ -16,7 +16,7 @@ public class DormRoom implements Entity{
     public DormRoom(String dormitoryid, String roomNumber, int beds) {
         this.id = "";
         this.dormitoryid = dormitoryid;
-        this.roomNumber = roomNumber;
+        this.roomNumber = "";
         this.beds = beds;
     }
 

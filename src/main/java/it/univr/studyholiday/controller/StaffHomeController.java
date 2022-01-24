@@ -6,7 +6,7 @@ import java.io.IOException;
 public class StaffHomeController {
 
     public void LogoutButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("login");
+        GlossaApplication.setRoot("Login");
     }
 
     public void SchoolsButtonClick(ActionEvent actionEvent) throws IOException {
@@ -14,10 +14,10 @@ public class StaffHomeController {
     }
 
     public void FutureTripsButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("staffFutureTrips");
+        GlossaApplication.setRoot("StaffFutureTrips");
     }
 
     public void PastTripsButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("staffPastTrips");
+        GlossaApplication.setRoot("StaffPastTrips");
     }
 }

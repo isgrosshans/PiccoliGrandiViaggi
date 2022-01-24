@@ -55,7 +55,7 @@ public class StaffSchoolsController implements Initializable {
     }
 
     public void AddSchoolButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffAddSchool");
+        GlossaApplication.setRoot("StaffSchoolAdd");
     }
 
     public void CellCliked(MouseEvent mouseEvent) throws IOException {

@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class StaffAddActivityController implements Initializable{
+public class StaffActivityAddController implements Initializable{
 
     public Label ErrorLabel;
     @FXML private TextField NameActivityTextField;
@@ -36,11 +36,11 @@ public class StaffAddActivityController implements Initializable{
 
 
     public void ReturnActivityButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchoolActivities");
+        GlossaApplication.setRoot("StaffActivities");
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchoolActivities");
+        GlossaApplication.setRoot("StaffActivities");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -49,7 +49,7 @@ public class StaffAddActivityController implements Initializable{
         }
         else {
             SaveToDB.insert(new Activity(school.getId(), NameActivityTextField.getText(), DescriptionActivityTextField.getText()));
-            GlossaApplication.setRoot("StaffSchoolActivities");
+            GlossaApplication.setRoot("StaffActivities");
         }
     }
 

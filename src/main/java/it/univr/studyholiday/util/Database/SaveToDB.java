@@ -1,4 +1,5 @@
 package it.univr.studyholiday.util.Database;
+import it.univr.studyholiday.model.Dormitory;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.lang.reflect.Field;
@@ -6,11 +7,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class SaveToDB {
 
-    public static void insert (Entity... entities){
+    public static void insert (Entity entity){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -18,29 +20,104 @@ public class SaveToDB {
         }
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
-            for (Entity e:entities) {
+
                 try (PreparedStatement pst = con.prepareStatement(
-                        "INSERT INTO "+getTableNameFor(e)+
-                                " (" + getColumnNamesFor(e)+
+                        "INSERT INTO "+getTableNameFor(entity)+
+                                " (" + getColumnNamesFor(entity)+
                                 ") VALUES ("+
-                                getValuesFor(e)+");")) {
+                                getValuesFor(entity)+");")) {
 
                     rs = pst.executeQuery();
                     rs.next();
 
 
                 }catch (SQLException e1) {
-                    System.out.println("SaveToDB.insert."+getTableNameFor(e)+": "+ e1.getMessage());
+                    System.out.println("SaveToDB.insert."+getTableNameFor(entity)+": "+ e1.getMessage());
                 } catch (IllegalAccessException illegalAccessException) {
                     illegalAccessException.printStackTrace();
                 }
-            }
-
 
         } catch (SQLException e) {
             System.out.println("Connection error: "+e.getMessage());
         }
 
+    }
+
+    public static void insert(Dormitory dormitory, Integer singles, Integer doubles) {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        String dormitoryid = "";
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+
+            //insert new dormitory
+            try (PreparedStatement pst = con.prepareStatement(
+                    "INSERT INTO "+getTableNameFor(dormitory)+
+                            " (" + getColumnNamesFor(dormitory)+
+                            ") VALUES ("+
+                            getValuesFor(dormitory)+");" +
+                        "SELECT id FROM dormitory " +
+                            "WHERE name="+dormitory.getName()+
+                            "' AND address='"+dormitory.getAddress()+
+                            "' AND sex='"+dormitory.getSex()+";")) {
+
+                rs = pst.executeQuery();
+                rs.next();
+                dormitoryid=rs.getString(1);
+
+
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+": "+ e1.getMessage());
+            } catch (IllegalAccessException illegalAccessException) {
+                illegalAccessException.printStackTrace();
+            }
+
+            //insert rooms
+            int i=1;
+            for (int j = 0; j < singles; j++) {
+                try (PreparedStatement pst = con.prepareStatement(
+                        "INSERT INTO dormroom "+
+                                " ( dormitoryid, roomnumber, beds ) " +
+                                "VALUES (?, ?, ?);")) {
+
+                    pst.setString(1, dormitoryid);
+                    pst.setString(2, String.valueOf(i++));
+                    pst.setString(3, String.valueOf(1));
+
+                    rs = pst.executeQuery();
+                    rs.next();
+
+                }catch (SQLException e1) {
+                    System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+": "+ e1.getMessage());
+                }
+            }
+            for (int k = 0; k < doubles; k++) {
+                try (PreparedStatement pst = con.prepareStatement(
+                        "INSERT INTO dormroom "+
+                                " ( dormitoryid, roomnumber, beds ) " +
+                                "VALUES (?, ?, ?);")) {
+
+                    pst.setString(1, dormitoryid);
+                    pst.setString(2, String.valueOf(i++));
+                    pst.setString(3, String.valueOf(2));
+
+                    rs = pst.executeQuery();
+                    rs.next();
+
+                }catch (SQLException e1) {
+                    System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+": "+ e1.getMessage());
+                }
+            }
+
+
+
+
+        } catch (SQLException e) {
+            System.out.println("Connection error: "+e.getMessage());
+        }
     }
 
     private static String getTableNameFor(Entity e){
@@ -77,5 +154,8 @@ public class SaveToDB {
     }
 
 
-
 }
+
+
+
+

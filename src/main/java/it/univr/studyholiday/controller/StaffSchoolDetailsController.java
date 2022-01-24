@@ -5,12 +5,10 @@ import it.univr.studyholiday.model.School;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.channels.ShutdownChannelGroupException;
 import java.util.ResourceBundle;
 
 public class StaffSchoolDetailsController implements Initializable {
@@ -20,9 +18,7 @@ public class StaffSchoolDetailsController implements Initializable {
     @FXML private Label CityLabel;
     @FXML private Label CountryLabel;
     @FXML private Label PostalCodeLabel;
-    @FXML private Button FamilyButton;
-    @FXML private Button DormitoryButton;
-    @FXML private Button ActivityButton;
+
 
     private static School school;
     public static void setSchool(School s) {
@@ -49,18 +45,18 @@ public class StaffSchoolDetailsController implements Initializable {
     }
 
     public void FamilyButtonClick(ActionEvent actionEvent) throws IOException {
-        StaffSchoolFamiliesController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolFamilies");
+        StaffFamiliesController.setSchool(school);
+        GlossaApplication.setRoot("StaffFamilies");
     }
 
     public void DormitoriesButtonClick(ActionEvent actionEvent) throws IOException {
-        StaffSchoolDormitoriesController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolDormitories");
+        StaffDormitoriesController.setSchool(school);
+        GlossaApplication.setRoot("StaffDormitories");
     }
 
     public void ActivityButtonClick(ActionEvent actionEvent) throws IOException {
-        StaffSchoolActivitiesController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolActivities");
+        StaffActivitiesController.setSchool(school);
+        GlossaApplication.setRoot("StaffActivities");
     }
 
 }

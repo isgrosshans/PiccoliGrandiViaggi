@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 
-public class StaffAddFamilyController {
+public class StaffFamilyAddController {
 
     private static School school;
     public static void setSchool(School s) {
@@ -17,18 +17,18 @@ public class StaffAddFamilyController {
     }
 
     public void ReturnFamilyButtonClick(ActionEvent actionEvent) throws IOException {
-        StaffSchoolFamiliesController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolFamilies");
+        StaffFamiliesController.setSchool(school);
+        GlossaApplication.setRoot("StaffFamilies");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
         //todo save
-        StaffSchoolFamiliesController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolFamilies");
+        StaffFamiliesController.setSchool(school);
+        GlossaApplication.setRoot("StaffFamilies");
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        StaffSchoolFamiliesController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolFamilies");
+        StaffFamiliesController.setSchool(school);
+        GlossaApplication.setRoot("StaffFamilies");
     }
 }

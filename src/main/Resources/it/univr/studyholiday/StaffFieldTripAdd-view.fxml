@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="548.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="it.univr.studyholiday.controller.StaffAddFieldTripController">
+fx:controller="it.univr.studyholiday.controller.StaffFieldTripAddController">
    <children>
       <Button fx:id="ReturnButton" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReturnButtonClick" text="&lt; Inserisci Viaggio" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">

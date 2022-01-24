@@ -3,13 +3,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="789.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="it.univr.studyholiday.controller.StaffPastTripDetailsController">
+<AnchorPane prefHeight="789.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffPastTripDetailsController">
    <children>
       <Button fx:id="ReturnTripButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnPastTripsButtonClick" text="&lt; Viaggi" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" prefWidth="554.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
@@ -55,12 +53,12 @@
          </font>
       </Label>
       <Label fx:id="DestinationLabelì" layoutX="126.0" layoutY="199.0" prefHeight="17.0" prefWidth="414.0" text="Label" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="220.0" />
-      <Label fx:id="TagAccomodationLabel" layoutX="19.0" layoutY="458.0" text="Alloggi :" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="460.0">
+      <Label fx:id="TagAccomodationsLabel" layoutX="19.0" layoutY="458.0" text="Alloggi :" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="460.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="AccomodationLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="449.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="460.0" />
+      <Label fx:id="AccomodationsLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="449.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="460.0" />
       <Label fx:id="TagFieldtripsLabel" layoutX="21.0" layoutY="504.0" text="Gite :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="510.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -73,12 +71,12 @@
          </font>
       </Label>
       <Label fx:id="ActivitiesLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="561.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="560.0" />
-      <Label fx:id="TagLessonsLabel" layoutX="21.0" layoutY="607.0" text="Lezioni :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="610.0">
+      <Label fx:id="TagSchoolLabel" layoutX="21.0" layoutY="607.0" text="Scuola :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="610.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="LessonsLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="607.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="610.0" />
+      <Label fx:id="SchoolLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="607.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="610.0" />
       <Label fx:id="TagCommentsLabel" layoutX="21.0" layoutY="646.0" text="Commenti :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="660.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -94,14 +92,6 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="ScrollView" layoutX="100.0" layoutY="660.0" prefHeight="102.0" prefWidth="480.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="660.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="102.0" prefWidth="466.0">
-               <children>
-                  <ListView fx:id="ListView" layoutX="-7.0" layoutY="-8.0" prefHeight="120.0" prefWidth="487.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
+      <TextArea fx:id="CommentsTextArea" layoutX="117.0" layoutY="660.0" prefHeight="109.0" prefWidth="453.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="117.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="660.0" />
    </children>
 </AnchorPane>

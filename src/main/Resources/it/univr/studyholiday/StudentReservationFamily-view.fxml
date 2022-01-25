@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="538.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="ReturnDetailsTripButton" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#ReturnDetailsTripButtonClick" text="&lt; Dettagli Viaggio" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="18.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="ReservationFamilyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="50.0" prefHeight="60.0" prefWidth="587.0" text="Prenotazione Viaggio in Famiglia" textAlignment="CENTER" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="124.0" prefHeight="17.0" prefWidth="563.0" text="Vuoi alloggiare nella stessa famiglia di un tuo amico o di una tua amica?" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="124.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="DescriptionLabel2" disable="true" layoutX="29.0" layoutY="268.0" prefHeight="17.0" prefWidth="560.0" text="Inserisci i dati del tuo amico o della tua amica :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="268.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="YesRadioButton" layoutX="41.0" layoutY="171.0" mnemonicParsing="false" onAction="#YesFriendButton" onMouseClicked="#YesClick" text="Si" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="535.0" AnchorPane.topAnchor="171.0" />
+      <RadioButton fx:id="NoRadioButton" layoutX="28.0" layoutY="211.0" mnemonicParsing="false" onAction="#NoFriendButton" onMouseClicked="#NoClicked" prefHeight="18.0" prefWidth="53.0" text="No" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="517.0" AnchorPane.topAnchor="211.0" />
+      <Label fx:id="EmailLabel" disable="true" layoutX="11.0" layoutY="320.0" prefHeight="17.0" prefWidth="90.0" text="Email :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="320.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="EmailTextField" disable="true" layoutX="112.0" layoutY="316.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="316.0" />
+      <Label fx:id="NameLabel" disable="true" layoutX="20.0" layoutY="367.0" prefHeight="17.0" prefWidth="53.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="367.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NameTextField" disable="true" layoutX="110.0" layoutY="363.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="363.0" />
+      <Label fx:id="SurnameLabel" disable="true" layoutX="13.0" layoutY="408.0" prefHeight="17.0" prefWidth="67.0" text="Cognome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="408.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="SurnameTextfield" disable="true" layoutX="110.0" layoutY="404.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="404.0" />
+      <Button fx:id="CancelButton" layoutX="139.0" layoutY="467.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="139.0" AnchorPane.topAnchor="467.0" />
+      <Button fx:id="ConfirmButton" layoutX="386.0" layoutY="467.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Avanti" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="467.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="54.0" layoutY="509.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+   </children>
+</AnchorPane>

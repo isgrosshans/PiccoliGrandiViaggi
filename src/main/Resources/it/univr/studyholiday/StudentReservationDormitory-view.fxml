@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="ReturnDetailsTripButton" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#ReturnDetailsTripButtonClick" text="&lt; Dettagli Viaggio" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="18.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="ReservationDormitoryLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="50.0" prefHeight="60.0" prefWidth="587.0" text="Prenotazione Viaggio in Dormitorio" textAlignment="CENTER" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="148.0" prefHeight="17.0" prefWidth="563.0" text="Preferisci stare in una camera: " AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="148.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="SingleRadioButton" layoutX="29.0" layoutY="206.0" mnemonicParsing="false" onAction="#SingleRoomButton" onMouseClicked="#SingleRoomClick" prefHeight="18.0" prefWidth="71.0" text="Singola" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="499.0" AnchorPane.topAnchor="206.0" />
+      <RadioButton fx:id="DoubleRadioButton" layoutX="29.0" layoutY="246.0" mnemonicParsing="false" onAction="#DoubleRoomButton" onMouseClicked="#DoubleRoomClick" text="Doppia" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="506.0" AnchorPane.topAnchor="246.0" />
+      <Button fx:id="CancelButton" layoutX="129.0" layoutY="324.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="129.0" AnchorPane.topAnchor="324.0" />
+      <Button fx:id="ConfirmButton" layoutX="376.0" layoutY="324.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Avanti" AnchorPane.rightAnchor="171.0" AnchorPane.topAnchor="324.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="11.0" layoutY="315.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0" />
+   </children>
+</AnchorPane>

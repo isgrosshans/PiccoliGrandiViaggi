@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="922.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="ReturnHomeButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnHomeButtonClick" text="&lt; Menu" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <MenuButton fx:id="EditMenu" layoutX="471.0" layoutY="20.0" mnemonicParsing="false" onAction="#EditMenuClick" prefHeight="25.0" prefWidth="96.0" text="Modifica" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="11.0">
+        <items>
+          <MenuItem fx:id="EditPersonalData" mnemonicParsing="false" onAction="#EditPersonalDataClick" text="Dati Personali" />
+          <MenuItem fx:id="EditEmailPsw" mnemonicParsing="false" onAction="#EditEmailPswClick" text="Email o Password" />
+            <MenuItem fx:id="EditAllergy" mnemonicParsing="false" onAction="#EditAllergyClick" text="Allergie" />
+            <MenuItem fx:id="EditParents" mnemonicParsing="false" onAction="#EditParentsClick" text="Genitori" />
+        </items>
+      </MenuButton>
+      <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" prefWidth="554.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="PersonalProfileLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="48.0" text="Profilo Personale" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="TagMailLabel" layoutX="20.0" layoutY="268.0" text="Email :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="270.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="EmailLabel" layoutX="99.0" layoutY="258.0" prefHeight="17.0" prefWidth="441.0" text="Label" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="270.0" />
+      <Label fx:id="TagPhoneLabel" layoutX="14.0" layoutY="308.0" text="Telefono :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="320.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="PhoneLabel" layoutX="99.0" layoutY="308.0" prefHeight="17.0" prefWidth="441.0" text="Label" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="320.0" />
+      <Label fx:id="TagNameLabel" layoutX="14.0" layoutY="117.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="NameLabel" layoutX="99.0" layoutY="117.0" prefHeight="17.0" prefWidth="441.0" text="Label" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="120.0" />
+      <Label fx:id="TagSurnameLabel" layoutX="21.0" layoutY="166.0" text="Cognome :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="170.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="SurnameLabel" layoutX="99.0" layoutY="162.0" prefHeight="17.0" prefWidth="441.0" text="Label" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="170.0" />
+      <Label fx:id="TagSexLabel" layoutX="11.0" layoutY="231.0" text="Sesso : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="220.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="SexLabel" layoutX="99.0" layoutY="199.0" prefHeight="17.0" prefWidth="441.0" text="Label" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="220.0" />
+      <Label fx:id="TagHobbyLabel" layoutX="20.0" layoutY="836.0" text="Hobbies :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="836.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="TagBirthdayLabel" layoutX="17.0" layoutY="379.0" text="Data Nascita :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="370.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="HobbiesLabel" alignment="TOP_LEFT" layoutX="99.0" layoutY="836.0" prefHeight="72.0" prefWidth="441.0" text="Label" wrapText="true" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="836.0" />
+      <Label fx:id="BirthdayLabel" layoutX="119.0" layoutY="370.0" prefHeight="17.0" prefWidth="461.0" text="Label" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="370.0" />
+      <Label fx:id="TagAddressLabel" layoutX="24.0" layoutY="413.0" text="Indirizzo :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="420.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="AddressLabel" layoutX="99.0" layoutY="420.0" prefHeight="17.0" prefWidth="441.0" text="Label" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="420.0" />
+      <Label fx:id="TagParentsLabel" layoutX="20.0" layoutY="460.0" text="Genitori :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="470.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="Parent1Label" alignment="TOP_LEFT" layoutX="99.0" layoutY="470.0" prefHeight="66.0" prefWidth="441.0" text="Label" wrapText="true" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="470.0" />
+      <Label fx:id="Parent2Label" alignment="TOP_LEFT" layoutX="99.0" layoutY="561.0" prefHeight="60.0" prefWidth="441.0" text="Label" wrapText="true" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="561.0" />
+      <TableView fx:id="AllergenTable" layoutX="14.0" layoutY="643.0" onMouseClicked="#AllergiesTableClick" prefHeight="169.0" prefWidth="572.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="643.0">
+        <columns>
+          <TableColumn fx:id="AllergenColumn" prefWidth="174.0" text="Allergia" />
+          <TableColumn fx:id="PrecutionColumn" prefWidth="385.0" text="Precauzione" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

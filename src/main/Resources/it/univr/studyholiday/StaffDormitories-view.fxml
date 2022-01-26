@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="it.univr.studyholiday.controller.StaffDormitoriesController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffDormitoriesController">
    <children>
       <Button fx:id="ReturnDetailsSchoolButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnDetailsSchoolButtonClick" text="&lt; Dettagli" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Button fx:id="AddDormitoryButton" contentDisplay="CENTER" layoutX="455.0" layoutY="56.0" mnemonicParsing="false" onAction="#AddDormitoryButtonClick" prefHeight="44.0" prefWidth="90.0" text="Aggiungi Dormitorio" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="56.0" />
@@ -22,8 +21,8 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="SchoolNameLabel" layoutX="13.0" layoutY="129.0" prefHeight="25.0" prefWidth="446.0" />
-      <TableView fx:id="DormitoriesTable" onMouseClicked="#CellClicked" layoutX="15.0" layoutY="161.0" prefHeight="217.0" prefWidth="571.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="161.0">
+      <Label fx:id="SchoolNameLabel" layoutX="77.0" layoutY="122.0" prefHeight="25.0" prefWidth="497.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="122.0" />
+      <TableView fx:id="DormitoriesTable" layoutX="15.0" layoutY="161.0" onMouseClicked="#CellClicked" prefHeight="217.0" prefWidth="571.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="161.0">
         <columns>
             <TableColumn fx:id="DormitoryColumn" prefWidth="75.0" text="Dormitorio" />
           <TableColumn fx:id="AddressColumn" prefWidth="75.0" text="Indirizzo" />
@@ -33,5 +32,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Label fx:id="TagSchoolNameLabel" layoutX="25.0" layoutY="130.0" text="Scuola: " AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="126.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

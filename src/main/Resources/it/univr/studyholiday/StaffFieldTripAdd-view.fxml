@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="548.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="it.univr.studyholiday.controller.StaffFieldTripAddController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffFieldTripAddController">
    <children>
       <Button fx:id="ReturnButton" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReturnButtonClick" text="&lt; Inserisci Viaggio" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
@@ -51,9 +50,9 @@ fx:controller="it.univr.studyholiday.controller.StaffFieldTripAddController">
          </font>
       </Label>
       <TextField fx:id="DescriptionTextField" alignment="TOP_LEFT" layoutX="115.0" layoutY="342.0" prefHeight="109.0" prefWidth="425.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="350.0" />
-      <Button fx:id="CancelButton" layoutX="101.0" layoutY="477.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="101.0" />
-      <Button fx:id="AddFieldTripButton" layoutX="239.0" layoutY="476.0"  mnemonicParsing="false" onAction="#AddFieldTripButtonClick" prefHeight="49.0" prefWidth="75.0" text="Aggiungi Gita" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="286.0" AnchorPane.topAnchor="476.0" />
-      <Button fx:id="ConfirmButton" layoutX="389.0" layoutY="477.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="138.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="515.0" prefHeight="18.0" prefWidth="580.0" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="515.0" />
+      <Button fx:id="CancelButton" layoutX="102.0" layoutY="488.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="90.0" />
+      <Button fx:id="AddFieldTripButton" layoutX="256.0" layoutY="476.0" mnemonicParsing="false" onAction="#AddFieldTripButtonClick" prefHeight="49.0" prefWidth="75.0" text="Aggiungi Gita" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="269.0" AnchorPane.topAnchor="476.0" />
+      <Button fx:id="ConfirmButton" layoutX="435.0" layoutY="488.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="90.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="551.0" prefHeight="18.0" prefWidth="580.0" textAlignment="CENTER" textFill="RED" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="551.0" />
    </children>
 </AnchorPane>

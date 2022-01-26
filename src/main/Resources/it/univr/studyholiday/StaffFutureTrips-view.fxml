@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="it.univr.studyholiday.controller.StaffFutureTripsController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffFutureTripsController">
    <children>
       <Button fx:id="ReturnHomeButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnHomeButtonClick" text="&lt; Menu" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="FutureTripsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="48.0" text="Viaggi Futuri" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
@@ -22,7 +21,7 @@
          </font>
       </Label>
       <Button fx:id="AddTriplButton" contentDisplay="CENTER" layoutX="335.0" layoutY="56.0" mnemonicParsing="false" onAction="#AddTripButtonAction" prefHeight="45.0" prefWidth="90.0" text="Aggiungi viaggio/gita" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="56.0" />
-      <TableView fx:id="TripsTable" layoutX="11.0" layoutY="150.0" prefHeight="248.0" prefWidth="447.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="132.0">
+      <TableView fx:id="TripsTable" layoutX="11.0" layoutY="150.0" prefHeight="248.0" prefWidth="447.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="132.0">
         <columns>
             <TableColumn fx:id="DestinationColumn" prefWidth="75.0" text="Destinazione" />
           <TableColumn fx:id="DepartureDateColumn" prefWidth="75.0" text="Partenza" />

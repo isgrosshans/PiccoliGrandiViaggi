@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="502.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.univr.studyholiday.controller.StaffSchoolDetailsController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffSchoolDetailsController">
    <children>
       <Label fx:id="DetailsSchoolLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="48.0" text="Dettagli Scuola" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <font>
@@ -32,9 +31,9 @@
       </Label>
       <Label fx:id="AddressLabel" layoutX="98.0" layoutY="198.0" prefHeight="17.0" prefWidth="487.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="200.0" />
       <Label fx:id="LanguageLabel" layoutX="98.0" layoutY="255.0" prefHeight="17.0" prefWidth="311.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="250.0" />
-      <Button fx:id="FamilyButton" layoutX="172.0" layoutY="453.0" minWidth="57.0" mnemonicParsing="false" onAction="#FamilyButtonClick" prefHeight="25.0" text="Famiglie" />
-    <Button fx:id="DormitoryButton" layoutX="272.0" layoutY="453.0" mnemonicParsing="false" onAction="#DormitoriesButtonClick" text="Dormitori" />
-      <Button fx:id="ActivityButton" layoutX="372.0" layoutY="453.0" mnemonicParsing="false" onAction="#ActivityButtonClick" text="Attività" />
+      <Button fx:id="FamilyButton" layoutX="172.0" layoutY="482.0" minWidth="57.0" mnemonicParsing="false" onAction="#FamilyButtonClick" prefHeight="25.0" text="Famiglie" />
+    <Button fx:id="DormitoryButton" layoutX="272.0" layoutY="482.0" mnemonicParsing="false" onAction="#DormitoriesButtonClick" text="Dormitori" />
+      <Button fx:id="ActivityButton" layoutX="372.0" layoutY="482.0" mnemonicParsing="false" onAction="#ActivityButtonClick" text="Attività" />
       <Label fx:id="TagLanguageLabel" layoutX="21.0" layoutY="250.0" text="Lingua :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="250.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

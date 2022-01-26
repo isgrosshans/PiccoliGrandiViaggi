@@ -56,11 +56,10 @@ public class StaffDormitoryAddController implements Initializable {
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        //todo save
         if(NameTextField.getText().isBlank()
-                || AdressTextField.getText().isBlank()
-                || GenderCoiceBox.getSelectionModel().getSelectedItem()==null
-            )   ErrorMessage.setText("Riempire tutti i campi per procedere.");
+            || AdressTextField.getText().isBlank()
+            || GenderCoiceBox.getSelectionModel().getSelectedItem()==null
+        ) ErrorMessage.setText("Compilare tutti i campi.");
         else if(SingleRoomSpinner.getValue()+DoubleRoomSpinner.getValue()==0)
             ErrorMessage.setText("Il dormitorio deve avere delle camere.");
 
@@ -69,9 +68,11 @@ public class StaffDormitoryAddController implements Initializable {
                     if(GenderCoiceBox.getSelectionModel().getSelectedItem().toString().equals("Maschile")) mf="m";
                     else mf="f";
             System.out.println(school.getId());
-            SaveToDB.insert(new Dormitory(school.getId(), NameTextField.getText(),
-                            AdressTextField.getText(), mf)
-                    ,SingleRoomSpinner.getValue(),DoubleRoomSpinner.getValue());
+            SaveToDB.insert(new Dormitory(  school.getId(),
+                                            NameTextField.getText(),
+                                            AdressTextField.getText(), mf),
+                            SingleRoomSpinner.getValue(),
+                            DoubleRoomSpinner.getValue());
 
             StaffDormitoriesController.setSchool(school);
             GlossaApplication.setRoot("StaffDormitories");

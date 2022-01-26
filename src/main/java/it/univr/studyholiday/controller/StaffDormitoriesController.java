@@ -3,9 +3,12 @@ package it.univr.studyholiday.controller;
 import it.univr.studyholiday.GlossaApplication;
 import it.univr.studyholiday.model.Dormitory;
 import it.univr.studyholiday.model.School;
+import it.univr.studyholiday.util.Database.FetchFromDB;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -13,21 +16,16 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class StaffDormitoriesController implements Initializable {
 
+    @FXML private Label SchoolNameLabel;
     @FXML private TableView<Dormitory> DormitoriesTable;
-    @FXML private TableColumn DormitoryColumn;
-    @FXML private TableColumn AddressColumn;
-    @FXML private TableColumn MFColumn;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-//        DormitoryColumn.setCellValueFactory(new PropertyValueFactory<>("Dormitory"));
-//        AddressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
-//        MFColumn.setCellValueFactory(new PropertyValueFactory<>("Sex"));
-    }
+    @FXML private TableColumn<Dormitory, String> DormitoryColumn;
+    @FXML private TableColumn<Dormitory, String> AddressColumn;
+    @FXML private TableColumn<Dormitory, String> MFColumn;
 
     private static School school;
     public static void setSchool(School s) {
@@ -35,6 +33,22 @@ public class StaffDormitoriesController implements Initializable {
     }
     public static School getSchool(){
         return school;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        SchoolNameLabel.setText(school.getName());
+        DormitoriesTable.setEditable(false);
+        DormitoryColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        AddressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        MFColumn.setCellValueFactory(new PropertyValueFactory<>("Sex"));
+
+        try {
+            DormitoriesTable.setItems(FXCollections.observableArrayList(FetchFromDB.Dormitories(school.getId())));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void ReturnDetailsSchoolButtonClick(ActionEvent actionEvent) throws IOException {

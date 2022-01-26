@@ -2,8 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -22,15 +22,15 @@
          </font>
       </Label>
       <Button fx:id="AddTriplButton" contentDisplay="CENTER" layoutX="335.0" layoutY="56.0" mnemonicParsing="false" onAction="#AddTripButtonAction" prefHeight="45.0" prefWidth="90.0" text="Aggiungi viaggio/gita" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="56.0" />
-      <TreeTableView fx:id="TableView" layoutX="11.0" layoutY="150.0" prefHeight="248.0" prefWidth="447.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="132.0">
+      <TableView fx:id="TripsTable" layoutX="11.0" layoutY="150.0" prefHeight="248.0" prefWidth="447.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="132.0">
         <columns>
-            <TreeTableColumn fx:id="DestinationColumn" prefWidth="75.0" text="Destinazione" />
-          <TreeTableColumn fx:id="DepartureDateColumn" prefWidth="75.0" text="Partenza" />
-            <TreeTableColumn fx:id="WeeksColumn" prefWidth="75.0" text="Settimane" />
+            <TableColumn fx:id="DestinationColumn" prefWidth="75.0" text="Destinazione" />
+          <TableColumn fx:id="DepartureDateColumn" prefWidth="75.0" text="Partenza" />
+            <TableColumn fx:id="WeeksColumn" prefWidth="75.0" text="Settimane" />
         </columns>
          <columnResizePolicy>
-            <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
-      </TreeTableView>
+      </TableView>
    </children>
 </AnchorPane>

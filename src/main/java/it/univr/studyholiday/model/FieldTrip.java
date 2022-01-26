@@ -3,12 +3,13 @@ package it.univr.studyholiday.model;
 import it.univr.studyholiday.util.Database.*;
 
 import java.lang.reflect.Field;
+import java.util.Objects;
 
 //FIELDTRIP
 //(id, holidayid, destination, hours, price, description)
 public class FieldTrip implements Entity{
     private int id = -1;
-    private int holidayid;
+    private int holidayid=-1;
     private String destination;
     private String description;
     private int price;
@@ -25,6 +26,13 @@ public class FieldTrip implements Entity{
     public FieldTrip(int id, int holidayid, String destination, String description, int price, int hours) {
         this.id = id;
         this.holidayid = holidayid;
+        this.destination = destination;
+        this.description = description;
+        this.price = price;
+        this.hours = hours;
+    }
+
+    public FieldTrip(String destination, String description, int price, int hours) {
         this.destination = destination;
         this.description = description;
         this.price = price;
@@ -82,5 +90,26 @@ public class FieldTrip implements Entity{
 
     public void setHours(int hours) {
         this.hours = hours;
+    }
+
+    public boolean sameAs(FieldTrip f){
+        return
+                this.destination.equals(f.getDestination())
+            &&  this.description.equals(f.getDescription())
+            &&  this.price==f.getPrice()
+            &&  this.hours==f.getHours()
+                ;
+    }
+
+    @Override
+    public String toString() {
+        return "FieldTrip{" +
+                "id=" + id +
+                ", holidayid=" + holidayid +
+                ", destination='" + destination + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", hours=" + hours +
+                '}';
     }
 }

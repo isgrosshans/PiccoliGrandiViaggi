@@ -1,5 +1,5 @@
 package it.univr.studyholiday.util.Database;
-import it.univr.studyholiday.model.Dormitory;
+import it.univr.studyholiday.model.*;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.lang.reflect.Field;
@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -126,6 +128,81 @@ public class SaveToDB {
                     System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+".rooms: "+ e1.getMessage());
                 }
             }
+
+        } catch (SQLException e) {
+            System.out.println("Connection error: "+e.getMessage());
+        }
+    }
+
+    public static void insert(Holiday holiday, ArrayList<FieldTrip> fieldTrips){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            System.out.println();
+            //insert new dormitory
+            try (PreparedStatement pst = con.prepareStatement(
+                    "INSERT INTO "+getTableNameFor(holiday)+
+                            " (" + getColumnNamesFor(holiday)+
+                            ") VALUES ("+
+                            getValuesFor(holiday)+"); ")) {
+
+                System.out.println(pst);
+                rs = pst.executeQuery();
+                rs.next();
+
+
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(holiday)+": "+ e1.getMessage());
+            } catch (IllegalAccessException illegalAccessException) {
+                illegalAccessException.printStackTrace();
+            }
+
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT id FROM holiday " +
+                            "WHERE schoolid = ? " +
+                            "AND weeks=? " +
+                            "AND departuredate = ?; ")) {
+                pst.setInt(1, holiday.getSchoolid());
+                pst.setInt(2, holiday.getWeeks());
+                pst.setDate(3, Date.valueOf(holiday.getDepartureDate()));
+
+                rs = pst.executeQuery();
+                rs.next();
+                holiday.setId(rs.getInt(1));
+
+
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(holiday)+": "+ e1.getMessage());
+            }
+
+            //insert fieldtrips
+            for (FieldTrip f:fieldTrips) {
+                f.setHolidayid(holiday.getId());
+                try (PreparedStatement pst = con.prepareStatement(
+                        "INSERT INTO "+getTableNameFor(f)+
+                                " (" + getColumnNamesFor(f)+
+                                ") VALUES ("+
+                                getValuesFor(f)+");")) {
+
+                    rs = pst.executeQuery();
+                    rs.next();
+
+
+                }catch (SQLException e1) {
+                    System.out.println("SaveToDB.insert."+getTableNameFor(f)+": "+ e1.getMessage());
+                } catch (IllegalAccessException illegalAccessException) {
+                    illegalAccessException.printStackTrace();
+                }
+
+            }
+
+
+
+
 
         } catch (SQLException e) {
             System.out.println("Connection error: "+e.getMessage());

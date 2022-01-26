@@ -63,7 +63,7 @@ public class StaffActivitiesController implements Initializable {
     }
 
     private ArrayList<Activity> getActivities() throws SQLException {
-        ArrayList<Activity> activities= FetchFromDB.FetchActivities(school.getId());
+        ArrayList<Activity> activities= FetchFromDB.Activities(school.getId());
         return activities;
     }
 

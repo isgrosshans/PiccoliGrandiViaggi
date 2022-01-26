@@ -10,21 +10,21 @@ import java.time.LocalDate;
 //      startdate,weeks,school)
 public class Holiday implements Entity{
     private int id = -1;
-    private LocalDate start;
+    private LocalDate departureDate;
     private int weeks;
-    private School school;
+    private int schoolid;
 
-    public Holiday(LocalDate start, int weeks, School school) {
-        this.start = start;
+    public Holiday(LocalDate departureDate, int weeks, int schoolid) {
+        this.departureDate = departureDate;
         this.weeks = weeks;
-        this.school = school;
+        this.schoolid = schoolid;
     }
 
-    public Holiday(int id, LocalDate start, int weeks, School school) {
+    public Holiday(int id, LocalDate departureDate, int weeks, int schoolid) {
         this.id = id;
-        this.start = start;
+        this.departureDate = departureDate;
         this.weeks = weeks;
-        this.school = school;
+        this.schoolid = schoolid;
     }
 
     public int getId() {
@@ -35,12 +35,12 @@ public class Holiday implements Entity{
         this.id = id;
     }
 
-    public LocalDate getStart() {
-        return start;
+    public LocalDate getDepartureDate() {
+        return departureDate;
     }
 
-    public void setStart(LocalDate start) {
-        this.start = start;
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
     }
 
     public int getWeeks() {
@@ -51,12 +51,12 @@ public class Holiday implements Entity{
         this.weeks = weeks;
     }
 
-    public School getSchool() {
-        return school;
+    public int getSchoolid() {
+        return schoolid;
     }
 
-    public void setSchool(School school) {
-        this.school = school;
+    public void setSchoolid(int schoolid) {
+        this.schoolid = schoolid;
     }
 
     @Override

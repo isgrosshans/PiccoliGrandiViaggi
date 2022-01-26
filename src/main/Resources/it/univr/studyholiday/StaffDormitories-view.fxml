@@ -22,7 +22,7 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="ScoolNameLabel" layoutX="13.0" layoutY="129.0" prefHeight="25.0" prefWidth="446.0" />
+      <Label fx:id="SchoolNameLabel" layoutX="13.0" layoutY="129.0" prefHeight="25.0" prefWidth="446.0" />
       <TableView fx:id="DormitoriesTable" onMouseClicked="#CellClicked" layoutX="15.0" layoutY="161.0" prefHeight="217.0" prefWidth="571.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="161.0">
         <columns>
             <TableColumn fx:id="DormitoryColumn" prefWidth="75.0" text="Dormitorio" />

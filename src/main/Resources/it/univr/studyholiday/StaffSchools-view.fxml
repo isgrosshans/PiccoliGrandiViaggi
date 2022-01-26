@@ -21,7 +21,7 @@
         </Label>
         <Button fx:id="AddSchoolButton" contentDisplay="CENTER" layoutX="366.0" layoutY="57.0" mnemonicParsing="false" onAction="#AddSchoolButtonClick" prefHeight="42.0" prefWidth="88.0" text="Aggiungi scuola" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="57.0" />
         <Button fx:id="ReturnMenuButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnMenuButtonClick" text="&lt; Menu" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-        <TableView fx:id="SchoolTable" layoutX="15.0" layoutY="118.0" onMouseClicked="#CellCliked" prefHeight="280.0" prefWidth="443.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="118.0">
+        <TableView fx:id="SchoolTable" onMouseClicked="#CellCliked" layoutX="15.0" layoutY="118.0" prefHeight="280.0" prefWidth="443.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="118.0">
             <columns>
                 <TableColumn fx:id="NameColumn" prefWidth="75.0" text="Nome" />
                 <TableColumn fx:id="CityColumn" prefWidth="75.0" text="Città" />

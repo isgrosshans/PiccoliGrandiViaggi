@@ -4,11 +4,7 @@ import it.univr.studyholiday.GlossaApplication;
 import it.univr.studyholiday.model.*;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 //import it.univr.studyholiday.util.Database.TempDB;
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,7 +31,7 @@ public class StaffSchoolsController implements Initializable {
         LanguageColumn.setCellValueFactory(new PropertyValueFactory<>("Language"));
 
         try {
-            SchoolTable.setItems(FXCollections.observableArrayList(getSchools()));
+            SchoolTable.setItems(FXCollections.observableArrayList(FetchFromDB.Schools()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -45,10 +41,10 @@ public class StaffSchoolsController implements Initializable {
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
     }
 
-    public ArrayList<School> getSchools() throws SQLException {
-        ArrayList<School> schools= FetchFromDB.FetchSchools();
-        return schools;
-    }
+//    public ArrayList<School> getSchools() throws SQLException {
+//        ArrayList<School> schools= FetchFromDB.Schools();
+//        return schools;
+//    }
 
     public void ReturnMenuButtonClick(ActionEvent actionEvent) throws IOException {
         GlossaApplication.setRoot("StaffHome");
@@ -59,7 +55,7 @@ public class StaffSchoolsController implements Initializable {
     }
 
     public void CellCliked(MouseEvent mouseEvent) throws IOException {
-        System.out.println(SchoolTable.getSelectionModel().getSelectedItem());
+        //System.out.println(SchoolTable.getSelectionModel().getSelectedItem());
         StaffSchoolDetailsController.setSchool(SchoolTable.getSelectionModel().getSelectedItem());
         GlossaApplication.setRoot("StaffSchoolDetails");
     }

@@ -4,11 +4,27 @@ import it.univr.studyholiday.GlossaApplication;
 import it.univr.studyholiday.model.Family;
 import it.univr.studyholiday.model.School;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class StaffFamilyDetailsController {
-
+public class StaffFamilyDetailsController implements Initializable {
+    @FXML private Label NameSchoolLabel;
+    @FXML private Label NameLabel;
+    @FXML private Label SurnameLabel;
+    @FXML private Label EmailLabel;
+    @FXML private Label PhoneLabel;
+    @FXML private Label AddressLabel;
+    @FXML private Label CityDistanceLabel;
+    @FXML private Label MembersLabel;
+    @FXML private Label PetsLabel;
+    @FXML private Label RoomLabel;
+    @FXML private Label BathroomLabel;
+    
     private static Family family;
     public static Family getFamily() {
         return family;
@@ -24,8 +40,24 @@ public class StaffFamilyDetailsController {
     public static School getSchool(){
         return school;
     }
-    
-    public void ReturnFamiliesButtonClick(ActionEvent actionEvent) throws IOException {
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        NameSchoolLabel.setText(school.getName());
+
+        NameLabel.setText(family.getFirstName());
+        SurnameLabel.setText(family.getLastName());
+        EmailLabel.setText(family.getEmail());
+        PhoneLabel.setText(family.getPhone());
+        AddressLabel.setText(family.getAddress());
+        CityDistanceLabel.setText(family.getCityDistance());
+        MembersLabel.setText(String.valueOf(family.getMembers()));
+        PetsLabel.setText(family.hasPets());
+        RoomLabel.setText(String.valueOf(family.getBedrooms()));
+        BathroomLabel.setText(String.valueOf(family.getBathrooms()));
+    }
+
+        public void ReturnFamiliesButtonClick(ActionEvent actionEvent) throws IOException {
         StaffFamiliesController.setSchool(school);
         GlossaApplication.setRoot("StaffFamilies");
     }

@@ -27,7 +27,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="NameSchooLabel" layoutX="87.0" layoutY="150.0" prefHeight="17.0" prefWidth="457.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="150.0" />
+      <Label fx:id="NameSchoolLabel" layoutX="87.0" layoutY="150.0" prefHeight="17.0" prefWidth="457.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="150.0" />
       <Label fx:id="NameLabel" layoutX="31.0" layoutY="196.0" text="Nome Capofamiglia :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="200.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -39,7 +39,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="LastnameLabel" layoutX="177.0" layoutY="246.0" prefHeight="25.0" prefWidth="363.0" AnchorPane.leftAnchor="177.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="250.0" />
+      <TextField fx:id="LastnameTextField" layoutX="177.0" layoutY="246.0" prefHeight="25.0" prefWidth="363.0" AnchorPane.leftAnchor="177.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="250.0" />
       <Label fx:id="EmailLabel" layoutX="31.0" layoutY="296.0" text="Email Capofamiglia:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="300.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -70,7 +70,7 @@
          </font>
       </Label>
       <Spinner fx:id="MembersSpinner" layoutX="129.0" layoutY="496.0" prefHeight="25.0" prefWidth="89.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="382.0" AnchorPane.topAnchor="500.0" />
-      <CheckBox fx:id="PetsLabel" layoutX="134.0" layoutY="553.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="148.0" text="Animali domestici" AnchorPane.topAnchor="550.0">
+      <CheckBox fx:id="PetsCheckBox" layoutX="134.0" layoutY="553.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="148.0" text="Animali domestici" AnchorPane.topAnchor="550.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
@@ -86,7 +86,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Spinner fx:id="BathroomSpinner" layoutX="129.0" layoutY="646.0" prefHeight="25.0" prefWidth="89.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="382.0" AnchorPane.topAnchor="650.0" />
+      <Spinner fx:id="BathroomsSpinner" layoutX="129.0" layoutY="646.0" prefHeight="25.0" prefWidth="89.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="382.0" AnchorPane.topAnchor="650.0" />
       <Button fx:id="CancelButton" layoutX="134.0" layoutY="720.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="150.0" />
       <Button fx:id="ConfirmButton" layoutX="280.0" layoutY="720.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="150.0" />
       <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="752.0" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="752.0" />

@@ -10,7 +10,8 @@ import it.univr.studyholiday.util.Database.Entity;
 import java.lang.reflect.Field;
 
 //FAMILY
-//(id, hhfirstname, hhlastname, hhemail, hhphone, address, members, pets, baths, beds, citydistance , schoolid)
+//(id, schoolid, email, firstname, lastname, members, phone,
+// address, pets, bathrooms, bedrooms, citydistance)
 public class Family implements Entity {
     private int id=-1;
     private int schoolid;
@@ -18,43 +19,46 @@ public class Family implements Entity {
     private String firstName;
     private String lastName;
     private int members;
-    private boolean havePets;
+    private boolean pets;
     private int bedrooms;
     private int bathrooms;
     private String cityDistance;
     private String address;
+    private String phone;
 
     public Family(int schoolid, String email, String firstName,
-                  String lastName, int members, boolean havePets,
+                  String lastName, int members, boolean pets,
                   int bedrooms, int bathrooms, String cityDistance,
-                  String address) {
+                  String address, String phone) {
         this.schoolid = schoolid;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.members = members;
-        this.havePets = havePets;
+        this.pets = pets;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
         this.cityDistance = cityDistance;
         this.address = address;
+        this.phone=phone;
     }
 
     public Family(int id, int schoolid, String email,
                   String firstName, String lastName, int members,
-                  boolean havePets, int bedrooms, int bathrooms,
-                  String cityDistance, String address) {
+                  boolean pets, int bedrooms, int bathrooms,
+                  String cityDistance, String address, String phone) {
         this.id = id;
         this.schoolid = schoolid;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.members = members;
-        this.havePets = havePets;
+        this.pets = pets;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
         this.cityDistance = cityDistance;
         this.address = address;
+        this.phone=phone;
     }
 
     public String italianDescription(){
@@ -64,7 +68,7 @@ public class Family implements Entity {
                 "\nCamere per gli ospiti:  "+bedrooms+
                 "\nBagni per gli ospiti:   "+bathrooms+
                 "\nAnimali domestici:      ";
-        if(havePets) result+="sì";
+        if(pets) result+="sì";
         else result+="no";
         result+="\nDistanza dal centro:    "+cityDistance;
         return result;
@@ -74,6 +78,10 @@ public class Family implements Entity {
     @Override
     public Object getValue(Field field) throws IllegalAccessException {
         return field.get(this);
+    }
+
+    public String getHouseholderName() {
+        return firstName+" "+lastName;
     }
 
     public int getId() {
@@ -124,12 +132,17 @@ public class Family implements Entity {
         this.members = members;
     }
 
-    public boolean isHavePets() {
-        return havePets;
+    public boolean isPets() {
+        return pets;
     }
 
-    public void setHavePets(boolean havePets) {
-        this.havePets = havePets;
+    public String hasPets() {
+        if(pets) return "sì";
+        else return "no";
+    }
+
+    public void setPets(boolean pets) {
+        this.pets = pets;
     }
 
     public int getBedrooms() {
@@ -162,5 +175,13 @@ public class Family implements Entity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

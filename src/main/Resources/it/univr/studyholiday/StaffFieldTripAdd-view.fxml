@@ -16,7 +16,7 @@ fx:controller="it.univr.studyholiday.controller.StaffFieldTripAddController">
             <Font name="Chalkboard" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="NewFamilyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="58.0" text="Nuova gita" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Label fx:id="NewFïeldtripLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="58.0" text="Nuova gita" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
@@ -26,7 +26,7 @@ fx:controller="it.univr.studyholiday.controller.StaffFieldTripAddController">
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="NameSchooLabel" layoutX="87.0" layoutY="150.0" prefHeight="17.0" prefWidth="457.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="150.0" />
+      <Label fx:id="NameSchoolLabel" layoutX="87.0" layoutY="150.0" prefHeight="17.0" prefWidth="457.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="150.0" />
       <Label fx:id="DestinationLabel" layoutX="31.0" layoutY="196.0" text="Destinazione :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="200.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -52,6 +52,7 @@ fx:controller="it.univr.studyholiday.controller.StaffFieldTripAddController">
       </Label>
       <TextField fx:id="DescriptionTextField" alignment="TOP_LEFT" layoutX="115.0" layoutY="342.0" prefHeight="109.0" prefWidth="425.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="350.0" />
       <Button fx:id="CancelButton" layoutX="101.0" layoutY="477.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="101.0" />
+      <Button fx:id="AddFieldTripButton" layoutX="239.0" layoutY="476.0"  mnemonicParsing="false" onAction="#AddFieldTripButtonClick" prefHeight="49.0" prefWidth="75.0" text="Aggiungi Gita" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="286.0" AnchorPane.topAnchor="476.0" />
       <Button fx:id="ConfirmButton" layoutX="389.0" layoutY="477.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="138.0" />
       <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="515.0" prefHeight="18.0" prefWidth="580.0" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="515.0" />
    </children>

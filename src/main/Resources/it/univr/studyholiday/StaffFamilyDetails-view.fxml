@@ -24,7 +24,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="NameSchooLabel" layoutX="87.0" layoutY="150.0" prefHeight="17.0" prefWidth="457.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="150.0" />
+      <Label fx:id="NameSchoolLabel" layoutX="87.0" layoutY="150.0" prefHeight="17.0" prefWidth="457.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="150.0" />
       <Label fx:id="TagNameLabel" layoutX="31.0" layoutY="196.0" text="Nome Capofamiglia :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="200.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -54,7 +54,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="Addresslabel" layoutX="95.0" layoutY="400.0" prefHeight="17.0" prefWidth="445.0" text="Label" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="400.0" />
+      <Label fx:id="AddressLabel" layoutX="95.0" layoutY="400.0" prefHeight="17.0" prefWidth="445.0" text="Label" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="400.0" />
       <Label fx:id="TagCityDistanceLabel" layoutX="29.0" layoutY="463.0" text="Distanza dal centro città : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="450.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

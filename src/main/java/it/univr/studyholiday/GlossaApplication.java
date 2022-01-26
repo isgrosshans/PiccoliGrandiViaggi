@@ -33,7 +33,7 @@ public class GlossaApplication extends Application {
 
         //scene = new Scene(loadFXML("Login"), 600, 430);
 
-        scene = new Scene(new ScrollPane(loadFXML("StaffSchools")), 605, 600);
+        scene = new Scene(new ScrollPane(loadFXML("StaffHome")), 605, 600);
 
         //scrollPane.setContent(loadFXML("StaffSchools"));
 

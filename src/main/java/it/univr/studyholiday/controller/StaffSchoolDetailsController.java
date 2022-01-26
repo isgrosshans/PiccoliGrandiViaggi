@@ -1,6 +1,7 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.model.Family;
 import it.univr.studyholiday.model.School;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +28,7 @@ public class StaffSchoolDetailsController implements Initializable {
     public static School getSchool(){
         return school;
     }
+
 
 
     @Override

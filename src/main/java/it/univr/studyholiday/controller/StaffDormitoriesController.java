@@ -64,6 +64,6 @@ public class StaffDormitoriesController implements Initializable {
     public void CellClicked(MouseEvent mouseEvent) throws IOException {
         StaffDormitoryDetailsController.setSchool(school);
         StaffDormitoryDetailsController.setDormitory(DormitoriesTable.getSelectionModel().getSelectedItem());
-        GlossaApplication.setRoot("StaffSchoolDetails");
+        GlossaApplication.setRoot("StaffDormitoryDetails");
     }
 }

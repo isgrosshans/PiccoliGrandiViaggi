@@ -229,6 +229,31 @@ public class FetchFromDB {
         return ral;
     }
 
+    public static int roomsInDorm(int dormitoryid, int beds){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT COUNT(id)" +
+                            "FROM dormroom " +
+                            "WHERE beds=?; " )) {
+                pst.setInt(1, beds);
+                rs = pst.executeQuery();
+                rs.next();
+                return rs.getInt(1);
+
+            } catch (SQLException e) {
+                System.out.print("Error fetching schools"+e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print("Connection error: "+e.getMessage());
+        }
+        return 0;
+    }
 
    //public static ArrayList<Holiday> HolidaysBefore(LocalDate date) {}
 

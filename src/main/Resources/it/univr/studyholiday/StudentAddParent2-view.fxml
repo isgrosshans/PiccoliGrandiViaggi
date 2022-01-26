@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="488.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="18.0">
          <font>
@@ -23,33 +23,33 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="EmailLabel" layoutX="14.0" layoutY="186.0" text="Email :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="186.0">
+      <Label fx:id="EmailLabel" layoutX="20.0" layoutY="213.0" text="Email :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="213.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="EmailTextField" layoutX="97.0" layoutY="186.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="186.0" />
-      <Label fx:id="NameLabel" layoutX="14.0" layoutY="236.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="236.0">
+      <TextField fx:id="EmailTextField" layoutX="97.0" layoutY="213.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="213.0" />
+      <Label fx:id="NameLabel" layoutX="20.0" layoutY="263.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="263.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="NameTextField" layoutX="97.0" layoutY="236.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="236.0" />
-      <Label fx:id="SurnameLabel" layoutX="14.0" layoutY="286.0" text="Cognome :  " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="286.0">
+      <TextField fx:id="NameTextField" layoutX="97.0" layoutY="263.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="263.0" />
+      <Label fx:id="SurnameLabel" layoutX="20.0" layoutY="313.0" text="Cognome :  " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="313.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="SurnameTextField" layoutX="97.0" layoutY="286.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="286.0" />
-      <Label fx:id="PhoneLabel" layoutX="14.0" layoutY="336.0" text="Telefono :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="336.0">
+      <TextField fx:id="SurnameTextField" layoutX="97.0" layoutY="313.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="313.0" />
+      <Label fx:id="PhoneLabel" layoutX="20.0" layoutY="363.0" text="Telefono :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="363.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="PhoneTextField" layoutX="97.0" layoutY="336.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="336.0" />
-      <Button fx:id="CancelButton" layoutX="54.0" layoutY="394.0" mnemonicParsing="false" onAction="#CancelButtonClick" prefHeight="25.0" prefWidth="99.0" text="Annulla" AnchorPane.leftAnchor="54.0" AnchorPane.topAnchor="394.0" />
-      <Button fx:id="ConfirmButton" layoutX="442.0" layoutY="394.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" prefHeight="25.0" prefWidth="85.0" text="Conferma" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="394.0" />
+      <TextField fx:id="PhoneTextField" layoutX="97.0" layoutY="363.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="363.0" />
+      <Button fx:id="CancelButton" layoutX="55.0" layoutY="453.0" mnemonicParsing="false" onAction="#CancelButtonClick" prefHeight="25.0" prefWidth="85.0" text="Annulla" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="453.0" />
+      <Button fx:id="ConfirmButton" layoutX="443.0" layoutY="453.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" prefHeight="25.0" prefWidth="85.0" text="Conferma" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="453.0" />
       <Button fx:id="ReturnButton" layoutX="16.0" layoutY="15.0" mnemonicParsing="false" onAction="#ReturnButtonClick" text="&lt; Inserisci Genitore" visible="false" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="25.0" layoutY="448.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="448.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="507.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="507.0" />
    </children>
 </AnchorPane>

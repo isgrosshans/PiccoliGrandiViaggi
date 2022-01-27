@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="485.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.univr.studyholiday.controller.StaffSchoolAddController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffSchoolAddController">
    <children>
       <Button fx:id="ReturnSchoolButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnSchoolButtonClick" text="&lt; Scuole" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" prefWidth="554.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
@@ -56,8 +55,8 @@
          </font>
       </Label>
       <TextField fx:id="PostalCodeTextField" layoutX="138.0" layoutY="373.0" prefHeight="25.0" prefWidth="219.0" AnchorPane.leftAnchor="138.0" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="380.0" />
-      <Button fx:id="CancelButton" layoutX="150.0" layoutY="434.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="434.0" />
-      <Button fx:id="ConfirmButton" layoutX="377.0" layoutY="434.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="434.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="399.0" textAlignment="CENTER" textFill="RED" AnchorPane.topAnchor="484" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="CancelButton" layoutX="160.0" layoutY="463.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="463.0" />
+      <Button fx:id="ConfirmButton" layoutX="367.0" layoutY="463.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="463.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="519.0" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="519.0" />
    </children>
 </AnchorPane>

@@ -55,9 +55,9 @@ public class SurveyResults {
         return String.valueOf(fieldtripScore);
     }
 
-    public String getCommentsTextText() {
+    public String getCommentsText() {
         String rs="";
-        if(comments.isEmpty()) return rs;
+        if(comments==null) return "NON CI SONO COMMENTI";
 
         for (String c:comments) {
             while(c.contains("\n\n"))

@@ -1,8 +1,8 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.Dormitory;
-import it.univr.studyholiday.model.School;
+import it.univr.studyholiday.model.entities.Dormitory;
+import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -43,8 +43,8 @@ public class StaffDormitoryDetailsController implements Initializable {
         NameLabel.setText(dormitory.getName());
         AddressLabel.setText(dormitory.getAddress());
         GenderLabel.setText(dormitory.getSex());
-        SingleRoomLabel.setText(String.valueOf(FetchFromDB.roomsInDorm(dormitory.getId(), 1)));
-        DoubleRoomLabel.setText(String.valueOf(FetchFromDB.roomsInDorm(dormitory.getId(), 2)));
+        SingleRoomLabel.setText(String.valueOf(FetchFromDB.amountOfRoomsInDorm(dormitory.getId(), 1)));
+        DoubleRoomLabel.setText(String.valueOf(FetchFromDB.amountOfRoomsInDorm(dormitory.getId(), 2)));
     }
 
     public void ReturnDormitoryButtonClick(ActionEvent actionEvent) throws IOException {

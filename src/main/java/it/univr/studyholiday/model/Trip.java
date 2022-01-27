@@ -1,11 +1,14 @@
 package it.univr.studyholiday.model;
 
+import it.univr.studyholiday.model.entities.Holiday;
+import it.univr.studyholiday.model.entities.School;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Trip {
-    private static Holiday holiday;
-    private static School school;
+    private Holiday holiday;
+    private School school;
 
     public Trip(Holiday h, School s) {
         holiday =h;
@@ -21,31 +24,31 @@ public class Trip {
         school=new School(schoolid,schoolname,schooladdress,schoolpostalCode,schoolcity,schoolcountry,schoollanguage);
     }
 
-    public static Holiday getHoliday() {
-        return holiday;
+    public Holiday getHoliday() {
+        return this.holiday;
     }
 
-    public static void setHoliday(Holiday holiday) {
-        Trip.holiday = holiday;
+    public void setHoliday(Holiday holiday) {
+        this.holiday = holiday;
     }
 
-    public static School getSchool() {
-        return school;
+    public School getSchool() {
+        return this.school;
     }
 
-    public static void setSchool(School school) {
-        Trip.school = school;
+    public void setSchool(School school) {
+        this.school = school;
     }
 
-    public static String getDestination(){
-        return school.getCity()+", "+school.getCountry();
+    public String getDestination(){
+        return this.school.getCity()+", "+this.school.getCountry();
     }
 
-    public static String getDepartureDate(){
-        return holiday.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+    public String getDepartureDate(){
+        return this.holiday.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
 
-    public static int getWeeks(){
-        return holiday.getWeeks();
+    public int getWeeks(){
+        return this.holiday.getWeeks();
     }
 }

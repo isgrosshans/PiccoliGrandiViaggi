@@ -1,7 +1,7 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.*;
+import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 //import it.univr.studyholiday.util.Database.TempDB;
 import javafx.collections.FXCollections;

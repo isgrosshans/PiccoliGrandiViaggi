@@ -1,9 +1,9 @@
 //package it.univr.studyholiday.util.Database;
 //
 //import it.univr.studyholiday.model.Accommodation;
-//import it.univr.studyholiday.model.DormRoom;
-//import it.univr.studyholiday.model.Reservation;
-//import it.univr.studyholiday.model.Student;
+//import it.univr.studyholiday.model.entity.DormRoom;
+//import it.univr.studyholiday.model.entity.Reservation;
+//import it.univr.studyholiday.model.entity.Student;
 //
 //import java.sql.*;
 //

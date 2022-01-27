@@ -1,6 +1,6 @@
 //package it.univr.studyholiday.util.Database;
 //
-//import it.univr.studyholiday.model.School;
+//import it.univr.studyholiday.model.entity.School;
 //import javafx.collections.ObservableList;
 //
 //import java.util.ArrayList;

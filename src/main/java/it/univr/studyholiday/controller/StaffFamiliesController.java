@@ -1,14 +1,15 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.Family;
-import it.univr.studyholiday.model.School;
+import it.univr.studyholiday.model.entities.Family;
+import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -45,6 +46,8 @@ public class StaffFamiliesController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        TableView.TableViewSelectionModel<Family> selectionModel = FamiliesTable.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.SINGLE);
     }
 
     public void ReturnDetailsSchoolButtonClick(ActionEvent actionEvent) throws IOException {

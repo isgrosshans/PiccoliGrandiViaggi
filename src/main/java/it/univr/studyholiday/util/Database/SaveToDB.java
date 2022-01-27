@@ -1,6 +1,8 @@
 package it.univr.studyholiday.util.Database;
-import it.univr.studyholiday.model.*;
-import javafx.beans.property.SimpleStringProperty;
+import it.univr.studyholiday.model.entities.Dormitory;
+import it.univr.studyholiday.model.entities.Entity;
+import it.univr.studyholiday.model.entities.FieldTrip;
+import it.univr.studyholiday.model.entities.Holiday;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -9,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class SaveToDB {

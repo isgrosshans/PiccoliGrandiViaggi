@@ -1,8 +1,8 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.Activity;
-import it.univr.studyholiday.model.School;
+import it.univr.studyholiday.model.entities.Activity;
+import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -43,7 +43,7 @@ public class StaffActivitiesController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ActivitiesTable.setFixedCellSize(Region.USE_COMPUTED_SIZE);
+        //ActivitiesTable.setFixedCellSize(Region.USE_COMPUTED_SIZE);
         TagDescriptionLabel.setVisible(false);
         TagNameLabel.setVisible(false);
         SchoolNameLabel.setText(school.getName());
@@ -59,6 +59,8 @@ public class StaffActivitiesController implements Initializable {
         }
         ActivitiesTable.setEditable(false);
 
+        TableView.TableViewSelectionModel<Activity> selectionModel = ActivitiesTable.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.SINGLE);
 
     }
 

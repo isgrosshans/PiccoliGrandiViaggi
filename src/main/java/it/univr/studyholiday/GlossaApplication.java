@@ -1,9 +1,6 @@
 package it.univr.studyholiday;
 
 
-import it.univr.studyholiday.model.Staff;
-import it.univr.studyholiday.model.Student;
-import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,8 +9,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.time.LocalDate;
 
 public class GlossaApplication extends Application {
 

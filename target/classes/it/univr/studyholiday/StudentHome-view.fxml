@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="it.univr.studyholiday.controller.StudentHomeController">
+   <children>
+      <Label fx:id="HomeLabel" alignment="CENTER" layoutX="190.0" layoutY="48.0" text="Home" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="14.0" text="Student" textFill="#111111" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="LogoutButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="500.0" layoutY="66.0" mnemonicParsing="false" onAction="#LogoutButtonClick" prefHeight="25.0" prefWidth="65.0" text="Log-out" textAlignment="CENTER" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="66.0" />
+      <Button fx:id="PersonalProfileButton" alignment="CENTER" cache="true" layoutX="188.0" layoutY="150.0" mnemonicParsing="false" onAction="#PersonalProfileButtonClick" prefHeight="25.0" prefWidth="97.0" text="Profilo Personale " textAlignment="CENTER" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="150.0" />
+      <Button fx:id="FutureTripsButton" alignment="CENTER" layoutX="188.0" layoutY="206.0" mnemonicParsing="false" onAction="#FutureTripsButtonClick" prefHeight="25.0" prefWidth="97.0" text="Catalogo Viaggi" textAlignment="CENTER" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="206.0" />
+      <Button fx:id="PastTripsButton" alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="262.0" mnemonicParsing="false" onAction="#PastTripsButtonClick" prefHeight="25.0" prefWidth="97.0" text="Viaggi Passati" textAlignment="CENTER" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="262.0" />
+      <Button fx:id="ReservationButton" alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="317.0" mnemonicParsing="false" onAction="#ReservationButtonClick" prefHeight="25.0" prefWidth="225.0" text="Prenotazioni" textAlignment="CENTER" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="320.0" />
+   </children>
+</AnchorPane>

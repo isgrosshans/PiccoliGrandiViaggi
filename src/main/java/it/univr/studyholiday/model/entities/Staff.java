@@ -1,6 +1,5 @@
-package it.univr.studyholiday.model;
+package it.univr.studyholiday.model.entities;
 
-import it.univr.studyholiday.util.Database.Entity;
 import it.univr.studyholiday.util.Database.LoginDB;
 
 import java.lang.reflect.Field;

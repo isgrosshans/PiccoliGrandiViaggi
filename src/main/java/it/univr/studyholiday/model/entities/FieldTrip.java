@@ -1,13 +1,10 @@
-package it.univr.studyholiday.model;
-
-import it.univr.studyholiday.util.Database.*;
+package it.univr.studyholiday.model.entities;
 
 import java.lang.reflect.Field;
-import java.util.Objects;
 
 //FIELDTRIP
 //(id, holidayid, destination, hours, price, description)
-public class FieldTrip implements Entity{
+public class FieldTrip implements Entity {
     private int id = -1;
     private int holidayid=-1;
     private String destination;

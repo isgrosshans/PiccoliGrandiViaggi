@@ -1,9 +1,9 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.FieldTrip;
-import it.univr.studyholiday.model.Holiday;
-import it.univr.studyholiday.model.School;
+import it.univr.studyholiday.model.entities.FieldTrip;
+import it.univr.studyholiday.model.entities.Holiday;
+import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

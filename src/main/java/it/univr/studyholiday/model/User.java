@@ -1,5 +1,7 @@
 package it.univr.studyholiday.model;
 
+import it.univr.studyholiday.model.entities.Staff;
+
 public class User {
     private static Object currentUser;
     private static User user;

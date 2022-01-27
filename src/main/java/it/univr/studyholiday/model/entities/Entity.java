@@ -1,4 +1,4 @@
-package it.univr.studyholiday.util.Database;
+package it.univr.studyholiday.model.entities;
 
 import java.lang.reflect.Field;
 

@@ -1,25 +1,19 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.DormRoom;
-import it.univr.studyholiday.model.Dormitory;
-import it.univr.studyholiday.model.School;
-import it.univr.studyholiday.util.Database.Entity;
+import it.univr.studyholiday.model.entities.Dormitory;
+import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class StaffDormitoryAddController implements Initializable {

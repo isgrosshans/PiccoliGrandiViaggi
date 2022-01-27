@@ -1,7 +1,7 @@
 //package it.univr.studyholiday.util;
 //
-//import it.univr.studyholiday.model.Parent;
-//import it.univr.studyholiday.model.Student;
+//import it.univr.studyholiday.model.entity.Parent;
+//import it.univr.studyholiday.model.entity.Student;
 ////import it.univr.studyholiday.util.Database.Add;
 //
 //import java.time.LocalDate;

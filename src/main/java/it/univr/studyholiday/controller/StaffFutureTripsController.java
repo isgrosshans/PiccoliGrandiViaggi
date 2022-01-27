@@ -1,11 +1,10 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.Holiday;
-import it.univr.studyholiday.model.School;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,11 +12,11 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class StaffFutureTripsController implements Initializable {
@@ -42,9 +41,6 @@ public class StaffFutureTripsController implements Initializable {
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
     }
 
-    public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffHome");
-    }
 
     public void AddTripButtonAction(ActionEvent actionEvent) throws IOException {
 
@@ -52,4 +48,11 @@ public class StaffFutureTripsController implements Initializable {
     }
 
 
+    public void CellCliked(MouseEvent mouseEvent) throws IOException {
+        StaffFutureTripDetailsController.setTrip(TripsTable.getSelectionModel().getSelectedItem());
+        GlossaApplication.setRoot("StaffFutureTripDetails");
+    }
+
+    public void ReturnHomeButtonClick(ActionEvent actionEvent) {
+    }
 }

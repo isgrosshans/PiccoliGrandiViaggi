@@ -1,13 +1,10 @@
-package it.univr.studyholiday.model;
-
-import it.univr.studyholiday.util.Database.*;
+package it.univr.studyholiday.model.entities;
 
 import java.lang.reflect.Field;
-import java.sql.SQLException;
 
 //DORMROOM
 //(id, roomnumber, dormitoryid beds)
-public class DormRoom implements Entity{
+public class DormRoom implements Entity {
     private int id=-1;
     private int dormitoryid;
     private String roomNumber;

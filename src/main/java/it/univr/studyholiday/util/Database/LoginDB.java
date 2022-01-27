@@ -1,7 +1,7 @@
 package it.univr.studyholiday.util.Database;
 
-import it.univr.studyholiday.model.Staff;
-import it.univr.studyholiday.model.Student;
+import it.univr.studyholiday.model.entities.Staff;
+import it.univr.studyholiday.model.entities.Student;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

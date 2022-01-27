@@ -1,11 +1,10 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.GlossaApplication;
-import it.univr.studyholiday.model.School;
+import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 

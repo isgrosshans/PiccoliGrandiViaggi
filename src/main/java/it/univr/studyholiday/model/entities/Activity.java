@@ -1,9 +1,6 @@
-package it.univr.studyholiday.model;
-
-import it.univr.studyholiday.util.Database.Entity;
+package it.univr.studyholiday.model.entities;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 
 //ACTIVITY
 //(id, schoolid, name, description)

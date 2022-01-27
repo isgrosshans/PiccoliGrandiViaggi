@@ -1,11 +1,9 @@
-package it.univr.studyholiday.model;
+package it.univr.studyholiday.model.entities;
 
 //import it.univr.studyholiday.util.Database.Add;
 //import it.univr.studyholiday.util.Database.Delete;
 //import it.univr.studyholiday.util.Database.Fetch;
 //import it.univr.studyholiday.util.Database.Update;
-
-import it.univr.studyholiday.util.Database.Entity;
 
 import java.lang.reflect.Field;
 

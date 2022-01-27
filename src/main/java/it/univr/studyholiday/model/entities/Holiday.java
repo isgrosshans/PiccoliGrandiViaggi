@@ -1,14 +1,12 @@
-package it.univr.studyholiday.model;
+package it.univr.studyholiday.model.entities;
 
-
-import it.univr.studyholiday.util.Database.*;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;
 
 //     HOLIDAY(id,
 //      startdate,weeks,school)
-public class Holiday implements Entity{
+public class Holiday implements Entity {
     private int id = -1;
     private LocalDate departureDate;
     private int weeks;

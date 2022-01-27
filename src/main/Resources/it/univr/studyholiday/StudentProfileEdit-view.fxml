@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="647.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="647.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <font>
@@ -65,6 +65,6 @@
       <TextArea fx:id="HobbiesTextArea" layoutX="81.0" layoutY="431.0" prefHeight="118.0" prefWidth="458.0" promptText="Inserisci i tuoi hobbies separati da una virgola" wrapText="true" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="431.0" />
       <Button fx:id="CancelButton" layoutX="150.0" layoutY="575.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="575.0" />
       <Button fx:id="ConfirmButton" layoutX="397.0" layoutY="575.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="575.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="616.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="616.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="616.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="616.0" />
    </children>
 </AnchorPane>

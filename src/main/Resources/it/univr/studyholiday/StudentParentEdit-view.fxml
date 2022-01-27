@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="775.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="785.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="18.0">
          <font>
@@ -76,8 +76,8 @@
          </font>
       </Label>
       <TextField fx:id="PhoneTextField1" layoutX="104.0" layoutY="636.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="636.0" />
-      <Button fx:id="CancelButton" layoutX="64.0" layoutY="707.0" mnemonicParsing="false" onAction="#CancelButtonClick" prefHeight="25.0" prefWidth="99.0" text="Annulla" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="707.0" />
-      <Button fx:id="ConfirmButton" layoutX="452.0" layoutY="707.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" prefHeight="25.0" prefWidth="85.0" text="Conferma" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="707.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="747.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="747.0" />
+      <Button fx:id="CancelButton" layoutX="174.0" layoutY="707.0" mnemonicParsing="false" onAction="#CancelButtonClick" prefHeight="25.0" prefWidth="85.0" text="Annulla" AnchorPane.leftAnchor="174.0" AnchorPane.topAnchor="707.0" />
+      <Button fx:id="ConfirmButton" layoutX="452.0" layoutY="707.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" prefHeight="25.0" prefWidth="85.0" text="Conferma" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="707.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="752.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="752.0" />
    </children>
 </AnchorPane>

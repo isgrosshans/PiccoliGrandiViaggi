@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="332.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="18.0">
          <font>
@@ -18,19 +18,19 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="124.0" prefHeight="17.0" prefWidth="563.0" text="Scegli il livello della lingua che vuoio ottenere :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="124.0">
+      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="139.0" prefHeight="17.0" prefWidth="563.0" text="Scegli il livello della lingua che vuoio ottenere :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="139.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="LevelLabel" layoutX="19.0" layoutY="175.0" prefHeight="17.0" prefWidth="59.0" text="Livello :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="175.0">
+      <Label fx:id="LevelLabel" layoutX="20.0" layoutY="208.0" prefHeight="17.0" prefWidth="59.0" text="Livello :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="208.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="ChioicheBox" layoutX="91.0" layoutY="171.0" onMouseClicked="#SexClick" prefHeight="25.0" prefWidth="171.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="171.0" />
-      <Button fx:id="CancelButton" layoutX="129.0" layoutY="243.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="129.0" AnchorPane.topAnchor="243.0" />
-      <Button fx:id="ConfirmButton" layoutX="376.0" layoutY="243.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Avanti" AnchorPane.rightAnchor="171.0" AnchorPane.topAnchor="243.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="11.0" layoutY="292.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0" />
+      <ChoiceBox fx:id="ChioicheBox" layoutX="91.0" layoutY="204.0" onMouseClicked="#SexClick" prefHeight="25.0" prefWidth="171.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="204.0" />
+      <Button fx:id="CancelButton" layoutX="150.0" layoutY="456.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="456.0" />
+      <Button fx:id="ConfirmButton" layoutX="397.0" layoutY="456.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Avanti" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="456.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="505.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="505.0" />
    </children>
 </AnchorPane>

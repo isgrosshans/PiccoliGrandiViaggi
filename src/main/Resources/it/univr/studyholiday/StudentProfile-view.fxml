@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="922.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="922.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="ReturnHomeButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnHomeButtonClick" text="&lt; Menu" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <MenuButton fx:id="EditMenu" layoutX="471.0" layoutY="20.0" mnemonicParsing="false" onAction="#EditMenuClick" prefHeight="25.0" prefWidth="96.0" text="Modifica" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="11.0">
@@ -70,7 +70,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="HobbiesLabel" alignment="TOP_LEFT" layoutX="99.0" layoutY="836.0" prefHeight="72.0" prefWidth="441.0" text="Label" wrapText="true" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="836.0" />
+      <Label fx:id="HobbiesLabel" alignment="TOP_LEFT" layoutX="99.0" layoutY="836.0" prefHeight="72.0" prefWidth="441.0" text="Label" wrapText="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="836.0" />
       <Label fx:id="BirthdayLabel" layoutX="119.0" layoutY="370.0" prefHeight="17.0" prefWidth="461.0" text="Label" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="370.0" />
       <Label fx:id="TagAddressLabel" layoutX="24.0" layoutY="413.0" text="Indirizzo :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="420.0">
          <font>

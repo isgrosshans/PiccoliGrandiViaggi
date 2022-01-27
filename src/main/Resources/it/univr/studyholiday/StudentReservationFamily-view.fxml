@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="538.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="ReturnDetailsTripButton" layoutX="21.0" layoutY="15.0" mnemonicParsing="false" onAction="#ReturnDetailsTripButtonClick" text="&lt; Dettagli Viaggio" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="18.0">
@@ -50,8 +50,8 @@
          </font>
       </Label>
       <TextField fx:id="SurnameTextfield" disable="true" layoutX="110.0" layoutY="404.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="404.0" />
-      <Button fx:id="CancelButton" layoutX="139.0" layoutY="467.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="139.0" AnchorPane.topAnchor="467.0" />
-      <Button fx:id="ConfirmButton" layoutX="386.0" layoutY="467.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Avanti" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="467.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="54.0" layoutY="509.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="CancelButton" layoutX="138.0" layoutY="480.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="138.0" AnchorPane.topAnchor="480.0" />
+      <Button fx:id="ConfirmButton" layoutX="385.0" layoutY="480.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Avanti" AnchorPane.rightAnchor="162.0" AnchorPane.topAnchor="480.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="534.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="534.0" />
    </children>
 </AnchorPane>

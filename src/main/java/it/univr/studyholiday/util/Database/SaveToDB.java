@@ -238,6 +238,7 @@ public class SaveToDB {
             if(i++>0) result+=", ";
 
             if (f.getName().endsWith("id")) {
+                if(e.getValue(f)==null) result+=" DEFAULT ";
                 if(e.getValue(f).equals(-1)) result+=" DEFAULT ";
                 else result+=temp;
             }

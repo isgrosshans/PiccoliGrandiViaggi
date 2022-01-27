@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="412.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffHomeController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffHomeController">
    <children>
       <Label fx:id="HomeLabel" alignment="CENTER" layoutX="190.0" layoutY="48.0" text="Home" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <font>
@@ -17,9 +17,9 @@
             <Font name="Chalkboard" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="SchoolButton" alignment="CENTER" cache="true" layoutX="163.0" layoutY="142.0" mnemonicParsing="false" onAction="#SchoolsButtonClick" prefHeight="25.0" prefWidth="146.0" text="Scuole" textAlignment="CENTER" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="142.0" />
-      <Button fx:id="FutureTripsButton" alignment="CENTER" layoutX="163.0" layoutY="203.0" mnemonicParsing="false" onAction="#FutureTripsButtonClick" prefHeight="25.0" prefWidth="146.0" text="Viaggi Futuri" textAlignment="CENTER" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="203.0" />
-      <Button fx:id="PastTripsButton" alignment="CENTER" contentDisplay="CENTER" layoutX="163.0" layoutY="260.0" mnemonicParsing="false" onAction="#PastTripsButtonClick" prefHeight="25.0" prefWidth="146.0" text="Viaggi Passati" textAlignment="CENTER" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="260.0" />
-      <Button fx:id="LogoutButton" alignment="CENTER" contentDisplay="CENTER" layoutX="379.0" layoutY="66.0" mnemonicParsing="false" onAction="#LogoutButtonClick" text="Log-out" textAlignment="CENTER" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="66.0" />
+      <Button fx:id="SchoolButton" alignment="CENTER" cache="true" layoutX="212.0" layoutY="180.0" mnemonicParsing="false" onAction="#SchoolsButtonClick" prefHeight="31.0" prefWidth="178.0" text="Scuole" textAlignment="CENTER" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="180.0" />
+      <Button fx:id="FutureTripsButton" alignment="CENTER" layoutX="217.0" layoutY="293.0" mnemonicParsing="false" onAction="#FutureTripsButtonClick" prefHeight="31.0" prefWidth="178.0" text="Viaggi Futuri" textAlignment="CENTER" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="293.0" />
+      <Button fx:id="PastTripsButton" alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="407.0" mnemonicParsing="false" onAction="#PastTripsButtonClick" prefHeight="31.0" prefWidth="178.0" text="Viaggi Passati" textAlignment="CENTER" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="407.0" />
+      <Button fx:id="LogoutButton" alignment="CENTER" contentDisplay="CENTER" layoutX="464.0" layoutY="55.0" mnemonicParsing="false" onAction="#LogoutButtonClick" prefHeight="31.0" prefWidth="89.0" text="Log-out" textAlignment="CENTER" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="55.0" />
    </children>
 </AnchorPane>

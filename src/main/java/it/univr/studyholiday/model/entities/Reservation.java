@@ -9,30 +9,27 @@ public class Reservation implements Entity {
     private int studentid;
     private int holidayid;
     private String paymentMethod;
-    private int familyid;
-    private int dormRoomid;
+    private int bedid =-1;
     private String friendName;
     private String friendEmail;
     private String languageLevel;
 
-    public Reservation(int studentid, int holidayid, String paymentMethod, int familyid, int dormRoomid, String friendName, String friendEmail, String languageLevel) {
+    public Reservation(int studentid, int holidayid, String paymentMethod, int bedid, String friendName, String friendEmail, String languageLevel) {
         this.studentid = studentid;
         this.holidayid = holidayid;
         this.paymentMethod = paymentMethod;
-        this.familyid = familyid;
-        this.dormRoomid = dormRoomid;
+        this.bedid = bedid;
         this.friendName = friendName;
         this.friendEmail = friendEmail;
         this.languageLevel = languageLevel;
     }
 
-    public Reservation(int id, int studentid, int holidayid, String paymentMethod, int familyid, int dormRoomid, String friendName, String friendEmail, String languageLevel) {
+    public Reservation(int id, int studentid, int holidayid, String paymentMethod, int bedid, String friendName, String friendEmail, String languageLevel) {
         this.id = id;
         this.studentid = studentid;
         this.holidayid = holidayid;
         this.paymentMethod = paymentMethod;
-        this.familyid = familyid;
-        this.dormRoomid = dormRoomid;
+        this.bedid = bedid;
         this.friendName = friendName;
         this.friendEmail = friendEmail;
         this.languageLevel = languageLevel;
@@ -70,20 +67,12 @@ public class Reservation implements Entity {
         this.paymentMethod = paymentMethod;
     }
 
-    public int getFamilyid() {
-        return familyid;
+    public int getBedid() {
+        return bedid;
     }
 
-    public void setFamilyid(int familyid) {
-        this.familyid = familyid;
-    }
-
-    public int getDormRoomid() {
-        return dormRoomid;
-    }
-
-    public void setDormRoomid(int dormRoomid) {
-        this.dormRoomid = dormRoomid;
+    public void setBedid(int bedid) {
+        this.bedid = bedid;
     }
 
     public String getFriendName() {

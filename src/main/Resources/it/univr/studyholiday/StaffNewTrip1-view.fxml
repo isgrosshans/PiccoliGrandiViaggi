@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="526.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="it.univr.studyholiday.controller.StaffNewTrip1Controller">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffNewTrip1Controller">
    <children>
       <Label fx:id="StaffLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="14.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <font>
@@ -26,7 +25,7 @@ fx:controller="it.univr.studyholiday.controller.StaffNewTrip1Controller">
          </font>
       </Label>
       <Button fx:id="ReturnTripsButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnTripsButtonClick" text="&lt; Viaggi" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
-      <TableView fx:id="SchoolTable" onMouseClicked="#CellCliked" layoutX="15.0" layoutY="148.0" prefHeight="250.0" prefWidth="443.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="148.0">
+      <TableView fx:id="SchoolTable" layoutX="15.0" layoutY="148.0" onMouseClicked="#CellCliked" prefHeight="297.0" prefWidth="550.0" AnchorPane.bottomAnchor="155.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="148.0">
         <columns>
             <TableColumn fx:id="NameColumn" prefWidth="75.0" text="Nome" />
           <TableColumn fx:id="CityColumn" prefWidth="75.0" text="Città" />
@@ -36,7 +35,7 @@ fx:controller="it.univr.studyholiday.controller.StaffNewTrip1Controller">
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="NextButton" layoutX="530.0" layoutY="463.0" mnemonicParsing="false" onAction="#NextButtonClick" text="Avanti " AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="14.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="33.0" layoutY="497.0" prefHeight="17.0" prefWidth="534.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="497.0" />
+      <Button fx:id="NextButton" layoutX="519.0" layoutY="476.0" mnemonicParsing="false" onAction="#NextButtonClick" text="Avanti " AnchorPane.bottomAnchor="99.0" AnchorPane.rightAnchor="25.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="15.0" layoutY="525.0" prefHeight="25.0" prefWidth="580.0" textFill="RED" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="525.0" />
    </children>
 </AnchorPane>

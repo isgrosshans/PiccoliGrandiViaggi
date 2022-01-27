@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1299.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="ReturnTripsButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnTripsClick" text="&lt; Catalogo" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" prefWidth="554.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="TripDetailsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="48.0" text="Dettagli viaggio" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="48.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="TagDestinationLabel" layoutX="14.0" layoutY="117.0" text="Destinazione :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="DestinationLabel" layoutX="108.0" layoutY="117.0" prefHeight="17.0" prefWidth="368.0" text="Label" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="120.0" />
+      <Label fx:id="TagWeeksLabel" layoutX="21.0" layoutY="166.0" text="Settimane :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="170.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="WeeksLabel" layoutX="99.0" layoutY="162.0" prefHeight="17.0" prefWidth="377.0" text="Label" AnchorPane.leftAnchor="99.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="170.0" />
+      <Label fx:id="TagDepartureDateLabel" layoutX="11.0" layoutY="231.0" text="Data Partenza : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="220.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="DepartureDateLabel" layoutX="132.0" layoutY="199.0" prefHeight="17.0" prefWidth="408.0" text="Label" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="220.0" />
+      <Label fx:id="TagLanguageLabel" layoutX="20.0" layoutY="268.0" text="Lingua :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="270.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="LanguageLabel" layoutX="82.0" layoutY="258.0" prefHeight="17.0" prefWidth="458.0" text="Label" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="270.0" />
+      <Label fx:id="TagPlacesAvailableLabel" layoutX="14.0" layoutY="308.0" text="Posti Disponibili :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="320.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="TaginFamilyLabel" layoutX="20.0" layoutY="345.0" text="In Famiglia :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="345.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="InFamilyLabel" layoutX="131.0" layoutY="345.0" prefHeight="17.0" prefWidth="449.0" text="Label" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="345.0" />
+      <Label fx:id="TagInDormitoryLabel" layoutX="20.0" layoutY="368.0" text="In Dormitorio :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="368.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="DormitoryLabel" layoutX="132.0" layoutY="368.0" prefHeight="17.0" prefWidth="408.0" text="Label" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="368.0" />
+      <Label fx:id="TagNameSchoolLabel" layoutX="20.0" layoutY="433.0" prefHeight="17.0" prefWidth="87.0" text="Scuola :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="493.0" AnchorPane.topAnchor="433.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="NameSchoolLabel" alignment="TOP_LEFT" layoutX="82.0" layoutY="433.0" prefHeight="18.0" prefWidth="458.0" text="Label" wrapText="true" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="433.0" />
+      <Label fx:id="TagFieldTripsLabel" layoutX="20.0" layoutY="482.0" text="Gite :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="482.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TableView fx:id="FieldTripTable" layoutX="20.0" layoutY="511.0" onMouseClicked="#FieldTripsTableClick" prefHeight="169.0" prefWidth="572.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="511.0">
+        <columns>
+          <TableColumn fx:id="DestinationColumn" prefWidth="182.0" text="Destinazione" />
+          <TableColumn fx:id="HoursColumn" prefWidth="47.0" text="Ore" />
+            <TableColumn fx:id="PriceColumn" prefWidth="53.0" text="Prezzo" />
+            <TableColumn fx:id="DescriptionColumn" prefWidth="277.0" text="Descrizione" />
+        </columns>
+      </TableView>
+      <Label fx:id="ActivitiesLabel" layoutX="22.0" layoutY="944.0" text="Attività :" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="944.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TableView fx:id="ActivityTable" layoutX="20.0" layoutY="966.0" onMouseClicked="#ActivitytableClick" prefHeight="169.0" prefWidth="572.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="966.0">
+         <columns>
+            <TableColumn fx:id="NameColumn" prefWidth="216.0" text="Nome" />
+            <TableColumn fx:id="DescriptionActivityColumn" prefWidth="355.0" text="Descrizione" />
+         </columns>
+      </TableView>
+      <MenuButton fx:id="BookTripMenu" layoutX="459.0" layoutY="20.0" mnemonicParsing="false" onAction="#BookTripMenuClick" text="Prenota Viaggio" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="11.0">
+        <items>
+          <MenuItem fx:id="OnFamily" mnemonicParsing="false" onAction="#OnFamilyClick" text="In Famiglia" />
+          <MenuItem fx:id="OnDormitory" mnemonicParsing="false" onAction="#OnDormitoryClick" text="In Dormitorio" />
+        </items>
+      </MenuButton>
+      <Label fx:id="TagDestinationLabel" layoutX="21.0" layoutY="698.0" prefHeight="17.0" prefWidth="87.0" text="Destinazione :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="698.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="DestinatonLabel" alignment="TOP_LEFT" layoutX="116.0" layoutY="698.0" prefHeight="18.0" prefWidth="424.0" text="Label" wrapText="true" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="698.0" />
+      <Label fx:id="TagHoursLabel" layoutX="18.0" layoutY="740.0" prefHeight="17.0" prefWidth="87.0" text="Ore :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="740.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="HoursLabel" alignment="TOP_LEFT" layoutX="112.0" layoutY="740.0" prefHeight="18.0" prefWidth="424.0" text="Label" wrapText="true" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="740.0" />
+      <Label fx:id="TagPriceLabel" layoutX="14.0" layoutY="784.0" prefHeight="17.0" prefWidth="87.0" text="Prezzo :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="784.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="PriceLabel" alignment="TOP_LEFT" layoutX="112.0" layoutY="784.0" prefHeight="18.0" prefWidth="424.0" text="Label" wrapText="true" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="784.0" />
+      <Label fx:id="TagDescriptionLabel" layoutX="12.0" layoutY="827.0" prefHeight="17.0" prefWidth="87.0" text="Descrizione :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="827.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="DescriptionLabel" alignment="TOP_LEFT" layoutX="112.0" layoutY="827.0" prefHeight="110.0" prefWidth="424.0" text="Label" wrapText="true" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="827.0" />
+      <Label fx:id="TagDescriptionLabel2" layoutX="20.0" layoutY="1204.0" prefHeight="17.0" prefWidth="87.0" text="Descrizione : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="1204.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="NameLabel" alignment="TOP_LEFT" layoutX="119.0" layoutY="1164.0" prefHeight="18.0" prefWidth="424.0" text="Label" wrapText="true" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="62.0" AnchorPane.topAnchor="1164.0" />
+      <Label fx:id="TagNameLabel" layoutX="23.0" layoutY="1165.0" prefHeight="17.0" prefWidth="87.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="1165.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="DescripriprionLabel2" alignment="TOP_LEFT" layoutX="119.0" layoutY="1204.0" prefHeight="87.0" prefWidth="424.0" text="Label" wrapText="true" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="62.0" AnchorPane.topAnchor="1204.0" />
+   </children>
+</AnchorPane>

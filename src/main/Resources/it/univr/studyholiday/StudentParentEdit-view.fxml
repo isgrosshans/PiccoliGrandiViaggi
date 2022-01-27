@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="785.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="18.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="RegistrationLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="53.0" text="Modifica Genitori" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="53.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="129.0" prefHeight="17.0" prefWidth="575.0" text="Modifica le informazioni riguardanti il secondo genitore :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="129.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="EmailLabel" layoutX="14.0" layoutY="186.0" text="Email :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="186.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="EmailTextField" layoutX="97.0" layoutY="186.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="186.0" />
+      <Label fx:id="NameLabel" layoutX="14.0" layoutY="236.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="236.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NameTextField" layoutX="97.0" layoutY="236.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="236.0" />
+      <Label fx:id="SurnameLabel" layoutX="14.0" layoutY="286.0" text="Cognome :  " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="286.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="SurnameTextField" layoutX="97.0" layoutY="286.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="286.0" />
+      <Label fx:id="PhoneLabel" layoutX="14.0" layoutY="336.0" text="Telefono :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="336.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="PhoneTextField" layoutX="97.0" layoutY="336.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="336.0" />
+      <Label fx:id="DescriptionLabel1" layoutX="15.0" layoutY="417.0" prefHeight="17.0" prefWidth="575.0" text="Modifica o inserisci le informazioni riguardanti il secondo genitore :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="EmailLabel1" layoutX="20.0" layoutY="486.0" text="Email :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="486.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="EmailTextField1" layoutX="101.0" layoutY="482.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="482.0" />
+      <Label fx:id="NameLabel1" layoutX="20.0" layoutY="540.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="540.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="NameTextField1" layoutX="101.0" layoutY="536.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="536.0" />
+      <Label fx:id="SurnameLabel1" layoutX="20.0" layoutY="590.0" text="Cognome :  " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="590.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="SurnameTextField1" layoutX="103.0" layoutY="586.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="586.0" />
+      <Label fx:id="PhoneLabel1" layoutX="20.0" layoutY="640.0" text="Telefono :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="640.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="PhoneTextField1" layoutX="104.0" layoutY="636.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="636.0" />
+      <Button fx:id="CancelButton" layoutX="174.0" layoutY="707.0" mnemonicParsing="false" onAction="#CancelButtonClick" prefHeight="25.0" prefWidth="85.0" text="Annulla" AnchorPane.leftAnchor="174.0" AnchorPane.topAnchor="707.0" />
+      <Button fx:id="ConfirmButton" layoutX="452.0" layoutY="707.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" prefHeight="25.0" prefWidth="85.0" text="Conferma" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="707.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="752.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="752.0" />
+   </children>
+</AnchorPane>

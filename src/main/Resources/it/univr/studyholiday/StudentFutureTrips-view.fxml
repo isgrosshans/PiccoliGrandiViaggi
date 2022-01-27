@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="ReturnHomeButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnHomeButtonClick" text="&lt; Menu" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Label fx:id="TripsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="48.0" text="Catalogo Viaggi" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="14.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <TreeTableView fx:id="TripsTable" layoutX="11.0" layoutY="150.0" onMouseClicked="#TripsTableClick" prefHeight="248.0" prefWidth="447.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="132.0">
+        <columns>
+            <TreeTableColumn fx:id="DestinationColumn" prefWidth="75.0" text="Destinazione" />
+          <TreeTableColumn fx:id="DepartureDateColumn" prefWidth="75.0" text="Partenza" />
+            <TreeTableColumn fx:id="WeeksColumn" prefWidth="75.0" text="Settimane " />
+        </columns>
+         <columnResizePolicy>
+            <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TreeTableView>
+   </children>
+</AnchorPane>

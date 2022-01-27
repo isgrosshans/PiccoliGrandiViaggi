@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="616.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="ReturnTripsButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnTripsClick" text="&lt; Dettagli Viaggio" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
+      <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" prefWidth="554.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Chalkboard" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="SurveyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="48.0" text="Questionario" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="48.0">
+         <font>
+            <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="DdescriptionLabel" layoutX="14.0" layoutY="117.0" text="Assegna un voto da 0 a 10 al viaggio che hai fatto:" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="120.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="ExperienceLabel" layoutX="23.0" layoutY="180.0" text="Esperienza complessiva :" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="180.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Slider fx:id="ExperienceSlider" blockIncrement="1.0" layoutX="186.0" layoutY="181.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="38.0" prefWidth="343.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="181.0" />
+      <Label fx:id="FieldTripsLabel" layoutX="22.0" layoutY="238.0" text="Gite :" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="238.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Slider fx:id="AccomodationSlider" blockIncrement="1.0" layoutX="197.0" layoutY="289.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="38.0" prefWidth="343.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="289.0" />
+      <Label fx:id="AccomodationLabel" layoutX="22.0" layoutY="289.0" text="Alloggi: " AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="289.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Slider fx:id="FieldTripsSlider" blockIncrement="1.0" layoutX="197.0" layoutY="236.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="38.0" prefWidth="343.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="236.0" />
+      <Label fx:id="SchoolLabel" layoutX="22.0" layoutY="339.0" text="Scuola :" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="339.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Slider fx:id="SchoolSlider" blockIncrement="1.0" layoutX="197.0" layoutY="337.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="38.0" prefWidth="343.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="337.0" />
+      <Label fx:id="ActivitiesLabel" layoutX="22.0" layoutY="388.0" text="Attività :" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="388.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Slider fx:id="ActivitiesSlider" blockIncrement="1.0" layoutX="197.0" layoutY="386.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="38.0" prefWidth="343.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="386.0" />
+      <Label fx:id="TagCommentLabel" layoutX="22.0" layoutY="436.0" prefHeight="49.0" prefWidth="73.0" text="Commento (opzionale) :" wrapText="true" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="436.0">
+         <font>
+            <Font name="Chalkboard" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="CancelButton" layoutX="109.0" layoutY="565.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="565.0" />
+      <Button fx:id="ConfirmButton" layoutX="424.0" layoutY="565.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="565.0" />
+      <TextField fx:id="CommentTextField" alignment="TOP_LEFT" layoutX="117.0" layoutY="448.0" prefHeight="93.0" prefWidth="421.0" promptText="Inserisci un commento (opzionale)" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="448.0" />
+   </children>
+</AnchorPane>

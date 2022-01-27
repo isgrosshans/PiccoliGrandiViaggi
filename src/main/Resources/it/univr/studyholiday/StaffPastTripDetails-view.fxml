@@ -95,6 +95,6 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextArea fx:id="CommentsTextArea" layoutX="117.0" layoutY="660.0" prefHeight="109.0" prefWidth="453.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="117.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="660.0" />
+      <TextArea fx:id="CommentsTextArea" editable="false" layoutX="117.0" layoutY="660.0" prefHeight="109.0" prefWidth="453.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="117.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="660.0" />
    </children>
 </AnchorPane>

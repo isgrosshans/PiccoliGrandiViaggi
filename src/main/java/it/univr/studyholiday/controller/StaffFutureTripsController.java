@@ -53,6 +53,7 @@ public class StaffFutureTripsController implements Initializable {
         GlossaApplication.setRoot("StaffFutureTripDetails");
     }
 
-    public void ReturnHomeButtonClick(ActionEvent actionEvent) {
+    public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
+        GlossaApplication.setRoot("StaffHome");
     }
 }

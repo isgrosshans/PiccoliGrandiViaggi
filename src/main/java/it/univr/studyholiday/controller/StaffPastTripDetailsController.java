@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +17,7 @@ import java.util.ResourceBundle;
 public class StaffPastTripDetailsController implements Initializable {
 
 
+    @FXML private TextArea CommentsTextArea;
     @FXML private Label DepartureDateLabel;
     @FXML private Label NameSchoolLabel;
     @FXML private Label LanguageLabel;
@@ -45,6 +47,7 @@ public class StaffPastTripDetailsController implements Initializable {
         FieldtripsScoreLabel.setText(surveyResults.getFieldtripScoreText());
         ActivitiesScoreLabel.setText(surveyResults.getActivitiesScoreText());
         LessonsScoreLabel.setText(surveyResults.getActivitiesScoreText());
+        CommentsTextArea.setText(surveyResults.getCommentsText());
     }
 
     public void ReturnPastTripsButtonClick(ActionEvent actionEvent) throws IOException {

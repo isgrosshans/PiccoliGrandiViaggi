@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="783.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.univr.studyholiday.controller.StaffFamilyAddController">
+<AnchorPane prefHeight="783.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffFamilyAddController">
    <children>
       <Button fx:id="ReturnFamilyButton" layoutX="13.0" layoutY="14.0" mnemonicParsing="false" onAction="#ReturnFamilyButtonClick" text="&lt; Famiglie" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
@@ -89,6 +88,6 @@
       <Spinner fx:id="BathroomsSpinner" layoutX="129.0" layoutY="646.0" prefHeight="25.0" prefWidth="89.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="382.0" AnchorPane.topAnchor="650.0" />
       <Button fx:id="CancelButton" layoutX="134.0" layoutY="720.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="150.0" />
       <Button fx:id="ConfirmButton" layoutX="280.0" layoutY="720.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="150.0" />
-      <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="752.0" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="752.0" />
+      <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="756.0" textAlignment="CENTER" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="756.0" />
    </children>
 </AnchorPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="603.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffActivitiesController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffActivitiesController">
    <children>
       <Button fx:id="ReturnDetailsSchoolButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnDetailsSchoolButtonClick" text="&lt; Dettagli" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="14.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
@@ -26,7 +26,7 @@
          </font>
       </Label>
       <Label fx:id="SchoolNameLabel" layoutX="68.0" layoutY="117.0" prefHeight="17.0" prefWidth="466.0" text="Label" wrapText="true" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="117.0" />
-      <TableView fx:id="ActivitiesTable" onMouseClicked="#CellClicked" layoutX="15.0" layoutY="163.0" prefHeight="235.0" prefWidth="446.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="157.0">
+      <TableView fx:id="ActivitiesTable" layoutX="15.0" layoutY="163.0" onMouseClicked="#CellClicked" prefHeight="235.0" prefWidth="446.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="157.0">
         <columns>
             <TableColumn fx:id="NameColumn" prefWidth="75.0" text="Nome " />
           <TableColumn fx:id="DescriptionColumn" prefWidth="75.0" text="Descrizione" />
@@ -47,6 +47,6 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="DescriptionLabel" alignment="TOP_LEFT" layoutX="118.0" layoutY="473.0" prefHeight="94.0" prefWidth="422.0" wrapText="true" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="473.0" />
+      <Label fx:id="DescriptionLabel" alignment="TOP_LEFT" layoutX="118.0" layoutY="473.0" prefHeight="94.0" prefWidth="422.0" wrapText="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="473.0" />
    </children>
 </AnchorPane>

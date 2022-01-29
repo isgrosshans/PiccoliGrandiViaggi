@@ -48,7 +48,7 @@ public class StaffFutureTripsController implements Initializable {
     }
 
 
-    public void CellCliked(MouseEvent mouseEvent) throws IOException {
+    public void CellClicked(MouseEvent mouseEvent) throws IOException {
         StaffFutureTripDetailsController.setTrip(TripsTable.getSelectionModel().getSelectedItem());
         GlossaApplication.setRoot("StaffFutureTripDetails");
     }

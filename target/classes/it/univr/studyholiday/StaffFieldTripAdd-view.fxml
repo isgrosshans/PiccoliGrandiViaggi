@@ -15,7 +15,7 @@
             <Font name="Chalkboard" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="NewFïeldtripLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="58.0" text="Nuova gita" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <Label fx:id="NewFieldtripLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="58.0" text="Nuova gita" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>

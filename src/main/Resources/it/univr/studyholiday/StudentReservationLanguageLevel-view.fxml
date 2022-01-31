@@ -18,7 +18,7 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="139.0" prefHeight="17.0" prefWidth="563.0" text="Scegli il livello della lingua che vuoio ottenere :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="139.0">
+      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="139.0" prefHeight="17.0" prefWidth="563.0" text="Scegli il livello della lingua che vuoio studiare :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="139.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="ChioicheBox" layoutX="91.0" layoutY="204.0" onMouseClicked="#SexClick" prefHeight="25.0" prefWidth="171.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="204.0" />
+      <ChoiceBox fx:id="LevelChioicheBox" layoutX="91.0" layoutY="204.0" onMouseClicked="#SexClick" prefHeight="25.0" prefWidth="171.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="338.0" AnchorPane.topAnchor="204.0" />
       <Button fx:id="CancelButton" layoutX="150.0" layoutY="456.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="456.0" />
       <Button fx:id="ConfirmButton" layoutX="397.0" layoutY="456.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Avanti" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="456.0" />
       <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="505.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="505.0" />

@@ -182,4 +182,5 @@ public class Family implements Entity {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }

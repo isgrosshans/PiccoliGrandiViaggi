@@ -10,29 +10,32 @@ public class Reservation implements Entity {
     private int holidayid;
     private String paymentMethod;
     private int bedid =-1;
-    private String friendName;
     private String friendEmail;
     private String languageLevel;
+    private Boolean familyStay;
+    private Boolean requestedSingle;
 
-    public Reservation(int studentid, int holidayid, String paymentMethod, int bedid, String friendName, String friendEmail, String languageLevel) {
+    //costructor for when student makes reservation
+
+
+    public Reservation(int studentid, int holidayid, Boolean familyStay, Boolean requestedSingle) {
         this.studentid = studentid;
         this.holidayid = holidayid;
-        this.paymentMethod = paymentMethod;
-        this.bedid = bedid;
-        this.friendName = friendName;
-        this.friendEmail = friendEmail;
-        this.languageLevel = languageLevel;
+        this.familyStay = familyStay;
+        this.requestedSingle = requestedSingle;
     }
 
-    public Reservation(int id, int studentid, int holidayid, String paymentMethod, int bedid, String friendName, String friendEmail, String languageLevel) {
+    //costructor that gets info from db
+    public Reservation(int id, int studentid, int holidayid, String paymentMethod, int bedid, String friendEmail, String languageLevel, Boolean familyStay, Boolean requestedSingle) {
         this.id = id;
         this.studentid = studentid;
         this.holidayid = holidayid;
         this.paymentMethod = paymentMethod;
         this.bedid = bedid;
-        this.friendName = friendName;
         this.friendEmail = friendEmail;
         this.languageLevel = languageLevel;
+        this.familyStay = familyStay;
+        this.requestedSingle = requestedSingle;
     }
 
     public int getId() {
@@ -75,14 +78,6 @@ public class Reservation implements Entity {
         this.bedid = bedid;
     }
 
-    public String getFriendName() {
-        return friendName;
-    }
-
-    public void setFriendName(String friendName) {
-        this.friendName = friendName;
-    }
-
     public String getFriendEmail() {
         return friendEmail;
     }
@@ -99,83 +94,39 @@ public class Reservation implements Entity {
         this.languageLevel = languageLevel;
     }
 
+    public Boolean getFamilyStay() {
+        return familyStay;
+    }
+
+    public void setFamilyStay(Boolean familyStay) {
+        this.familyStay = familyStay;
+    }
+
+    public Boolean getRequestedSingle() {
+        return requestedSingle;
+    }
+
+    public void setRequestedSingle(Boolean requestedSingle) {
+        this.requestedSingle = requestedSingle;
+    }
+
     @Override
     public Object getValue(Field field) throws IllegalAccessException {
         return field.get(this);
     }
-    //    private Holiday holiday;
-//    private Student student;
-//    private boolean familystay;
-//    private boolean single;
-//    private Student friend;
-//    private String paymentmethod;
-//
-//    public Reservation(Holiday holiday, Student student, boolean familystay, boolean single,Student friend, String paymentmethod) {
-//        this.holiday = holiday;
-//        this.student = student;
-//        this.familystay = familystay;
-//        this.single = single;
-//        this.paymentmethod = paymentmethod;
-//    }
-//
-//    public Reservation(String holiday, String student, boolean familystay, boolean single,String friend, String paymentmethod) {
-//        this.holiday = Fetch.holiday(holiday);
-//        this.student = Fetch.student(student);
-//        this.familystay = familystay;
-//        this.single = single;
-//        this.friend=Fetch.student(friend);
-//        this.paymentmethod = paymentmethod;
-//    }
-//
-//    public void update() {
-//        Update.update(this);
-//    }
-//    public void add() {
-//        Add.add(this);
-//    }
-//    public void delete() {
-//        Delete.delete(this);
-//    }
-//
-//    public static ArrayList<Reservation> allReservationsFor(Student student){
-//        return Fetch.allReservationsFor(student.getEmail());
-//    }
-//
-//    public Holiday getHoliday() {
-//        return holiday;
-//    }
-//    public Student getStudent() {
-//        return student;
-//    }
-//    public boolean isFamilyStay() {
-//        return familystay;
-//    }
-//    public boolean isSingle() {
-//        return single;
-//    }
-//    public String getPaymentmethod() {
-//        return paymentmethod;
-//    }
-//    public Student getFriend() {
-//        return friend;
-//    }
-//
-//    public void setHoliday(Holiday holiday) {
-//        this.holiday = holiday;
-//    }
-//    public void setStudent(Student student) {
-//        this.student = student;
-//    }
-//    public void setFamilystay(boolean familystay) {
-//        this.familystay = familystay;
-//    }
-//    public void setSingle(boolean single) {
-//        this.single = single;
-//    }
-//    public void setFriend(Student friend) {
-//        this.friend = friend;
-//    }
-//    public void setPaymentmethod(String paymentmethod) {
-//        this.paymentmethod = paymentmethod;
-//    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", studentid=" + studentid +
+                ", holidayid=" + holidayid +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", bedid=" + bedid +
+                ", friendEmail='" + friendEmail + '\'' +
+                ", languageLevel='" + languageLevel + '\'' +
+                ", familyStay=" + familyStay +
+                ", requestedSingle=" + requestedSingle +
+                '}';
+    }
 }

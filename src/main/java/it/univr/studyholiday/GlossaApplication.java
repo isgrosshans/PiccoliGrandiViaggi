@@ -1,6 +1,9 @@
 package it.univr.studyholiday;
 
 
+import it.univr.studyholiday.util.Database.LoginDB;
+import it.univr.studyholiday.util.Database.SaveToDB;
+import it.univr.studyholiday.model.entities.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +12,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class GlossaApplication extends Application {
 
@@ -24,11 +28,13 @@ public class GlossaApplication extends Application {
 //        Student boi = new Student ("giovi@mail.it","giovanni", "Giovanni", "Cerva", LocalDate.of(2006, 10, 10), "M", "via Roma 1, Verona", "", "calcio, lego", "0", "0");
 //        SaveToDB.insert(boi);
 
-        //SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
-
+//        SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
+//        SaveToDB.insert(new it.univr.studyholiday.model.entities.Parent("annarossi@posta.it", "Anna", "Rossi", "3401234567"));
+//        SaveToDB.insert(new Student("marcobianchi@posta.it","marcobianchi",
+//                "marco","bianchi",LocalDate.of(2007,5,7),
+//                "M","via Roma 1, 1234 Cittadina","","nuoto, film, chitarra",1));
         //scene = new Scene(loadFXML("Login"), 600, 430);
-
-        scene = new Scene(new ScrollPane(loadFXML("StudentHome")), 605, 600);
+        scene = new Scene(new ScrollPane(loadFXML("Login")), 605, 600);
 
         //scrollPane.setContent(loadFXML("StaffSchools"));
 

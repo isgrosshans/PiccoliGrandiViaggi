@@ -1,6 +1,7 @@
 package it.univr.studyholiday.model;
 
 import it.univr.studyholiday.model.entities.Staff;
+import it.univr.studyholiday.model.entities.Student;
 
 public class User {
     private static Object currentUser;
@@ -15,6 +16,11 @@ public class User {
 
     public static Object getCurrentUser() {
         return currentUser;
+    }
+
+    public static Student getCurrentStudent(){
+        if(isStaff())return null;
+        return (Student) currentUser;
     }
 
     public static boolean isStaff(){

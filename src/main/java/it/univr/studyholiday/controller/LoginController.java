@@ -34,7 +34,7 @@ public class LoginController {
 
         if(User.isNull()) loginFailedMessage.setVisible(true);
         else if (User.isStaff()) GlossaApplication.setRoot("StaffHome");
-        //else GlossaApplication.setRoot("StudentHome");
+        else GlossaApplication.setRoot("StudentHome");
 //
 //        //UserType.setMode();
 //        if (LoginUtil.emailIsAdmin(Email.getText())) {
@@ -58,8 +58,8 @@ public class LoginController {
 //        }
     }
 
-    public void registratiButtonAction() throws IOException {
-        //GlossaApplication.setRoot("signup");
+    public void registrationButtonAction() throws IOException {
+        GlossaApplication.setRoot("StudentRegistration");
     }
 
     public void exitButtonAction(ActionEvent actionEvent) {

@@ -30,6 +30,7 @@ public class SaveToDB {
                                 ") VALUES ("+
                                 getValuesFor(entity)+");")) {
 
+                    System.out.println(pst);
                     rs = pst.executeQuery();
                     rs.next();
 
@@ -231,22 +232,25 @@ public class SaveToDB {
     public static String getValuesFor(Entity e) throws IllegalAccessException {
         String result="";
         int i=0;
-        String temp;
+        String temp="";
         Field[] fields = e.getClass().getDeclaredFields();
         for (Field f:fields) {
-            temp=e.getValue(f).toString();
             if(i++>0) result+=", ";
+            if(e.getValue(f)==null) result+=" DEFAULT ";
+            else{
+                temp=e.getValue(f).toString();
 
-            if (f.getName().endsWith("id")) {
-                if(e.getValue(f)==null) result+=" DEFAULT ";
-                if(e.getValue(f).equals(-1)) result+=" DEFAULT ";
+                if (f.getName().endsWith("id")) {
+                    if(e.getValue(f).equals(-1)) result+=" DEFAULT ";
+                    else result+=temp;
+                }
+
+                else if(temp!="true" && temp!="false"){
+                    if(temp.contains("'")) temp=temp.replace("'", "''");
+                    result+=" '"+temp+"' ";
+                }
                 else result+=temp;
             }
-            else if(temp!="true" && temp!="false"){
-                if(temp.contains("'")) temp=temp.replace("'", "''");
-                result+=" '"+temp+"' ";
-            }
-            else result+=temp;
         }
         return result;
     }

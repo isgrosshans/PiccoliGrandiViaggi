@@ -23,14 +23,14 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="NameSchoolLabel" layoutX="98.0" layoutY="130.0" prefHeight="17.0" prefWidth="311.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="150.0" />
+      <Label fx:id="NameSchoolLabel" layoutX="98.0" layoutY="130.0" prefHeight="17.0" prefWidth="311.0"  AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="150.0" />
       <Label fx:id="TagAddressLabel" layoutX="40.0" layoutY="200.0" text="Indirizzo :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="200.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="AddressLabel" layoutX="98.0" layoutY="198.0" prefHeight="17.0" prefWidth="487.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="200.0" />
-      <Label fx:id="LanguageLabel" layoutX="98.0" layoutY="255.0" prefHeight="17.0" prefWidth="311.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="250.0" />
+      <Label fx:id="AddressLabel" layoutX="98.0" layoutY="198.0" prefHeight="17.0" prefWidth="487.0"  AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="200.0" />
+      <Label fx:id="LanguageLabel" layoutX="98.0" layoutY="255.0" prefHeight="17.0" prefWidth="311.0"  AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="250.0" />
       <Button fx:id="FamilyButton" layoutX="172.0" layoutY="482.0" minWidth="57.0" mnemonicParsing="false" onAction="#FamilyButtonClick" prefHeight="25.0" text="Famiglie" />
     <Button fx:id="DormitoryButton" layoutX="272.0" layoutY="482.0" mnemonicParsing="false" onAction="#DormitoriesButtonClick" text="Dormitori" />
       <Button fx:id="ActivityButton" layoutX="372.0" layoutY="482.0" mnemonicParsing="false" onAction="#ActivityButtonClick" text="Attività" />
@@ -49,13 +49,13 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="CityLabel" layoutX="90.0" layoutY="360.0" prefHeight="17.0" prefWidth="487.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="350.0" />
-      <Label fx:id="CountryLabel" layoutX="90.0" layoutY="291.0" prefHeight="17.0" prefWidth="487.0" text="Label" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="300.0" />
+      <Label fx:id="CityLabel" layoutX="90.0" layoutY="360.0" prefHeight="17.0" prefWidth="487.0"  AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="350.0" />
+      <Label fx:id="CountryLabel" layoutX="90.0" layoutY="291.0" prefHeight="17.0" prefWidth="487.0"  AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="300.0" />
       <Label fx:id="TagPostalCodeLabel" layoutX="22.0" layoutY="402.0" text="Codice postale :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="400.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="PostalCodeLabel" layoutX="145.0" layoutY="402.0" prefHeight="17.0" prefWidth="440.0" text="Label" AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="400.0" />
+      <Label fx:id="PostalCodeLabel" layoutX="145.0" layoutY="402.0" prefHeight="17.0" prefWidth="440.0"  AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="400.0" />
    </children>
 </AnchorPane>

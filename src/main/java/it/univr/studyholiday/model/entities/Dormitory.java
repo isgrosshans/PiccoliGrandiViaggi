@@ -69,4 +69,12 @@ public class Dormitory implements Entity {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
+    public String italianDescription(){
+        String s="Dormitorio '"+name+"'\n";
+        if(sex.startsWith("F")) s+="Femminile";
+        else if(sex.startsWith("M")) s+="Maschile";
+        s+="\n"+address;
+        return s;
+    }
 }

@@ -20,4 +20,7 @@ public class StaffHomeController {
     public void PastTripsButtonClick(ActionEvent actionEvent) throws IOException {
         GlossaApplication.setRoot("StaffPastTrips");
     }
+
+    public void BookedTripsButtonClick(ActionEvent actionEvent) {
+    }
 }

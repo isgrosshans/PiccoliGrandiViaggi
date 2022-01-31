@@ -43,7 +43,6 @@ public class StaffFutureTripsController implements Initializable {
 
 
     public void AddTripButtonAction(ActionEvent actionEvent) throws IOException {
-
         GlossaApplication.setRoot("StaffNewTrip1");
     }
 

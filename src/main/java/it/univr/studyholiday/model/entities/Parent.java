@@ -70,4 +70,8 @@ public class Parent implements Entity {
         return field.get(this);
     }
 
+    @Override
+    public String toString() {
+        return firstName+" "+lastName+"\n"+email+"   \t"+phone;
+    }
 }

@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 public class Student implements Entity {
     private int id=-1;
     private String email;
-    private String psw;
+    private String psw="";
     private String firstName;
     private String lastName;
     private LocalDate birthday;
@@ -43,7 +43,7 @@ public class Student implements Entity {
 
     public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies, int parent1id, int parent2id) {
         this.email = email;
-        this.psw = psw;
+        this.psw = LoginDB.encrypy(psw);
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
@@ -70,7 +70,6 @@ public class Student implements Entity {
     public Student(int id, String email, /*String psw,*/ String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies, int parent1id, int parent2id) {
         this.id = id;
         this.email = email;
-//        this.psw = psw;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
@@ -80,6 +79,18 @@ public class Student implements Entity {
         this.hobbies = hobbies;
         this.parent1id = parent1id;
         this.parent2id = parent2id;
+    }
+
+    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies) {
+        this.email = email;
+        this.psw = LoginDB.encrypy(psw);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.address = address;
+        this.phone = phone;
+        this.hobbies = hobbies;
     }
 
     //special getter

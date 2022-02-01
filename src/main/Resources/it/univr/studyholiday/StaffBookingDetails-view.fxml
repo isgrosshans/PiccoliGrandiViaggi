@@ -92,7 +92,7 @@
       </Label>
       <Label fx:id="TagFamilyLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="757.0" prefHeight="18.0" prefWidth="97.0" text="In famiglia :" wrapText="true" />
       <CheckBox fx:id="FriendCheck" layoutX="20.0" layoutY="789.0" mnemonicParsing="false" onAction="#FriendCheckClick" text="Amico" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="789.0" />
-      <TableView fx:id="AccomodationTableView" layoutX="18.0" layoutY="872.0" onMouseClicked="#AccommodationClick" prefHeight="169.0" prefWidth="550.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="872.0">
+      <TableView fx:id="AccommodationTable" layoutX="18.0" layoutY="872.0" onMouseClicked="#AccommodationClick" prefHeight="169.0" prefWidth="550.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="872.0">
         <columns>
           <TableColumn fx:id="NameColumn" prefWidth="152.0" text="Nome" />
           <TableColumn fx:id="AddressColumn" prefWidth="251.0" text="Indirizzo" />

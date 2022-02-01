@@ -8,6 +8,11 @@ public class Allergy implements Entity {
     private String allergen;
     private String precautions;
 
+    public Allergy(String allergen, String precautions) {
+        this.allergen = allergen;
+        this.precautions = precautions;
+    }
+
     public Allergy(int studentid, String allergen, String precautions) {
         this.studentid = studentid;
         this.allergen = allergen;

@@ -59,7 +59,7 @@ public class LoginController {
     }
 
     public void registrationButtonAction() throws IOException {
-        GlossaApplication.setRoot("StudentRegistration");
+        GlossaApplication.setRoot("StudentRegistration1");
     }
 
     public void exitButtonAction(ActionEvent actionEvent) {

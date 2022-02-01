@@ -29,18 +29,18 @@
          </font>
       </Label>
       <TextField fx:id="EmailTextField" layoutX="97.0" layoutY="213.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="213.0" />
-      <Label fx:id="NameLabel" layoutX="20.0" layoutY="263.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="263.0">
+      <Label fx:id="FirstNameLabel" layoutX="20.0" layoutY="263.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="263.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="NameTextField" layoutX="97.0" layoutY="263.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="263.0" />
-      <Label fx:id="SurnameLabel" layoutX="20.0" layoutY="313.0" text="Cognome :  " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="313.0">
+      <TextField fx:id="FirstNameTextField" layoutX="97.0" layoutY="263.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="263.0" />
+      <Label fx:id="LastNameLabel" layoutX="20.0" layoutY="313.0" text="Cognome :  " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="313.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="SurnameTextField" layoutX="97.0" layoutY="313.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="313.0" />
+      <TextField fx:id="LastNameTextField" layoutX="97.0" layoutY="313.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="313.0" />
       <Label fx:id="PhoneLabel" layoutX="20.0" layoutY="363.0" text="Telefono :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="363.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

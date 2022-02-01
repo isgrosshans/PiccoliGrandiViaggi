@@ -18,7 +18,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class StudentReservationLanguageLevelController implements Initializable {
-    @FXML private  ChoiceBox LevelChioicheBox;
+    @FXML private  ChoiceBox<String> LevelChioicheBox;
     @FXML private  Label ErrorMessage;
     private static Trip trip = new Trip(-1, LocalDate.of(1900,1,1),0,-1,"-","-","-","-","-","-");
     public static void setTrip(Trip t) {

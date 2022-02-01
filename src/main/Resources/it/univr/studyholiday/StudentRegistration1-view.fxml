@@ -21,37 +21,37 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="EmailLabel" layoutX="21.0" layoutY="136.0" text="Email :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="136.0">
+      <Label fx:id="EmailLabel" layoutX="21.0" layoutY="136.0" text="Email* :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="136.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="EmailTextField" layoutX="82.0" layoutY="136.0" prefHeight="25.0" prefWidth="458.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="136.0" />
-      <Label fx:id="PswLabel" layoutX="21.0" layoutY="186.0" text="Password :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="186.0">
+      <Label fx:id="PswLabel" layoutX="21.0" layoutY="186.0" text="Password* :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="186.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="PswTextField" layoutX="130.0" layoutY="186.0" prefHeight="25.0" prefWidth="410.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="186.0" />
-      <Label fx:id="ConfirmPswLabel" layoutX="21.0" layoutY="236.0" text="Conferma Password :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="236.0">
+      <Label fx:id="ConfirmPswLabel" layoutX="21.0" layoutY="236.0" text="Conferma Password* :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="236.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="ConfirmPswTextField" layoutX="178.0" layoutY="236.0" prefHeight="25.0" prefWidth="363.0" AnchorPane.leftAnchor="178.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="236.0" />
-      <Label fx:id="NameLabel" layoutX="21.0" layoutY="286.0" text="Nome :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="286.0">
+      <Label fx:id="FirstNameLabel" layoutX="21.0" layoutY="286.0" text="Nome* :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="286.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="NameTextField" layoutX="104.0" layoutY="286.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="286.0" />
-      <Label fx:id="SurnameLabel" layoutX="21.0" layoutY="336.0" text="Cognome :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="336.0">
+      <TextField fx:id="FirstNameTextField" layoutX="104.0" layoutY="286.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="286.0" />
+      <Label fx:id="LastNameLabel" layoutX="21.0" layoutY="336.0" text="Cognome* :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="336.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="SurnameTextField" layoutX="104.0" layoutY="336.0" prefHeight="25.0" prefWidth="437.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="336.0" />
-      <Label fx:id="AddressLabel" layoutX="21.0" layoutY="386.0" text="Indirizzo : " AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="386.0">
+      <TextField fx:id="LastNameTextField" layoutX="104.0" layoutY="336.0" prefHeight="25.0" prefWidth="437.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="336.0" />
+      <Label fx:id="AddressLabel" layoutX="21.0" layoutY="386.0" text="Indirizzo* : " AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="386.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
@@ -63,13 +63,13 @@
          </font>
       </Label>
       <TextField fx:id="PhoneTextField" layoutX="104.0" layoutY="432.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="436.0" />
-      <Label fx:id="BirthdayLabel" layoutX="23.0" layoutY="480.0" text="Data Nascita :" AnchorPane.topAnchor="486.0">
+      <Label fx:id="BirthdayLabel" layoutX="23.0" layoutY="480.0" text="Data Nascita* :" AnchorPane.topAnchor="486.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <DatePicker fx:id="DatePicker" layoutX="136.0" layoutY="476.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="276.0" AnchorPane.topAnchor="486.0" />
-      <Label fx:id="SexLabel" layoutX="21.0" layoutY="536.0" text="Sesso :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="536.0">
+      <DatePicker fx:id="BirthdayDatePicker" layoutX="136.0" layoutY="476.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="276.0" AnchorPane.topAnchor="486.0" />
+      <Label fx:id="SexLabel" layoutX="21.0" layoutY="536.0" text="Sesso* :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="536.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>

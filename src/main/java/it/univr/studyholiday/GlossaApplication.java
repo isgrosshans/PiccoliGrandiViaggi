@@ -12,6 +12,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 
 public class GlossaApplication extends Application {
@@ -25,8 +26,10 @@ public class GlossaApplication extends Application {
 //        Student stud = new Student("afdsafd","asdf","afdsafd","afdsafd", LocalDate.of(2016, 9, 23),"afdsafd","afdsafd","afdsafd","afdsafd","afdsafd","afdsafd");
 //        System.out.println(SaveToDB.getValuesFor(stud));
 
-//        Student boi = new Student ("giovi@mail.it","giovanni", "Giovanni", "Cerva", LocalDate.of(2006, 10, 10), "M", "via Roma 1, Verona", "", "calcio, lego", "0", "0");
-//        SaveToDB.insert(boi);
+        Student boi = new Student ("giovi@mail.it","giovanni", "Giovanni", "Cerva", LocalDate.of(2006, 10, 10), "M", "via Roma 1, Verona", "", "calcio, lego", 0, 0);
+        System.out.println(SaveToDB.selectIDstmt(boi));
+
+        //        SaveToDB.insert(boi);
 
 //        SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
 //        SaveToDB.insert(new it.univr.studyholiday.model.entities.Parent("annarossi@posta.it", "Anna", "Rossi", "3401234567"));

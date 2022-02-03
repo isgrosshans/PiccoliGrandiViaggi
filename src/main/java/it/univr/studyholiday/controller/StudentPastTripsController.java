@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -11,11 +11,11 @@ import java.util.ResourceBundle;
 
 public class StudentPastTripsController implements Initializable {
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentHome");
+        pgvApplication.setRoot("StudentHome");
     }
 
     public void PastTripsClick(MouseEvent mouseEvent) throws IOException {
-        GlossaApplication.setRoot("StudentPastTripDetails");
+        pgvApplication.setRoot("StudentPastTripDetails");
     }
 
     @Override

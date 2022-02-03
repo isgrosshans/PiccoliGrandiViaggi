@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffBookingsController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffBookingsController">
    <children>
       <Button fx:id="ReturnHomeButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnHomeButtonClick" text="&lt; Menu" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="BookedLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="43.0" text="Prenotazioni" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="43.0">
@@ -23,7 +23,7 @@
       </Label>
       <CheckBox fx:id="AssignedAccomodation" layoutX="74.0" layoutY="108.0" mnemonicParsing="false" onAction="#AssignedAccomodationClick" selected="true" text="Alloggio assegnato" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="398.0" AnchorPane.topAnchor="108.0" />
       <CheckBox fx:id="NotAssignetAccomodation" layoutX="74.0" layoutY="144.0" mnemonicParsing="false" onAction="#NotAssignedAccomodationClick" prefHeight="18.0" prefWidth="162.0" selected="true" text="Alloggio non assegnato" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="364.0" AnchorPane.topAnchor="144.0" />
-      <TableView fx:id="BookeingsTableView" layoutX="21.0" layoutY="189.0" onMouseClicked="#BookedClick" prefHeight="388.0" prefWidth="559.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="189.0">
+      <TableView fx:id="BookingsTable" layoutX="21.0" layoutY="189.0" onMouseClicked="#BookedClick" prefHeight="388.0" prefWidth="559.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="189.0">
         <columns>
           <TableColumn fx:id="StudentIdColumn" prefWidth="186.0" text="ID Studente" />
           <TableColumn fx:id="HolidayIdColumn" prefWidth="181.0" text="ID Viaggio" />

@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -15,23 +15,23 @@ public class StudentAllergyEditController implements Initializable {
     }
 
     public void SaveButtonClick(ActionEvent actionEvent) throws IOException {
-        //GlossaApplication.setRoot("StudentProfile");
+        //pgvApplication.setRoot("StudentProfile");
     }
 
     public void DeleteButtonClick(ActionEvent actionEvent) throws IOException {
-        //GlossaApplication.setRoot("");
+        //pgvApplication.setRoot("");
     }
 
     public void AllergyTableClick(MouseEvent mouseEvent) throws IOException {
-        //GlossaApplication.setRoot("");
+        //pgvApplication.setRoot("");
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentProfile");
+        pgvApplication.setRoot("StudentProfile");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentProfile");
+        pgvApplication.setRoot("StudentProfile");
     }
 
     @Override

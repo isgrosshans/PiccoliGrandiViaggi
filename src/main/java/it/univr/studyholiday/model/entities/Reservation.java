@@ -3,13 +3,13 @@ package it.univr.studyholiday.model.entities;
 import java.lang.reflect.Field;
 
 //RESERVATION
-//(id, studentid, holidayid, paymentmethod, familyid*, dormroomid*, friendname*, friendemail*, languagelevel)
+//(id, studentId, holidayId, paymentmethod, familyId*, dormroomId*, friendname*, friendemail*, languagelevel)
 public class Reservation implements Entity {
     private int id=-1;
-    private int studentid;
-    private int holidayid;
+    private int studentId;
+    private int holidayId;
     private String paymentMethod;
-    private int bedid =-1;
+    private int bedId =-1;
     private String friendEmail;
     private String languageLevel;
     private Boolean familyStay;
@@ -18,20 +18,20 @@ public class Reservation implements Entity {
     //costructor for when student makes reservation
 
 
-    public Reservation(int studentid, int holidayid, Boolean familyStay, Boolean requestedSingle) {
-        this.studentid = studentid;
-        this.holidayid = holidayid;
+    public Reservation(int studentId, int holidayId, Boolean familyStay, Boolean requestedSingle) {
+        this.studentId = studentId;
+        this.holidayId = holidayId;
         this.familyStay = familyStay;
         this.requestedSingle = requestedSingle;
     }
 
     //costructor that gets info from db
-    public Reservation(int id, int studentid, int holidayid, String paymentMethod, int bedid, String friendEmail, String languageLevel, Boolean familyStay, Boolean requestedSingle) {
+    public Reservation(int id, int studentId, int holidayId, String paymentMethod, int bedId, String friendEmail, String languageLevel, Boolean familyStay, Boolean requestedSingle) {
         this.id = id;
-        this.studentid = studentid;
-        this.holidayid = holidayid;
+        this.studentId = studentId;
+        this.holidayId = holidayId;
         this.paymentMethod = paymentMethod;
-        this.bedid = bedid;
+        this.bedId = bedId;
         this.friendEmail = friendEmail;
         this.languageLevel = languageLevel;
         this.familyStay = familyStay;
@@ -46,20 +46,20 @@ public class Reservation implements Entity {
         this.id = id;
     }
 
-    public int getStudentid() {
-        return studentid;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setStudentid(int studentid) {
-        this.studentid = studentid;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
-    public int getHolidayid() {
-        return holidayid;
+    public int getHolidayId() {
+        return holidayId;
     }
 
-    public void setHolidayid(int holidayid) {
-        this.holidayid = holidayid;
+    public void setHolidayId(int holidayId) {
+        this.holidayId = holidayId;
     }
 
     public String getPaymentMethod() {
@@ -70,12 +70,16 @@ public class Reservation implements Entity {
         this.paymentMethod = paymentMethod;
     }
 
-    public int getBedid() {
-        return bedid;
+    public int getBedId() {
+        return bedId;
     }
 
-    public void setBedid(int bedid) {
-        this.bedid = bedid;
+    public String getBedIdString() {
+        if(bedId>0) return String.valueOf(bedId); else return "";
+    }
+
+    public void setBedId(int bedId) {
+        this.bedId = bedId;
     }
 
     public String getFriendEmail() {
@@ -119,10 +123,10 @@ public class Reservation implements Entity {
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
-                ", studentid=" + studentid +
-                ", holidayid=" + holidayid +
+                ", studentId=" + studentId +
+                ", holidayId=" + holidayId +
                 ", paymentMethod='" + paymentMethod + '\'' +
-                ", bedid=" + bedid +
+                ", bedId=" + bedId +
                 ", friendEmail='" + friendEmail + '\'' +
                 ", languageLevel='" + languageLevel + '\'' +
                 ", familyStay=" + familyStay +

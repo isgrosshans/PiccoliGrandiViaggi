@@ -72,8 +72,8 @@ public class Dormitory implements Entity {
 
     public String italianDescription(){
         String s="Dormitorio '"+name+"'\n";
-        if(sex.startsWith("F")) s+="Femminile";
-        else if(sex.startsWith("M")) s+="Maschile";
+        if(sex.startsWith("F")||sex.startsWith("f")) s+="Femminile";
+        else if(sex.startsWith("M")||sex.startsWith("m")) s+="Maschile";
         s+="\n"+address;
         return s;
     }

@@ -1,9 +1,8 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
@@ -14,7 +13,7 @@ public class StudentCertificateController implements Initializable {
     public ImageView PGVImageView;
 
     public void DetailsClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentPastTripDetails");
+        pgvApplication.setRoot("StudentPastTripDetails");
     }
 
     @Override

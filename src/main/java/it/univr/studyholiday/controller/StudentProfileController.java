@@ -1,21 +1,25 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.Allergy;
 import it.univr.studyholiday.model.entities.Parent;
 import it.univr.studyholiday.model.entities.Student;
 import it.univr.studyholiday.util.Database.FetchFromDB;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class StudentProfileController implements Initializable {
@@ -45,7 +49,7 @@ public class StudentProfileController implements Initializable {
 
 
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentHome");
+        pgvApplication.setRoot("StudentHome");
     }
 
     public void EditMenuClick(ActionEvent actionEvent) throws IOException {
@@ -53,19 +57,19 @@ public class StudentProfileController implements Initializable {
     }
 
     public void EditPersonalDataClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentProfileEdit");
+        pgvApplication.setRoot("StudentProfileEdit");
     }
 
     public void EditEmailPswClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentEmailPswEdit");
+        pgvApplication.setRoot("StudentEmailPswEdit");
     }
 
     public void EditAllergyClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentAllergyEdit");
+        pgvApplication.setRoot("StudentAllergyEdit");
     }
 
     public void EditParentsClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentParentEdit");
+        pgvApplication.setRoot("StudentParentEdit");
     }
 
     public void AllergiesTableClick(MouseEvent mouseEvent) throws IOException {
@@ -88,7 +92,16 @@ public class StudentProfileController implements Initializable {
         Parent1Label.setText(parent1.toString());
         if(parent2bool)Parent2Label.setText(parent2.toString());
         AllergenTable.setPlaceholder(new Label("Nessuna allergia."));
+        AllergenColumn.setCellValueFactory(new PropertyValueFactory<>("Allergen"));
+        PrecautionColumn.setCellValueFactory(new PropertyValueFactory<>("Precaution"));
+        try {
+            AllergenTable.setItems(FXCollections.observableArrayList(FetchFromDB.Allergies(User.getCurrentStudent().getId())));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        AllergenTable.setEditable(false);
 
-
+        TableView.TableViewSelectionModel<Allergy> selectionModel = AllergenTable.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.SINGLE);
     }
 }

@@ -3,6 +3,7 @@ package it.univr.studyholiday.model.entities;
 import it.univr.studyholiday.util.Database.LoginDB;
 
 import java.lang.reflect.Field;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -23,13 +24,16 @@ public class Student implements Entity {
     private String address;
     private String phone;
     private String hobbies;
-    private int parent1id;
+    private int parent1id=-1;
     private int parent2id=-1;
 
-    public Student(int id, String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies, int parent1id, int parent2id) {
+    public Student(int id,
+                   String email, String firstName, String lastName,
+                   LocalDate birthday,
+                   String sex, String address, String phone, String hobbies,
+                   int parent1id, int parent2id) {
         this.id = id;
         this.email = email;
-        this.psw = psw;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
@@ -65,20 +69,6 @@ public class Student implements Entity {
         this.phone = phone;
         this.hobbies = hobbies;
         this.parent1id = parent1id;
-    }
-
-    public Student(int id, String email, /*String psw,*/ String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies, int parent1id, int parent2id) {
-        this.id = id;
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.sex = sex;
-        this.address = address;
-        this.phone = phone;
-        this.hobbies = hobbies;
-        this.parent1id = parent1id;
-        this.parent2id = parent2id;
     }
 
     public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies) {

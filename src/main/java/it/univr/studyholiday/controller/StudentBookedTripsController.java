@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.util.Database.FetchFromDB;
@@ -24,11 +24,12 @@ public class StudentBookedTripsController implements Initializable {
     public TableColumn<Trip, String> WeeksColumn;
 
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentHome");
+        pgvApplication.setRoot("StudentHome");
     }
 
     public void TripsTableClick(MouseEvent mouseEvent) throws IOException {
-        GlossaApplication.setRoot("StudentBookedTripDetails");
+        StudentBookedTripDetailsController.setTrip(BookingsTable.getSelectionModel().getSelectedItem());
+        pgvApplication.setRoot("StudentBookedTripDetails");
     }
 
     @Override

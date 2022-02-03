@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
@@ -13,15 +13,15 @@ public class StudentQuestionnaireController implements Initializable {
     //is filled questionnaire updateable?
     //questionnaire not updatable> make sure to activate and deactivate buttons and set editable or not
     public void ReturnTripsClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentPastTrips");
+        pgvApplication.setRoot("StudentPastTrips");
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentPastTrips");
+        pgvApplication.setRoot("StudentPastTrips");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentPastTrips");
+        pgvApplication.setRoot("StudentPastTrips");
     }
 
     @Override

@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TreeTableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -26,12 +25,12 @@ public class StudentFutureTripsController implements Initializable {
     @FXML private TableColumn<Trip, Integer> WeeksColumn;
 
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentHome");
+        pgvApplication.setRoot("StudentHome");
     }
 
     public void TripsTableClick(MouseEvent mouseEvent) throws IOException {
         StudentFutureTripDetailsController.setTrip(TripsTable.getSelectionModel().getSelectedItem());
-        GlossaApplication.setRoot("StudentFutureTripDetails");
+        pgvApplication.setRoot("StudentFutureTripDetails");
     }
 
     @Override

@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -17,11 +17,11 @@ public class StudentProfileEditController implements Initializable {
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentProfile");
+        pgvApplication.setRoot("StudentProfile");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentProfile");
+        pgvApplication.setRoot("StudentProfile");
     }
 
     @Override

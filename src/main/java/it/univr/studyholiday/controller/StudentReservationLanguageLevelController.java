@@ -1,9 +1,8 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.model.entities.Reservation;
-import it.univr.studyholiday.model.entities.Student;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +36,7 @@ public class StudentReservationLanguageLevelController implements Initializable 
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentFutureTripDetails");
+        pgvApplication.setRoot("StudentFutureTripDetails");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -46,7 +45,7 @@ public class StudentReservationLanguageLevelController implements Initializable 
         else {
             StudentReservationPaymentMethodsController.setReservation(reservation);
             StudentReservationPaymentMethodsController.getReservation().setLanguageLevel((String) LevelChioicheBox.getValue());
-            GlossaApplication.setRoot("StudentReservationPaymentMethods");
+            pgvApplication.setRoot("StudentReservationPaymentMethods");
         }
 
     }

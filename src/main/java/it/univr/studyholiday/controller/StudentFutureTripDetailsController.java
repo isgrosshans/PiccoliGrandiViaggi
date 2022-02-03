@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.Activity;
@@ -56,7 +56,7 @@ public class StudentFutureTripDetailsController implements Initializable {
     }
 
     public void ReturnTripsClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentFutureTrips");
+        pgvApplication.setRoot("StudentFutureTrips");
     }
 
     public void FieldTripsTableClick(MouseEvent mouseEvent) throws IOException {
@@ -77,12 +77,12 @@ public class StudentFutureTripDetailsController implements Initializable {
 
     public void OnFamilyClick(ActionEvent actionEvent) throws IOException {
         StudentReservationFamilyController.setTrip(trip);
-        GlossaApplication.setRoot("StudentReservationFamily");
+        pgvApplication.setRoot("StudentReservationFamily");
     }
 
     public void OnDormitoryClick(ActionEvent actionEvent) throws IOException {
         StudentReservationDormitoryController.setTrip(trip);
-        GlossaApplication.setRoot("StudentReservationDormitory");
+        pgvApplication.setRoot("StudentReservationDormitory");
     }
 
     @Override

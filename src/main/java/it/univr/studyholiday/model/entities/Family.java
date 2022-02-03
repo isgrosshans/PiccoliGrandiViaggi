@@ -134,10 +134,12 @@ public class Family implements Entity {
         return pets;
     }
 
-    public String hasPets() {
+    public String hasPetsIT() {
         if(pets) return "sì";
         else return "no";
     }
+
+    public Boolean getPets(){return pets;}
 
     public void setPets(boolean pets) {
         this.pets = pets;

@@ -1,8 +1,7 @@
 package it.univr.studyholiday;
 
 
-import it.univr.studyholiday.util.Database.LoginDB;
-import it.univr.studyholiday.util.Database.SaveToDB;
+import it.univr.studyholiday.util.Database.FetchFromDB;
 import it.univr.studyholiday.model.entities.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,10 +11,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.time.LocalDate;
 
-public class GlossaApplication extends Application {
+public class pgvApplication extends Application {
 
     private static Scene scene;
     private static ScrollPane scrollPane;
@@ -26,8 +23,14 @@ public class GlossaApplication extends Application {
 //        Student stud = new Student("afdsafd","asdf","afdsafd","afdsafd", LocalDate.of(2016, 9, 23),"afdsafd","afdsafd","afdsafd","afdsafd","afdsafd","afdsafd");
 //        System.out.println(SaveToDB.getValuesFor(stud));
 
-        Student boi = new Student ("giovi@mail.it","giovanni", "Giovanni", "Cerva", LocalDate.of(2006, 10, 10), "M", "via Roma 1, Verona", "", "calcio, lego", 0, 0);
-        System.out.println(SaveToDB.selectIDstmt(boi));
+        //JUST TRYING SHIT HERE
+    Reservation res= FetchFromDB.reservation(4,4);
+    System.out.println(res.getFriendEmail());
+    System.out.println(res.getFriendEmail()==null);
+
+
+//        Student boi = new Student ("giovi@mail.it","giovanni", "Giovanni", "Cerva", LocalDate.of(2006, 10, 10), "M", "via Roma 1, Verona", "", "calcio, lego", 0, 0);
+//        System.out.println(SaveToDB.selectIDstmt(boi));
 
         //        SaveToDB.insert(boi);
 
@@ -58,7 +61,7 @@ public class GlossaApplication extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        var fxmlLoader = new FXMLLoader(GlossaApplication.class.getResource(fxml + "-view.fxml"));
+        var fxmlLoader = new FXMLLoader(pgvApplication.class.getResource(fxml + "-view.fxml"));
         return fxmlLoader.load();
     }
 

@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
@@ -39,11 +39,11 @@ public class StaffPastTripsController implements Initializable {
     }
 
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffHome");
+        pgvApplication.setRoot("StaffHome");
     }
 
     public void CellCliked(MouseEvent mouseEvent) throws IOException {
         StaffPastTripDetailsController.setTrip(TripsTable.getSelectionModel().getSelectedItem());
-        GlossaApplication.setRoot("StaffPastTripDetails");
+        pgvApplication.setRoot("StaffPastTripDetails");
     }
 }

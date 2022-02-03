@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
@@ -10,15 +10,15 @@ import java.util.ResourceBundle;
 
 public class StudentPastTripDetailsController implements Initializable {
     public void ReturnTripButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentPastTrips");
+        pgvApplication.setRoot("StudentPastTrips");
     }
 
     public void SurveyButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentQuestionnaire");
+        pgvApplication.setRoot("StudentQuestionnaire");
     }
 
     public void CertificateButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentCertificate");
+        pgvApplication.setRoot("StudentCertificate");
     }
 
     @Override

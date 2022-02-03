@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class SaveToDB {
 
-    public static void insert (Entity entity){
+    public static void insert(Entity entity){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -44,16 +44,106 @@ public class SaveToDB {
 
     }
 
-    public static void insert(Dormitory dormitory, Integer singles, Integer doubles) {
+    public static void insertFamily(Family family) {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        int familyid = 0;
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            System.out.println();
+
+            //insert new family
+            try (PreparedStatement pst = con.prepareStatement(
+                    "INSERT INTO "+getTableNameFor(family)+
+                            " (" + getColumnNamesFor(family)+
+                            ") VALUES ("+
+                            getValuesFor(family)+"); ")) {
+
+                System.out.println(pst);
+                rs = pst.executeQuery();
+                rs.next();
+
+
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(family)+": "+ e1.getMessage());
+            } catch (IllegalAccessException illegalAccessException) {
+                illegalAccessException.printStackTrace();
+            }
+            rs=null;
+
+            //get id of newly inserted family
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT id FROM family " +
+                            "WHERE firstname ilike ? " +    //? 1
+                            "AND lastname ilike ?" +        //? 2
+                            "AND email ilike ?" +           //? 3
+                            "AND phone ilike ?" +           //? 4
+                            "AND address ilike ?" +         //? 5
+                            "AND members = ? " +            //? 6
+                            "AND pets = ?" +                //? 7
+                            "AND bathrooms = ?" +           //? 8
+                            "AND bedrooms = ?" +            //? 9
+                            "AND citydistance ilike ?" +    //? 10
+                            "AND schoolid = ?; ")) {        //? 11
+                pst.setString(1, family.getFirstName());
+                pst.setString(2,family.getLastName());
+                pst.setString(3,family.getEmail());
+                pst.setString(4,family.getPhone());
+                pst.setString(5,family.getAddress());
+                pst.setInt(6,family.getMembers());
+                pst.setBoolean(7,family.getPets());
+                pst.setInt(8,family.getBathrooms());
+                pst.setInt(9,family.getBedrooms());
+                pst.setString(10,family.getCityDistance());
+                pst.setInt(11,family.getSchoolid());
+                rs = pst.executeQuery();
+                rs.next();
+                family.setId(rs.getInt(1));
+                System.out.println(family.getId());
+                familyid=rs.getInt(1);
+
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(family)+": "+ e1.getMessage());
+            }
+            rs=null;
+
+            //insert beds
+            System.out.println(family.getBedrooms());
+            for (int i = 0; i < family.getBedrooms(); i++) {
+                System.out.println("inserting bed...");
+                try (PreparedStatement pst = con.prepareStatement(
+                        "INSERT INTO bed "+
+                                " ( familyid ) " +
+                                "VALUES ( ? );")) {
+
+                    pst.setInt(1, familyid);
+                    rs = pst.executeQuery();
+                    rs.next();
+
+                }catch (SQLException e1) {
+                    System.out.println("SaveToDB.insert."+getTableNameFor(family)+".rooms: "+ e1.getMessage());
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Connection error: "+e.getMessage());
+        }
+    }
+
+    public static void insertDormRooms(Dormitory dormitory, Integer singles, Integer doubles) {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
         int dormitoryid = 0;
+        ArrayList<DormRoom> dormRooms=new ArrayList<>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             System.out.println();
+
             //insert new dormitory
             try (PreparedStatement pst = con.prepareStatement(
                     "INSERT INTO "+getTableNameFor(dormitory)+
@@ -72,6 +162,7 @@ public class SaveToDB {
                 illegalAccessException.printStackTrace();
             }
 
+            //get id of newly inserted dormitory
             try (PreparedStatement pst = con.prepareStatement(
                             "SELECT id FROM dormitory " +
                             "WHERE schoolid = ? " +
@@ -128,12 +219,52 @@ public class SaveToDB {
                 }
             }
 
+            //get newly inserted rooms
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT id, dormitoryid, roomNumber, beds FROM dormroom " +
+                            "WHERE dormitoryid=? " +
+                            //"AND id not in(SELECT DISTINCT dormroomid FROM bed)" +
+                            ";")) {
+                System.out.println(dormitoryid);
+                pst.setInt(1, dormitory.getId());
+                rs = pst.executeQuery();
+                while (rs.next()){dormRooms.add(new DormRoom(
+                        rs.getInt(1),    //int id
+                        rs.getInt(2),    //int dormitoryid
+                        rs.getString(3), //String roomNumber
+                        rs.getInt(4)));     //int beds
+                }
+                System.out.println(dormRooms.size());
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+": "+ e1.getMessage());
+            }
+            System.out.println(dormRooms.size());
+            //add beds
+            for (DormRoom d:dormRooms) {
+                for (int j = 0; j < d.getBeds(); j++) {
+                    try (PreparedStatement pst = con.prepareStatement(
+                            "INSERT INTO bed "+
+                                    " ( dormroomid ) " +
+                                    "VALUES ( ? );")) {
+                        System.out.println("adding a dorm bed");
+                        pst.setInt(1, d.getId());
+                        rs = pst.executeQuery();
+                        rs.next();
+
+                    }catch (SQLException e1) {
+                        System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+".rooms: "+ e1.getMessage());
+                    }
+                }
+            }
+
+
+
         } catch (SQLException e) {
             System.out.println("Connection error: "+e.getMessage());
         }
     }
 
-    public static void insert(Holiday holiday, ArrayList<FieldTrip> fieldTrips){
+    public static void insertHoliday(Holiday holiday, ArrayList<FieldTrip> fieldTrips){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {

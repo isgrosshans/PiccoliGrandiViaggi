@@ -1,26 +1,27 @@
 package it.univr.studyholiday.controller;
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 
 public class StaffHomeController {
 
     public void LogoutButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("Login");
+        pgvApplication.setRoot("Login");
     }
 
     public void SchoolsButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchools");
+        pgvApplication.setRoot("StaffSchools");
     }
 
     public void FutureTripsButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffFutureTrips");
+        pgvApplication.setRoot("StaffFutureTrips");
     }
 
     public void PastTripsButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffPastTrips");
+        pgvApplication.setRoot("StaffPastTrips");
     }
 
-    public void BookedTripsButtonClick(ActionEvent actionEvent) {
+    public void BookedTripsButtonClick(ActionEvent actionEvent) throws IOException {
+        pgvApplication.setRoot("StaffBookings");
     }
 }

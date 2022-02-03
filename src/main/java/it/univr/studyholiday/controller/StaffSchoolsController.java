@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 //import it.univr.studyholiday.util.Database.TempDB;
@@ -41,22 +41,17 @@ public class StaffSchoolsController implements Initializable {
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
     }
 
-//    public ArrayList<School> getSchools() throws SQLException {
-//        ArrayList<School> schools= FetchFromDB.Schools();
-//        return schools;
-//    }
-
     public void ReturnMenuButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffHome");
+        pgvApplication.setRoot("StaffHome");
     }
 
     public void AddSchoolButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchoolAdd");
+        pgvApplication.setRoot("StaffSchoolAdd");
     }
 
     public void CellCliked(MouseEvent mouseEvent) throws IOException {
         //System.out.println(SchoolTable.getSelectionModel().getSelectedItem());
         StaffSchoolDetailsController.setSchool(SchoolTable.getSelectionModel().getSelectedItem());
-        GlossaApplication.setRoot("StaffSchoolDetails");
+        pgvApplication.setRoot("StaffSchoolDetails");
     }
 }

@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Dormitory;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
@@ -49,7 +49,7 @@ public class StaffDormitoryDetailsController implements Initializable {
 
     public void ReturnDormitoryButtonClick(ActionEvent actionEvent) throws IOException {
         StaffDormitoriesController.setSchool(school);
-        GlossaApplication.setRoot("StaffDormitories");
+        pgvApplication.setRoot("StaffDormitories");
     }
 
 

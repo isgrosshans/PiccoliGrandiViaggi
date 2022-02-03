@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Allergy;
 import it.univr.studyholiday.model.entities.Student;
 import javafx.collections.FXCollections;
@@ -24,12 +24,13 @@ public class StudentRegistration2Controller implements Initializable {
     @FXML private  TableColumn<Allergy,String> AllergensColumn;
     @FXML private  TableColumn<Allergy,String> PrecautionsColumn;
 
-    private ArrayList<Allergy>  allergies;
+    private static ArrayList<Allergy>  allergies=new ArrayList<>();
 
     private static Student student;
     public static void setStudent(Student student) {
         StudentRegistration2Controller.student = student;
     }
+
 
     public void ReturnButtonClick(ActionEvent actionEvent) throws IOException {
         //todo remove
@@ -39,6 +40,8 @@ public class StudentRegistration2Controller implements Initializable {
         if(!AllergenTextField.getText().isBlank()){
             allergies.add(new Allergy(AllergenTextField.getText(), PrecautionTextField.getText()));
             AllergensTableView.setItems(FXCollections.observableArrayList(allergies));
+            AllergenTextField.clear();
+            PrecautionTextField.clear();
         }
     }
 
@@ -47,11 +50,13 @@ public class StudentRegistration2Controller implements Initializable {
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("Login");
+        pgvApplication.setRoot("Login");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentAddParent");
+        StudentAddParentController.setStudent(student);
+        StudentAddParentController.setAllergies(allergies);
+        pgvApplication.setRoot("StudentAddParent");
     }
 
     @Override

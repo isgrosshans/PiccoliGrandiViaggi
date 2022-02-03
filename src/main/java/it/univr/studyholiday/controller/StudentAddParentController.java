@@ -1,9 +1,10 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Allergy;
 import it.univr.studyholiday.model.entities.Parent;
 import it.univr.studyholiday.model.entities.Student;
+import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -26,30 +27,29 @@ public class StudentAddParentController implements Initializable {
         StudentAddParentController.student = student;
     }
 
-    private static Parent parent1;
-
-    public static void setParent1(Parent parent1) {
-        StudentAddParentController.parent1 = parent1;
-    }
-
     private static ArrayList<Allergy> allergies;
     public static void setAllergies(ArrayList<Allergy> allergies) {
         StudentAddParentController.allergies = allergies;
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("Login");
+        pgvApplication.setRoot("Login");
     }
 
     public void AddParentButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentAddParent2");
+        if(allFilled()){
+            StudentAddParent2Controller.setStudent(student);
+            StudentAddParent2Controller.setAllergies(allergies);
+            StudentAddParent2Controller.setParent1(new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText()));
+            pgvApplication.setRoot("StudentAddParent2");
+        }
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
         if(allFilled()){
-            //save with both parents
+            SaveToDB.registerStudent(student, new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText()), null, allergies);
         }
-        GlossaApplication.setRoot("StudentHome");
+        pgvApplication.setRoot("Login");
     }
 
     private Boolean allFilled(){

@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.Reservation;
@@ -48,7 +48,7 @@ public class StudentReservationDormitoryController implements Initializable {
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentFutureTripDetails");
+        pgvApplication.setRoot("StudentFutureTripDetails");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -56,7 +56,7 @@ public class StudentReservationDormitoryController implements Initializable {
             StudentReservationLanguageLevelController.setReservation(new Reservation(User.getCurrentStudent().getId(), trip.getHoliday().getId(),false, false));
             if(SingleRadioButton.isSelected())
                 StudentReservationLanguageLevelController.getReservation().setRequestedSingle(true);
-            GlossaApplication.setRoot("StudentReservationLanguageLevel");
+            pgvApplication.setRoot("StudentReservationLanguageLevel");
         }
         else ErrorMessage.setText("Selezionare una preferenza.");
     }

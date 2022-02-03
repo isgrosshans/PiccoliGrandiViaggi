@@ -72,6 +72,6 @@ public class Parent implements Entity {
 
     @Override
     public String toString() {
-        return firstName+" "+lastName+"\n"+email+"   \t"+phone;
+        return firstName+" "+lastName+"\n"+email+"\n"+phone;
     }
 }

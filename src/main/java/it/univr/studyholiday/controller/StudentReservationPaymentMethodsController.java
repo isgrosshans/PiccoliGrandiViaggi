@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Reservation;
 import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.event.ActionEvent;
@@ -44,7 +44,7 @@ public class StudentReservationPaymentMethodsController implements Initializable
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentFutureTripDetails");
+        pgvApplication.setRoot("StudentFutureTripDetails");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -52,13 +52,13 @@ public class StudentReservationPaymentMethodsController implements Initializable
             reservation.setPaymentMethod("Carta di Credito");
             SaveToDB.insert(reservation);
             System.out.println(reservation);
-            GlossaApplication.setRoot("StudentBookedTrips");
+            pgvApplication.setRoot("StudentBookedTrips");
         }
         else if(BBRadioButton.isSelected()) {
             reservation.setPaymentMethod("Bonifico Bancario");
             SaveToDB.insert(reservation);
             System.out.println(reservation);
-            GlossaApplication.setRoot("StudentBookedTrips");
+            pgvApplication.setRoot("StudentBookedTrips");
         }
         else ErrorMessage.setText("Selezionare una preferenza.");
     }

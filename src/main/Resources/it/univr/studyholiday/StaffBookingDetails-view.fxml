@@ -5,10 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1261.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffBookingDetailsController">
+<AnchorPane prefHeight="1261.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StaffBookingDetailsController">
    <children>
       <Button fx:id="ReturnReservationsButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnReservationsButtonClick" text="&lt; Prenotazioni" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="StaffLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="14.0" prefWidth="554.0" text="Staff" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
@@ -21,77 +22,77 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="TagDepartureDateLabel" layoutX="20.0" layoutY="268.0" text="Data partenza :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="270.0">
+      <Label fx:id="TagDepartureDateLabel" layoutX="20.0" layoutY="233.0" text="Data partenza :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="233.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="DepartureDateLabel" layoutX="126.0" layoutY="258.0" prefHeight="17.0" prefWidth="408.0" text="Label" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="270.0" />
-      <Label fx:id="TagWeeksLabel" layoutX="14.0" layoutY="308.0" text="Settimane :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="320.0">
+      <Label fx:id="DepartureDateLabel" layoutX="126.0" layoutY="233.0" prefHeight="17.0" prefWidth="408.0" text="Label" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="233.0" />
+      <Label fx:id="TagWeeksLabel" layoutX="20.0" layoutY="271.0" text="Settimane :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="271.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="WeeksLabel" layoutX="106.0" layoutY="308.0" prefHeight="17.0" prefWidth="428.0" text="Label" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="320.0" />
-      <Label fx:id="HolidayInformationsLabel" layoutX="14.0" layoutY="117.0" prefHeight="17.0" prefWidth="173.0" text="INFORMAZIONI VIAGGIO" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="407.0" AnchorPane.topAnchor="120.0">
+      <Label fx:id="WeeksLabel" layoutX="106.0" layoutY="271.0" prefHeight="17.0" prefWidth="428.0" text="Label" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="271.0" />
+      <Label fx:id="HolidayInformationsLabel" layoutX="14.0" layoutY="115.0" prefHeight="17.0" prefWidth="173.0" text="INFORMAZIONI VIAGGIO" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="407.0" AnchorPane.topAnchor="120.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="TagHolidayIdLabel" layoutX="21.0" layoutY="166.0" text="ID :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="170.0">
+      <Label fx:id="TagHolidayIdLabel" layoutX="21.0" layoutY="156.0" text="ID :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="156.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="HolidayIdLabel" layoutX="54.0" layoutY="162.0" prefHeight="17.0" prefWidth="486.0" text="Label" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="170.0" />
-      <Label fx:id="TagDestintionLabel" layoutX="11.0" layoutY="231.0" text="Destinazione : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="220.0">
+      <Label fx:id="HolidayIdLabel" layoutX="54.0" layoutY="156.0" prefHeight="17.0" prefWidth="486.0" text="Label" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="156.0" />
+      <Label fx:id="TagDestintionLabel" layoutX="20.0" layoutY="193.0" text="Destinazione : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="193.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="DestinationLabel" layoutX="126.0" layoutY="199.0" prefHeight="17.0" prefWidth="414.0" text="Label" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="220.0" />
-      <Label fx:id="StudentInformationLabel" layoutX="21.0" layoutY="368.0" prefHeight="17.0" prefWidth="182.0" text="INFORMAZIONI STUDENTE :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="398.0" AnchorPane.topAnchor="368.0">
+      <Label fx:id="DestinationLabel" layoutX="126.0" layoutY="193.0" prefHeight="17.0" prefWidth="414.0" text="Label" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="193.0" />
+      <Label fx:id="StudentInformationLabel" layoutX="20.0" layoutY="325.0" prefHeight="17.0" prefWidth="182.0" text="INFORMAZIONI STUDENTE :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="398.0" AnchorPane.topAnchor="325.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="TagNameLabel" layoutX="11.0" layoutY="445.0" text="Nome : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="445.0">
+      <Label fx:id="TagStudentFirstNameLabel" layoutX="20.0" layoutY="402.0" text="Nome : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="402.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="NameLabel" alignment="TOP_LEFT" layoutX="86.0" layoutY="446.0" prefHeight="18.0" prefWidth="463.0" text="Label" wrapText="true" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="446.0" />
-      <Label fx:id="TagSurnameLabel" layoutX="22.0" layoutY="486.0" text="Cognome : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="486.0">
+      <Label fx:id="StudentFirstNameLabel" alignment="TOP_LEFT" layoutX="86.0" layoutY="403.0" prefHeight="18.0" prefWidth="463.0" text="Label" wrapText="true" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="403.0" />
+      <Label fx:id="TagStudentLastNameLabel" layoutX="20.0" layoutY="443.0" text="Cognome : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="443.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="SurnameLabel" alignment="TOP_LEFT" layoutX="100.0" layoutY="486.0" prefHeight="18.0" prefWidth="446.0" text="Label" wrapText="true" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="486.0" />
-      <Label fx:id="TagBirthdayLabel" layoutX="8.0" layoutY="530.0" text="Data Nascita : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="530.0">
+      <Label fx:id="StudentLastNameLabel" alignment="TOP_LEFT" layoutX="94.0" layoutY="443.0" prefHeight="18.0" prefWidth="446.0" text="Label" wrapText="true" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="443.0" />
+      <Label fx:id="TagStudentBirthdayLabel" layoutX="20.0" layoutY="487.0" text="Data Nascita : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="487.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="BirthdayLabel" alignment="TOP_LEFT" layoutX="123.0" layoutY="532.0" prefHeight="18.0" prefWidth="421.0" text="Label" wrapText="true" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="532.0" />
+      <Label fx:id="StudentBirthdayLabel" alignment="TOP_LEFT" layoutX="123.0" layoutY="489.0" prefHeight="18.0" prefWidth="421.0" text="Label" wrapText="true" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="489.0" />
       <Label fx:id="TagAllergiesLabel" layoutX="25.0" layoutY="573.0" text="Allergie : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="573.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="AllergiesLabel" alignment="TOP_LEFT" layoutX="106.0" layoutY="574.0" prefHeight="60.0" prefWidth="434.0" text="Label" wrapText="true" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="574.0" />
+      <TextArea fx:id="AllergiesTextArea" editable="false" layoutX="106.0" layoutY="574.0" prefHeight="60.0" prefWidth="434.0" text="Label" wrapText="true" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="574.0" />
       <Label fx:id="TagHobbiesLabel" layoutX="23.0" layoutY="650.0" text="Hobbies : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="650.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="HobbiesLabel" alignment="TOP_LEFT" layoutX="106.0" layoutY="650.0" prefHeight="60.0" prefWidth="434.0" text="Label" wrapText="true" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="650.0" />
+      <TextArea fx:id="HobbiesTextArea" editable="false" layoutX="106.0" layoutY="650.0" prefHeight="60.0" prefWidth="434.0" text="Label" wrapText="true" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="650.0" />
       <Label fx:id="TagPreferncesLabel" layoutX="17.0" layoutY="722.0" prefHeight="17.0" prefWidth="182.0" text="PREFERENZE ALLOGGIO :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="398.0" AnchorPane.topAnchor="722.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="TagFamilyLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="757.0" prefHeight="18.0" prefWidth="97.0" text="In famiglia :" wrapText="true" />
-      <CheckBox fx:id="FriendCheck" layoutX="20.0" layoutY="789.0" mnemonicParsing="false" onAction="#FriendCheckClick" text="Amico" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="789.0" />
+      <Label fx:id="ALTTagFamilyLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="757.0" prefHeight="18.0" prefWidth="97.0" text="In famiglia  " visible="false" wrapText="true" />
+      <CheckBox fx:id="ALTFriendCheck" layoutX="20.0" layoutY="789.0" mnemonicParsing="false" onAction="#FriendCheckClick" text="Amico" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="789.0" />
       <TableView fx:id="AccommodationTable" layoutX="18.0" layoutY="872.0" onMouseClicked="#AccommodationClick" prefHeight="169.0" prefWidth="550.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="872.0">
         <columns>
           <TableColumn fx:id="NameColumn" prefWidth="152.0" text="Nome" />
@@ -104,21 +105,23 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="InfoLabel" alignment="TOP_LEFT" layoutX="20.0" layoutY="1095.0" prefHeight="96.0" prefWidth="552.0" text="Label" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="1095.0" />
-      <Button fx:id="ConfirmButton" layoutX="513.0" layoutY="1211.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Assegna" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="1211.0" />
-      <Label fx:id="DormitoryLabel" alignment="TOP_LEFT" layoutX="19.0" layoutY="759.0" prefHeight="18.0" prefWidth="97.0" text="In Dormitorio:  " wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="759.0" />
-      <Label fx:id="TagStudentIdLabel" layoutX="12.0" layoutY="405.0" text="ID :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="405.0">
+      <TextArea fx:id="AccommodationInfo" editable="false" visible="false" wrapText="true" layoutX="20.0" layoutY="1095.0" prefHeight="96.0" prefWidth="552.0" text="InfoLabel" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="1095.0" />
+      <Button fx:id="ConfirmButton" disable="true" layoutX="513.0" layoutY="1211.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Assegna" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="1211.0" />
+      <Label fx:id="ALTDormitoryLabel" alignment="TOP_LEFT" layoutX="19.0" layoutY="759.0" prefHeight="18.0" prefWidth="97.0" text="In dormitorio   " visible="false" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="759.0" />
+      <Label fx:id="TagStudentIdLabel" layoutX="20.0" layoutY="362.0" text="ID :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="362.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="StudentIdLabel" layoutX="61.0" layoutY="405.0" prefHeight="17.0" prefWidth="479.0" text="Label" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="405.0" />
-      <Label fx:id="RoomLabel" layoutX="20.0" layoutY="790.0" prefHeight="17.0" prefWidth="533.0" text="Ha richiesto camera singola" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="790.0" />
-      <Label fx:id="TagEmailLabel" layoutX="23.0" layoutY="818.0" text="Email :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="818.0">
+      <Label fx:id="StudentIdLabel" layoutX="61.0" layoutY="362.0" prefHeight="17.0" prefWidth="479.0" text="Label" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="362.0" />
+      <Label fx:id="ALTSingleRoomLabel" layoutX="20.0" layoutY="790.0" prefHeight="17.0" prefWidth="533.0" text="Ha richiesto camera singola" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="790.0" />
+      <Label fx:id="ALTTagEmailLabel" layoutX="23.0" layoutY="818.0" text="Email :" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="818.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="EmailLabel" layoutX="86.0" layoutY="818.0" prefHeight="17.0" prefWidth="454.0" text="Label" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="818.0" />
+      <Label fx:id="ALTFriendEmailLabel" layoutX="86.0" layoutY="818.0" prefHeight="17.0" prefWidth="454.0" text="Label" visible="false" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="818.0" />
+      <Label fx:id="TagStudentSex" alignment="TOP_LEFT" layoutX="21.0" layoutY="526.0" prefHeight="18.0" prefWidth="56.0" text="Sesso:" wrapText="true" />
+      <Label fx:id="SudentSexLabel" alignment="TOP_LEFT" layoutX="95.0" layoutY="526.0" prefHeight="18.0" prefWidth="143.0" text="Label" wrapText="true" />
    </children>
 </AnchorPane>

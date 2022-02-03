@@ -1,10 +1,9 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,16 +42,16 @@ public class StaffFutureTripsController implements Initializable {
 
 
     public void AddTripButtonAction(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffNewTrip1");
+        pgvApplication.setRoot("StaffNewTrip1");
     }
 
 
     public void CellClicked(MouseEvent mouseEvent) throws IOException {
         StaffFutureTripDetailsController.setTrip(TripsTable.getSelectionModel().getSelectedItem());
-        GlossaApplication.setRoot("StaffFutureTripDetails");
+        pgvApplication.setRoot("StaffFutureTripDetails");
     }
 
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffHome");
+        pgvApplication.setRoot("StaffHome");
     }
 }

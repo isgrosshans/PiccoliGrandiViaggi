@@ -1,10 +1,9 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.Reservation;
-import it.univr.studyholiday.model.entities.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +17,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.logging.ErrorManager;
 
 public class StudentReservationFamilyController implements Initializable {
     @FXML private Label ErrorMessage;
@@ -72,7 +70,7 @@ public class StudentReservationFamilyController implements Initializable {
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StudentFutureTripDetails");
+        pgvApplication.setRoot("StudentFutureTripDetails");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -82,12 +80,12 @@ public class StudentReservationFamilyController implements Initializable {
             else {
                 StudentReservationLanguageLevelController.setReservation(new Reservation(User.getCurrentStudent().getId(), trip.getHoliday().getId(), true, false));
                 StudentReservationLanguageLevelController.getReservation().setFriendEmail(EmailTextField.getText());
-                GlossaApplication.setRoot("StudentReservationLanguageLevel");
+                pgvApplication.setRoot("StudentReservationLanguageLevel");
             }
         }
         else if(NoRadioButton.isSelected()){
             StudentReservationLanguageLevelController.setReservation(new Reservation(User.getCurrentStudent().getId(), trip.getHoliday().getId(),true, false));
-            GlossaApplication.setRoot("StudentReservationLanguageLevel");
+            pgvApplication.setRoot("StudentReservationLanguageLevel");
         }
         else
             ErrorMessage.setText("Selezionare una preferenza.");

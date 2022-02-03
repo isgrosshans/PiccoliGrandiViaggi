@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Family;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.SaveToDB;
@@ -48,7 +48,7 @@ public class StaffFamilyAddController implements Initializable {
 
     public void ReturnFamilyButtonClick(ActionEvent actionEvent) throws IOException {
         StaffFamiliesController.setSchool(school);
-        GlossaApplication.setRoot("StaffFamilies");
+        pgvApplication.setRoot("StaffFamilies");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -66,7 +66,7 @@ public class StaffFamilyAddController implements Initializable {
 
         else{
         //save
-            SaveToDB.insert(new Family( school.getId(),
+            SaveToDB.insertFamily(new Family( school.getId(),
                                         EmailTextField.getText(),
                                         FirstNameTextField.getText(),
                                         LastnameTextField.getText(),
@@ -78,12 +78,12 @@ public class StaffFamilyAddController implements Initializable {
                                         AddressTextField.getText(),
                                         PhoneTextField.getText()));
             StaffFamiliesController.setSchool(school);
-            GlossaApplication.setRoot("StaffFamilies");
+            pgvApplication.setRoot("StaffFamilies");
         }
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
         StaffFamiliesController.setSchool(school);
-        GlossaApplication.setRoot("StaffFamilies");
+        pgvApplication.setRoot("StaffFamilies");
     }
 }

@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Family;
 import it.univr.studyholiday.model.entities.School;
 import javafx.event.ActionEvent;
@@ -52,13 +52,13 @@ public class StaffFamilyDetailsController implements Initializable {
         AddressLabel.setText(family.getAddress());
         CityDistanceLabel.setText(family.getCityDistance());
         MembersLabel.setText(String.valueOf(family.getMembers()));
-        PetsLabel.setText(family.hasPets());
+        PetsLabel.setText(family.hasPetsIT());
         RoomLabel.setText(String.valueOf(family.getBedrooms()));
         BathroomLabel.setText(String.valueOf(family.getBathrooms()));
     }
 
         public void ReturnFamiliesButtonClick(ActionEvent actionEvent) throws IOException {
         StaffFamiliesController.setSchool(school);
-        GlossaApplication.setRoot("StaffFamilies");
+        pgvApplication.setRoot("StaffFamilies");
     }
 }

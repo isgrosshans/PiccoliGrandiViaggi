@@ -6,24 +6,24 @@ public class Allergy implements Entity {
     private int id=-1;
     private int studentid;
     private String allergen;
-    private String precautions;
+    private String precaution;
 
-    public Allergy(String allergen, String precautions) {
+    public Allergy(String allergen, String precaution) {
         this.allergen = allergen;
-        this.precautions = precautions;
+        this.precaution = precaution;
     }
 
-    public Allergy(int studentid, String allergen, String precautions) {
+    public Allergy(int studentid, String allergen, String precaution) {
         this.studentid = studentid;
         this.allergen = allergen;
-        this.precautions = precautions;
+        this.precaution = precaution;
     }
 
-    public Allergy(int id, int studentid, String allergen, String precautions) {
+    public Allergy(int id, int studentid, String allergen, String precaution) {
         this.id = id;
         this.studentid = studentid;
         this.allergen = allergen;
-        this.precautions = precautions;
+        this.precaution = precaution;
     }
 
     @Override
@@ -55,11 +55,16 @@ public class Allergy implements Entity {
         this.allergen = allergen;
     }
 
-    public String getPrecautions() {
-        return precautions;
+    public String getPrecaution() {
+        return precaution;
     }
 
-    public void setPrecautions(String precautions) {
-        this.precautions = precautions;
+    public void setPrecaution(String precaution) {
+        this.precaution = precaution;
+    }
+
+    @Override
+    public String toString() {
+        return allergen + " (" + precaution + ")";
     }
 }

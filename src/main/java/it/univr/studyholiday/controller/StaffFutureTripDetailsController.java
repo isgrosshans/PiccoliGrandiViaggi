@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.model.entities.Activity;
 import it.univr.studyholiday.model.entities.FieldTrip;
@@ -117,6 +117,6 @@ public class StaffFutureTripDetailsController implements Initializable {
     }
 
     public void ReturnTripsClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffFutureTrips");
+        pgvApplication.setRoot("StaffFutureTrips");
     }
 }

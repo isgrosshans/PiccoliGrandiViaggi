@@ -19,4 +19,16 @@ public class Bed implements Entity{
     public Object getValue(Field field) throws IllegalAccessException {
         return field.get(this);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getFamilyid() {
+        return familyid;
+    }
+
+    public int getDormroomid() {
+        return dormroomid;
+    }
 }

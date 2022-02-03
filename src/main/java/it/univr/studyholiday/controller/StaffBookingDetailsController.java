@@ -53,7 +53,7 @@ public class StaffBookingDetailsController implements Initializable {
     @FXML private TableColumn<Accommodation, String> TypeColumn;
     @FXML private TextArea AccommodationInfo;
 
-    private static Accommodation accommodation=null;
+    private static Accommodation assignedAccommodation =null;
     private static Reservation reservation;
     public static void setReservation(Reservation reservation) {
         StaffBookingDetailsController.reservation = reservation;
@@ -62,7 +62,7 @@ public class StaffBookingDetailsController implements Initializable {
     private static Trip trip=null;
 
     private static ArrayList<Accommodation> accommodations=new ArrayList<>();
-    private static Accommodation friendsFamily=null;
+    private static ArrayList<Accommodation> accommodationWithFriend =new ArrayList<>();
 
 
     public void ReturnReservationsButtonClick(ActionEvent actionEvent) throws IOException {
@@ -72,7 +72,11 @@ public class StaffBookingDetailsController implements Initializable {
 
     public void FriendCheckClick(ActionEvent actionEvent) {
         if(ALTFriendCheck.isSelected()){
-            AccommodationTable.setItems(FXCollections.observableArrayList(friendsFamily));
+            AccommodationTable.setItems(FXCollections.observableArrayList(accommodationWithFriend));
+        }
+        else
+        {
+            AccommodationTable.setItems(FXCollections.observableArrayList(accommodations));
         }
     }
 
@@ -83,7 +87,7 @@ public class StaffBookingDetailsController implements Initializable {
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        UpdateTable.assignAccomodationToReservation(reservation, AccommodationTable.getSelectionModel().getSelectedItem().getBedId());
+        UpdateTable.assignAccommodationToReservation(reservation, AccommodationTable.getSelectionModel().getSelectedItem().getBedId());
         pgvApplication.setRoot("StaffBookings");
     }
 
@@ -101,21 +105,28 @@ public class StaffBookingDetailsController implements Initializable {
         AddressColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
         TypeColumn.setCellValueFactory(new PropertyValueFactory<>("Type"));
 
-        AccommodationTable.setItems(FXCollections.observableArrayList(FetchFromDB.Accomodations(reservation)));
+
+        accommodations=FetchFromDB.Accomodations(reservation);
+        AccommodationTable.setItems(FXCollections.observableArrayList(accommodations));
         TableView.TableViewSelectionModel<Accommodation> selectionModel = AccommodationTable.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
 
+        if(reservation.getFriendEmail()!=null){
+            accommodationWithFriend =FetchFromDB.AccomodationsWithFriend(reservation);
+        }
+
         showAccommodationALT();
         AccommodationInfo.setText("");
-        if (reservation.getBedId()!=0){
+        if (reservation.getBedId()>0){
             AccommodationTable.setDisable(true);
+            ALTFriendCheck.setDisable(true);
             try {
-                accommodation=FetchFromDB.accommodation(reservation);
+                assignedAccommodation =FetchFromDB.accommodation(reservation);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             AccommodationInfo.setVisible(true);
-            AccommodationInfo.setText(accommodation.italianDescription());
+            AccommodationInfo.setText(assignedAccommodation.italianDescription());
         }
     }
 

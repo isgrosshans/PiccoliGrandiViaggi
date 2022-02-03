@@ -125,6 +125,49 @@ public class FetchFromDB {
         return ral;
     }
 
+    public static ArrayList<Trip> PastTripsForStudent() throws SQLException {
+        ArrayList<Trip> ral = new ArrayList<>();
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT  h.id, h.departuredate, h.weeks, s.id,s.name,s.address, s.postalCode, s.city, s.country, s.language " +
+                            "FROM school s join holiday h on s.id = h.schoolid " +
+                            "WHERE h.departuredate+(7*h.weeks) <= ? " +
+                            "AND h.id IN (SELECT holidayid from reservation where studentid=?) " +
+                            "ORDER BY h.departuredate; " )) {
+                pst.setDate(1, Date.valueOf(LocalDate.now()));
+                pst.setInt(2,User.getCurrentStudent().getId());
+                System.out.println(Date.valueOf(LocalDate.now()));
+                rs = pst.executeQuery();
+
+                while (rs.next()) {
+                    ral.add(new Trip(rs.getInt(1),// int holidayid,
+                            rs.getDate(2).toLocalDate(),// LocalDate holidaystart,
+                            rs.getInt(3),// int holidayweeks,
+                            rs.getInt(4),// int schoolid,
+                            rs.getString(5),// String schoolname,
+                            rs.getString(6),// String schooladdress,
+                            rs.getString(7),// String schoolpostalCode,
+                            rs.getString(8),// String schoolcity,
+                            rs.getString(9),// String schoolcountry,
+                            rs.getString(10)// String schoollanguage
+                    ));
+                }
+
+            } catch (SQLException e) {
+                System.out.print("Error fetching past trips "+e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.print("Connection error: "+e.getMessage());
+        }
+        return ral;
+    }
+
     public static ArrayList<Trip> TripsBookedBy(int studentid) throws SQLException {
         ArrayList<Trip> ral = new ArrayList<>();
         try {
@@ -681,7 +724,8 @@ public class FetchFromDB {
                 pst.setInt(1, holidayid);
                 rs = pst.executeQuery();
                 rs.next();
-                if(rs.getInt(1)==0) return new SurveyResults(-1,-1,-1,-1,-1,-1,null);
+                System.out.println(rs.getInt(1));
+                if(rs.getInt(1)==0) return sv;
 
 
 
@@ -707,7 +751,7 @@ public class FetchFromDB {
             try (PreparedStatement pst = con.prepareStatement(
                     "SELECT AVG(overallscore), " +
                             "AVG(schoolscore), " +
-                            "AVG(accomodationscore), " +
+                            "AVG(accommodationscore), " +
                             "AVG(activitiesscore), " +
                             "AVG(fieldtripsscore) " +
                             "FROM survey " +
@@ -731,6 +775,8 @@ public class FetchFromDB {
         }
         return sv;
     }
+
+
 
      public static ArrayList<FieldTrip> FieldTrips(int holidayid) {
         ArrayList<FieldTrip> ral = new ArrayList<>();
@@ -768,7 +814,7 @@ public class FetchFromDB {
         return ral;
     }
 
-    public static void parents(int parent1id, int parent2id){
+    public static void studentprofilesetparents(int parent1id, int parent2id){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
@@ -984,6 +1030,34 @@ public class FetchFromDB {
         return true;
     }
 
+    public static boolean hasFilledSurvey(int studentid, int holidayid){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT COUNT(*) " +
+                            "FROM survey " +
+                            "WHERE studentid=? AND holidayid=?" )) {
+                pst.setInt(1, studentid);
+                pst.setInt(2, holidayid);
+
+                rs = pst.executeQuery();
+                rs.next();
+                if(rs.getInt(1)==0)return false;
+            } catch (SQLException e) {
+                System.out.print("HasReservation: Error fetching reservation"+e.getMessage());
+            }
+            rs=null;
+
+        } catch (SQLException e) {
+            System.out.print("Connection error: "+e.getMessage());
+        }
+        return true;
+    }
 
 //    public static ArrayList<Accommodation> Accomodations(Reservation reservation) { //todo check
 //        ArrayList<Accommodation> ral = new ArrayList<>();
@@ -1012,7 +1086,7 @@ public class FetchFromDB {
 //                returndate=rs.getDate(3);
 //
 //            } catch (SQLException e) {
-//                System.out.print("Error fetching accomodations "+e.getMessage());
+//                System.out.print("Error fetching accommodations "+e.getMessage());
 //            }
 //
 //
@@ -1047,7 +1121,7 @@ public class FetchFromDB {
 //                }
 //
 //            } catch (SQLException e) {
-//                System.out.print("Error fetching accomodations "+e.getMessage());
+//                System.out.print("Error fetching accommodations "+e.getMessage());
 //            }
 //
 //            //if reservation.getFamilyStay()
@@ -1057,7 +1131,6 @@ public class FetchFromDB {
 //        }
 //        return ral;
 //    }
-
 
     public static Accommodation accommodation(Reservation reservation) throws SQLException {
         try {
@@ -1118,7 +1191,7 @@ public class FetchFromDB {
                     }
                 }
             }catch (SQLException e){
-                System.out.print("Error fetching accomodations "+e.getMessage());
+                System.out.print("Error fetching accommodations "+e.getMessage());
             }
         } catch (SQLException e) {
             System.out.print("Connection error: "+e.getMessage());
@@ -1153,7 +1226,7 @@ public class FetchFromDB {
                 returndate=rs.getDate(3);
 
             } catch (SQLException e) {
-                System.out.print("Error fetching accomodations "+e.getMessage());
+                System.out.print("Error fetching accommodations "+e.getMessage());
             }
 
             //available beds (all of them bc fuck u)
@@ -1220,7 +1293,7 @@ public class FetchFromDB {
                 return ral;
 
             }catch (SQLException e){
-                System.out.print("Error fetching accomodations "+e.getMessage());
+                System.out.print("Error fetching accommodations "+e.getMessage());
             }
 
 
@@ -1273,7 +1346,182 @@ public class FetchFromDB {
 //                }
 //
 //            } catch (SQLException e) {
-//                System.out.print("Error fetching accomodations "+e.getMessage());
+//                System.out.print("Error fetching accommodations "+e.getMessage());
+//            }
+
+            //if reservation.getFamilyStay()
+
+        } catch (SQLException e) {
+            System.out.print("Connection error: "+e.getMessage());
+        }
+        return ral;
+    }
+
+    public static ArrayList<Accommodation> AccomodationsWithFriend(Reservation reservation) {
+        ArrayList<Accommodation> ral = new ArrayList<>();
+        ArrayList<Bed> tal = new ArrayList<>();
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        int schoolid = 0;
+        Date departuredate = null;
+        Date returndate = null;
+        int friendfamilyid = 0;
+
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT schoolid, departuredate, departuredate+(7*weeks) " +
+                            "FROM holiday " +
+                            "WHERE id=?; " )) {
+                pst.setInt(1,reservation.getHolidayId());
+                rs = pst.executeQuery();
+
+                rs.next();
+                schoolid=rs.getInt(1);
+                departuredate=rs.getDate(2);
+                returndate=rs.getDate(3);
+
+            } catch (SQLException e) {
+                System.out.print("Error fetching accommodations "+e.getMessage());
+            }
+
+            //reservation -> friend (student) -> family
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT b1.familyid " +
+                            "FROM bed b1 " +
+                            "JOIN reservation r1 on r1.bedid=b1.id " +
+                            "WHERE holidayid=? " +
+                            "AND studentid = (" +
+                                "SELECT s2.id FROM student s2 " +
+                                "WHERE s2.email ilike ?);")) {
+                pst.setInt(1,reservation.getHolidayId());
+                pst.setString(2,reservation.getFriendEmail());
+                rs = pst.executeQuery();
+                rs.next();
+                friendfamilyid=rs.getInt(1);
+            } catch (SQLException e) {
+                System.out.print("Error fetching accommodations "+e.getMessage());
+            }
+
+            //available beds in specific family
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT b.id, b.familyid, d.dormitoryid, " + //bed 1,2,3
+                            "   f.id, f.schoolid, f.email, f.firstName, f.lastName, " + //family, 4,5,6,7,8
+                            "   f.members, f.pets, f.bedrooms, f.bathrooms, f.cityDistance, " + //family 9,10,11,12,13
+                            "   f.address, f.phone " + //family 14,15
+                            "FROM bed b " +
+                            "LEFT JOIN family f ON b.familyid=f.id " +
+                            "LEFT JOIN dormroom d ON b.dormroomid=d.id " +
+                            "LEFT JOIN dormitory dy on d.dormitoryid=dy.id " +
+                            "WHERE f.id=? " +
+                            "AND b.id not in( " +
+                            "SELECT distinct reservation.bedid  " +
+                            "FROM holiday JOIN reservation ON reservation.holidayid=holiday.id " +
+                            "WHERE reservation.bedid is not null " +
+                            "AND ((holiday.departuredate<=? AND ?<holiday.departuredate+(7*holiday.weeks))" + //?dep       holiday.departuredate
+                            "OR (holiday.departuredate<=? AND ?<holiday.departuredate+(7*holiday.weeks)))); ")) { //?ret    holiday.departuredate+(7*holiday.weeks)
+                pst.setInt(1,friendfamilyid);
+                pst.setDate(2, departuredate);
+                pst.setDate(3, departuredate);
+                pst.setDate(4, returndate);
+                pst.setDate(5, returndate);
+                System.out.println("\n"+pst+"\n");
+                rs=pst.executeQuery();
+
+                while (rs.next()){
+                    if(rs.getInt(4)>0){
+                        ral.add(new Accommodation(
+                                new Bed(rs.getInt(1), rs.getInt(2), rs.getInt(3)),
+                                new Family(rs.getInt(4), //int id;
+                                        rs.getInt(5), //int schoolid;
+                                        rs.getString(6), //String email;
+                                        rs.getString(7), //String firstName;
+                                        rs.getString(8), //String lastName;
+                                        rs.getInt(9), //int members;
+                                        rs.getBoolean(10), //boolean pets;
+                                        rs.getInt(11), //int bedrooms;
+                                        rs.getInt(12), //int bathrooms;
+                                        rs.getString(13), //String cityDistance;
+                                        rs.getString(14), //String address;
+                                        rs.getString(15) //String phone;
+                                )
+                        ));
+                    }
+                    else{
+                        ral.add(new Accommodation(new Bed(rs.getInt(1), rs.getInt(2), rs.getInt(3)),
+                                new Dormitory(rs.getInt(8),// int id,
+                                        rs.getInt(9),// int schoolid,
+                                        rs.getString(10),// String name,
+                                        rs.getString(11),// String address,
+                                        rs.getString(12)// String sex
+                                ),
+                                new DormRoom(rs.getInt(4), //int id,
+                                        rs.getInt(5), // int dormitoryid,
+                                        rs.getString(6), // String roomNumber,
+                                        rs.getInt(7)// int beds
+                                )));
+                    }
+                }
+                return ral;
+
+            }catch (SQLException e){
+                System.out.print("Error fetching accommodations "+e.getMessage());
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            try (PreparedStatement pst = con.prepareStatement(
+//                    "SELECT b.id, b.familyid, dormroomid " +
+//                            "FROM bed b " +
+//                            "WHERE b.id NOT IN(" +
+//                            "SELECT r.bedid " +
+//                            "FROM reservation r " +
+//                            "JOIN holiday h on h.id = r.holidayid " +
+//                            "WHERE" +
+//                            "(?<=h.departuredate AND h.departuredate<?) OR " +  //? 1,2
+//                            "(?<h.departuredate+(7*weeks) AND h.departuredate+(7*weeks)<=?)"+   //? 3,4
+//                            ") " +
+//                            "AND b.id IN(" +
+//                            "SELECT b2.id FROM bed b2 " +
+//                            "JOIN family f on b2.familyid = f.id " +
+//                            "JOIN dormroom dr on b2.dormroomid = dr.id " +
+//                            "JOIN dormitory d on dr.dormitoryid = d.id " +
+//                            "WHERE f.schoolid=? OR d.schoolid=?) " +    //?5,6
+//                            "; " )) {
+//
+//                rs = pst.executeQuery();
+//                pst.setDate(1, departuredate);
+//                pst.setDate(2, returndate);
+//                pst.setDate(3, departuredate);
+//                pst.setDate(4, returndate);
+//                pst.setInt(5,schoolid);
+//                pst.setInt(6,schoolid);
+//                while (rs.next()) {
+//                    tal.add(new Bed(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
+//                }
+//
+//            } catch (SQLException e) {
+//                System.out.print("Error fetching accommodations "+e.getMessage());
 //            }
 
             //if reservation.getFamilyStay()
@@ -1321,7 +1569,6 @@ public class FetchFromDB {
         }
         return null;
     }
-
 
 //    public static Accommodation friendFamily(Reservation reservation){
 //        try {

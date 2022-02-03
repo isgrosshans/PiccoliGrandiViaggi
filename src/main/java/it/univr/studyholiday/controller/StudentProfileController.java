@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class StudentProfileController implements Initializable {
+    @FXML private Label AddressLabel;
     @FXML private Label IdLabel;
     @FXML private Label EmailLabel;
     @FXML private Label PhoneLabel;
@@ -48,6 +49,7 @@ public class StudentProfileController implements Initializable {
 
 
 
+
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
         pgvApplication.setRoot("StudentHome");
     }
@@ -69,6 +71,10 @@ public class StudentProfileController implements Initializable {
     }
 
     public void EditParentsClick(ActionEvent actionEvent) throws IOException {
+        StudentParentEditController.setParent1(parent1);
+        if(parent2bool) {
+            StudentParentEditController.setParent2(parent2);
+        }
         pgvApplication.setRoot("StudentParentEdit");
     }
 
@@ -79,17 +85,10 @@ public class StudentProfileController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(User.getCurrentUser().getClass().equals(Student.class))
-            student= (Student) User.getCurrentUser();
-        FetchFromDB.parents(student.getParent1id(),student.getParent2id());
-        IdLabel.setText(String.valueOf(student.getId()));
-        EmailLabel.setText(student.getEmail());
-        PhoneLabel.setText(student.getPhone());
-        FirstNameLabel.setText(student.getFirstName());
-        LastNameLabel.setText(student.getLastName());
-        SexLabel.setText(student.getSex());
-        HobbiesLabel.setText(student.getHobbies());
-        BirthdayLabel.setText(student.getBirthdayString());
-        Parent1Label.setText(parent1.toString());
+            student=FetchFromDB.student(User.getCurrentStudent().getId());
+        FetchFromDB.studentprofilesetparents(student.getParent1id(),student.getParent2id());
+        loadinfo();
+
         if(parent2bool)Parent2Label.setText(parent2.toString());
         AllergenTable.setPlaceholder(new Label("Nessuna allergia."));
         AllergenColumn.setCellValueFactory(new PropertyValueFactory<>("Allergen"));
@@ -103,5 +102,18 @@ public class StudentProfileController implements Initializable {
 
         TableView.TableViewSelectionModel<Allergy> selectionModel = AllergenTable.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
+    }
+
+    private void loadinfo(){
+        IdLabel.setText(String.valueOf(student.getId()));
+        EmailLabel.setText(student.getEmail());
+        PhoneLabel.setText(student.getPhone());
+        FirstNameLabel.setText(student.getFirstName());
+        LastNameLabel.setText(student.getLastName());
+        SexLabel.setText(student.getSex());
+        HobbiesLabel.setText(student.getHobbies());
+        BirthdayLabel.setText(student.getBirthdayString());
+        AddressLabel.setText(student.getAddress());
+        Parent1Label.setText(parent1.toString());
     }
 }

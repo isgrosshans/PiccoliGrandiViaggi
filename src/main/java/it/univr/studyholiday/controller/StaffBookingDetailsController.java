@@ -112,7 +112,7 @@ public class StaffBookingDetailsController implements Initializable {
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
 
         if(reservation.getFriendEmail()!=null){
-            accommodationWithFriend =FetchFromDB.AccomodationsWithFriend(reservation);
+            accommodationWithFriend =FetchFromDB.AccommodationsWithFriend(reservation);
         }
 
         showAccommodationALT();

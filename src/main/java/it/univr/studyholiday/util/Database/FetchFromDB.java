@@ -1357,7 +1357,7 @@ public class FetchFromDB {
         return ral;
     }
 
-    public static ArrayList<Accommodation> AccomodationsWithFriend(Reservation reservation) {
+    public static ArrayList<Accommodation> AccommodationsWithFriend(Reservation reservation) {
         ArrayList<Accommodation> ral = new ArrayList<>();
         ArrayList<Bed> tal = new ArrayList<>();
         try {

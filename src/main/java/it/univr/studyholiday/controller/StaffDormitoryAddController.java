@@ -40,8 +40,8 @@ public class StaffDormitoryAddController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         NameSchoolLabel.setText(school.getName());
         GenderCoiceBox.setItems(FXCollections.observableArrayList("Maschile", "Femminile"));
-        SingleRoomSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,0));
-        DoubleRoomSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,20,0));
+        SingleRoomSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,50,0));
+        DoubleRoomSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,50,0));
     }
 
     public void ReturnDormitoryButtonClick(ActionEvent actionEvent) throws IOException {

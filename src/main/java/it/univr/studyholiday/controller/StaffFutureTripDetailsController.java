@@ -65,7 +65,7 @@ public class StaffFutureTripDetailsController implements Initializable {
         LanguageLabel.setText(trip.getSchool().getLanguage());
         TripDestinationLabel.setText(trip.getDestination());
 
-        //last minute change //todo give it its actiual place
+        //last minute change //todo give it its actual place
         TagPlacesAvailableLabel.setText("");
         TagInFamilyLabel.setText("id viaggio:");
         TagInDormitoryLabel.setText("");
@@ -87,8 +87,6 @@ public class StaffFutureTripDetailsController implements Initializable {
         TableView.TableViewSelectionModel<Activity> selectionModel = ActivitiesTable.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
 
-
-
     //initialize FieldTrips//////////////////////////////////////////////////////////////////////////////
         FieldTripsTable.setEditable(false);
         FieldTripDestinationColumn.setCellValueFactory(new PropertyValueFactory<>("Destination"));
@@ -99,9 +97,6 @@ public class StaffFutureTripDetailsController implements Initializable {
         FieldTripsTable.setItems(FXCollections.observableArrayList(FetchFromDB.FieldTrips(trip.getHoliday().getId())));
 
     }
-
-
-
 
 
     public void FieldTripsTableClick(MouseEvent mouseEvent) {

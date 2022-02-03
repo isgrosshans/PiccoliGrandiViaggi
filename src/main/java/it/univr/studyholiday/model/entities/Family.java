@@ -61,14 +61,14 @@ public class Family implements Entity {
 
     public String italianDescription(){
         String result="";
-        result+=  "Famiglia di             "+firstName+" "+lastName+
-                "\nComponent:              "+members+
-                "\nCamere per gli ospiti:  "+bedrooms+
-                "\nBagni per gli ospiti:   "+bathrooms+
-                "\nAnimali domestici:      ";
+        result+=  "Famiglia di "+firstName+" "+lastName+
+                "\nComponent:             \t"+members+
+                "\nCamere per gli ospiti: \t"+bedrooms+
+                "\nBagni per gli ospiti:  \t"+bathrooms+
+                "\nAnimali domestici:     \t";
         if(pets) result+="sì";
         else result+="no";
-        result+="\nDistanza dal centro:    "+cityDistance;
+        result+="\nDistanza dal centro:   \t"+cityDistance;
         return result;
     }
 

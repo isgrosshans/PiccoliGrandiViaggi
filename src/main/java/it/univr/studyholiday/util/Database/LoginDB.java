@@ -1,5 +1,6 @@
 package it.univr.studyholiday.util.Database;
 
+import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.Staff;
 import it.univr.studyholiday.model.entities.Student;
 
@@ -113,6 +114,33 @@ public class LoginDB {
                     }catch (SQLException e1) {
                         System.out.println("Database.login error retrieving student information"+ e1.getMessage());
                     }
+                }
+            } catch (SQLException e) {
+                System.out.println("Database.login error checking credentials:"+e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.println("Connection error: "+e.getMessage());
+        }
+        return false;
+    }
+
+    public static Boolean checkPsw(String password){
+        password = encrypy(password);
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " SELECT COUNT(*) FROM student WHERE email=? AND psw=? " )) {
+                pst.setString(1, User.getCurrentStudent().getEmail());
+                pst.setString(2, password);
+                rs = pst.executeQuery();
+                rs.next();
+                if (rs.getInt(1) == 1) {
+                    return true;
                 }
             } catch (SQLException e) {
                 System.out.println("Database.login error checking credentials:"+e.getMessage());

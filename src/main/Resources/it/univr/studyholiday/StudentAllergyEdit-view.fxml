@@ -21,7 +21,7 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="124.0" prefHeight="17.0" prefWidth="563.0" text="Modifica o inserisci eventuali allergie e precauzioni da prendere :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="124.0">
+      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="124.0" prefHeight="17.0" prefWidth="563.0" text="Elimina allergie o inserisci allergie e precauzioni da prendere :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="124.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
@@ -31,10 +31,10 @@
       <TextField fx:id="PrecautionTextField" layoutX="193.0" layoutY="161.0" prefHeight="25.0" prefWidth="259.0" promptText="Precauzione " AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="148.0" AnchorPane.topAnchor="161.0" />
       <Button fx:id="SaveButton" layoutX="457.0" layoutY="161.0" mnemonicParsing="false" onAction="#SaveButtonClick" prefHeight="25.0" prefWidth="53.0" text="Salva" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="161.0" />
       <Button fx:id="DeleteButton" layoutX="517.0" layoutY="161.0" mnemonicParsing="false" onAction="#DeleteButtonClick" text="Elimina" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="161.0" />
-      <TableView fx:id="AllergensTableView" editable="true" layoutX="20.0" layoutY="235.0" onMouseClicked="#AllergyTableClick" prefHeight="271.0" prefWidth="552.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0">
+      <TableView fx:id="AllergenTable" editable="true" layoutX="20.0" layoutY="235.0" onMouseClicked="#AllergyTableClick" prefHeight="271.0" prefWidth="552.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="235.0">
         <columns>
-          <TableColumn fx:id="AllergensColumn" prefWidth="277.0" text="Allergia" />
-          <TableColumn fx:id="PrecautionsColumn" prefWidth="282.0" text="Precauzione" />
+          <TableColumn fx:id="AllergenColumn" prefWidth="277.0" text="Allergia" />
+          <TableColumn fx:id="PrecautionColumn" prefWidth="282.0" text="Precauzione" />
         </columns>
       </TableView>
       <Button fx:id="CancelButton" layoutX="139.0" layoutY="525.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="139.0" AnchorPane.topAnchor="525.0" />

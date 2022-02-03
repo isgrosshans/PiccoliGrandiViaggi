@@ -56,7 +56,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Spinner fx:id="DoubleRoomSpinner" layoutX="194.0" layoutY="382.0" prefHeight="25.0" prefWidth="89.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="317.0" AnchorPane.topAnchor="382.0" />
+      <Spinner fx:id="DoubleRoomSpinner" accessibleText="0" editable="true" layoutX="194.0" layoutY="382.0" prefHeight="25.0" prefWidth="89.0" AnchorPane.leftAnchor="194.0" AnchorPane.rightAnchor="317.0" AnchorPane.topAnchor="382.0" />
       <Button fx:id="CancelButton" layoutX="160.0" layoutY="472.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="472.0" />
       <Button fx:id="ConfirmButton" layoutX="367.0" layoutY="472.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="472.0" />
       <Label fx:id="ErrorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="525.0" prefHeight="25.0" prefWidth="580.0" textAlignment="CENTER" textFill="RED" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="525.0" />

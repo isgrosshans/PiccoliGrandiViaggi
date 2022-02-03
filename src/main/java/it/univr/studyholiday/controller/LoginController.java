@@ -5,6 +5,7 @@ import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.User;
 //import it.univr.studyholiday.util.Database.Fetch;
 import it.univr.studyholiday.util.Database.LoginDB;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -59,6 +60,6 @@ public class LoginController {
     }
 
     public void exitButtonAction(ActionEvent actionEvent) {
-
+        pgvApplication.close();
     }
 }

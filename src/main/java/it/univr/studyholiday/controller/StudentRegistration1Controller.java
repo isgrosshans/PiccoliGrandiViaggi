@@ -53,6 +53,7 @@ public class StudentRegistration1Controller implements Initializable {
         else if(!EmailTextField.getText().matches("^(.+)@(.+)$")){
             ErrorMessage.setText("Inserire un indirizzo email valido.");
         }
+        else if(EmailTextField.getText().equals("@pgv.it")){ErrorMessage.setText("NO");}
         else if(PswTextField.getText().length()<8){
             ErrorMessage.setText("La password deve essere lunga almeno 8 caratteri.");
         }

@@ -1,4 +1,5 @@
 package it.univr.studyholiday.util.Database;
+import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.*;
 
 import java.lang.reflect.Field;
@@ -126,6 +127,60 @@ public class SaveToDB {
                 }catch (SQLException e1) {
                     System.out.println("SaveToDB.insert."+getTableNameFor(family)+".rooms: "+ e1.getMessage());
                 }
+            }
+        } catch (SQLException e) {
+            System.out.println("Connection error: "+e.getMessage());
+        }
+    }
+
+    public static void insertParent(Parent parent){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        int studentid=0;
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+
+            //insert parent
+            try (PreparedStatement pst = con.prepareStatement(
+                    "INSERT INTO "+getTableNameFor(parent)+
+                            " (" + getColumnNamesFor(parent)+
+                            ") VALUES ("+
+                            getValuesFor(parent)+");")) {
+                rs = pst.executeQuery();
+                rs.next();
+
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+            } catch (IllegalAccessException illegalAccessException) {
+                illegalAccessException.printStackTrace();
+            }
+            rs=null;
+
+            //get new parent id
+            try (PreparedStatement pst = con.prepareStatement(selectIDstmt(parent))){
+                rs = pst.executeQuery();
+                rs.next();
+                User.getCurrentStudent().setParent2id(rs.getInt(1));
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+            } catch (IllegalAccessException illegalAccessException) {
+                illegalAccessException.printStackTrace();
+            }
+            //update student
+            try (PreparedStatement pst = con.prepareStatement(
+                    "UPDATE student " +
+                            "SET parent2id=? " +
+                            "WHERE id=?;")) {
+                pst.setInt(1,User.getCurrentStudent().getParent2id());
+                pst.setInt(2,User.getCurrentStudent().getId());
+                rs = pst.executeQuery();
+                rs.next();
+
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert.student: "+ e1.getMessage());
             }
         } catch (SQLException e) {
             System.out.println("Connection error: "+e.getMessage());
@@ -518,6 +573,7 @@ public class SaveToDB {
 
         return result;
     }
+
 }
 
 

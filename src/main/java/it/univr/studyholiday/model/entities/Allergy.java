@@ -1,27 +1,30 @@
 package it.univr.studyholiday.model.entities;
 
+import it.univr.studyholiday.model.User;
+
 import java.lang.reflect.Field;
 
 public class Allergy implements Entity {
     private int id=-1;
-    private int studentid;
+    private int studentId;
     private String allergen;
     private String precaution;
 
     public Allergy(String allergen, String precaution) {
+        this.studentId = User.getCurrentStudent().getId();
         this.allergen = allergen;
         this.precaution = precaution;
     }
 
     public Allergy(int studentid, String allergen, String precaution) {
-        this.studentid = studentid;
+        this.studentId = studentid;
         this.allergen = allergen;
         this.precaution = precaution;
     }
 
     public Allergy(int id, int studentid, String allergen, String precaution) {
         this.id = id;
-        this.studentid = studentid;
+        this.studentId = studentid;
         this.allergen = allergen;
         this.precaution = precaution;
     }
@@ -40,11 +43,11 @@ public class Allergy implements Entity {
     }
 
     public int getStudentid() {
-        return studentid;
+        return studentId;
     }
 
     public void setStudentid(int studentid) {
-        this.studentid = studentid;
+        this.studentId = studentid;
     }
 
     public String getAllergen() {

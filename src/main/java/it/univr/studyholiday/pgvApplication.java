@@ -16,36 +16,17 @@ public class pgvApplication extends Application {
 
     private static Scene scene;
     private static ScrollPane scrollPane;
+    private static Stage appStage;
+
+    public static void close() {
+        appStage.close();
+    }
 
     @Override
     public void start(Stage stage) throws IOException, IllegalAccessException {
-////        FXMLLoader fxmlLoader = LoginView.getFxmlLoader();
-//        Student stud = new Student("afdsafd","asdf","afdsafd","afdsafd", LocalDate.of(2016, 9, 23),"afdsafd","afdsafd","afdsafd","afdsafd","afdsafd","afdsafd");
-//        System.out.println(SaveToDB.getValuesFor(stud));
-
-        //JUST TRYING SHIT HERE
-    Reservation res= FetchFromDB.reservation(4,4);
-    System.out.println(res.getFriendEmail());
-    System.out.println(res.getFriendEmail()==null);
-
-
-//        Student boi = new Student ("giovi@mail.it","giovanni", "Giovanni", "Cerva", LocalDate.of(2006, 10, 10), "M", "via Roma 1, Verona", "", "calcio, lego", 0, 0);
-//        System.out.println(SaveToDB.selectIDstmt(boi));
-
-        //        SaveToDB.insert(boi);
-
-//        SaveToDB.insert(new Staff("ilaria@pgv.it","ilaria","Ilaria","Piccoli","348784524"));
-//        SaveToDB.insert(new it.univr.studyholiday.model.entities.Parent("annarossi@posta.it", "Anna", "Rossi", "3401234567"));
-//        SaveToDB.insert(new Student("marcobianchi@posta.it","marcobianchi",
-//                "marco","bianchi",LocalDate.of(2007,5,7),
-//                "M","via Roma 1, 1234 Cittadina","","nuoto, film, chitarra",1));
-        //scene = new Scene(loadFXML("Login"), 600, 430);
+        this.appStage=stage;
         scene = new Scene(new ScrollPane(loadFXML("Login")), 605, 600);
-
-        //scrollPane.setContent(loadFXML("StaffSchools"));
-
         stage.setTitle("Piccoli Grandi Viaggi");
-
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setMinWidth(610);

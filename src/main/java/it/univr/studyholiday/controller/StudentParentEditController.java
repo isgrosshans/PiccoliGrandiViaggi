@@ -4,6 +4,8 @@ import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.Parent;
 import it.univr.studyholiday.util.Database.FetchFromDB;
+import it.univr.studyholiday.util.Database.SaveToDB;
+import it.univr.studyholiday.util.Database.UpdateTable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,78 +23,106 @@ public class StudentParentEditController implements Initializable {
     @FXML private TextField FirstNameTextField;
     @FXML private TextField LastnameTextField;
     @FXML private TextField PhoneTextField;
-    @FXML private TextField EmailTextField1;
-    @FXML private TextField FirstNameTextField1;
-    @FXML private TextField LastnameTextField1;
-    @FXML private TextField PhoneTextField1;
+    @FXML private TextField EmailTextField2;
+    @FXML private TextField FirstNameTextField2;
+    @FXML private TextField LastnameTextField2;
+    @FXML private TextField PhoneTextField2;
     @FXML private Label ErrorMessage;
-
-    ArrayList<Parent> parents=new ArrayList<>();
-
+    
+    private static Parent parent1;
+    public static void setParent1(Parent p){parent1=p;}
+    private static Parent parent2;
+    private static boolean parent2bool=false;
+    public static void setParent2(Parent p){
+        parent2=p;
+        parent2bool=true;}
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
         pgvApplication.setRoot("StudentProfile");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        if(parents.size()==2){
-            if (EmailTextField.getText().isBlank() ||
-                FirstNameTextField.getText().isBlank() ||
-                LastnameTextField.getText().isBlank() ||
-                PhoneTextField.getText().isBlank() ||
-                EmailTextField1.getText().isBlank() ||
-                FirstNameTextField1.getText().isBlank() ||
-                LastnameTextField1.getText().isBlank() ||
-                PhoneTextField1.getText().isBlank()){
-                ErrorMessage.setText("Non lasciare campi vuoti");
-            }
-            else{
-                //todo update table
+        if(parent2bool){
+            if (parent1AllFilled() && parent2AllFilled()){
+                //update both parents
+                UpdateTable.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
+                        FirstNameTextField.getText(),
+                        LastnameTextField.getText(),
+                        PhoneTextField.getText()));
+                UpdateTable.editParent(new Parent(parent2.getId(),EmailTextField2.getText(),
+                        FirstNameTextField2.getText(),
+                        LastnameTextField2.getText(),
+                        PhoneTextField2.getText()));
                 pgvApplication.setRoot("StudentProfile");
             }
         }
-        if(parents.size()==1){
-            if (!EmailTextField.getText().isBlank() &&          //parent 1 all filled
-                    !FirstNameTextField.getText().isBlank() &&
-                    !LastnameTextField.getText().isBlank() &&
-                    !PhoneTextField.getText().isBlank()){
-                if (EmailTextField1.getText().isBlank() &&      //parent 2 all blank
-                    FirstNameTextField1.getText().isBlank() &&
-                    LastnameTextField1.getText().isBlank() &&
-                    PhoneTextField1.getText().isBlank()){
-                    //update parent 1
-                    pgvApplication.setRoot("StudentProfile");
-                }
-                else if(!EmailTextField1.getText().isBlank() &&      //parent 2 all filled
-                        !FirstNameTextField1.getText().isBlank() &&
-                        !LastnameTextField1.getText().isBlank() &&
-                        !PhoneTextField1.getText().isBlank()){
-                    //update parent 1 and insert parent 2
-                    pgvApplication.setRoot("StudentProfile");
-                }
-                else ErrorMessage.setText("Compilare tutti i campi (o svuotarli sul secondo genitore)");
+        else{
+            if(parent1AllFilled() && parent2AllBlank()){
+                //update parent 1
+                UpdateTable.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
+                        FirstNameTextField.getText(),
+                        LastnameTextField.getText(),
+                        PhoneTextField.getText()));
+                pgvApplication.setRoot("StudentProfile");
             }
-            else ErrorMessage.setText("Compilare tutti i campi (o svuotarli sul secondo genitore)");
-
+            if (parent1AllFilled() && parent2AllFilled()){
+                //update parent 1 and add parent 2
+                UpdateTable.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
+                        FirstNameTextField.getText(),
+                        LastnameTextField.getText(),
+                        PhoneTextField.getText()));
+                SaveToDB.insertParent(new Parent(EmailTextField2.getText(),
+                        FirstNameTextField2.getText(),
+                        LastnameTextField2.getText(),
+                        PhoneTextField2.getText()));
+                pgvApplication.setRoot("StudentProfile");
+            }
         }
+        ErrorMessage.setText("Errore inserimento dati");
+
     }
+
+    private boolean parent1AllFilled(){
+        return !(EmailTextField.getText().isBlank() ||
+                FirstNameTextField.getText().isBlank() ||
+                LastnameTextField.getText().isBlank() ||
+                PhoneTextField.getText().isBlank());
+    }
+
+    private boolean parent2AllFilled(){
+        return !(EmailTextField2.getText().isBlank() ||
+                FirstNameTextField2.getText().isBlank() ||
+                LastnameTextField2.getText().isBlank() ||
+                PhoneTextField2.getText().isBlank());
+    }
+
+    private boolean parent2AllBlank(){
+        return (EmailTextField2.getText().isBlank() &&
+                FirstNameTextField2.getText().isBlank() &&
+                LastnameTextField2.getText().isBlank() &&
+                PhoneTextField2.getText().isBlank());
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            parents= FetchFromDB.Parents(User.getCurrentStudent().getParent1id(), User.getCurrentStudent().getParent2id());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        EmailTextField.setText(parents.get(0).getEmail());
-        FirstNameTextField.setText(parents.get(0).getFirstName());
-        LastnameTextField.setText(parents.get(0).getLastName());
-        PhoneTextField.setText(parents.get(0).getPhone());
 
-        if(parents.size()==2) {
-            EmailTextField1.setText(parents.get(1).getEmail());
-            FirstNameTextField1.setText(parents.get(1).getFirstName());
-            LastnameTextField1.setText(parents.get(1).getLastName());
-            PhoneTextField1.setText(parents.get(1).getPhone());
+        EmailTextField.setText(parent1.getEmail());
+        FirstNameTextField.setText(parent1.getFirstName());
+        LastnameTextField.setText(parent1.getLastName());
+        PhoneTextField.setText(parent1.getPhone());
+
+        if(parent2bool) {
+            EmailTextField2.setText(parent2.getEmail());
+            FirstNameTextField2.setText(parent2.getFirstName());
+            LastnameTextField2.setText(parent2.getLastName());
+            PhoneTextField2.setText(parent2.getPhone());
+        }
+        else
+        {
+            EmailTextField2.setText("");
+            FirstNameTextField2.setText("");
+            LastnameTextField2.setText("");
+            PhoneTextField2.setText("");
         }
     }
 }

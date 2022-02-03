@@ -49,7 +49,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="TaginFamilyLabel" layoutX="20.0" layoutY="345.0" text="In Famiglia :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="345.0">
+      <Label fx:id="TagInFamilyLabel" layoutX="20.0" layoutY="345.0" text="In Famiglia :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="345.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>

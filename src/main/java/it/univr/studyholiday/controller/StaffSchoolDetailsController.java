@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.School;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,7 +32,6 @@ public class StaffSchoolDetailsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("school: "+school);
         NameSchoolLabel.setText(school.getName());
         AddressLabel.setText(school.getAddress());
         LanguageLabel.setText(school.getLanguage());
@@ -42,22 +41,22 @@ public class StaffSchoolDetailsController implements Initializable {
     }
 
     public void ReturnSchoolsButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchools");
+        pgvApplication.setRoot("StaffSchools");
     }
 
     public void FamilyButtonClick(ActionEvent actionEvent) throws IOException {
         StaffFamiliesController.setSchool(school);
-        GlossaApplication.setRoot("StaffFamilies");
+        pgvApplication.setRoot("StaffFamilies");
     }
 
     public void DormitoriesButtonClick(ActionEvent actionEvent) throws IOException {
         StaffDormitoriesController.setSchool(school);
-        GlossaApplication.setRoot("StaffDormitories");
+        pgvApplication.setRoot("StaffDormitories");
     }
 
     public void ActivityButtonClick(ActionEvent actionEvent) throws IOException {
         StaffActivitiesController.setSchool(school);
-        GlossaApplication.setRoot("StaffActivities");
+        pgvApplication.setRoot("StaffActivities");
     }
 
 }

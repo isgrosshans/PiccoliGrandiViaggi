@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.model.entities.Activity;
 import it.univr.studyholiday.model.entities.FieldTrip;
@@ -19,12 +19,13 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class StaffFutureTripDetailsController implements Initializable {
-
-
-
+    @FXML private Label TagPlacesAvailableLabel;
+    @FXML private Label TagInFamilyLabel;
+    @FXML private Label TagInDormitoryLabel;
     @FXML private Label DepartureDateLabel;
     @FXML private Label WeeksLabel;
     @FXML private Label NameSchoolLabel;
@@ -50,7 +51,7 @@ public class StaffFutureTripDetailsController implements Initializable {
     @FXML private Label ActivityNameLabel;
     @FXML private Label ActivityDescriptionLabel;
 
-    private static Trip trip;
+    private static Trip trip = new Trip(-1,LocalDate.of(1900,1,1),0,-1,"-","-","-","-","-","-");
     public static void setTrip(Trip t) {
         trip = t;
     }
@@ -63,8 +64,13 @@ public class StaffFutureTripDetailsController implements Initializable {
         NameSchoolLabel.setText(trip.getSchool().getName());
         LanguageLabel.setText(trip.getSchool().getLanguage());
         TripDestinationLabel.setText(trip.getDestination());
-        InFamilyLabel.setText("-");//todo
-        DormitoryLabel.setText("-");//todo
+
+        //last minute change //todo give it its actual place
+        TagPlacesAvailableLabel.setText("");
+        TagInFamilyLabel.setText("id viaggio:");
+        TagInDormitoryLabel.setText("");
+        InFamilyLabel.setText(String.valueOf(trip.getHoliday().getId()));
+        DormitoryLabel.setText("");
 
 
     //initialize Activities//////////////////////////////////////////////////////////////////////////////
@@ -81,8 +87,6 @@ public class StaffFutureTripDetailsController implements Initializable {
         TableView.TableViewSelectionModel<Activity> selectionModel = ActivitiesTable.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.SINGLE);
 
-
-
     //initialize FieldTrips//////////////////////////////////////////////////////////////////////////////
         FieldTripsTable.setEditable(false);
         FieldTripDestinationColumn.setCellValueFactory(new PropertyValueFactory<>("Destination"));
@@ -95,9 +99,6 @@ public class StaffFutureTripDetailsController implements Initializable {
     }
 
 
-
-
-
     public void FieldTripsTableClick(MouseEvent mouseEvent) {
         FieldTripDestinationLabel.setText(FieldTripsTable.getSelectionModel().getSelectedItem().getDestination());
         HoursLabel.setText(String.valueOf(FieldTripsTable.getSelectionModel().getSelectedItem().getHours()));
@@ -108,10 +109,9 @@ public class StaffFutureTripDetailsController implements Initializable {
     public void ActivityTableClick(MouseEvent mouseEvent) {
         ActivityNameLabel.setText(ActivitiesTable.getSelectionModel().getSelectedItem().getName());
         ActivityDescriptionLabel.setText(ActivitiesTable.getSelectionModel().getSelectedItem().getDescription());
-
     }
 
     public void ReturnTripsClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffFutureTrips");
+        pgvApplication.setRoot("StaffFutureTrips");
     }
 }

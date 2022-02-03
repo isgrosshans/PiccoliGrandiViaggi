@@ -28,13 +28,13 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="DepartureDateLabel" layoutX="126.0" layoutY="258.0" prefHeight="17.0" prefWidth="408.0" text="Label" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="270.0" />
+      <Label fx:id="DepartureDateLabel" layoutX="126.0" layoutY="258.0" prefHeight="17.0" prefWidth="408.0"  AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="270.0" />
       <Label fx:id="TagExperienceLabel" layoutX="21.0" layoutY="404.0" text="Esperienza Complessiva :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="410.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="OverallExperienceScoreLabel" alignment="CENTER_RIGHT" layoutX="181.0" layoutY="404.0" prefHeight="17.0" prefWidth="119.0" text="Label" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="410.0">
+      <Label fx:id="OverallExperienceScoreLabel" alignment="CENTER_RIGHT" layoutX="181.0" layoutY="404.0" prefHeight="17.0" prefWidth="119.0"  AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="410.0">
          <padding>
             <Insets left="20.0" />
          </padding></Label>
@@ -43,43 +43,43 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="NameSchoolLabel" layoutX="87.0" layoutY="117.0" prefHeight="17.0" prefWidth="453.0" text="Label" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="120.0" />
+      <Label fx:id="NameSchoolLabel" layoutX="87.0" layoutY="117.0" prefHeight="17.0" prefWidth="453.0"  AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="120.0" />
       <Label fx:id="TagLanguageLabel" layoutX="21.0" layoutY="166.0" text="Lingua :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="170.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="LanguageLabel" layoutX="87.0" layoutY="162.0" prefHeight="17.0" prefWidth="453.0" text="Label" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="170.0" />
+      <Label fx:id="LanguageLabel" layoutX="87.0" layoutY="162.0" prefHeight="17.0" prefWidth="453.0"  AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="170.0" />
       <Label fx:id="TagDestintionLabel" layoutX="11.0" layoutY="231.0" text="Destinazione : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="220.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="DestinationLabel" layoutX="126.0" layoutY="199.0" prefHeight="17.0" prefWidth="414.0" text="Label" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="220.0" />
+      <Label fx:id="DestinationLabel" layoutX="126.0" layoutY="199.0" prefHeight="17.0" prefWidth="414.0"  AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="220.0" />
       <Label fx:id="TagAccomodationLabel" layoutX="19.0" layoutY="458.0" text="Alloggi :" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="460.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="AccomodationScoreLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="449.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="460.0" />
+      <Label fx:id="AccomodationScoreLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="449.0" prefHeight="17.0" prefWidth="497.0"  AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="460.0" />
       <Label fx:id="TagFieldtripsLabel" layoutX="21.0" layoutY="504.0" text="Gite :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="510.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="FieldtripsScoreLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="487.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="510.0" />
+      <Label fx:id="FieldtripsScoreLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="487.0" prefHeight="17.0" prefWidth="497.0"  AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="510.0" />
       <Label fx:id="TagActivitiesLabel" layoutX="21.0" layoutY="561.0" text="Attività :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="560.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="ActivitiesScoreLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="561.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="560.0" />
+      <Label fx:id="ActivitiesScoreLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="561.0" prefHeight="17.0" prefWidth="497.0"  AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="560.0" />
       <Label fx:id="TagLessonsLabel" layoutX="21.0" layoutY="607.0" text="Lezioni :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="610.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="LessonsScoreLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="607.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="610.0" />
+      <Label fx:id="LessonsScoreLabel" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="607.0" prefHeight="17.0" prefWidth="497.0"  AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="610.0" />
       <Label fx:id="TagCommentsLabel" layoutX="21.0" layoutY="646.0" text="Commenti :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="660.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

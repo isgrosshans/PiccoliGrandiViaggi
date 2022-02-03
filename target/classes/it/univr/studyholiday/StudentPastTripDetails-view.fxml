@@ -47,9 +47,9 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="DestinationLabelì" layoutX="127.0" layoutY="266.0" prefHeight="17.0" prefWidth="414.0" text="Label" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="266.0" />
+      <Label fx:id="DestinationLabel" layoutX="127.0" layoutY="266.0" prefHeight="17.0" prefWidth="414.0" text="Label" AnchorPane.leftAnchor="127.0" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="266.0" />
       <Button fx:id="SurveyButton" layoutX="158.0" layoutY="468.0" mnemonicParsing="false" onAction="#SurveyButtonClick" text="Questionario" textAlignment="CENTER" AnchorPane.leftAnchor="158.0" AnchorPane.topAnchor="468.0" />
-      <Button fx:id="CertificateButton" disable="true" layoutX="361.0" layoutY="468.0" mnemonicParsing="false" onAction="#CertificateButtonClick" prefHeight="25.0" prefWidth="82.0" text="Certificato" AnchorPane.rightAnchor="157.0" AnchorPane.topAnchor="468.0" />
+      <Button fx:id="CertificateButton" layoutX="361.0" layoutY="468.0" mnemonicParsing="false" onAction="#CertificateButtonClick" prefHeight="25.0" prefWidth="82.0" text="Certificato" AnchorPane.rightAnchor="157.0" AnchorPane.topAnchor="468.0" />
       <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="25.0" layoutY="525.0" prefHeight="17.0" prefWidth="494.0" textFill="RED" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="525.0" />
    </children>
 </AnchorPane>

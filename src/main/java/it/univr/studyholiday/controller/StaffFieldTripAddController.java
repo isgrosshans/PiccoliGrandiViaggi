@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.FieldTrip;
 import it.univr.studyholiday.model.entities.Holiday;
 import it.univr.studyholiday.model.entities.School;
@@ -58,11 +58,11 @@ public class StaffFieldTripAddController implements Initializable {
     }
 
     public void ReturnButtonClick(ActionEvent actionEvent) throws IOException {
-        //GlossaApplication.setRoot("StaffNewTrip2");
+        //pgvApplication.setRoot("StaffNewTrip2");
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffFutureTrips");
+        pgvApplication.setRoot("StaffFutureTrips");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -75,8 +75,8 @@ public class StaffFieldTripAddController implements Initializable {
         warned=true;}
         else{
             //save holiday and fieldtrips to db
-            SaveToDB.insert(new Holiday(departure, weeks, school.getId()), fieldTrips);
-            GlossaApplication.setRoot("StaffFutureTrips");
+            SaveToDB.insertHoliday(new Holiday(departure, weeks, school.getId()), fieldTrips);
+            pgvApplication.setRoot("StaffFutureTrips");
         }
 
         System.out.println(school.getName());

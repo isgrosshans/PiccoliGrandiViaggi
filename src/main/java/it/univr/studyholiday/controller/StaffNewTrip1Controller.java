@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
@@ -42,13 +42,13 @@ public class StaffNewTrip1Controller implements Initializable {
     }
 
     public void ReturnTripsButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffFutureTrips");
+        pgvApplication.setRoot("StaffFutureTrips");
     }
 
     public void NextButtonClick(ActionEvent actionEvent) throws IOException {
         if(schoolselected){
             StaffNewTrip2Controller.setSchool(SchoolTable.getSelectionModel().getSelectedItem());
-            GlossaApplication.setRoot("StaffNewTrip2");
+            pgvApplication.setRoot("StaffNewTrip2");
         }
         else ErrorMessage.setText("Selezionare una scuola");
     }
@@ -56,6 +56,6 @@ public class StaffNewTrip1Controller implements Initializable {
     public void CellCliked(MouseEvent mouseEvent) throws IOException {
         schoolselected=true;
         ErrorMessage.setText("");
-        //GlossaApplication.setRoot("StaffNewTrip2");
+        //pgvApplication.setRoot("StaffNewTrip2");
     }
 }

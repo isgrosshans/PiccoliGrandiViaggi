@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.SurveyResults;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.util.Database.FetchFromDB;
@@ -51,6 +51,6 @@ public class StaffPastTripDetailsController implements Initializable {
     }
 
     public void ReturnPastTripsButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffPastTrips");
+        pgvApplication.setRoot("StaffPastTrips");
     }
 }

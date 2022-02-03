@@ -8,22 +8,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="261.0"
-            xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.univr.studyholiday.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.LoginController">
    <children>
-      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" text="Benvenuto!!!">
+      <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="173.0" layoutY="169.0" prefHeight="35.0" prefWidth="267.0" text="Benvenuto!!!" textAlignment="CENTER">
          <font>
             <Font name="Chalkboard" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="Email" layoutX="54.0" layoutY="70.0" prefHeight="25.0" prefWidth="150.0" promptText="email" />
-      <PasswordField fx:id="Password" layoutX="54.0" layoutY="102.0" prefHeight="25.0" prefWidth="150.0" promptText="password" />
-      <Button fx:id="LoginButton" layoutX="63.0" layoutY="171.0" mnemonicParsing="false" onAction="#loginButtonAction" text="Accedi" />
-      <Button fx:id="ExitButton" layoutX="132.0" layoutY="171.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="25.0" prefWidth="56.0" text="Esci" />
-      <Button fx:id="RegistratiButton" layoutX="145.0" layoutY="250.0" mnemonicParsing="false" onAction="#registratiButtonAction" text="Registrati" />
-      <Label layoutX="20.0" layoutY="254.0" text="Non hai un account?" />
-      <Separator layoutX="-6.0" layoutY="233.0" prefHeight="3.0" prefWidth="267.0" />
-      <Label fx:id="loginFailedMessage" layoutX="26.0" layoutY="139.0" text="Email o password non corretti, riprova" textFill="RED" visible="false"/>
+      <TextField fx:id="Email" layoutX="219.0" layoutY="225.0" prefHeight="25.0" prefWidth="150.0" promptText="email" />
+      <PasswordField fx:id="Password" layoutX="219.0" layoutY="257.0" prefHeight="25.0" prefWidth="150.0" promptText="password" />
+      <Button fx:id="LoginButton" layoutX="228.0" layoutY="326.0" mnemonicParsing="false" onAction="#loginButtonAction" text="Accedi" />
+      <Button fx:id="ExitButton" layoutX="297.0" layoutY="326.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="25.0" prefWidth="56.0" text="Esci" />
+      <Button fx:id="RegistratiButton" layoutX="321.0" layoutY="402.0" mnemonicParsing="false" onAction="#registrationButtonAction" text="Registrati" />
+      <Label layoutX="196.0" layoutY="406.0" text="Non hai un account?" />
+      <Separator layoutX="159.0" layoutY="388.0" prefHeight="3.0" prefWidth="267.0" />
+      <Label fx:id="loginFailedMessage" layoutX="191.0" layoutY="294.0" text="Email o password non corretti, riprova" textFill="RED" visible="false" />
    </children>
 </AnchorPane>

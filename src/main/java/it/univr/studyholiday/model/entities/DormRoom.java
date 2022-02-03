@@ -32,31 +32,24 @@ public class DormRoom implements Entity {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getDormitoryid() {
         return dormitoryid;
-    }
-
-    public void setDormitoryid(int dormitoryid) {
-        this.dormitoryid = dormitoryid;
     }
 
     public String getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(String roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
     public int getBeds() {
         return beds;
     }
 
-    public void setBeds(int beds) {
-        this.beds = beds;
+
+    public String italianDescription(){
+        String s="Camera numero "+roomNumber+"\n";
+        if(beds==1) s+="Singola";
+        else s+=beds+" posti letto";
+        return s;
     }
 }

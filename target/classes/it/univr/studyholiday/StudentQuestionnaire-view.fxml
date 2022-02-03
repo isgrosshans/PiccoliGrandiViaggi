@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TextArea?>
 <AnchorPane prefHeight="616.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StudentQuestionnaireController">
    <children>
       <Button fx:id="ReturnTripsButton" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#ReturnTripsClick" text="&lt; Dettagli Viaggio" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
@@ -30,7 +31,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Slider fx:id="ExperienceSlider" blockIncrement="1.0" layoutX="186.0" layoutY="181.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="38.0" prefWidth="343.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="181.0" />
+      <Slider fx:id="OverallSlider" blockIncrement="1.0" layoutX="186.0" layoutY="181.0" majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="38.0" prefWidth="343.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="181.0" />
       <Label fx:id="FieldTripsLabel" layoutX="22.0" layoutY="238.0" text="Gite :" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="238.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -62,6 +63,6 @@
       </Label>
       <Button fx:id="CancelButton" layoutX="109.0" layoutY="565.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="565.0" />
       <Button fx:id="ConfirmButton" layoutX="424.0" layoutY="565.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="565.0" />
-      <TextField fx:id="CommentTextField" alignment="TOP_LEFT" layoutX="117.0" layoutY="448.0" prefHeight="93.0" prefWidth="421.0" promptText="Inserisci un commento (opzionale)" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="448.0" />
+      <TextArea fx:id="CommentTextArea" layoutX="117.0" layoutY="448.0" prefHeight="93.0" prefWidth="421.0" promptText="Inserisci un commento (opzionale)" wrapText="true" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="448.0" />
    </children>
 </AnchorPane>

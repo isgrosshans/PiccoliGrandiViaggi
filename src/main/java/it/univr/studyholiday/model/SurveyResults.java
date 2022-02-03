@@ -26,32 +26,32 @@ public class SurveyResults {
     }
 
     public String getHolidayidText() {
-        if(holidayid==-1) return "-";
+        if(holidayid<0) return "-";
         return String.valueOf(holidayid);
     }
 
     public String getOverallScoreText() {
-        if(overallScore==-1) return "-";
+        if(overallScore<0) return "-";
         return String.valueOf(overallScore);
     }
 
     public String getSchoolScoreText() {
-        if(schoolScore==-1) return "-";
+        if(schoolScore<0) return "-";
         return String.valueOf(schoolScore);
     }
 
     public String getAccomodationScoreText() {
-        if(accomodationScore==-1) return "-";
+        if(accomodationScore<0) return "-";
         return String.valueOf(accomodationScore);
     }
 
     public String getActivitiesScoreText() {
-        if(activitiesScore==-1) return "-";
+        if(activitiesScore<0) return "-";
         return String.valueOf(activitiesScore);
     }
 
     public String getFieldtripScoreText() {
-        if(fieldtripScore==-1) return "-";
+        if(fieldtripScore<0) return "-";
         return String.valueOf(fieldtripScore);
     }
 

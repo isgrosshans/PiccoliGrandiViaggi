@@ -1,24 +1,32 @@
 package it.univr.studyholiday.model.entities;
 
+import it.univr.studyholiday.model.User;
+
 import java.lang.reflect.Field;
 
 public class Allergy implements Entity {
     private int id=-1;
-    private int studentid;
+    private int studentId;
     private String allergen;
-    private String precautions;
+    private String precaution;
 
-    public Allergy(int studentid, String allergen, String precautions) {
-        this.studentid = studentid;
+    public Allergy(String allergen, String precaution) {
+        this.studentId = User.getCurrentStudent().getId();
         this.allergen = allergen;
-        this.precautions = precautions;
+        this.precaution = precaution;
     }
 
-    public Allergy(int id, int studentid, String allergen, String precautions) {
-        this.id = id;
-        this.studentid = studentid;
+    public Allergy(int studentid, String allergen, String precaution) {
+        this.studentId = studentid;
         this.allergen = allergen;
-        this.precautions = precautions;
+        this.precaution = precaution;
+    }
+
+    public Allergy(int id, int studentid, String allergen, String precaution) {
+        this.id = id;
+        this.studentId = studentid;
+        this.allergen = allergen;
+        this.precaution = precaution;
     }
 
     @Override
@@ -35,11 +43,11 @@ public class Allergy implements Entity {
     }
 
     public int getStudentid() {
-        return studentid;
+        return studentId;
     }
 
     public void setStudentid(int studentid) {
-        this.studentid = studentid;
+        this.studentId = studentid;
     }
 
     public String getAllergen() {
@@ -50,11 +58,16 @@ public class Allergy implements Entity {
         this.allergen = allergen;
     }
 
-    public String getPrecautions() {
-        return precautions;
+    public String getPrecaution() {
+        return precaution;
     }
 
-    public void setPrecautions(String precautions) {
-        this.precautions = precautions;
+    public void setPrecaution(String precaution) {
+        this.precaution = precaution;
+    }
+
+    @Override
+    public String toString() {
+        return allergen + " (" + precaution + ")";
     }
 }

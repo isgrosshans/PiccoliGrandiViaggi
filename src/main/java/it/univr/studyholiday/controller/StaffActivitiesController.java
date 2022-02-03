@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Activity;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
@@ -11,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -71,12 +70,12 @@ public class StaffActivitiesController implements Initializable {
 
     public void ReturnDetailsSchoolButtonClick(ActionEvent actionEvent) throws IOException {
         StaffSchoolDetailsController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolDetails");
+        pgvApplication.setRoot("StaffSchoolDetails");
     }
 
     public void AddActivityButtonClick(ActionEvent actionEvent) throws IOException {
         StaffActivityAddController.setSchool(school);
-        GlossaApplication.setRoot("StaffActivityAdd");
+        pgvApplication.setRoot("StaffActivityAdd");
     }
 
     public void CellClicked(MouseEvent mouseEvent) {
@@ -112,6 +111,6 @@ public class StaffActivitiesController implements Initializable {
 //
 //    public void ReturnDetailsSchoolButtonClick(ActionEvent actionEvent) throws IOException {
 //        StaffSchoolDetailsController.setSchool(school);
-//        GlossaApplication.setRoot("StaffSchoolDetails-view");
+//        pgvApplication.setRoot("StaffSchoolDetails-view");
 //    }
 }

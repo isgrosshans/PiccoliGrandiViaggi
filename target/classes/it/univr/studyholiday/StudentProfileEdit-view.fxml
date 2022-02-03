@@ -21,18 +21,18 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="NameLabel" layoutX="20.0" layoutY="131.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="131.0">
+      <Label fx:id="FirstNameLabel" layoutX="20.0" layoutY="131.0" text="Nome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="131.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="NameTextField" layoutX="103.0" layoutY="131.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="131.0" />
-      <Label fx:id="SurnameLabel" layoutX="20.0" layoutY="181.0" text="Cognome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="181.0">
+      <TextField fx:id="FirstNameTextField" layoutX="103.0" layoutY="131.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="131.0" />
+      <Label fx:id="LastNameLabel" layoutX="20.0" layoutY="181.0" text="Cognome :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="181.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="SurnameTextField" layoutX="103.0" layoutY="181.0" prefHeight="25.0" prefWidth="437.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="181.0" />
+      <TextField fx:id="LastNameTextField" layoutX="103.0" layoutY="181.0" prefHeight="25.0" prefWidth="437.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="181.0" />
       <Label fx:id="AddressLabel" layoutX="20.0" layoutY="231.0" text="Indirizzo : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="231.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -50,7 +50,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <DatePicker fx:id="DatePicker" layoutX="135.0" layoutY="331.0" onMouseClicked="#DateClick" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="277.0" AnchorPane.topAnchor="331.0" />
+      <DatePicker fx:id="BirthdayDatePicker" layoutX="135.0" layoutY="331.0" onMouseClicked="#DateClick" AnchorPane.leftAnchor="135.0" AnchorPane.rightAnchor="277.0" AnchorPane.topAnchor="331.0" />
       <Label fx:id="SexLabel" layoutX="20.0" layoutY="381.0" text="Sesso :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="381.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

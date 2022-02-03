@@ -25,7 +25,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="NameSchoolLabel" layoutX="87.0" layoutY="150.0" prefHeight="17.0" prefWidth="457.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="150.0" />
+      <Label fx:id="NameSchoolLabel" layoutX="87.0" layoutY="150.0" prefHeight="17.0" prefWidth="457.0"  AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="150.0" />
       <Label fx:id="DestinationLabel" layoutX="31.0" layoutY="196.0" text="Destinazione :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="200.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

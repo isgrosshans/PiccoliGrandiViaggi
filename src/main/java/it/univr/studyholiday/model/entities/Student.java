@@ -1,55 +1,86 @@
 package it.univr.studyholiday.model.entities;
 
+import it.univr.studyholiday.util.Database.LoginDB;
+
 import java.lang.reflect.Field;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 //     STUDENT(email, password, firstName, lastName,
 //          birthday, birthplace, sex, address,
 //          phonenumber* 	)
 
 //STUDENT
-//(id, email, password, firstname, lastname, birthday, gender, address, phone*, parent1id, parent2id*, hobby)
+//(id, email, password, firstname, lastname, birthday, gender, address, phone*, parent1id, parent2id*, hobbies)
 public class Student implements Entity {
     private int id=-1;
     private String email;
-    private String psw;
+    private String psw="";
     private String firstName;
     private String lastName;
     private LocalDate birthday;
     private String sex;
     private String address;
     private String phone;
-    private String hobby;
-    private String idParent1;
-    private String idParent2;
+    private String hobbies;
+    private int parent1id=-1;
+    private int parent2id=-1;
 
-    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobby, String idParent1, String idParent2) {
-        this.email = email;
-        this.psw = psw;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.sex = sex;
-        this.address = address;
-        this.phone = phone;
-        this.hobby = hobby;
-        this.idParent1 = idParent1;
-        this.idParent2 = idParent2;
-    }
-
-    public Student(int id, String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobby, String idParent1, String idParent2) {
+    public Student(int id,
+                   String email, String firstName, String lastName,
+                   LocalDate birthday,
+                   String sex, String address, String phone, String hobbies,
+                   int parent1id, int parent2id) {
         this.id = id;
         this.email = email;
-        this.psw = psw;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
         this.sex = sex;
         this.address = address;
         this.phone = phone;
-        this.hobby = hobby;
-        this.idParent1 = idParent1;
-        this.idParent2 = idParent2;
+        this.hobbies = hobbies;
+        this.parent1id = parent1id;
+        this.parent2id = parent2id;
+    }
+
+    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies, int parent1id, int parent2id) {
+        this.email = email;
+        this.psw = LoginDB.encrypy(psw);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.address = address;
+        this.phone = phone;
+        this.hobbies = hobbies;
+        this.parent1id = parent1id;
+        this.parent2id = parent2id;
+    }
+    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies, int parent1id) {
+        this.email = email;
+        this.psw = LoginDB.encrypy(psw);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.address = address;
+        this.phone = phone;
+        this.hobbies = hobbies;
+        this.parent1id = parent1id;
+    }
+
+    public Student(String email, String psw, String firstName, String lastName, LocalDate birthday, String sex, String address, String phone, String hobbies) {
+        this.email = email;
+        this.psw = LoginDB.encrypy(psw);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.sex = sex;
+        this.address = address;
+        this.phone = phone;
+        this.hobbies = hobbies;
     }
 
     //special getter
@@ -107,34 +138,46 @@ public class Student implements Entity {
     }
 
     public String getPhone() {
-        return phone;
+        if(phone==null)return""; else return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getHobby() {
-        return hobby;
+    public String getHobbies() {
+        return hobbies;
     }
 
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
+    public void setHobbies(String hobbies) {
+        this.hobbies = hobbies;
     }
 
-    public String getIdParent1() {
-        return idParent1;
+    public int getParent1id() {
+        return parent1id;
     }
 
-    public void setIdParent1(String idParent1) {
-        this.idParent1 = idParent1;
+    public void setParent1id(int parent1id) {
+        this.parent1id = parent1id;
     }
 
-    public String getIdParent2() {
-        return idParent2;
+    public int getParent2id() {
+        return parent2id;
     }
 
-    public void setIdParent2(String idParent2) {
-        this.idParent2 = idParent2;
+    public void setParent2id(int parent2id) {
+        this.parent2id = parent2id;
+    }
+
+    public String getBirthdayString() {
+        return birthday.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getFullName(){
+        return firstName+" "+lastName;
     }
 }

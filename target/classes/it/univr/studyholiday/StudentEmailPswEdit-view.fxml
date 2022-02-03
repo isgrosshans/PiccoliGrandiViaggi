@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="600.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.univr.studyholiday.controller.StudentEmailPswEditController">
    <children>
       <Label fx:id="StudentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="18.0" text="Studente" textFill="#111111" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
@@ -13,35 +14,35 @@
             <Font name="Chalkboard" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="EditMailPswLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="58.0" prefWidth="406.0" text="Modifica Mail o Password" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+      <Label fx:id="EditEmailPswLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="58.0" prefWidth="406.0" text="Modifica Email o Password" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
          <font>
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="EmailLabel" layoutX="21.0" layoutY="168.0" text="Mail :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="168.0">
+      <Label fx:id="EmailLabel" layoutX="21.0" layoutY="168.0" text="Email :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="168.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="MailTextField" layoutX="104.0" layoutY="168.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="168.0" />
+      <TextField fx:id="EmailTextField" layoutX="104.0" layoutY="168.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="168.0" />
       <Label fx:id="PswLabel" layoutX="21.0" layoutY="234.0" text="Password attuale :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="234.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="PswTextField" layoutX="158.0" layoutY="234.0" prefHeight="25.0" prefWidth="388.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="234.0" />
+      <PasswordField fx:id="OldPswField" layoutX="158.0" layoutY="234.0" prefHeight="25.0" prefWidth="388.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="234.0" />
       <Label fx:id="NewPswLabel" layoutX="21.0" layoutY="301.0" text="Nuova Password : " AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="301.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="NewPswTextField" layoutX="158.0" layoutY="301.0" prefHeight="25.0" prefWidth="388.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="301.0" />
+      <PasswordField fx:id="NewPswField" layoutX="158.0" layoutY="301.0" prefHeight="25.0" prefWidth="388.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="301.0" />
       <Label fx:id="ConfirmPswLabel" layoutX="21.0" layoutY="368.0" text="Conferma Password :" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="368.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="ConfirmPswTextField" layoutX="158.0" layoutY="368.0" prefHeight="25.0" prefWidth="388.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="368.0" />
+      <PasswordField fx:id="ConfirmNewPswField" layoutX="158.0" layoutY="368.0" prefHeight="25.0" prefWidth="388.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="368.0" />
       <Button fx:id="CancelButton" layoutX="150.0" layoutY="470.0" mnemonicParsing="false" onAction="#CancelButtonClick" text="Annulla" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="470.0" />
       <Button fx:id="ConfirmButton" layoutX="383.0" layoutY="470.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" text="Conferma" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="470.0" />
       <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="522.0" prefHeight="18.0" prefWidth="586.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="522.0" />

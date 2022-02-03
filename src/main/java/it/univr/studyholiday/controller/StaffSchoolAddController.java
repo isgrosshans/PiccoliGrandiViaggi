@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.event.ActionEvent;
@@ -21,11 +21,11 @@ public class StaffSchoolAddController {
     @FXML private Label ErrorMessage;
 
     public void ReturnSchoolButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchools");
+        pgvApplication.setRoot("StaffSchools");
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffSchools");
+        pgvApplication.setRoot("StaffSchools");
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
@@ -42,12 +42,12 @@ public class StaffSchoolAddController {
                     CountryTextField.getText(),
                     LanguageTextField.getText()));
 
-            GlossaApplication.setRoot("StaffSchools");
+            pgvApplication.setRoot("StaffSchools");
         }
 
 
         //StaffSchoolsController.addSchool(new School("3","c","c","c","c","c","c"));
-        //GlossaApplication.setRoot("StaffSchools");
+        //pgvApplication.setRoot("StaffSchools");
     }
 
     public boolean allFilled(){

@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Dormitory;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.FetchFromDB;
@@ -57,17 +57,17 @@ public class StaffDormitoriesController implements Initializable {
 
     public void ReturnDetailsSchoolButtonClick(ActionEvent actionEvent) throws IOException {
         StaffSchoolDetailsController.setSchool(school);
-        GlossaApplication.setRoot("StaffSchoolDetails");
+        pgvApplication.setRoot("StaffSchoolDetails");
     }
 
     public void AddDormitoryButtonClick(ActionEvent actionEvent) throws IOException {
         StaffDormitoryAddController.setSchool(school);
-        GlossaApplication.setRoot("StaffDormitoryAdd");
+        pgvApplication.setRoot("StaffDormitoryAdd");
     }
 
     public void CellClicked(MouseEvent mouseEvent) throws IOException {
         StaffDormitoryDetailsController.setSchool(school);
         StaffDormitoryDetailsController.setDormitory(DormitoriesTable.getSelectionModel().getSelectedItem());
-        GlossaApplication.setRoot("StaffDormitoryDetails");
+        pgvApplication.setRoot("StaffDormitoryDetails");
     }
 }

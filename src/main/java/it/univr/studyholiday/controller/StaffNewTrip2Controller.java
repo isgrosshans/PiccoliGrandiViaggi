@@ -1,6 +1,6 @@
 package it.univr.studyholiday.controller;
 
-import it.univr.studyholiday.GlossaApplication;
+import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.School;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,7 +35,7 @@ public class StaffNewTrip2Controller implements Initializable {
     }
 
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
-        GlossaApplication.setRoot("StaffFutureTrips");
+        pgvApplication.setRoot("StaffFutureTrips");
     }
 
     public void NextButtonClick(ActionEvent actionEvent) throws IOException {
@@ -52,7 +52,7 @@ public class StaffNewTrip2Controller implements Initializable {
             StaffFieldTripAddController.setSchool(school);
             StaffFieldTripAddController.setDeparture(DepartureDatePicker.getValue());
             StaffFieldTripAddController.setWeeks(WeeksSpinner.getValue());
-            GlossaApplication.setRoot("StaffFieldTripAdd");}
+            pgvApplication.setRoot("StaffFieldTripAdd");}
     }
 
     public void DatePickerClick(ActionEvent actionEvent) {

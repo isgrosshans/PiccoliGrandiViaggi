@@ -6,37 +6,37 @@ import java.lang.reflect.Field;
 //SK: holidayid, studentid
 public class Survey implements Entity {
     private int id = -1;
-    private int holidayid;
-    private int studentid;
+    private int holidayid = -1;
+    private int studentid = -1;
     private String comment;
     private int overallScore;
     private int schoolScore;
-    private int accomodationScore;
+    private int accommodationScore;
     private int activitiesScore;
-    private int fieldtripScore;
+    private int fieldtripsScore;
 
-    public Survey(int holidayid, int studentid, String comment, int overallScore, int schoolScore, int accomodationScore, int activitiesScore, int fieldtripScore) {
+    public Survey(int holidayid, int studentid, String comment, int overallScore, int schoolScore, int accommodationScore, int activitiesScore, int fieldtripsScore) {
         this.id = -1;
         this.holidayid = holidayid;
         this.studentid = studentid;
         this.comment = comment;
         this.overallScore = overallScore;
         this.schoolScore = schoolScore;
-        this.accomodationScore = accomodationScore;
+        this.accommodationScore = accommodationScore;
         this.activitiesScore = activitiesScore;
-        this.fieldtripScore = fieldtripScore;
+        this.fieldtripsScore = fieldtripsScore;
     }
 
-    public Survey(int id, int holidayid, int studentid, String comment, int overallScore, int schoolScore, int accomodationScore, int activitiesScore, int fieldtripScore) {
+    public Survey(int id, int holidayid, int studentid, String comment, int overallScore, int schoolScore, int accommodationScore, int activitiesScore, int fieldtripsScore) {
         this.id = id;
         this.holidayid = holidayid;
         this.studentid = studentid;
         this.comment = comment;
         this.overallScore = overallScore;
         this.schoolScore = schoolScore;
-        this.accomodationScore = accomodationScore;
+        this.accommodationScore = accommodationScore;
         this.activitiesScore = activitiesScore;
-        this.fieldtripScore = fieldtripScore;
+        this.fieldtripsScore = fieldtripsScore;
     }
 
     public int getId() {
@@ -79,12 +79,12 @@ public class Survey implements Entity {
         this.schoolScore = schoolScore;
     }
 
-    public int getAccomodationScore() {
-        return accomodationScore;
+    public int getAccommodationScore() {
+        return accommodationScore;
     }
 
-    public void setAccomodationScore(int accomodationScore) {
-        this.accomodationScore = accomodationScore;
+    public void setAccommodationScore(int accommodationScore) {
+        this.accommodationScore = accommodationScore;
     }
 
     public int getActivitiesScore() {
@@ -95,12 +95,12 @@ public class Survey implements Entity {
         this.activitiesScore = activitiesScore;
     }
 
-    public int getFieldtripScore() {
-        return fieldtripScore;
+    public int getFieldtripsScore() {
+        return fieldtripsScore;
     }
 
-    public void setFieldtripScore(int fieldtripScore) {
-        this.fieldtripScore = fieldtripScore;
+    public void setFieldtripsScore(int fieldtripsScore) {
+        this.fieldtripsScore = fieldtripsScore;
     }
 
     @Override

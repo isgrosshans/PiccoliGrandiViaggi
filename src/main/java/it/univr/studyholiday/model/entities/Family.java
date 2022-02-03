@@ -61,14 +61,14 @@ public class Family implements Entity {
 
     public String italianDescription(){
         String result="";
-        result+=  "Famiglia di             "+firstName+" "+lastName+
-                "\nComponent:              "+members+
-                "\nCamere per gli ospiti:  "+bedrooms+
-                "\nBagni per gli ospiti:   "+bathrooms+
-                "\nAnimali domestici:      ";
+        result+=  "Famiglia di "+firstName+" "+lastName+
+                "\nComponent:             \t"+members+
+                "\nCamere per gli ospiti: \t"+bedrooms+
+                "\nBagni per gli ospiti:  \t"+bathrooms+
+                "\nAnimali domestici:     \t";
         if(pets) result+="sì";
         else result+="no";
-        result+="\nDistanza dal centro:    "+cityDistance;
+        result+="\nDistanza dal centro:   \t"+cityDistance;
         return result;
     }
 
@@ -134,10 +134,12 @@ public class Family implements Entity {
         return pets;
     }
 
-    public String hasPets() {
+    public String hasPetsIT() {
         if(pets) return "sì";
         else return "no";
     }
+
+    public Boolean getPets(){return pets;}
 
     public void setPets(boolean pets) {
         this.pets = pets;
@@ -182,4 +184,5 @@ public class Family implements Entity {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }

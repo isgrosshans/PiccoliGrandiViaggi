@@ -1,5 +1,6 @@
 package it.univr.studyholiday.util.Database;
 
+import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.Staff;
 import it.univr.studyholiday.model.entities.Student;
 
@@ -89,7 +90,7 @@ public class LoginDB {
                 if (rs.getInt(1) == 1) {
                     try (PreparedStatement pst1 = con.prepareStatement(
                             "SELECT id, firstname, lastname, birthday, sex, " +
-                                    " address, phone, hobby, idparent1, idparent2 " +
+                                    " address, phone, hobbies, parent1id, parent2id " +
                                     " FROM student " +
                                     " WHERE email=? AND psw=? ")) {
                         pst1.setString(1, email);
@@ -97,7 +98,7 @@ public class LoginDB {
 
                         rs = pst1.executeQuery();
                         rs.next();
-                        return new Student( rs.getString(1),
+                        return new Student( rs.getInt(1),
                                             email,
                                             rs.getString(2),
                                             rs.getString(3),
@@ -106,12 +107,40 @@ public class LoginDB {
                                             rs.getString(6),
                                             rs.getString(7),
                                             rs.getString(8),
-                                            rs.getString(9),
-                                            rs.getString(10));
+                                            rs.getInt(9),
+                                            rs.getInt(10));
+
 
                     }catch (SQLException e1) {
                         System.out.println("Database.login error retrieving student information"+ e1.getMessage());
                     }
+                }
+            } catch (SQLException e) {
+                System.out.println("Database.login error checking credentials:"+e.getMessage());
+            }
+        } catch (SQLException e) {
+            System.out.println("Connection error: "+e.getMessage());
+        }
+        return false;
+    }
+
+    public static Boolean checkPsw(String password){
+        password = encrypy(password);
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    " SELECT COUNT(*) FROM student WHERE email=? AND psw=? " )) {
+                pst.setString(1, User.getCurrentStudent().getEmail());
+                pst.setString(2, password);
+                rs = pst.executeQuery();
+                rs.next();
+                if (rs.getInt(1) == 1) {
+                    return true;
                 }
             } catch (SQLException e) {
                 System.out.println("Database.login error checking credentials:"+e.getMessage());

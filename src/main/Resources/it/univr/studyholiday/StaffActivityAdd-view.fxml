@@ -20,12 +20,12 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="NameSchoolLabel" layoutX="20.0" layoutY="140.0" text="Scuola :" AnchorPane.leftAnchor="20.0">
+      <Label fx:id="TagNameSchoolLabel" layoutX="20.0" layoutY="140.0" text="Scuola :" AnchorPane.leftAnchor="20.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="NameSchooLabel" layoutX="83.0" layoutY="141.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="140.0" />
+      <Label fx:id="NameSchoolLabel" layoutX="83.0" layoutY="141.0" prefHeight="17.0" prefWidth="497.0" text="Label" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="140.0" />
       <Label fx:id="NameActivityLabel" layoutX="20.0" layoutY="226.0" prefHeight="17.0" prefWidth="105.0" text="Nome attività :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="481.0" AnchorPane.topAnchor="226.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

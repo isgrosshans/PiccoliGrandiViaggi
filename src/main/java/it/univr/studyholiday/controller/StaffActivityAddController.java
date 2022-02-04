@@ -56,7 +56,7 @@ public class StaffActivityAddController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        NameSchoolLabel.setText(school.getName);
+        NameSchoolLabel.setText(school.getName());
 
     }
 }

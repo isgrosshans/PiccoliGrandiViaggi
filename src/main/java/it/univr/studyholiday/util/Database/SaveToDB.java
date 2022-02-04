@@ -22,28 +22,60 @@ public class SaveToDB {
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
 
-                try (PreparedStatement pst = con.prepareStatement(
-                        "INSERT INTO "+getTableNameFor(entity)+
-                                " (" + getColumnNamesFor(entity)+
-                                ") VALUES ("+
-                                getValuesFor(entity)+");")) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "INSERT INTO "+getTableNameFor(entity)+
+                            " (" + getColumnNamesFor(entity)+
+                            ") VALUES ("+
+                            getValuesFor(entity)+");")) {
 
-                    System.out.println(pst);
-                    rs = pst.executeQuery();
-                    rs.next();
+                System.out.println(pst);
+                rs = pst.executeQuery();
+                rs.next();
 
 
-                }catch (SQLException e1) {
-                    System.out.println("SaveToDB.insert."+getTableNameFor(entity)+": "+ e1.getMessage());
-                } catch (IllegalAccessException illegalAccessException) {
-                    illegalAccessException.printStackTrace();
-                }
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(entity)+": "+ e1.getMessage());
+            } catch (IllegalAccessException illegalAccessException) {
+                illegalAccessException.printStackTrace();
+            }
 
         } catch (SQLException e) {
             System.out.println("Connection error: "+e.getMessage());
         }
 
     }
+//
+//    public static void insertReservation(Entity entity){
+//        try {
+//            Class.forName("org.postgresql.Driver");
+//        } catch (java.lang.ClassNotFoundException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        ResultSet rs = null;
+//        try (Connection con = Database.getConnection()) {
+//
+//            try (PreparedStatement pst = con.prepareStatement(
+//                    "INSERT INTO "+getTableNameFor(entity)+
+//                            " (" + getColumnNamesFor(entity)+
+//                            ") VALUES ("+
+//                            getValuesFor(entity)+");")) {
+//
+//                System.out.println(pst);
+//                rs = pst.executeQuery();
+//                rs.next();
+//
+//
+//            }catch (SQLException e1) {
+//                System.out.println("SaveToDB.insert."+getTableNameFor(entity)+": "+ e1.getMessage());
+//            } catch (IllegalAccessException illegalAccessException) {
+//                illegalAccessException.printStackTrace();
+//            }
+//
+//        } catch (SQLException e) {
+//            System.out.println("Connection error: "+e.getMessage());
+//        }
+//
+//    }
 
     public static void insertFamily(Family family) {
         try {
@@ -535,8 +567,9 @@ public class SaveToDB {
             else{
                 temp=e.getValue(f).toString();
 
-                if (f.getName().endsWith("id")) {
+                if (f.getName().endsWith("id") || f.getName().endsWith("Id")) {
                     if(e.getValue(f).equals(-1)) result+=" DEFAULT ";
+                    else if(e.getValue(f).equals(-2)) result+=" default ";
                     else result+=temp;
                 }
 

@@ -9,7 +9,7 @@ public class Reservation implements Entity {
     private int studentId;
     private int holidayId;
     private String paymentMethod;
-    private int bedId =-1;
+    private int bedId=-2;
     private String friendEmail;
     private String languageLevel;
     private Boolean familyStay;

@@ -36,6 +36,7 @@ public class StudentParentEditController implements Initializable {
     public static void setParent2(Parent p){
         parent2=p;
         parent2bool=true;}
+
     public void CancelButtonClick(ActionEvent actionEvent) throws IOException {
         pgvApplication.setRoot("StudentProfile");
     }
@@ -101,7 +102,6 @@ public class StudentParentEditController implements Initializable {
                 LastnameTextField2.getText().isBlank() &&
                 PhoneTextField2.getText().isBlank());
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

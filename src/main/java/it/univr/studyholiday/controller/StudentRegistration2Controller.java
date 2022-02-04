@@ -32,29 +32,15 @@ public class StudentRegistration2Controller implements Initializable {
         StudentRegistration2Controller.student = student;
     }
 
-
-    public void ReturnButtonClick(ActionEvent actionEvent) throws IOException {
-        //todo remove
-    }
-
     public void AddButtonClick(ActionEvent actionEvent) {
         if(AllergenTextField.getText().isBlank()||PrecautionTextField.getText().isBlank()) {//do nothing
         }else{
             allergies.add(new Allergy(AllergenTextField.getText(), PrecautionTextField.getText()));
             AllergenTextField.clear();
             PrecautionTextField.clear();
-
             AllergensTableView.setItems((FXCollections.observableArrayList(allergies)));
         }
-
         AllergensTableView.setItems((FXCollections.observableArrayList(allergies)));
-
-//        if(!AllergenTextField.getText().isBlank()){
-//            allergies.add(new Allergy(AllergenTextField.getText(), PrecautionTextField.getText()));
-//            AllergensTableView.setItems(FXCollections.observableArrayList(allergies));
-//            AllergenTextField.clear();
-//            PrecautionTextField.clear();
-//        }
     }
 
     public void AllergyTableClick(MouseEvent mouseEvent) {

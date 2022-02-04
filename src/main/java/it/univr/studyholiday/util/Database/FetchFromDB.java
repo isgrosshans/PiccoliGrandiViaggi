@@ -734,7 +734,43 @@ public class FetchFromDB {
         return sv;
     }
 
-     public static ArrayList<FieldTrip> FieldTrips(int holidayid) {
+    public static Survey survey(){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT holidayid, studentid, comment, " +
+                            "overallScore, schoolScore, accommodationScore, activitiesScore, fieldtripsScore " +
+                            "FROM survey " +
+                            "WHERE studentid=?; " )) {
+                pst.setInt(1, User.getCurrentStudent().getId());
+                rs = pst.executeQuery();
+                rs.next();
+                return new Survey(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getInt(8));
+
+            } catch (SQLException e) {
+                System.out.print("Error fetching survey results "+e.getMessage());
+            }
+
+        } catch (SQLException e) {
+            System.out.print("Connection error: "+e.getMessage());
+        }
+        return null;
+    }
+
+    public static ArrayList<FieldTrip> FieldTrips(int holidayid) {
         ArrayList<FieldTrip> ral = new ArrayList<>();
         try {
             Class.forName("org.postgresql.Driver");

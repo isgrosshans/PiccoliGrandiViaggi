@@ -32,8 +32,8 @@ public class StudentPastTripDetailsController implements Initializable {
     }
 
     public void SurveyButtonClick(ActionEvent actionEvent) throws IOException {
-        StudentQuestionnaireController.setTrip(trip);
-        pgvApplication.setRoot("StudentQuestionnaire");
+        StudentSurveyController.setTrip(trip);
+        pgvApplication.setRoot("StudentSurvey");
     }
 
     public void CertificateButtonClick(ActionEvent actionEvent) throws IOException {
@@ -48,8 +48,5 @@ public class StudentPastTripDetailsController implements Initializable {
         NameSchoolLabel.setText(trip.getSchool().getName());
         LanguageLabel.setText(trip.getSchool().getLanguage());
         DestinationLabel.setText(trip.getDestination());
-        if(FetchFromDB.hasFilledSurvey(User.getCurrentStudent().getId(),trip.getHoliday().getId())){
-            SurveyButton.setDisable(true);
-        };
     }
 }

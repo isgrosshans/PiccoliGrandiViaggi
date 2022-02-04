@@ -103,6 +103,10 @@ public class Survey implements Entity {
         this.fieldtripsScore = fieldtripsScore;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
     @Override
     public Object getValue(Field field) throws IllegalAccessException {
         return field.get(this);

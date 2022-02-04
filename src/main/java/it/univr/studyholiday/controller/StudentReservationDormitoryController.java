@@ -27,10 +27,6 @@ public class StudentReservationDormitoryController implements Initializable {
         trip = t;
     }
 
-    public void ReturnDetailsTripButtonClick(ActionEvent actionEvent) throws IOException {
-        //todo remove
-    }
-
     public void SingleRoomAction(ActionEvent actionEvent) throws IOException {
 
     }

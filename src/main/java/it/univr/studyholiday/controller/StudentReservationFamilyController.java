@@ -35,10 +35,6 @@ public class StudentReservationFamilyController implements Initializable {
         trip = t;
     }
 
-    public void ReturnDetailsTripButtonClick(ActionEvent actionEvent) throws IOException {
-        //todo remove
-    }
-
     public void YesFriendAction(ActionEvent actionEvent) throws IOException {
         ErrorMessage.setText("");
         EmailTextField.setDisable(false);

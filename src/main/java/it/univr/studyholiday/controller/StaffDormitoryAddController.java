@@ -20,8 +20,8 @@ public class StaffDormitoryAddController implements Initializable {
 
     @FXML private Label NameSchoolLabel;
     @FXML private TextField NameTextField;
-    @FXML private TextField AdressTextField;
-    @FXML private ChoiceBox GenderCoiceBox;
+    @FXML private TextField AddressTextField;
+    @FXML private ChoiceBox GenderChoiceBox;
     @FXML private Spinner<Integer> SingleRoomSpinner;
     @FXML private Spinner<Integer> DoubleRoomSpinner;
     @FXML private Label ErrorMessage;
@@ -39,7 +39,7 @@ public class StaffDormitoryAddController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         NameSchoolLabel.setText(school.getName());
-        GenderCoiceBox.setItems(FXCollections.observableArrayList("Maschile", "Femminile"));
+        GenderChoiceBox.setItems(FXCollections.observableArrayList("Maschile", "Femminile"));
         SingleRoomSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,50,0));
         DoubleRoomSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0,50,0));
     }
@@ -51,20 +51,20 @@ public class StaffDormitoryAddController implements Initializable {
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
         if(NameTextField.getText().isBlank()
-            || AdressTextField.getText().isBlank()
-            || GenderCoiceBox.getSelectionModel().getSelectedItem()==null
+            || AddressTextField.getText().isBlank()
+            || GenderChoiceBox.getSelectionModel().getSelectedItem()==null
         ) ErrorMessage.setText("Compilare tutti i campi.");
         else if(SingleRoomSpinner.getValue()+DoubleRoomSpinner.getValue()==0)
             ErrorMessage.setText("Il dormitorio deve avere delle camere.");
 
         else{
             String mf;
-                    if(GenderCoiceBox.getSelectionModel().getSelectedItem().toString().equals("Maschile")) mf="m";
+                    if(GenderChoiceBox.getSelectionModel().getSelectedItem().toString().equals("Maschile")) mf="m";
                     else mf="f";
             System.out.println(school.getId());
             SaveToDB.insertDormRooms(new Dormitory(  school.getId(),
                                             NameTextField.getText(),
-                                            AdressTextField.getText(), mf),
+                                            AddressTextField.getText(), mf),
                             SingleRoomSpinner.getValue(),
                             DoubleRoomSpinner.getValue());
 

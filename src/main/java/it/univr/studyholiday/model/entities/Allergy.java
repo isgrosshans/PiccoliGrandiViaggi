@@ -11,7 +11,6 @@ public class Allergy implements Entity {
     private String precaution;
 
     public Allergy(String allergen, String precaution) {
-        this.studentId = User.getCurrentStudent().getId();
         this.allergen = allergen;
         this.precaution = precaution;
     }

@@ -4,6 +4,7 @@ import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Allergy;
 import it.univr.studyholiday.model.entities.Student;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,7 +25,7 @@ public class StudentRegistration2Controller implements Initializable {
     @FXML private  TableColumn<Allergy,String> AllergensColumn;
     @FXML private  TableColumn<Allergy,String> PrecautionsColumn;
 
-    private static ArrayList<Allergy>  allergies=new ArrayList<>();
+    @FXML private static ArrayList<Allergy>  allergies = new ArrayList<>();
 
     private static Student student;
     public static void setStudent(Student student) {
@@ -37,12 +38,23 @@ public class StudentRegistration2Controller implements Initializable {
     }
 
     public void AddButtonClick(ActionEvent actionEvent) {
-        if(!AllergenTextField.getText().isBlank()){
+        if(AllergenTextField.getText().isBlank()||PrecautionTextField.getText().isBlank()) {//do nothing
+        }else{
             allergies.add(new Allergy(AllergenTextField.getText(), PrecautionTextField.getText()));
-            AllergensTableView.setItems(FXCollections.observableArrayList(allergies));
             AllergenTextField.clear();
             PrecautionTextField.clear();
+
+            AllergensTableView.setItems((FXCollections.observableArrayList(allergies)));
         }
+
+        AllergensTableView.setItems((FXCollections.observableArrayList(allergies)));
+
+//        if(!AllergenTextField.getText().isBlank()){
+//            allergies.add(new Allergy(AllergenTextField.getText(), PrecautionTextField.getText()));
+//            AllergensTableView.setItems(FXCollections.observableArrayList(allergies));
+//            AllergenTextField.clear();
+//            PrecautionTextField.clear();
+//        }
     }
 
     public void AllergyTableClick(MouseEvent mouseEvent) {
@@ -64,5 +76,6 @@ public class StudentRegistration2Controller implements Initializable {
         AllergensTableView.setPlaceholder(new Label(""));
         AllergensColumn.setCellValueFactory(new PropertyValueFactory<>("Allergen"));
         PrecautionsColumn.setCellValueFactory(new PropertyValueFactory<>("Precaution"));
+        AllergensTableView.setItems((FXCollections.observableArrayList(allergies)));
     }
 }

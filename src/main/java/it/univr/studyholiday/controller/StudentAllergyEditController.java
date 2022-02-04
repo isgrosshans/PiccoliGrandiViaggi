@@ -35,7 +35,7 @@ public class StudentAllergyEditController implements Initializable {
         if(AllergenTextField.getText().isBlank()||PrecautionTextField.getText().isBlank())
             ErrorMessage.setText("Inserire allergene e precauzione.");
         else{
-            SaveToDB.insert(new Allergy(AllergenTextField.getText(), PrecautionTextField.getText()));
+            SaveToDB.insert(new Allergy(User.getCurrentStudent().getId(), AllergenTextField.getText(), PrecautionTextField.getText()));
             try {
                 AllergenTable.setItems(FXCollections.observableArrayList(FetchFromDB.Allergies(User.getCurrentStudent().getId())));
             } catch (SQLException e) {

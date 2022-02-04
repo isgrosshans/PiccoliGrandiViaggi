@@ -18,9 +18,10 @@ import java.util.ResourceBundle;
 
 public class StaffActivityAddController implements Initializable{
 
-    public Label ErrorLabel;
+    @FXML private Label ErrorLabel;
     @FXML private TextField NameActivityTextField;
     @FXML private TextArea DescriptionActivityTextField;
+    @FXML private Label NameSchoolLabel;
 
 
 
@@ -55,7 +56,7 @@ public class StaffActivityAddController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        NameSchoolLabel.setText(school.getName);
 
     }
 }

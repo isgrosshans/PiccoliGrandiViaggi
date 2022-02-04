@@ -18,7 +18,7 @@
             <Font name="Academy Engraved LET Plain:1.0" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="139.0" prefHeight="17.0" prefWidth="563.0" text="Scegli il livello della lingua che vuoio studiare :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="139.0">
+      <Label fx:id="DescriptionLabel" layoutX="20.0" layoutY="139.0" prefHeight="17.0" prefWidth="563.0" text="Scegli il livello della lingua che vuoi studiare :" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="139.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>

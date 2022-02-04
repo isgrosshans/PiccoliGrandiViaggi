@@ -106,7 +106,7 @@ public class StaffBookingDetailsController implements Initializable {
         TypeColumn.setCellValueFactory(new PropertyValueFactory<>("Type"));
 
 
-        accommodations=FetchFromDB.Accomodations(reservation);
+        accommodations=FetchFromDB.Accommodations(reservation);
         AccommodationTable.setItems(FXCollections.observableArrayList(accommodations));
         TableView.TableViewSelectionModel<Accommodation> selectionModel = AccommodationTable.getSelectionModel();
         selectionModel.setSelectionMode(SelectionMode.SINGLE);

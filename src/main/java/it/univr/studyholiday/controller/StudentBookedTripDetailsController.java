@@ -70,7 +70,13 @@ public class StudentBookedTripDetailsController implements Initializable {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            AccomodationsLabel.setText(accommodation.italianDescription());
+            String s="\n";
+            try {
+                s+=FetchFromDB.roomMates(reservation);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            AccomodationsLabel.setText(accommodation.italianDescription()+s);
         }
         else AccomodationsLabel.setText("Alloggio non ancora assegnato.");
 

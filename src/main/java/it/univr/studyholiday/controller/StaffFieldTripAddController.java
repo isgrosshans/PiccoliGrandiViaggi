@@ -30,6 +30,10 @@ public class StaffFieldTripAddController implements Initializable {
     @FXML private TextField DescriptionTextField;
     @FXML private Label ErrorMessage;
 
+    private static int fieldtripcounter=0;
+    public static void setFieldtripcounter(int fieldtripcounter) {
+        StaffFieldTripAddController.fieldtripcounter = fieldtripcounter;
+    }
     private static boolean warned=false;
     private static School school;
         public static void setSchool(School s) {school = s;}
@@ -67,12 +71,16 @@ public class StaffFieldTripAddController implements Initializable {
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
         //check that all fields have been filled
-        if(allfilled()) TempSaveFieldtrip();
-        if(fieldTrips.size()==0) ErrorMessage.setText("Inserire almeno una gita");
-        else if(!allfilled() && !warned){
+        if(allfilled()){
+            TempSaveFieldtrip();
+        }
+        else if(fieldTrips.size()==0) {
+            ErrorMessage.setText("Inserire almeno una gita: compila tutti i dati richiesti");
+        }
+        else if(!warned){
             ErrorMessage.setText("Questa gita non verrà salvata. Cliccare conferma per avanzare comunque.");
-            //magari far aprire una finestrella piccola
-        warned=true;}
+        warned=true;
+        }
         else{
             //save holiday and fieldtrips to db
             SaveToDB.insertHoliday(new Holiday(departure, weeks, school.getId()), fieldTrips);

@@ -2,7 +2,6 @@ package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.model.Accommodation;
 import it.univr.studyholiday.pgvApplication;
-import it.univr.studyholiday.model.Booking;
 import it.univr.studyholiday.model.Trip;
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.DormRoom;
@@ -13,7 +12,6 @@ import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.AccessibleAction;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -32,11 +30,6 @@ public class StudentBookedTripDetailsController implements Initializable {
     @FXML private Label DestinationLabel;
     @FXML private Label PaymentLabel;
     @FXML private Label AccomodationsLabel;
-
-    private static Booking booking;
-    public static void setBooking(Booking booking) {
-        StudentBookedTripDetailsController.booking = booking;
-    }
 
     private static Trip trip;
     public static void setTrip(Trip trip) {

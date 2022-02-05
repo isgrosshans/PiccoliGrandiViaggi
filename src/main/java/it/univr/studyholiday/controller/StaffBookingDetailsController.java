@@ -7,7 +7,7 @@ import it.univr.studyholiday.model.entities.Allergy;
 import it.univr.studyholiday.model.entities.Reservation;
 import it.univr.studyholiday.model.entities.Student;
 import it.univr.studyholiday.util.Database.FetchFromDB;
-import it.univr.studyholiday.util.Database.UpdateTable;
+import it.univr.studyholiday.util.Database.UpdateDB;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,7 +87,7 @@ public class StaffBookingDetailsController implements Initializable {
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        UpdateTable.assignAccommodationToReservation(reservation, AccommodationTable.getSelectionModel().getSelectedItem().getBedId());
+        UpdateDB.assignAccommodationToReservation(reservation, AccommodationTable.getSelectionModel().getSelectedItem().getBedId());
         pgvApplication.setRoot("StaffBookings");
     }
 

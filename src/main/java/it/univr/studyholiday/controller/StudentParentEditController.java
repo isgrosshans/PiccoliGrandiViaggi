@@ -1,11 +1,9 @@
 package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.pgvApplication;
-import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.model.entities.Parent;
-import it.univr.studyholiday.util.Database.FetchFromDB;
 import it.univr.studyholiday.util.Database.SaveToDB;
-import it.univr.studyholiday.util.Database.UpdateTable;
+import it.univr.studyholiday.util.Database.UpdateDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,8 +12,6 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StudentParentEditController implements Initializable {
@@ -45,11 +41,11 @@ public class StudentParentEditController implements Initializable {
         if(parent2bool){
             if (parent1AllFilled() && parent2AllFilled()){
                 //update both parents
-                UpdateTable.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
+                UpdateDB.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
                         FirstNameTextField.getText(),
                         LastnameTextField.getText(),
                         PhoneTextField.getText()));
-                UpdateTable.editParent(new Parent(parent2.getId(),EmailTextField2.getText(),
+                UpdateDB.editParent(new Parent(parent2.getId(),EmailTextField2.getText(),
                         FirstNameTextField2.getText(),
                         LastnameTextField2.getText(),
                         PhoneTextField2.getText()));
@@ -59,7 +55,7 @@ public class StudentParentEditController implements Initializable {
         else{
             if(parent1AllFilled() && parent2AllBlank()){
                 //update parent 1
-                UpdateTable.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
+                UpdateDB.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
                         FirstNameTextField.getText(),
                         LastnameTextField.getText(),
                         PhoneTextField.getText()));
@@ -67,7 +63,7 @@ public class StudentParentEditController implements Initializable {
             }
             if (parent1AllFilled() && parent2AllFilled()){
                 //update parent 1 and add parent 2
-                UpdateTable.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
+                UpdateDB.editParent(new Parent(parent1.getId(),EmailTextField.getText(),
                         FirstNameTextField.getText(),
                         LastnameTextField.getText(),
                         PhoneTextField.getText()));

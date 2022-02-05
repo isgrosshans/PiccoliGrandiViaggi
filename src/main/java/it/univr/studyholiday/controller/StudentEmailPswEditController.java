@@ -3,7 +3,7 @@ package it.univr.studyholiday.controller;
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.util.Database.LoginDB;
-import it.univr.studyholiday.util.Database.UpdateTable;
+import it.univr.studyholiday.util.Database.UpdateDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,7 +39,7 @@ public class StudentEmailPswEditController implements Initializable {
         else if (OldPswField.getText().isBlank()
                 && NewPswField.getText().isBlank()
                 && ConfirmNewPswField.getText().isBlank()){
-            UpdateTable.editEmail(User.getCurrentStudent(), EmailTextField.getText());
+            UpdateDB.editEmail(User.getCurrentStudent(), EmailTextField.getText());
         } //and user wants to fuck with the password
         else {
             if (OldPswField.getText().isBlank()){
@@ -56,7 +56,7 @@ public class StudentEmailPswEditController implements Initializable {
             }
             else if (LoginDB.checkPsw(OldPswField.getText())
                     && NewPswField.getText().equals(ConfirmNewPswField.getText())){
-                UpdateTable.editEmailAndPassword(User.getCurrentStudent(), EmailTextField.getText(), NewPswField.getText() );
+                UpdateDB.editEmailAndPassword(User.getCurrentStudent(), EmailTextField.getText(), NewPswField.getText() );
                 pgvApplication.setRoot("StudentProfile");
             }
             else ErrorMessage.setText("Errore.");

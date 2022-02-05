@@ -2,7 +2,7 @@ package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.pgvApplication;
-import it.univr.studyholiday.util.Database.UpdateTable;
+import it.univr.studyholiday.util.Database.UpdateDB;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,7 +54,7 @@ public class StudentProfileEditController implements Initializable {
         User.getCurrentStudent().setHobbies(HobbiesTextArea.getText());
 
         //update db
-        UpdateTable.editPersonalInfo(User.getCurrentStudent());
+        UpdateDB.editPersonalInfo(User.getCurrentStudent());
 
         //load page
         pgvApplication.setRoot("StudentProfile");

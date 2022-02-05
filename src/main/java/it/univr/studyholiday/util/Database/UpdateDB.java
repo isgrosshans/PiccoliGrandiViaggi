@@ -7,7 +7,7 @@ import it.univr.studyholiday.model.entities.Student;
 
 import java.sql.*;
 
-public class UpdateTable {
+public class UpdateDB {
 
     public static void assignAccommodationToReservation(Reservation reservation, int bedId){
         try {

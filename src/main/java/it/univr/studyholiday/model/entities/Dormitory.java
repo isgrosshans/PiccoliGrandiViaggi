@@ -63,7 +63,9 @@ public class Dormitory implements Entity {
     }
 
     public String getSex() {
-        return sex;
+        if (sex.startsWith("f")) return "femminile";
+        if (sex.startsWith("m")) return "maschile";
+        return "";
     }
 
     public void setSex(String sex) {

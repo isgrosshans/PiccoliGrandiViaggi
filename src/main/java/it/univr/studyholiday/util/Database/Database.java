@@ -52,7 +52,6 @@ public class Database {
                 pst.setString(2, password);
                 rs = pst.executeQuery();
                 rs.next();
-                System.out.println(rs.getInt(1));
                 if (rs.getInt(1) == 1) return true;
             } catch (SQLException e) {
                 System.out.print("Database.login error:"+e.getMessage());
@@ -80,7 +79,6 @@ public class Database {
                 pst.setString(2, password);
                 rs = pst.executeQuery();
                 rs.next();
-                System.out.println(rs.getInt(1));
                 if (rs.getInt(1) == 1) return true;
             } catch (SQLException e) {
                 System.out.print("Database.login error:"+e.getMessage());

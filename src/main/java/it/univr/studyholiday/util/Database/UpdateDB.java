@@ -22,7 +22,6 @@ public class UpdateDB {
                     "UPDATE reservation " +
                             " SET bedid=" + bedId +
                             " WHERE id=" + reservation.getId() + ";")) {
-                System.out.println(pst);
                 pst.executeQuery();
 
             }catch (SQLException e1) {
@@ -62,7 +61,7 @@ public class UpdateDB {
                 pst.setString(6, student.getPhone());
                 pst.setString(7, student.getHobbies());
                 pst.setInt(8, student.getId());
-                System.out.println(pst);
+                
                 pst.executeQuery();
 
             }catch (SQLException e1) {
@@ -89,7 +88,7 @@ public class UpdateDB {
                             " WHERE id=?;")) {
                 pst.setString(1,email);
                 pst.setInt(2, student.getId());
-                System.out.println(pst);
+                
                 pst.executeQuery();
 
             }catch (SQLException e1) {
@@ -117,7 +116,7 @@ public class UpdateDB {
                 pst.setString(1,email);
                 pst.setString(2,LoginDB.encrypy(newpsw));
                 pst.setInt(3, student.getId());
-                System.out.println(pst);
+                
                 pst.executeQuery();
 
             }catch (SQLException e1) {
@@ -150,7 +149,7 @@ public class UpdateDB {
                 pst.setString(3,parent.getEmail());
                 pst.setString(4,parent.getPhone());
                 pst.setInt(5,parent.getId());
-                System.out.println(pst);
+                
                 pst.executeQuery();
 
             }catch (SQLException e1) {

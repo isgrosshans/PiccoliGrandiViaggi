@@ -14,12 +14,14 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class StaffPastTripsController implements Initializable {
     @FXML private TableView<Trip> TripsTable;
     @FXML private TableColumn<Trip, String> DestinationColumn;
-    @FXML private TableColumn<Trip, String> DepartureDateColumn;
+    @FXML private TableColumn<Trip, LocalDate> DepartureDateColumn;
     @FXML private TableColumn<Trip, Integer> WeeksColumn;
 
     @Override

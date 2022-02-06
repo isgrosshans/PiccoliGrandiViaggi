@@ -51,13 +51,11 @@ public class StudentReservationPaymentMethodsController implements Initializable
         if(CCRadioButton.isSelected()) {
             reservation.setPaymentMethod("Carta di Credito");
             SaveToDB.insert(reservation);
-            System.out.println(reservation);
             pgvApplication.setRoot("StudentBookedTrips");
         }
         else if(BBRadioButton.isSelected()) {
             reservation.setPaymentMethod("Bonifico Bancario");
             SaveToDB.insert(reservation);
-            System.out.println(reservation);
             pgvApplication.setRoot("StudentBookedTrips");
         }
         else ErrorMessage.setText("Selezionare una preferenza.");

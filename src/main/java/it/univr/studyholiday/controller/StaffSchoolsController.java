@@ -50,7 +50,6 @@ public class StaffSchoolsController implements Initializable {
     }
 
     public void CellCliked(MouseEvent mouseEvent) throws IOException {
-        //System.out.println(SchoolTable.getSelectionModel().getSelectedItem());
         StaffSchoolDetailsController.setSchool(SchoolTable.getSelectionModel().getSelectedItem());
         pgvApplication.setRoot("StaffSchoolDetails");
     }

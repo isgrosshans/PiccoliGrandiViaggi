@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class StaffFutureTripDetailsController implements Initializable {
@@ -59,7 +60,7 @@ public class StaffFutureTripDetailsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     //initialize Trip////////////////////////////////////////////////////////////////////////////////////
-        DepartureDateLabel.setText(trip.getDepartureDate());
+        DepartureDateLabel.setText(trip.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         WeeksLabel.setText(String.valueOf(trip.getHoliday().getWeeks()));
         NameSchoolLabel.setText(trip.getSchool().getName());
         LanguageLabel.setText(trip.getSchool().getLanguage());

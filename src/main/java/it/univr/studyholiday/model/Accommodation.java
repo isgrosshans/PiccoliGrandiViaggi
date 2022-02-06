@@ -37,7 +37,7 @@ public class Accommodation {
             return family.getFirstName()+" "+family.getLastName();
         }
         else
-            return "("+dormitory.getSex()+") Camera #"+dormRoom.getRoomNumber()+" presso "+dormitory.getName();
+            return "Camera "+dormRoom.getRoomNumber()+" presso "+dormitory.getName();
     }
 
     public String getAddress(){
@@ -47,27 +47,18 @@ public class Accommodation {
     }
 
     public String getType(){
-        if(family!=null) return "famiglia";
-        String res="";
+        if(family!=null) return "Famiglia";
+        String res="Dorm.";
         if(dormRoom!=null) {
-            if(dormRoom.getBeds()==1){
-                res+="singola";
-            }
-            else if(dormRoom.getBeds()==2){
-                res+="doppia";
-            }
-            else {
-                res+="camera per"+dormRoom.getBeds();
-            }
-
             if(dormitory.getSex().startsWith("F")
-                ||dormitory.getSex().startsWith("f")){
-                res+="Femminile";
+                    ||dormitory.getSex().startsWith("f")){
+                res+=" F";
             }
             else if(dormitory.getSex().startsWith("M")
                     ||dormitory.getSex().startsWith("m")){
-                res+="Maschile";
+                res+=" M";
             }
+            res+=" per "+String.valueOf(dormRoom.getBeds());
         }
         return res;}
 

@@ -73,6 +73,8 @@ public class StaffFieldTripAddController implements Initializable {
         //check that all fields have been filled
         if(allfilled()){
             TempSaveFieldtrip();
+            SaveToDB.insertHoliday(new Holiday(departure, weeks, school.getId()), fieldTrips);
+            pgvApplication.setRoot("StaffFutureTrips");
         }
         else if(fieldTrips.size()==0) {
             ErrorMessage.setText("Inserire almeno una gita: compila tutti i dati richiesti");
@@ -85,13 +87,6 @@ public class StaffFieldTripAddController implements Initializable {
             //save holiday and fieldtrips to db
             SaveToDB.insertHoliday(new Holiday(departure, weeks, school.getId()), fieldTrips);
             pgvApplication.setRoot("StaffFutureTrips");
-        }
-
-        System.out.println(school.getName());
-        System.out.println(departure);
-        System.out.println(weeks);
-        for (FieldTrip f:fieldTrips) {
-            System.out.println(f.toString());
         }
     }
 
@@ -117,9 +112,6 @@ public class StaffFieldTripAddController implements Initializable {
 
         if(fieldTrips!=null){
             for (FieldTrip f : fieldTrips) {
-                System.out.println(f);
-                System.out.println(temp);
-
                 if (temp.sameAs(f)) flag = true;
             }
         }

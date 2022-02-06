@@ -4,6 +4,8 @@ import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Dormitory;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.SaveToDB;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,7 +63,6 @@ public class StaffDormitoryAddController implements Initializable {
             String mf;
                     if(GenderChoiceBox.getSelectionModel().getSelectedItem().toString().equals("Maschile")) mf="m";
                     else mf="f";
-            System.out.println(school.getId());
             SaveToDB.insertDormRooms(new Dormitory(  school.getId(),
                                             NameTextField.getText(),
                                             AddressTextField.getText(), mf),

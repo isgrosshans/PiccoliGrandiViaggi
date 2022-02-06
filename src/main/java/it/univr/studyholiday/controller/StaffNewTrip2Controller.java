@@ -39,7 +39,6 @@ public class StaffNewTrip2Controller implements Initializable {
     }
 
     public void NextButtonClick(ActionEvent actionEvent) throws IOException {
-        System.out.println(DepartureDatePicker);
         if (DepartureDatePicker.getValue()==null)
             ErrorMessage.setText("Selezionare la data di partenza");
         else if(WeeksSpinner.getValue()==0)

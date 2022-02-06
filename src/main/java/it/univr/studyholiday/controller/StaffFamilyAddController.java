@@ -4,6 +4,8 @@ import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Family;
 import it.univr.studyholiday.model.entities.School;
 import it.univr.studyholiday.util.Database.SaveToDB;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

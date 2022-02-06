@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class StudentFutureTripDetailsController implements Initializable {
@@ -91,7 +92,7 @@ public class StudentFutureTripDetailsController implements Initializable {
             BookTripMenu.setVisible(false);
 
         //initialize Trip////////////////////////////////////////////////////////////////////////////////////
-        TripDepartureDateLabel.setText(trip.getDepartureDate());
+        TripDepartureDateLabel.setText(trip.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         TripWeeksLabel.setText(String.valueOf(trip.getHoliday().getWeeks()));
         TripSchoolNameLabel.setText(trip.getSchool().getName());
         TripLanguageLabel.setText(trip.getSchool().getLanguage());

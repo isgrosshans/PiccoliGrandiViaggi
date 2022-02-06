@@ -6,6 +6,7 @@ import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -15,12 +16,13 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class StudentPastTripsController implements Initializable {
     public TableView<Trip> TripsTable;
     public TableColumn<Trip,String> DestinationColumn;
-    public TableColumn<Trip,String> DepartureDateColumn;
+    public TableColumn<Trip,LocalDate> DepartureDateColumn;
     public TableColumn<Trip,String> WeeksColumn;
 
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {
@@ -35,6 +37,7 @@ public class StudentPastTripsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         TripsTable.setEditable(false);
+        TripsTable.setPlaceholder(new Label("Nessun viaggio da visualizzare."));
         DestinationColumn.setCellValueFactory(new PropertyValueFactory<>("Destination"));
         DepartureDateColumn.setCellValueFactory(new PropertyValueFactory<>("DepartureDate"));
         WeeksColumn.setCellValueFactory(new PropertyValueFactory<>("Weeks"));

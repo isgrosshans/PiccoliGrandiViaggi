@@ -44,12 +44,10 @@ public class StaffBookingsController implements Initializable {
     }
 
     public void AssignedAccomodationClick(ActionEvent actionEvent) {
-        System.out.println("AssignedAccomodationClick");
         loadTable();
     }
 
     public void NotAssignedAccomodationClick(ActionEvent actionEvent) {
-        System.out.println("NotAssignedAccomodationClick");
         loadTable();
     }
 
@@ -78,22 +76,18 @@ public class StaffBookingsController implements Initializable {
 
     private void loadTable(){
         if(AssignedAccomodation.isSelected() && NotAssignetAccomodation.isSelected()){
-            System.out.println("show all");
             BookingsTable.setItems(FXCollections.observableArrayList(allReservations));
         }
 
         if(AssignedAccomodation.isSelected() && !NotAssignetAccomodation.isSelected()){
-            System.out.println("show assigned accommodation");
             BookingsTable.setItems(FXCollections.observableArrayList(assignedAccomodationReservations));
         }
 
         if(!AssignedAccomodation.isSelected() && NotAssignetAccomodation.isSelected()){
-            System.out.println("show not assigned accommodation");
             BookingsTable.setItems(FXCollections.observableArrayList(notAssigniedAccomodationReservations));
         }
 
         if(!AssignedAccomodation.isSelected() && !NotAssignetAccomodation.isSelected()){
-            System.out.println("show none");
             BookingsTable.setItems(FXCollections.observableArrayList(new ArrayList<>()));
         }
 

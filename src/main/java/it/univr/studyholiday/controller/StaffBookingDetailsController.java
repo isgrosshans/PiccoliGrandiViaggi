@@ -19,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -173,7 +174,7 @@ public class StaffBookingDetailsController implements Initializable {
         trip=FetchFromDB.TripFromHoliday(reservation.getHolidayId());
         HolidayIdLabel.setText(String.valueOf(trip.getHoliday().getId()));
         DestinationLabel.setText(trip.getDestination());
-        DepartureDateLabel.setText(trip.getDepartureDate());
+        DepartureDateLabel.setText(trip.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         WeeksLabel.setText(String.valueOf(trip.getWeeks()));
 
     }

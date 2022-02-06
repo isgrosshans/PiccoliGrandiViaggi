@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class StaffPastTripDetailsController implements Initializable {
@@ -37,7 +38,7 @@ public class StaffPastTripDetailsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        DepartureDateLabel.setText(trip.getDepartureDate());
+        DepartureDateLabel.setText(trip.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         NameSchoolLabel.setText(trip.getSchool().getName());
         LanguageLabel.setText(trip.getSchool().getLanguage());
         DestinationLabel.setText(trip.getDestination());

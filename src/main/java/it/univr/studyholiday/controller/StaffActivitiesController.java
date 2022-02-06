@@ -84,33 +84,4 @@ public class StaffActivitiesController implements Initializable {
         NameLabel.setText(ActivitiesTable.getSelectionModel().getSelectedItem().getName());
         DescriptionLabel.setText(ActivitiesTable.getSelectionModel().getSelectedItem().getDescription());
     }
-
-
-
-//    public Button ReturnDetailsSchoolButton;
-//    public Label ActivityLabel;
-//    public Label StaffLabel;
-//    public Label ScoolNameLabel;
-//    public Button AddActivitylButton;
-//    public TableView ActivitiesTable;
-//    public TableColumn NameColumn;
-//    public TableColumn DescriptionColumn;
-//
-//    private static School school;
-//
-//    public static void setSchool(School s) {
-//        school = s;
-//    }
-//
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        System.out.println(StaffSchoolDetailsController.getSchool().getName());
-//    }
-//
-//
-//
-//    public void ReturnDetailsSchoolButtonClick(ActionEvent actionEvent) throws IOException {
-//        StaffSchoolDetailsController.setSchool(school);
-//        pgvApplication.setRoot("StaffSchoolDetails-view");
-//    }
 }

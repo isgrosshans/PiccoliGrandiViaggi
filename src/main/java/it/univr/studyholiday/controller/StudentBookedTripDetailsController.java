@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 
@@ -52,11 +53,10 @@ public class StudentBookedTripDetailsController implements Initializable {
         NameSchoolLabel.setText(trip.getSchool().getName());
         LanguageLabel.setText(trip.getSchool().getLanguage());
         DestinationLabel.setText(trip.getDestination());
-        DepartureDateLabel.setText(trip.getDepartureDate());
+        DepartureDateLabel.setText(trip.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         WeeksLabel.setText(String.valueOf(trip.getWeeks()));
         PaymentLabel.setText(reservation.getPaymentMethod());
 
-        System.out.println(reservation.getBedId());
         if(reservation.getBedId()>0) {   //null gives back 0 with jdbc
             try {
                 accommodation=FetchFromDB.accommodation(reservation);

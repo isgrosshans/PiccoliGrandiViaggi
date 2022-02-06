@@ -44,8 +44,8 @@ public class Trip {
         return this.school.getCity()+", "+this.school.getCountry();
     }
 
-    public String getDepartureDate(){
-        return this.holiday.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+    public LocalDate getDepartureDate(){
+        return this.holiday.getDepartureDate();
     }
 
     public int getWeeks(){

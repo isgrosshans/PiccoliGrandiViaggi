@@ -22,7 +22,7 @@ public class FetchFromDB {
             try (PreparedStatement pst = con.prepareStatement(
                     "SELECT id, name, address, postalcode, city, country, language " +
                             "FROM school " +
-                            "ORDER BY country; " )) {
+                            "ORDER BY name; " )) {
                 rs = pst.executeQuery();
 
                 while (rs.next()) {
@@ -99,7 +99,6 @@ public class FetchFromDB {
                             "WHERE h.departuredate <= ?" +
                             "ORDER BY h.departuredate; " )) {
                 pst.setDate(1, Date.valueOf(LocalDate.now()));
-                System.out.println(Date.valueOf(LocalDate.now()));
                 rs = pst.executeQuery();
 
                 while (rs.next()) {
@@ -142,7 +141,6 @@ public class FetchFromDB {
                             "ORDER BY h.departuredate; " )) {
                 pst.setDate(1, Date.valueOf(LocalDate.now()));
                 pst.setInt(2,User.getCurrentStudent().getId());
-                System.out.println(Date.valueOf(LocalDate.now()));
                 rs = pst.executeQuery();
 
                 while (rs.next()) {
@@ -277,7 +275,7 @@ public class FetchFromDB {
                             "WHERE h.departuredate > ?" +
                             "ORDER BY h.departuredate; " )) {
                 pst.setDate(1, Date.valueOf(LocalDate.now()));
-                System.out.println(pst);
+
                 rs = pst.executeQuery();
                 while (rs.next()){
                     ral1.add(new Reservation(
@@ -290,10 +288,6 @@ public class FetchFromDB {
                             rs.getString(7),    //String languageLevel
                             rs.getBoolean(8),   //Boolean familyStay
                             rs.getBoolean(9)));    //Boolean requestedSingle)
-                }
-                for (Reservation r:ral1
-                     ) { System.out.println(r.getStudentId()+" "+r.getHolidayId()+" "+r.getBedId());
-
                 }
                 StaffBookingsController.setAllReservations(ral1);
 
@@ -458,7 +452,6 @@ public class FetchFromDB {
             rs=null;
 
             if(parentid2!=-1){
-                System.out.println("Should I be here?");
                 try (PreparedStatement pst = con.prepareStatement(
                         "SELECT id, email, firstname, lastname, phone  " +
                                 "FROM parent " +
@@ -682,7 +675,6 @@ public class FetchFromDB {
                 pst.setInt(1, holidayid);
                 rs = pst.executeQuery();
                 rs.next();
-                System.out.println(rs.getInt(1));
                 if(rs.getInt(1)==0) return sv;
 
 
@@ -1022,7 +1014,6 @@ public class FetchFromDB {
                 pst.setDate(5, departuredate);
                 pst.setDate(6, returndate);
                 pst.setDate(7, returndate);
-                System.out.println("\n" + pst + "\n");
                 rs = pst.executeQuery();
                 int i=0;
                 while (rs.next()) {
@@ -1258,7 +1249,6 @@ public class FetchFromDB {
                 pst.setDate(4, departuredate);
                 pst.setDate(5, returndate);
                 pst.setDate(6, returndate);
-                System.out.println("\n"+pst+"\n");
                 rs=pst.executeQuery();
                 while (rs.next()){
                     if(rs.getInt(13)>0){
@@ -1432,7 +1422,6 @@ public class FetchFromDB {
                 pst.setDate(3, departuredate);
                 pst.setDate(4, returndate);
                 pst.setDate(5, returndate);
-                System.out.println("\n"+pst+"\n");
                 rs=pst.executeQuery();
 
                 while (rs.next()){

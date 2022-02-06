@@ -28,7 +28,7 @@ public class SaveToDB {
                             ") VALUES ("+
                             getValuesFor(entity)+");")) {
 
-                System.out.println(pst);
+                
                 rs = pst.executeQuery();
                 rs.next();
 
@@ -60,7 +60,7 @@ public class SaveToDB {
 //                            ") VALUES ("+
 //                            getValuesFor(entity)+");")) {
 //
-//                System.out.println(pst);
+//                
 //                rs = pst.executeQuery();
 //                rs.next();
 //
@@ -94,8 +94,6 @@ public class SaveToDB {
                             " (" + getColumnNamesFor(family)+
                             ") VALUES ("+
                             getValuesFor(family)+"); ")) {
-
-                System.out.println(pst);
                 rs = pst.executeQuery();
                 rs.next();
 
@@ -135,7 +133,6 @@ public class SaveToDB {
                 rs = pst.executeQuery();
                 rs.next();
                 family.setId(rs.getInt(1));
-                System.out.println(family.getId());
                 familyid=rs.getInt(1);
 
             }catch (SQLException e1) {
@@ -144,9 +141,7 @@ public class SaveToDB {
             rs=null;
 
             //insert beds
-            System.out.println(family.getBedrooms());
             for (int i = 0; i < family.getBedrooms(); i++) {
-                System.out.println("inserting bed...");
                 try (PreparedStatement pst = con.prepareStatement(
                         "INSERT INTO bed "+
                                 " ( familyid ) " +
@@ -229,8 +224,6 @@ public class SaveToDB {
         ArrayList<DormRoom> dormRooms=new ArrayList<>();
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
-            System.out.println();
-
             //insert new dormitory
             try (PreparedStatement pst = con.prepareStatement(
                     "INSERT INTO "+getTableNameFor(dormitory)+
@@ -238,7 +231,7 @@ public class SaveToDB {
                             ") VALUES ("+
                             getValuesFor(dormitory)+"); ")) {
 
-                System.out.println(pst);
+                
                 rs = pst.executeQuery();
                 rs.next();
 
@@ -312,7 +305,6 @@ public class SaveToDB {
                             "WHERE dormitoryid=? " +
                             //"AND id not in(SELECT DISTINCT dormroomid FROM bed)" +
                             ";")) {
-                System.out.println(dormitoryid);
                 pst.setInt(1, dormitory.getId());
                 rs = pst.executeQuery();
                 while (rs.next()){dormRooms.add(new DormRoom(
@@ -321,11 +313,10 @@ public class SaveToDB {
                         rs.getString(3), //String roomNumber
                         rs.getInt(4)));     //int beds
                 }
-                System.out.println(dormRooms.size());
             }catch (SQLException e1) {
                 System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+": "+ e1.getMessage());
             }
-            System.out.println(dormRooms.size());
+
             //add beds
             for (DormRoom d:dormRooms) {
                 for (int j = 0; j < d.getBeds(); j++) {
@@ -333,7 +324,6 @@ public class SaveToDB {
                             "INSERT INTO bed "+
                                     " ( dormroomid ) " +
                                     "VALUES ( ? );")) {
-                        System.out.println("adding a dorm bed");
                         pst.setInt(1, d.getId());
                         rs = pst.executeQuery();
                         rs.next();
@@ -359,7 +349,6 @@ public class SaveToDB {
         }
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
-            System.out.println();
             //insert new dormitory
             try (PreparedStatement pst = con.prepareStatement(
                     "INSERT INTO "+getTableNameFor(holiday)+
@@ -367,7 +356,7 @@ public class SaveToDB {
                             ") VALUES ("+
                             getValuesFor(holiday)+"); ")) {
 
-                System.out.println(pst);
+                
                 rs = pst.executeQuery();
                 rs.next();
 

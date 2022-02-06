@@ -16,12 +16,13 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class StudentFutureTripsController implements Initializable {
     @FXML private TableView<Trip> TripsTable;
     @FXML private TableColumn<Trip, String> DestinationColumn;
-    @FXML private TableColumn<Trip, String> DepartureDateColumn;
+    @FXML private TableColumn<Trip, LocalDate> DepartureDateColumn;
     @FXML private TableColumn<Trip, Integer> WeeksColumn;
 
     public void ReturnHomeButtonClick(ActionEvent actionEvent) throws IOException {

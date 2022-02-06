@@ -1098,6 +1098,83 @@ public class FetchFromDB {
         return true;
     }
 
+    public static boolean emailAlreadyRegistered(String email){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT COUNT(*) " +
+                            "FROM student " +
+                            "WHERE email=?" )) {
+                pst.setString(1,email);
+
+                rs = pst.executeQuery();
+                rs.next();
+                if(rs.getInt(1)==0)return false;
+            } catch (SQLException e) {
+                System.out.print("HasReservation: Error fetching reservation"+e.getMessage());
+            }
+            rs=null;
+
+        } catch (SQLException e) {
+            System.out.print("Connection error: "+e.getMessage());
+        }
+        return true;
+    }
+
+    public static boolean parentInfoConflict(Parent parent){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    "SELECT COUNT(*) " +
+                            "FROM parent " +
+                            "WHERE email ilike ? and " +
+                            "firstName ilike ? and  " +
+                            "lastName ilike ? and  " +
+                            "phone ilike ?")) {
+                pst.setString(1,parent.getEmail());
+                pst.setString(2,parent.getFirstName());
+                pst.setString(3,parent.getLastName());
+                pst.setString(4,parent.getPhone());
+
+                rs = pst.executeQuery();
+                rs.next();
+                if(rs.getInt(1)==0)return false;
+                else{
+                    rs=null;
+                    try (PreparedStatement pst1 = con.prepareStatement(
+                            "SELECT COUNT(*) " +
+                                    "FROM parent " +
+                                    "WHERE email ilike ?")) {
+                        pst.setString(1,parent.getEmail());
+                        rs = pst.executeQuery();
+                        rs.next();
+                        if(rs.getInt(1)==0)return false;
+                    } catch (SQLException e) {
+                        System.out.print("HasReservation: Error fetching reservation"+e.getMessage());
+                    }
+
+                }
+            } catch (SQLException e) {
+                System.out.print("HasReservation: Error fetching reservation"+e.getMessage());
+            }
+            rs=null;
+
+        } catch (SQLException e) {
+            System.out.print("Connection error: "+e.getMessage());
+        }
+        return true;
+    }
+
     public static boolean hasFilledSurvey(int studentid, int holidayid){
         try {
             Class.forName("org.postgresql.Driver");

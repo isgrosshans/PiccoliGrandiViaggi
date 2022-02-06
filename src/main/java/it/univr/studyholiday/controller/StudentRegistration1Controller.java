@@ -2,6 +2,7 @@ package it.univr.studyholiday.controller;
 
 import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Student;
+import it.univr.studyholiday.util.Database.FetchFromDB;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,6 +57,9 @@ public class StudentRegistration1Controller implements Initializable {
         else if(EmailTextField.getText().endsWith("@pgv.it")){ErrorMessage.setText("NO");}
         else if(PswTextField.getText().length()<8){
             ErrorMessage.setText("La password deve essere lunga almeno 8 caratteri.");
+        }
+        else if(FetchFromDB.emailAlreadyRegistered(EmailTextField.getText())){
+            ErrorMessage.setText("Questa email è già associata ad un account.");
         }
         else {
 

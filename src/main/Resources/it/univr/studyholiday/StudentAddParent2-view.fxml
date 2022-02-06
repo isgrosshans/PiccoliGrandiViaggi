@@ -49,7 +49,6 @@
       <TextField fx:id="PhoneTextField" layoutX="97.0" layoutY="363.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="363.0" />
       <Button fx:id="CancelButton" layoutX="55.0" layoutY="453.0" mnemonicParsing="false" onAction="#CancelButtonClick" prefHeight="25.0" prefWidth="85.0" text="Annulla" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="453.0" />
       <Button fx:id="ConfirmButton" layoutX="443.0" layoutY="453.0" mnemonicParsing="false" onAction="#ConfirmButtonClick" prefHeight="25.0" prefWidth="85.0" text="Conferma" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="453.0" />
-      <Button fx:id="ReturnButton" layoutX="16.0" layoutY="15.0" mnemonicParsing="false" onAction="#ReturnButtonClick" text="&lt; Inserisci Genitore" visible="false" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="11.0" />
       <Label fx:id="ErrorMessage" alignment="CENTER" layoutX="10.0" layoutY="507.0" textFill="RED" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="507.0" />
    </children>
 </AnchorPane>

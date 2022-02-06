@@ -168,22 +168,57 @@ public class SaveToDB {
         }
         int studentid=0;
         ResultSet rs = null;
-        try (Connection con = Database.getConnection()) {
 
+        try (Connection con = Database.getConnection()) {
             //insert parent
             try (PreparedStatement pst = con.prepareStatement(
-                    "INSERT INTO "+getTableNameFor(parent)+
-                            " (" + getColumnNamesFor(parent)+
-                            ") VALUES ("+
-                            getValuesFor(parent)+");")) {
+                    "SELECT COUNT(*) " +
+                            "FROM parent " +
+                            "WHERE email ilike ? and " +
+                            "firstName ilike ? and  " +
+                            "lastName ilike ? and  " +
+                            "phone ilike ? ")) {
+                pst.setString(1,parent.getEmail());
+                pst.setString(2,parent.getFirstName());
+                pst.setString(3,parent.getLastName());
+                pst.setString(4,parent.getPhone());
+
                 rs = pst.executeQuery();
                 rs.next();
+                if(rs.getInt(1)==1){
+                    rs=null;
+                    try (PreparedStatement pst2 = con.prepareStatement(selectIDstmt(parent))){
+                        rs = pst2.executeQuery();
+                        rs.next();
+                        if(rs.getInt(1)!=User.getCurrentStudent().getParent1id()){
+                            User.getCurrentStudent().setParent2id(rs.getInt(1));
+                        }
+                    }catch (SQLException e1) {
+                        System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+                    } catch (IllegalAccessException illegalAccessException) {
+                        illegalAccessException.printStackTrace();
+                    }
+                }
+                else{
+                    rs=null;
+                    try (PreparedStatement pst3 = con.prepareStatement(
+                            "INSERT INTO "+getTableNameFor(parent)+
+                                    " (" + getColumnNamesFor(parent)+
+                                    ") VALUES ("+
+                                    getValuesFor(parent)+");")) {
+                        rs = pst.executeQuery();
+                        rs.next();
 
-            }catch (SQLException e1) {
-                System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
-            } catch (IllegalAccessException illegalAccessException) {
-                illegalAccessException.printStackTrace();
+                    }catch (SQLException e1) {
+                        System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+                    } catch (IllegalAccessException illegalAccessException) {
+                        illegalAccessException.printStackTrace();
+                    }
+                }
+            } catch (SQLException e) {
+                System.out.print("Insert Parent:"+e.getMessage());
             }
+
             rs=null;
 
             //get new parent id
@@ -207,7 +242,7 @@ public class SaveToDB {
                 rs.next();
 
             }catch (SQLException e1) {
-                System.out.println("SaveToDB.insert.student: "+ e1.getMessage());
+                System.out.println("SaveToDB.insert.parent: "+ e1.getMessage());
             }
         } catch (SQLException e) {
             System.out.println("Connection error: "+e.getMessage());

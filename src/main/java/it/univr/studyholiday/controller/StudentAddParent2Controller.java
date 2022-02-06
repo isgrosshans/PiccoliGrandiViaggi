@@ -4,6 +4,7 @@ import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Allergy;
 import it.univr.studyholiday.model.entities.Parent;
 import it.univr.studyholiday.model.entities.Student;
+import it.univr.studyholiday.util.Database.FetchFromDB;
 import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -45,13 +46,33 @@ public class StudentAddParent2Controller implements Initializable {
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
-        if(allFilled()) parent2=new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText());
-        SaveToDB.registerStudent(student,parent1,parent2,allergies);
-        pgvApplication.setRoot("Login");
+        if(allFilled()) {
+            parent2=new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText());
+            if(parent2.sameAs(parent1)){
+                ErrorMessage.setText("Hai già inserito le informazioni di questo genitore.");
+            }
+            else if (parent2.getEmail().equals(parent1.getEmail())){
+                ErrorMessage.setText("Non puoi inserire la stessa email per entrambi i genitori.");
+            }
+            else if (FetchFromDB.parentInfoConflict(parent2)){
+                ErrorMessage.setText("Le informazioni sono in conflitto con il nostro database.");
+            }
+            else{
+                SaveToDB.registerStudent(student,parent1,parent2,allergies);
+                pgvApplication.setRoot("Login");
+            }
+        }
+        if(allBlank()){
+            SaveToDB.registerStudent(student,parent1,null,allergies);
+            pgvApplication.setRoot("Login");
+        }
     }
 
-    public void ReturnButtonClick(ActionEvent actionEvent) throws IOException {
-        //todo remove
+    private boolean allBlank() {
+        return (EmailTextField.getText().isBlank() &&
+                FirstNameTextField.getText().isBlank() &&
+                LastNameTextField.getText().isBlank() &&
+                PhoneTextField.getText().isBlank());
     }
 
     private Boolean allFilled(){

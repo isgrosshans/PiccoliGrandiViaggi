@@ -74,4 +74,11 @@ public class Parent implements Entity {
     public String toString() {
         return firstName+" "+lastName+"\n"+email+"\n"+phone;
     }
+
+    public boolean sameAs(Parent p){
+        return this.lastName.equals(p.getLastName()) &&
+                this.firstName.equals(p.getFirstName()) &&
+                this.email.equals(p.getEmail()) &&
+                this.phone.equals(p.getPhone());
+    }
 }

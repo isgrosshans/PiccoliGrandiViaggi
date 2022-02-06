@@ -40,7 +40,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="LastnameTextField" layoutX="97.0" layoutY="286.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="286.0" />
+      <TextField fx:id="LastNameTextField" layoutX="97.0" layoutY="286.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="286.0" />
       <Label fx:id="PhoneLabel" layoutX="14.0" layoutY="336.0" text="Telefono :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="336.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
@@ -69,7 +69,7 @@
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="LastnameTextField2" layoutX="103.0" layoutY="586.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="586.0" />
+      <TextField fx:id="LastNameTextField2" layoutX="103.0" layoutY="586.0" prefHeight="25.0" prefWidth="436.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="586.0" />
       <Label fx:id="PhoneLabel1" layoutX="20.0" layoutY="640.0" text="Telefono :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="640.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

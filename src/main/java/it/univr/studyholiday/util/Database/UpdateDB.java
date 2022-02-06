@@ -128,36 +128,49 @@ public class UpdateDB {
         }
     }
 
-    public static void editParent(Parent parent){
+    public static boolean editParent(Parent parent){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
+        ResultSet rs=null;
         try (Connection con = Database.getConnection()) {
-
             try (PreparedStatement pst = con.prepareStatement(
-                    "UPDATE parent " +
-                            "SET firstname=?, "+ //1
-                            "lastname=?, "+      //2
-                            "email=?, "+         //3
-                            "phone=? "+          //4
-                            "WHERE id=?;")) {    //5
-                pst.setString(1,parent.getFirstName());
-                pst.setString(2,parent.getLastName());
-                pst.setString(3,parent.getEmail());
-                pst.setString(4,parent.getPhone());
-                pst.setInt(5,parent.getId());
-                
-                pst.executeQuery();
-
+                    "SELECT COUNT(*) FROM parent " +
+                            "WHERE email ilike ? " +
+                            "AND id<>?;")) {
+                pst.setString(1,parent.getEmail());
+                pst.setInt(2,parent.getId());
+                rs=pst.executeQuery();
+                rs.next();
+                if(rs.getInt(1)==0){
+                    try (PreparedStatement pst1 = con.prepareStatement(
+                            "UPDATE parent " +
+                                    "SET firstname=?, "+ //1
+                                    "lastname=?, "+      //2
+                                    "email=?, "+         //3
+                                    "phone=? "+          //4
+                                    "WHERE id=?;")) {    //5
+                        pst1.setString(1,parent.getFirstName());
+                        pst1.setString(2,parent.getLastName());
+                        pst1.setString(3,parent.getEmail());
+                        pst1.setString(4,parent.getPhone());
+                        pst1.setInt(5,parent.getId());
+                        pst1.executeQuery();
+                        return true;
+                    }catch (SQLException e1) {
+                        System.out.println("Update parent: "+ e1.getMessage());
+                    }
+                }
             }catch (SQLException e1) {
                 System.out.println("Update parent: "+ e1.getMessage());
             }
 
+
         } catch (SQLException e) {
             System.out.println("Connection error: "+e.getMessage());
         }
+        return false;
     }
 }

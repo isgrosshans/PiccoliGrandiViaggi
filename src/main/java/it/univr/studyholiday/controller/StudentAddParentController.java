@@ -4,6 +4,7 @@ import it.univr.studyholiday.pgvApplication;
 import it.univr.studyholiday.model.entities.Allergy;
 import it.univr.studyholiday.model.entities.Parent;
 import it.univr.studyholiday.model.entities.Student;
+import it.univr.studyholiday.util.Database.FetchFromDB;
 import it.univr.studyholiday.util.Database.SaveToDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -37,19 +38,28 @@ public class StudentAddParentController implements Initializable {
     }
 
     public void AddParentButtonClick(ActionEvent actionEvent) throws IOException {
-        if(allFilled()){
-            StudentAddParent2Controller.setStudent(student);
-            StudentAddParent2Controller.setAllergies(allergies);
-            StudentAddParent2Controller.setParent1(new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText()));
-            pgvApplication.setRoot("StudentAddParent2");
+        if(allFilled()) {
+            if (FetchFromDB.parentInfoConflict(new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText()))) {
+                ErrorMessage.setText("Le informazioni sono in conflitto con il nostro database.");
+            } else {
+                    StudentAddParent2Controller.setStudent(student);
+                StudentAddParent2Controller.setAllergies(allergies);
+                StudentAddParent2Controller.setParent1(new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText()));
+                pgvApplication.setRoot("StudentAddParent2");
+            }
         }
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
         if(allFilled()){
-            SaveToDB.registerStudent(student, new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText()), null, allergies);
+            if(FetchFromDB.parentInfoConflict(new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText()))){
+                ErrorMessage.setText("Le informazioni sono in conflitto con il nostro database.");
+            }
+            else {
+                SaveToDB.registerStudent(student, new Parent(EmailTextField.getText(), FirstNameTextField.getText(), LastNameTextField.getText(), PhoneTextField.getText()), null, allergies);
+                pgvApplication.setRoot("Login");
+            }
         }
-        pgvApplication.setRoot("Login");
     }
 
     private Boolean allFilled(){

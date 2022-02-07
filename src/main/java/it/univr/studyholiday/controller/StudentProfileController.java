@@ -115,5 +115,6 @@ public class StudentProfileController implements Initializable {
         BirthdayLabel.setText(student.getBirthdayString());
         AddressLabel.setText(student.getAddress());
         Parent1Label.setText(parent1.toString());
+        if(parent2bool) Parent2Label.setText(parent2.toString());
     }
 }

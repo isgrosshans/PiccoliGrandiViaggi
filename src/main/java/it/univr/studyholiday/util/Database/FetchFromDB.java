@@ -5,6 +5,7 @@ import it.univr.studyholiday.controller.StudentProfileController;
 import it.univr.studyholiday.model.*;
 import it.univr.studyholiday.model.entities.*;
 
+import java.lang.reflect.Field;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -822,7 +823,7 @@ public class FetchFromDB {
                 System.out.print("Error fetching parents "+e.getMessage());
             }
             rs=null;
-            if (parent2id!=0)
+            if (parent2id>0)
             {
                 try (PreparedStatement pst = con.prepareStatement(
                         "SELECT id, email, firstname, lastname, phone " +
@@ -1088,7 +1089,7 @@ public class FetchFromDB {
                 rs.next();
                 if(rs.getInt(1)==0)return false;
             } catch (SQLException e) {
-                System.out.print("HasReservation: Error fetching reservation"+e.getMessage());
+                System.out.print("HasReservation: Error fetching reservation "+e.getMessage());
             }
             rs=null;
 
@@ -1140,7 +1141,7 @@ public class FetchFromDB {
                             "WHERE email ilike ? and " +
                             "firstName ilike ? and  " +
                             "lastName ilike ? and  " +
-                            "phone ilike ?")) {
+                            "phone ilike ? ")) {
                 pst.setString(1,parent.getEmail());
                 pst.setString(2,parent.getFirstName());
                 pst.setString(3,parent.getLastName());
@@ -1148,24 +1149,28 @@ public class FetchFromDB {
 
                 rs = pst.executeQuery();
                 rs.next();
-                if(rs.getInt(1)==0)return false;
+                if(rs.getInt(1)==1)return false;
+                //if this exact parent is already in db, no conflict
                 else{
+                    //if there is a parent that is different but has same email -> conflict
                     rs=null;
                     try (PreparedStatement pst1 = con.prepareStatement(
                             "SELECT COUNT(*) " +
                                     "FROM parent " +
-                                    "WHERE email ilike ?")) {
+                                    "WHERE email ilike ? ")) {
                         pst.setString(1,parent.getEmail());
                         rs = pst.executeQuery();
                         rs.next();
                         if(rs.getInt(1)==0)return false;
+                        //if no parent has same email no conflict
+                        else return true;
                     } catch (SQLException e) {
-                        System.out.print("HasReservation: Error fetching reservation"+e.getMessage());
+                        System.out.print("parentInfoConflict - Error : "+e.getMessage());
                     }
 
                 }
             } catch (SQLException e) {
-                System.out.print("HasReservation: Error fetching reservation"+e.getMessage());
+                System.out.print("parentInfoConflict - Error : "+e.getMessage());
             }
             rs=null;
 
@@ -1194,7 +1199,7 @@ public class FetchFromDB {
                 rs.next();
                 if(rs.getInt(1)==0)return false;
             } catch (SQLException e) {
-                System.out.print("HasReservation: Error fetching reservation"+e.getMessage());
+                System.out.print("HasFilledSurvey: Error fetching reservation"+e.getMessage());
             }
             rs=null;
 
@@ -1638,6 +1643,31 @@ public class FetchFromDB {
             System.out.print("Connection error: "+e.getMessage());
         }
         return null;
+    }
+
+    public static int fetchID(Entity entity) throws IllegalAccessException {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (java.lang.ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        ResultSet rs = null;
+        try (Connection con = Database.getConnection()) {
+            try (PreparedStatement pst = con.prepareStatement(
+                    SaveToDB.selectIDstmt(entity) )) {
+                rs = pst.executeQuery();
+                rs.next();
+                if(rs.getInt(1)!=0) return rs.getInt(1);
+
+            } catch (SQLException e) {
+                System.out.print("Error fetching survey results "+e.getMessage());
+            }
+
+        } catch (SQLException e) {
+            System.out.print("Connection error: "+e.getMessage());
+        }
+        return -1;
     }
 
 }

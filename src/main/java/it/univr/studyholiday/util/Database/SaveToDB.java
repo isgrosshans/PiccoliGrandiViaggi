@@ -160,90 +160,146 @@ public class SaveToDB {
         }
     }
 
-    public static void insertParent(Parent parent){
+    public static void insertParent2(Parent parent2){
         try {
             Class.forName("org.postgresql.Driver");
         } catch (java.lang.ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        int studentid=0;
         ResultSet rs = null;
-
+        ResultSet rs2=null;
         try (Connection con = Database.getConnection()) {
-            //insert parent
+
             try (PreparedStatement pst = con.prepareStatement(
-                    "SELECT COUNT(*) " +
-                            "FROM parent " +
-                            "WHERE email ilike ? and " +
-                            "firstName ilike ? and  " +
-                            "lastName ilike ? and  " +
-                            "phone ilike ? ")) {
-                pst.setString(1,parent.getEmail());
-                pst.setString(2,parent.getFirstName());
-                pst.setString(3,parent.getLastName());
-                pst.setString(4,parent.getPhone());
-
+                    "INSERT INTO "+getTableNameFor(parent2)+
+                            " (" + getColumnNamesFor(parent2)+
+                            ") VALUES ("+
+                            getValuesFor(parent2)+");")) {
                 rs = pst.executeQuery();
                 rs.next();
-                if(rs.getInt(1)==1){
-                    rs=null;
-                    try (PreparedStatement pst2 = con.prepareStatement(selectIDstmt(parent))){
-                        rs = pst2.executeQuery();
-                        rs.next();
-                        if(rs.getInt(1)!=User.getCurrentStudent().getParent1id()){
-                            User.getCurrentStudent().setParent2id(rs.getInt(1));
-                        }
-                    }catch (SQLException e1) {
-                        System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
-                    } catch (IllegalAccessException illegalAccessException) {
-                        illegalAccessException.printStackTrace();
-                    }
-                }
-                else{
-                    rs=null;
-                    try (PreparedStatement pst3 = con.prepareStatement(
-                            "INSERT INTO "+getTableNameFor(parent)+
-                                    " (" + getColumnNamesFor(parent)+
-                                    ") VALUES ("+
-                                    getValuesFor(parent)+");")) {
-                        rs = pst.executeQuery();
-                        rs.next();
 
-                    }catch (SQLException e1) {
-                        System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
-                    } catch (IllegalAccessException illegalAccessException) {
-                        illegalAccessException.printStackTrace();
-                    }
-                }
-            } catch (SQLException e) {
-                System.out.print("Insert Parent:"+e.getMessage());
-            }
-
-            rs=null;
-
-            //get new parent id
-            try (PreparedStatement pst = con.prepareStatement(selectIDstmt(parent))){
-                rs = pst.executeQuery();
-                rs.next();
-                User.getCurrentStudent().setParent2id(rs.getInt(1));
             }catch (SQLException e1) {
-                System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+                System.out.println("SaveToDB.insert."+getTableNameFor(parent2)+": "+ e1.getMessage());
             } catch (IllegalAccessException illegalAccessException) {
                 illegalAccessException.printStackTrace();
             }
-            //update student
+
+            rs=null;
+            try (PreparedStatement pst2 = con.prepareStatement(selectIDstmt(parent2))){
+                System.out.println(pst2);
+                rs = pst2.executeQuery();
+                rs.next();
+                System.out.println(rs.getInt(1));
+                User.getCurrentStudent().setParent2id(rs.getInt(1));
+            }catch (SQLException e1) {
+                System.out.println("SaveToDB.insert."+getTableNameFor(parent2)+": "+ e1.getMessage());
+            } catch (IllegalAccessException illegalAccessException) {
+                illegalAccessException.printStackTrace();
+            }
+            if(User.getCurrentStudent().getParent2id()>0){
             try (PreparedStatement pst = con.prepareStatement(
-                    "UPDATE student " +
-                            "SET parent2id=? " +
-                            "WHERE id=?;")) {
+                    "UPDATE STUDENT SET parent2id=? WHERE ID =? ")) {
+
                 pst.setInt(1,User.getCurrentStudent().getParent2id());
                 pst.setInt(2,User.getCurrentStudent().getId());
+
                 rs = pst.executeQuery();
                 rs.next();
 
             }catch (SQLException e1) {
-                System.out.println("SaveToDB.insert.parent: "+ e1.getMessage());
+                System.out.println("SaveToDB.insert."+getTableNameFor(parent2)+": "+ e1.getMessage());
             }
+            }
+//            //insert parent
+//            //is the same exact parent already in the db?
+//            try (PreparedStatement pst = con.prepareStatement(
+//                    "SELECT COUNT(*) " +
+//                            "FROM parent " +
+//                            "WHERE email ilike ? and " +
+//                            "firstName ilike ? and  " +
+//                            "lastName ilike ? and  " +
+//                            "phone ilike ? ")) {
+//                pst.setString(1,parent.getEmail());
+//                pst.setString(2,parent.getFirstName());
+//                pst.setString(3,parent.getLastName());
+//                pst.setString(4,parent.getPhone());
+//
+//                rs = pst.executeQuery();
+//                rs.next();
+//                System.out.println(rs.getInt(1));
+//                if(rs.getInt(1)==0){
+//                    System.out.println("new");
+//                    System.out.println("new parent");
+//
+//
+//                    try (PreparedStatement pst3 = con.prepareStatement(
+//                            "INSERT INTO "+getTableNameFor(parent)+
+//                                    " (" + getColumnNamesFor(parent)+
+//                                    ") VALUES ("+
+//                                    getValuesFor(parent)+");")) {
+//                        rs=pst3.executeQuery();
+//                        rs.next();
+//                        System.out.println(pst);
+//                    }catch (SQLException e1) {
+//                        System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+//                    } catch (IllegalAccessException illegalAccessException) {
+//                        illegalAccessException.printStackTrace();
+//                    }
+//
+//                }
+//                rs=null;
+//                //get the parent id
+//                try (PreparedStatement pst2 = con.prepareStatement(selectIDstmt(parent))){
+//                    System.out.println(pst2);
+//                    rs = pst2.executeQuery();
+//                    rs.next();
+//                    User.getCurrentStudent().setParent2id(rs.getInt(1));
+//                }catch (SQLException e1) {
+//                    System.out.println("1 SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+//                } catch (IllegalAccessException illegalAccessException) {
+//                    illegalAccessException.printStackTrace();
+//                }
+//                //update student
+//                try (PreparedStatement pst2 = con.prepareStatement(
+//                        "UPDATE student " +
+//                                "SET parent2id=? " +
+//                                "WHERE id=?;")) {
+//                    pst2.setInt(1,User.getCurrentStudent().getParent2id());
+//                    pst2.setInt(2,User.getCurrentStudent().getId());
+//                    rs = pst.executeQuery();
+//                    rs.next();
+//
+//                }catch (SQLException e1) {
+//                    System.out.println("SaveToDB.insert.parent: "+ e1.getMessage());
+//                }
+//
+//                //assign parent thing fucker
+//                try (PreparedStatement pst2 = con.prepareStatement(selectIDstmt(parent))){
+//                    rs = pst2.executeQuery();
+//                    rs.next();
+//                    if(rs.getInt(1)!=User.getCurrentStudent().getParent1id()){
+//                        User.getCurrentStudent().setParent2id(rs.getInt(1));
+//                        rs=null;
+//                        try (PreparedStatement pst4 = con.prepareStatement(
+//                                "UPDATE student set parent2id=? where id=? ;")) {
+//                            pst4.setInt(1,User.getCurrentStudent().getParent2id());
+//                            pst4.setInt(2,User.getCurrentStudent().getId());
+//                            rs = pst.executeQuery();
+//                            rs.next();
+//                        }catch (SQLException e1) {
+//                            System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+//                        }
+//                    }
+//                }catch (SQLException e1) {
+//                    System.out.println("SaveToDB.insert."+getTableNameFor(parent)+": "+ e1.getMessage());
+//                } catch (IllegalAccessException illegalAccessException) {
+//                    illegalAccessException.printStackTrace();
+//                }
+//            } catch (SQLException e) {
+//                System.out.print("Insert Parent:"+e.getMessage());
+//            }
+//
+//            rs=null;
         } catch (SQLException e) {
             System.out.println("Connection error: "+e.getMessage());
         }
@@ -592,7 +648,7 @@ public class SaveToDB {
                 temp=e.getValue(f).toString();
 
                 if (f.getName().endsWith("id") || f.getName().endsWith("Id")) {
-                    if(e.getValue(f).equals(-1)) result+=" DEFAULT ";
+                    if(e.getValue(f).equals(0) || e.getValue(f).equals(-1)) result+=" DEFAULT ";
                     else if(e.getValue(f).equals(-2)) result+=" default ";
                     else result+=temp;
                 }

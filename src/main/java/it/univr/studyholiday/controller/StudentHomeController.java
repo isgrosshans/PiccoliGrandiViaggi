@@ -1,5 +1,6 @@
 package it.univr.studyholiday.controller;
 
+import it.univr.studyholiday.model.User;
 import it.univr.studyholiday.pgvApplication;
 import javafx.event.ActionEvent;
 
@@ -9,6 +10,7 @@ public class StudentHomeController {
 
 
     public void LogoutButtonClick(ActionEvent actionEvent) throws IOException {
+        User.setCurrentUser(null);
         pgvApplication.setRoot("Login");
     }
 

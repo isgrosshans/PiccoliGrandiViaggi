@@ -50,18 +50,18 @@
          </font>
       </Label>
       <Label fx:id="SchoolLabel" layoutX="85.0" layoutY="270.0" prefHeight="17.0" prefWidth="458.0"  AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="270.0" />
-      <Label fx:id="TagCityLabel" layoutX="16.0" layoutY="317.0" text="Città : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="317.0">
+      <Label fx:id="TagPlaceLabel" layoutX="16.0" layoutY="317.0" text="Luogo : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="317.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="CityLabel" layoutX="82.0" layoutY="317.0" prefHeight="17.0" prefWidth="458.0"  AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="317.0" />
-      <Label fx:id="TagCountryLabel" layoutX="16.0" layoutY="364.0" text="Paese : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="364.0">
+      <Label fx:id="PlaceLabel" layoutX="82.0" layoutY="317.0" prefHeight="17.0" prefWidth="458.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="317.0" />
+      <Label fx:id="TagWhenLabel" layoutX="16.0" layoutY="364.0" text="Periodo : " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="364.0">
          <font>
             <Font name="Chalkboard" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="CountryLabel" layoutX="82.0" layoutY="364.0" prefHeight="17.0" prefWidth="458.0"  AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="364.0" />
+      <Label fx:id="WhenLabel" layoutX="82.0" layoutY="364.0" prefHeight="17.0" prefWidth="458.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="364.0" />
       <Label fx:id="TagLevelLabel" layoutX="13.0" layoutY="456.0" text="Livello Raggiunto :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="456.0">
          <font>
             <Font name="Chalkboard" size="13.0" />

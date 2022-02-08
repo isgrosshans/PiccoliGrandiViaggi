@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StudentAllergyEditController implements Initializable {
@@ -27,32 +28,44 @@ public class StudentAllergyEditController implements Initializable {
     @FXML private TableColumn<Allergy,String> AllergenColumn;
     @FXML private TableColumn<Allergy,String> PrecautionColumn;
 
-    public void ReturnButtonClick(ActionEvent actionEvent) throws IOException {
-        //todo remove
-    }
+    private static ArrayList<Allergy> allergies;
+    private static ArrayList<Allergy> deletedallergies;
+    private static ArrayList<Allergy> newallergies;
 
     public void SaveButtonClick(ActionEvent actionEvent) throws IOException {
         if(AllergenTextField.getText().isBlank()||PrecautionTextField.getText().isBlank())
             ErrorMessage.setText("Inserire allergene e precauzione.");
         else{
-            SaveToDB.insert(new Allergy(User.getCurrentStudent().getId(), AllergenTextField.getText(), PrecautionTextField.getText()));
-            try {
-                AllergenTable.setItems(FXCollections.observableArrayList(FetchFromDB.Allergies(User.getCurrentStudent().getId())));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
             ErrorMessage.setText("");
+            allergies.add(new Allergy(User.getCurrentStudent().getId(), AllergenTextField.getText(), PrecautionTextField.getText()));
+            newallergies.add(new Allergy(User.getCurrentStudent().getId(), AllergenTextField.getText(), PrecautionTextField.getText()));
+            AllergenTable.setItems(FXCollections.observableArrayList(allergies));
         }
+
+//
+//        else{
+//            SaveToDB.insert(new Allergy(User.getCurrentStudent().getId(), AllergenTextField.getText(), PrecautionTextField.getText()));
+//            try {
+//                AllergenTable.setItems(FXCollections.observableArrayList(FetchFromDB.Allergies(User.getCurrentStudent().getId())));
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//            ErrorMessage.setText("");
+//        }
     }
 
     public void DeleteButtonClick(ActionEvent actionEvent) throws IOException {
         ErrorMessage.setText("");
-        DeleteFromDB.delete(AllergenTable.getSelectionModel().getSelectedItem());
-        try {
-            AllergenTable.setItems(FXCollections.observableArrayList(FetchFromDB.Allergies(User.getCurrentStudent().getId())));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        deletedallergies.add(AllergenTable.getSelectionModel().getSelectedItem());
+        System.out.println(deletedallergies.size());
+        allergies.remove(AllergenTable.getSelectionModel().getSelectedItem());
+        AllergenTable.setItems(FXCollections.observableArrayList(allergies));
+//        DeleteFromDB.delete(AllergenTable.getSelectionModel().getSelectedItem());
+//        try {
+//            AllergenTable.setItems(FXCollections.observableArrayList(FetchFromDB.Allergies(User.getCurrentStudent().getId())));
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void AllergyTableClick(MouseEvent mouseEvent) throws IOException {
@@ -64,16 +77,32 @@ public class StudentAllergyEditController implements Initializable {
     }
 
     public void ConfirmButtonClick(ActionEvent actionEvent) throws IOException {
+        if (deletedallergies.isEmpty()){}
+        else{
+            for (Allergy a : deletedallergies) {
+                DeleteFromDB.delete(a);
+            }
+        }
+        if (newallergies.isEmpty()){}
+        else{
+            for (Allergy a : newallergies) {
+                SaveToDB.insert(a);
+            }
+        }
+
         pgvApplication.setRoot("StudentProfile");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        deletedallergies=new ArrayList<>();
+        newallergies=new ArrayList<>();
         AllergenTable.setPlaceholder(new Label("Nessuna allergia."));
         AllergenColumn.setCellValueFactory(new PropertyValueFactory<>("Allergen"));
         PrecautionColumn.setCellValueFactory(new PropertyValueFactory<>("Precaution"));
         try {
-            AllergenTable.setItems(FXCollections.observableArrayList(FetchFromDB.Allergies(User.getCurrentStudent().getId())));
+            allergies=FetchFromDB.Allergies(User.getCurrentStudent().getId());
+            AllergenTable.setItems(FXCollections.observableArrayList(allergies));
         } catch (SQLException e) {
             e.printStackTrace();
         }

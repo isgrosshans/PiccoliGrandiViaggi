@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class StudentCertificateController implements Initializable {
@@ -22,8 +23,8 @@ public class StudentCertificateController implements Initializable {
     @FXML private Label BirthdayLabel;
     @FXML private Label LanguageLabel;
     @FXML private Label SchoolLabel;
-    @FXML private Label CityLabel;
-    @FXML private Label CountryLabel;
+    @FXML private Label PlaceLabel;
+    @FXML private Label WhenLabel;
     @FXML private Label LevelLabel;
 
     private static Trip trip;
@@ -45,8 +46,11 @@ public class StudentCertificateController implements Initializable {
         BirthdayLabel.setText(User.getCurrentStudent().getBirthdayString());
         LanguageLabel.setText(trip.getSchool().getLanguage());
         SchoolLabel.setText(trip.getSchool().getName());
-        CityLabel.setText(trip.getSchool().getCity());
-        CountryLabel.setText(trip.getSchool().getCountry());
+        PlaceLabel.setText(trip.getSchool().getCity()+", "+trip.getSchool().getCountry());
+        if(trip.getWeeks()==1)
+            WhenLabel.setText("Dal "+trip.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))+" per una settimana");
+        else
+            WhenLabel.setText("Dal "+trip.getDepartureDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))+" per "+trip.getWeeks()+" settimane");
         LevelLabel.setText(reservation.getLanguageLevel());
     }
 }

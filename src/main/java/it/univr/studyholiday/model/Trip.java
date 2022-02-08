@@ -47,6 +47,9 @@ public class Trip {
     public LocalDate getDepartureDate(){
         return this.holiday.getDepartureDate();
     }
+//    public LocalDate getFormattedDepartureDate(){
+//        return this.holiday.getDepartureDate();
+//    }
 
     public int getWeeks(){
         return this.holiday.getWeeks();

@@ -84,6 +84,8 @@ public class StudentProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        parent1=null; parent2=null;
+        parent2bool=false;
         if(User.getCurrentUser().getClass().equals(Student.class))
             student=FetchFromDB.student(User.getCurrentStudent().getId());
         FetchFromDB.StudentProfileSetParents(student.getParent1id(),student.getParent2id());

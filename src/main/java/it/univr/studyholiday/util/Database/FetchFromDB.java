@@ -842,6 +842,7 @@ public class FetchFromDB {
                     System.out.print("Error fetching parents " + e.getMessage());
                 }
             }
+
         } catch (SQLException e) {
             System.out.print("Connection error: "+e.getMessage());
         }

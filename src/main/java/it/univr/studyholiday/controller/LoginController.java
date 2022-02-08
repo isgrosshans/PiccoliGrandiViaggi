@@ -23,7 +23,6 @@ public class LoginController {
 
     public void loginButtonAction() throws IOException {
         User.setCurrentUser(LoginDB.login(Email.getText(), Password.getText()));
-
         if(User.isNull()) loginFailedMessage.setVisible(true);
         else if (User.isStaff()) pgvApplication.setRoot("StaffHome");
         else pgvApplication.setRoot("StudentHome");

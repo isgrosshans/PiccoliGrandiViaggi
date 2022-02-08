@@ -316,14 +316,14 @@ public class SaveToDB {
         ResultSet rs = null;
         try (Connection con = Database.getConnection()) {
             //insert new dormitory
-            try (PreparedStatement pst = con.prepareStatement(
+            try (PreparedStatement pst1 = con.prepareStatement(
                     "INSERT INTO "+getTableNameFor(dormitory)+
                             " (" + getColumnNamesFor(dormitory)+
                             ") VALUES ("+
                             getValuesFor(dormitory)+"); ")) {
 
                 
-                rs = pst.executeQuery();
+                rs = pst1.executeQuery();
                 rs.next();
 
 
@@ -333,39 +333,43 @@ public class SaveToDB {
                 illegalAccessException.printStackTrace();
             }
 
+            rs=null;
             //get id of newly inserted dormitory
-            try (PreparedStatement pst = con.prepareStatement(
+            try (PreparedStatement pst2 = con.prepareStatement(
                             "SELECT id FROM dormitory " +
                             "WHERE schoolid = ? " +
                             "AND name ILIKE ? " +
                             "AND address ILIKE ? " +
                             "AND sex ILIKE ?; ")) {
-                pst.setInt(1, dormitory.getSchoolid());
-                pst.setString(2, dormitory.getName());
-                pst.setString(3, dormitory.getAddress());
-                pst.setString(4, dormitory.getSex());
-                rs = pst.executeQuery();
+                pst2.setInt(1, dormitory.getSchoolid());
+                pst2.setString(2, dormitory.getName());
+                pst2.setString(3, dormitory.getAddress());
+                pst2.setString(4, dormitory.getSex());
+                System.out.println(pst2);
+                rs = pst2.executeQuery();
                 rs.next();
                 dormitory.setId(rs.getInt(1));
+                System.out.println(dormitory.getId());
 
 
             }catch (SQLException e1) {
-                System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+": "+ e1.getMessage());
+                System.out.println("SaveToDB.insert."+getTableNameFor(dormitory)+" problem getting dormitoryid :"+ e1.getMessage());
             }
 
+            rs=null;
             //insert rooms
             int i=1;
             for (int j = 0; j < singles; j++) {
-                try (PreparedStatement pst = con.prepareStatement(
+                try (PreparedStatement pst3 = con.prepareStatement(
                         "INSERT INTO dormroom "+
                                 " ( dormitoryid, roomnumber, beds ) " +
                                 "VALUES (?, ?, ?);")) {
 
-                    pst.setInt(1, dormitory.getId());
-                    pst.setInt(2, i++);
-                    pst.setInt(3, 1);
+                    pst3.setInt(1, dormitory.getId());
+                    pst3.setInt(2, i++);
+                    pst3.setInt(3, 1);
 
-                    rs = pst.executeQuery();
+                    rs = pst3.executeQuery();
                     rs.next();
 
                 }catch (SQLException e1) {
@@ -373,16 +377,16 @@ public class SaveToDB {
                 }
             }
             for (int k = 0; k < doubles; k++) {
-                try (PreparedStatement pst = con.prepareStatement(
+                try (PreparedStatement pst4 = con.prepareStatement(
                         "INSERT INTO dormroom "+
                                 " ( dormitoryid, roomnumber, beds ) " +
                                 "VALUES (?, ?, ?);")) {
 
-                    pst.setInt(1, dormitory.getId());
-                    pst.setInt(2, i++);
-                    pst.setInt(3, 2);
+                    pst4.setInt(1, dormitory.getId());
+                    pst4.setInt(2, i++);
+                    pst4.setInt(3, 2);
 
-                    rs = pst.executeQuery();
+                    rs = pst4.executeQuery();
                     rs.next();
 
                 }catch (SQLException e1) {
@@ -391,13 +395,13 @@ public class SaveToDB {
             }
 
             //get newly inserted rooms
-            try (PreparedStatement pst = con.prepareStatement(
+            try (PreparedStatement pst5 = con.prepareStatement(
                     "SELECT id, dormitoryid, roomNumber, beds FROM dormroom " +
                             "WHERE dormitoryid=? " +
                             //"AND id not in(SELECT DISTINCT dormroomid FROM bed)" +
                             ";")) {
-                pst.setInt(1, dormitory.getId());
-                rs = pst.executeQuery();
+                pst5.setInt(1, dormitory.getId());
+                rs = pst5.executeQuery();
                 while (rs.next()){dormRooms.add(new DormRoom(
                         rs.getInt(1),    //int id
                         rs.getInt(2),    //int dormitoryid
@@ -411,12 +415,12 @@ public class SaveToDB {
             //add beds
             for (DormRoom d:dormRooms) {
                 for (int j = 0; j < d.getBeds(); j++) {
-                    try (PreparedStatement pst = con.prepareStatement(
+                    try (PreparedStatement pst6 = con.prepareStatement(
                             "INSERT INTO bed "+
                                     " ( dormroomid ) " +
                                     "VALUES ( ? );")) {
-                        pst.setInt(1, d.getId());
-                        rs = pst.executeQuery();
+                        pst6.setInt(1, d.getId());
+                        rs = pst6.executeQuery();
                         rs.next();
 
                     }catch (SQLException e1) {
